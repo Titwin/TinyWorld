@@ -15,7 +15,7 @@ public class Grass : MonoBehaviour
     
     public void Initialize(int grassNeighbours)
     {
-        density = (int)(10 * stringDensity.Evaluate(0.125f * grassNeighbours));
+        /*density = (int)(10 * stringDensity.Evaluate(0.125f * grassNeighbours));
         CombineInstance[] combine = new CombineInstance[density * density];
         float delta = 4f / density;
         for (int i = 0; i < density; i++)
@@ -31,7 +31,7 @@ public class Grass : MonoBehaviour
             }
         GetComponent<MeshFilter>().mesh = new Mesh();
         GetComponent<MeshFilter>().mesh.CombineMeshes(combine);
-        GetComponent<MeshFilter>().mesh.RecalculateBounds();
+        GetComponent<MeshFilter>().mesh.RecalculateBounds();*/
     }
     public void InitializeFromPool(int grassNeighbours)
     {

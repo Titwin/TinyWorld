@@ -229,12 +229,13 @@ public class Dirt : MonoBehaviour
 
         //push in mesh struct
         Mesh mesh = new Mesh();
-        mesh.subMeshCount = 2;
+        mesh.subMeshCount = 3;
         mesh.vertices = vertices;
         mesh.normals = normals;
         mesh.uv = uv;
         mesh.SetTriangles(dirttri, 0);
         mesh.SetTriangles(grasstri, 1);
+        mesh.SetTriangles(grasstri, 2);
         mesh.RecalculateNormals();
         return mesh;
     }
@@ -257,12 +258,13 @@ public class Dirt : MonoBehaviour
 
         //push in mesh struct
         Mesh mesh = new Mesh();
-        mesh.subMeshCount = 2;
+        mesh.subMeshCount = 3;
         mesh.vertices = vertices;
         mesh.normals = normals;
         mesh.uv = uv;
         mesh.SetTriangles(dirttri, 0);
         mesh.SetTriangles(grasstri, 1);
+        mesh.SetTriangles(grasstri, 2);
         mesh.RecalculateNormals();
         return mesh;
     }
@@ -282,12 +284,13 @@ public class Dirt : MonoBehaviour
 
         //push in mesh struct
         Mesh mesh = new Mesh();
-        mesh.subMeshCount = 2;
+        mesh.subMeshCount = 3;
         mesh.vertices = vertices;
         mesh.normals = normals;
         mesh.uv = uv;
         mesh.SetTriangles(dirttri, 0);
         mesh.SetTriangles(grasstri, 1);
+        mesh.SetTriangles(grasstri, 2);
         mesh.RecalculateNormals();
         return mesh;
     }
@@ -310,12 +313,13 @@ public class Dirt : MonoBehaviour
 
         //push in mesh struct
         Mesh mesh = new Mesh();
-        mesh.subMeshCount = 2;
+        mesh.subMeshCount = 3;
         mesh.vertices = vertices;
         mesh.normals = normals;
         mesh.uv = uv;
         mesh.SetTriangles(dirttri, 0);
         mesh.SetTriangles(grasstri, 1);
+        mesh.SetTriangles(grasstri, 2);
         mesh.RecalculateNormals();
         return mesh;
     }
@@ -340,12 +344,13 @@ public class Dirt : MonoBehaviour
 
         //push in mesh struct
         Mesh mesh = new Mesh();
-        mesh.subMeshCount = 2;
+        mesh.subMeshCount = 3;
         mesh.vertices = vertices;
         mesh.normals = normals;
         mesh.uv = uv;
         mesh.SetTriangles(dirttri, 0);
         mesh.SetTriangles(grasstri, 1);
+        mesh.SetTriangles(grasstri, 2);
         mesh.RecalculateNormals();
         return mesh;
     }

@@ -107,12 +107,12 @@ public class PlayerController : MonoBehaviour
 
         AnimationParameterRefresh();
 
-        /*ressourceContainer.AddItem("Gold", 100);
+        ressourceContainer.AddItem("Gold", 100);
         ressourceContainer.AddItem("Iron", 100);
         ressourceContainer.AddItem("Stone", 300);
         ressourceContainer.AddItem("Wood", 300);
         ressourceContainer.AddItem("Wheat", 100);
-        ressourceContainer.AddItem("Crystal", 10);*/
+        ressourceContainer.AddItem("Crystal", 10);
         if (inventoryViewer.visible)
             inventoryViewer.UpdateContent(ressourceContainer.inventory);
         inventoryViewer.transform.parent = null;
@@ -136,7 +136,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         // begin
-        if (constructionCamera.activated)
+        if (constructionCamera && constructionCamera.activated)
             return;
 
         float speedFactor = Input.GetKey(KeyCode.LeftShift) && loadFactor > 0.75f ? 2 : 1;

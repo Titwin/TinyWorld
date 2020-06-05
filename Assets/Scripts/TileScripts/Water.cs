@@ -151,11 +151,12 @@ public class Water : MonoBehaviour
         
         //push in mesh struct
         Mesh mesh = new Mesh();
-        mesh.subMeshCount = 2;
+        mesh.subMeshCount = 3;
         mesh.vertices = vertices;
         mesh.normals = normals;
         mesh.SetTriangles(dirttri, 0);
         mesh.SetTriangles(grasstri, 1);
+        mesh.SetTriangles(grasstri, 2);
         return mesh;
     }
     protected Mesh CaseC(float borderStrengh)
@@ -201,11 +202,12 @@ public class Water : MonoBehaviour
         
         //push in mesh struct
         Mesh mesh = new Mesh();
-        mesh.subMeshCount = 2;
+        mesh.subMeshCount = 3;
         mesh.vertices = vertices;
         mesh.normals = normals;
         mesh.SetTriangles(dirttri, 0);
         mesh.SetTriangles(grasstri, 1);
+        mesh.SetTriangles(grasstri, 2);
         return mesh;
     }
     protected Mesh CaseD(float borderStrengh)
@@ -243,11 +245,12 @@ public class Water : MonoBehaviour
         
         //push in mesh struct
         Mesh mesh = new Mesh();
-        mesh.subMeshCount = 2;
+        mesh.subMeshCount = 3;
         mesh.vertices = vertices;
         mesh.normals = normals;
         mesh.SetTriangles(dirttri, 0);
         mesh.SetTriangles(grasstri, 1);
+        mesh.SetTriangles(grasstri, 2);
         return mesh;
     }
     protected Mesh CaseE(float borderStrengh)
@@ -290,11 +293,12 @@ public class Water : MonoBehaviour
         
         //push in mesh struct
         Mesh mesh = new Mesh();
-        mesh.subMeshCount = 2;
+        mesh.subMeshCount = 3;
         mesh.vertices = vertices;
         mesh.normals = normals;
         mesh.SetTriangles(dirttri, 0);
         mesh.SetTriangles(grasstri, 1);
+        mesh.SetTriangles(grasstri, 2);
         return mesh;
     }
     protected Mesh CaseF(float borderStrengh)
@@ -343,11 +347,12 @@ public class Water : MonoBehaviour
 
         //push in mesh struct
         Mesh mesh = new Mesh();
-        mesh.subMeshCount = 2;
+        mesh.subMeshCount = 3;
         mesh.vertices = vertices;
         mesh.normals = normals;
         mesh.SetTriangles(dirttri, 0);
         mesh.SetTriangles(grasstri, 1);
+        mesh.SetTriangles(grasstri, 2);
         return mesh;
     }
 

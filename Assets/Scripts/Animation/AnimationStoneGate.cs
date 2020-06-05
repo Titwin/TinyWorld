@@ -14,6 +14,9 @@ public class AnimationStoneGate : MonoBehaviour
     void Start()
     {
         transform.localPosition = new Vector3(0, 0, open ? positions.y : positions.x);
+        
+        if (transform.eulerAngles.y == 0f || transform.eulerAngles.y == 180f)
+            boxExtend = new Vector3(boxExtend.z, boxExtend.y, boxExtend.x);
     }
     
     void Update()
@@ -25,6 +28,6 @@ public class AnimationStoneGate : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.color = open ? Color.white : Color.black;
-        Gizmos.DrawWireCube(transform.TransformPoint(boxCenter), 2*boxExtend);
+        Gizmos.DrawWireCube(transform.TransformPoint(boxCenter), 2 * boxExtend);
     }
 }

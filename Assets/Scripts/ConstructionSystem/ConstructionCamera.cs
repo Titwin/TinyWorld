@@ -162,7 +162,7 @@ public class ConstructionCamera : MonoBehaviour
                         {
                             if(scan <= 1)
                             {
-                                if(instantConstruct)
+                                if(instantConstruct || currentTemplate.instantConstruct)
                                 {
                                     if(currentObject.name.Contains("Wall"))
                                     {
@@ -175,7 +175,8 @@ public class ConstructionCamera : MonoBehaviour
                                     else
                                     {
                                         GameObject go = currentTemplate.Finish();
-                                        go.name = currentObject.name;
+                                        if(go)
+                                            go.name = currentObject.name;
                                     }
                                 }
                                 else
