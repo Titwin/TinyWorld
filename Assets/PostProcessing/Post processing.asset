@@ -30,11 +30,11 @@ MonoBehaviour:
     m_Settings:
       excludeSkybox: 0
   antialiasing:
-    m_Enabled: 0
+    m_Enabled: 1
     m_Settings:
       method: 0
       fxaaSettings:
-        preset: 2
+        preset: 4
       taaSettings:
         jitterSpread: 0.75
         sharpen: 0.3
@@ -43,12 +43,12 @@ MonoBehaviour:
   ambientOcclusion:
     m_Enabled: 1
     m_Settings:
-      intensity: 1.88
+      intensity: 0
       radius: 0.32
-      sampleCount: 3
+      sampleCount: 16
       downsampling: 1
       forceForwardCompatibility: 0
-      ambientOnly: 0
+      ambientOnly: 1
       highPrecision: 0
   screenSpaceReflection:
     m_Enabled: 0

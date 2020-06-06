@@ -670,6 +670,12 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!4 &203511401 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 274576174700800080, guid: 2a7956e97e3788244962de36794e6cee,
+    type: 3}
+  m_PrefabInstance: {fileID: 274576173976662414}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &208464003 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 445546, guid: 67a1b5b881e15fd41bc03579410eb37a,
@@ -3390,7 +3396,7 @@ PrefabInstance:
         type: 3}
       propertyPath: target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 203511401}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a40a418a18d8333449d0e93b3032ed09, type: 3}
 --- !u!1 &1522937105 stripped
