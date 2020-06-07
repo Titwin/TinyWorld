@@ -41,6 +41,7 @@ MonoBehaviour:
   neighbourUpdate: 0
   buildingUpdate: 0
   isTerrain: 1
+  useStaticBatches: 1
   optionalMaterial: {fileID: 0}
   optionalSprite: {fileID: 21300000, guid: 40a2d4fcde814c34db6b96936dc81e47, type: 3}
   helperText: Regular tree

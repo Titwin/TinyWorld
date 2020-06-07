@@ -41,6 +41,7 @@ MonoBehaviour:
   neighbourUpdate: 0
   buildingUpdate: 0
   isTerrain: 1
+  useStaticBatches: 1
   optionalMaterial: {fileID: 2100000, guid: b91ff3ba01afc474fb13706e77bbd526, type: 2}
   optionalSprite: {fileID: 21300000, guid: e75799ea7016768479586a27e737248b, type: 3}
   helperText: Iron ore

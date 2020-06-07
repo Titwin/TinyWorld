@@ -40,6 +40,7 @@ MonoBehaviour:
   neighbourUpdate: 1
   buildingUpdate: 0
   isTerrain: 1
+  useStaticBatches: 1
   optionalMaterial: {fileID: 0}
   optionalSprite: {fileID: 21300000, guid: eb02472e0051e4c4ab38523320e16352, type: 3}
   helperText: Water

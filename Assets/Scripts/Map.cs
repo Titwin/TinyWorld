@@ -13,6 +13,7 @@ public class Map : MonoBehaviour
     public TilemapRenderer tilemapRenderer;
     public GameObject tilesContainer;
     public GameObject buildingsContainer;
+    public GameObject terrainBatchContainer;
     public List<ScriptableTile> tileList;
     public Transform player;
     public int streamingRadius = 10;
@@ -27,6 +28,36 @@ public class Map : MonoBehaviour
     private List<MeshRenderer> uniqueBuildings = new List<MeshRenderer>();
     private List<GameObject> uniqueBuildings2 = new List<GameObject>();
     private IEnumerator updateCoroutine;
+    private bool coroutineIsRunning = false;
+    
+    private class Batch
+    {
+        public static int batchesSize = 16;
+        public GameObject root;
+        public List<GameObject> child = new List<GameObject>();
+        public bool needUpdate;
+
+        public Batch(Vector2Int position, Transform parent)
+        {
+            root = new GameObject();
+            root.name = "Batch" + position.ToString();
+            root.transform.parent = parent;
+            root.transform.position = new Vector3(batchesSize * (position.x - 0.5f), 0, batchesSize * (position.y - 0.5f));
+        }
+        public bool Clean()
+        {
+            List<GameObject> swap = new List<GameObject>();
+            foreach(GameObject go in child)
+            {
+                if (go) swap.Add(go);
+            }
+            child = swap;
+            return child.Count == 0;
+        }
+    }
+
+    private Dictionary<Vector2Int, Batch> staticBatches = new Dictionary<Vector2Int, Batch>();
+    public List<string> batchableObjectNames = new List<string>();
 
 
     // Singleton struct
@@ -66,12 +97,25 @@ public class Map : MonoBehaviour
             buildingsContainer.transform.parent = this.transform;
         }
 
-        tilesContainer = new GameObject();
-        tilesContainer.name = "PrefabContainer";
-        tilesContainer.transform.localPosition = Vector3.zero;
-        tilesContainer.transform.localScale = Vector3.one;
-        tilesContainer.transform.localRotation = Quaternion.identity;
-        tilesContainer.transform.parent = this.transform;
+        if (tilesContainer == null)
+        {
+            tilesContainer = new GameObject();
+            tilesContainer.name = "PrefabContainer";
+            tilesContainer.transform.localPosition = Vector3.zero;
+            tilesContainer.transform.localScale = Vector3.one;
+            tilesContainer.transform.localRotation = Quaternion.identity;
+            tilesContainer.transform.parent = this.transform;
+        }
+
+        if (terrainBatchContainer == null)
+        {
+            terrainBatchContainer = new GameObject();
+            terrainBatchContainer.name = "BatchContainer";
+            terrainBatchContainer.transform.localPosition = Vector3.zero;
+            terrainBatchContainer.transform.localScale = Vector3.one;
+            terrainBatchContainer.transform.localRotation = Quaternion.identity;
+            terrainBatchContainer.transform.parent = this.transform;
+        }
 
         player = PlayerController.MainInstance.transform;
         lastStreamingUpdate = player.position + 3 * new Vector3(streamingThresholds.x, 0, streamingThresholds.y);
@@ -98,13 +142,47 @@ public class Map : MonoBehaviour
             updateCoroutine = StreamingUpdateCoroutine(p, d);
             StartCoroutine(updateCoroutine);
             lastStreamingUpdate = grid.GetCellCenterWorld(grid.WorldToCell(player.position));
+            coroutineIsRunning = true;
+        }
+
+        if(!coroutineIsRunning)
+        {
+            List<Vector2Int> deadBatches = new List<Vector2Int>();
+            foreach (KeyValuePair<Vector2Int, Batch> entry in staticBatches)
+            {
+                if (entry.Value.needUpdate)
+                {
+                    if (entry.Value.Clean())
+                    {
+                        deadBatches.Add(entry.Key);
+                        Destroy(entry.Value.root);
+                    }
+                    else
+                    {
+                        List<GameObject> objects = new List<GameObject>();
+                        foreach (GameObject obj in entry.Value.child)
+                        {
+                            foreach (Transform child in obj.transform)
+                            {
+                                if (batchableObjectNames.Contains(child.gameObject.name) && child.gameObject.GetComponent<MeshFilter>() != null)
+                                    objects.Add(child.gameObject);
+                            }
+                        }
+                        mergeMeshes(entry.Value.root, objects);
+                    }
+                    entry.Value.needUpdate = false;
+                }
+            }
+            foreach (Vector2Int batch in deadBatches)
+                staticBatches.Remove(batch);
         }
     }
+
 
     public void PlaceTiles(List<Vector3> positions, List<GameObject> originals, string tileName)
     {
         foreach (GameObject original in originals)
-            Destroy(original);
+            DestroyTile(original);
         if (tileDictionary.ContainsKey(tileName))
         {
             // construct tile to replace list
@@ -145,7 +223,7 @@ public class Map : MonoBehaviour
                 {
                     List<GameObject> neighbourgGo = SearchTilesGameObject(grid.GetCellCenterWorld(cell) - dy, 0.5f);
                     foreach (GameObject go in neighbourgGo)
-                        Destroy(go);
+                        DestroyTile(go);
                     ScriptableTile tile = tilemap.GetTile<ScriptableTile>(cell);
 
                     if (tile)
@@ -166,6 +244,12 @@ public class Map : MonoBehaviour
                 TileInit(entry.Key, entry.Value);
         }
         else Debug.LogWarning("no " + tileName + " in dictionary");
+    }
+    public void DestroyTile(GameObject tile)
+    {
+        Vector2Int b = getBatchKey(tile);
+        if (staticBatches.ContainsKey(b) && staticBatches[b].child.Remove(tile))
+            staticBatches[b].needUpdate = true;
     }
     public List<GameObject> SearchBuildingsGameObject(Vector3 position, float radius)
     {
@@ -205,6 +289,7 @@ public class Map : MonoBehaviour
         Vector3Int c = tilemap.WorldToCell(position);
         return new Vector3Int(c.x, c.y, (int)tilemap.transform.position.z);
     }
+
 
     private KeyValuePair<GameObject, GameObject> TileInit(ScriptableTile tile, Vector3Int cellPosition)
     {
@@ -396,6 +481,7 @@ public class Map : MonoBehaviour
             else Destroy(fence.gameObject);
         }
     }
+    
 
     private bool InList(Vector3Int search, ref List<KeyValuePair<ScriptableTile, Vector3Int>> list)
     {
@@ -406,17 +492,104 @@ public class Map : MonoBehaviour
         }
         return false;
     }
+    private Vector2Int getBatchKey(GameObject tile)
+    {
+        Vector3 p = tile.transform.position;
+        return new Vector2Int((int)(p.x / Batch.batchesSize), (int)(p.z / Batch.batchesSize));
+    }
+    private void mergeMeshes(GameObject target, List<GameObject> sources, bool hideSources = true)
+    {
+        foreach (Transform child in target.transform)
+            Destroy(child.gameObject);
+
+        // initialize for merge
+        Dictionary<Material, CombineData> combineData = new Dictionary<Material, CombineData>();
+        foreach (GameObject go in sources)
+        {
+            MeshFilter mf = go.GetComponent<MeshFilter>();
+            MeshRenderer mr = go.GetComponent<MeshRenderer>();
+
+            if(mf != null && mr != null && batchableObjectNames.Contains(go.name))
+            {
+                List<Material> mats = new List<Material>();
+                mr.GetSharedMaterials(mats);
+                for (int i = 0; i < mats.Count; i++)
+                {
+                    if (mats[i] && !combineData.ContainsKey(mats[i]))
+                    {
+                        combineData.Add(mats[i], new CombineData());
+                    }
+
+                    if(mats[i])
+                    {
+                        combineData[mats[i]].meshes.Add(mf.sharedMesh);
+                        combineData[mats[i]].submesh.Add(i);
+                        combineData[mats[i]].transforms.Add(go.transform);
+                    }
+                }
+
+                if (hideSources)
+                    mr.enabled = false;
+            }
+        }
+        
+        // merge        
+        foreach (KeyValuePair<Material, CombineData> entry in combineData)
+        {
+            // sub meshes combine
+            List<CombineInstance> combine = new List<CombineInstance>();
+            for(int i=0; i<entry.Value.meshes.Count; i++)
+            {
+                Mesh m = entry.Value.meshes[i];
+                CombineInstance ci = new CombineInstance();
+                ci.mesh = new Mesh();
+                ci.mesh.subMeshCount = 1;
+                ci.mesh.vertices = m.vertices;
+                ci.mesh.normals = m.normals;
+                ci.mesh.uv = m.uv;
+                ci.mesh.SetTriangles(m.GetTriangles(entry.Value.submesh[i]), 0);
+                ci.transform = target.transform.worldToLocalMatrix * entry.Value.transforms[i].localToWorldMatrix;
+
+                combine.Add(ci);
+            }
+
+            // assign to new GO
+            GameObject go = new GameObject();
+            go.name = "batch " + entry.Key.name;
+            go.transform.parent = target.transform;
+            go.transform.localPosition = Vector3.zero;
+            go.transform.localRotation = Quaternion.identity;
+            go.transform.localScale = Vector3.one;
+
+            MeshFilter meshfilter = go.AddComponent<MeshFilter>();
+            meshfilter.mesh = new Mesh();
+            meshfilter.mesh.CombineMeshes(combine.ToArray(), true, true);
+
+            Debug.Log(entry.Key.name + " " + meshfilter.mesh.triangles.Length.ToString());
+
+            MeshRenderer meshRenderer = go.AddComponent<MeshRenderer>();
+            meshRenderer.sharedMaterial = entry.Key;
+        }
+    }
+
 
     private IEnumerator StreamingUpdateCoroutine(Vector3Int p, Vector3 d)
     {
         int updates = 0;
+
+        // remove far tiles
         List<Vector3Int> removed = new List<Vector3Int>();
         foreach (KeyValuePair<Vector3Int, GameObject> cp in streamingAreaTerrain)
         {
             if (Mathf.Abs(p.x - cp.Key.x) > streamingRadius || Mathf.Abs(p.y - cp.Key.y) > streamingRadius)
             {
                 if (cp.Value)
+                {
+                    Vector2Int b = getBatchKey(cp.Value);
+                    if (staticBatches.ContainsKey(b) && staticBatches[b].child.Remove(cp.Value)) 
+                        staticBatches[b].needUpdate = true;
                     Destroy(cp.Value);
+                }  
                 removed.Add(cp.Key);
             }
         }
@@ -452,7 +625,15 @@ public class Map : MonoBehaviour
                     {
                         KeyValuePair<GameObject, GameObject> pair = TileInit(tile, cellPosition);
                         streamingAreaTerrain.Add(cellPosition, pair.Key);
-
+                        
+                        Vector2Int b = getBatchKey(pair.Key);
+                        if (!staticBatches.ContainsKey(b))
+                        {
+                            staticBatches.Add(b, new Batch(b, terrainBatchContainer.transform));
+                        }
+                        staticBatches[b].child.Add(pair.Key);
+                        staticBatches[b].needUpdate = true;
+                        
                         if (pair.Value)
                             streamingAreaBuilding.Add(cellPosition, pair.Value);
                         updates++;
@@ -478,5 +659,68 @@ public class Map : MonoBehaviour
             Vector3 v = building.transform.position - player.position;
             building.SetActive(Mathf.Abs(v.x) < 4 * (streamingRadius + 1) && Mathf.Abs(v.z) < 4 * (streamingRadius + 1));
         }
+
+        // update batches
+        List<Vector2Int> deadBatches = new List<Vector2Int>();
+        foreach (KeyValuePair<Vector2Int, Batch> entry in staticBatches)
+        {
+            if (entry.Value.needUpdate)
+            {
+                if (entry.Value.Clean())
+                {
+                    deadBatches.Add(entry.Key);
+                    Destroy(entry.Value.root);
+                    updates++;
+                }
+                else
+                {
+                    List<GameObject> objects = new List<GameObject>();
+                    foreach(GameObject obj in entry.Value.child)
+                    {
+                        foreach (Transform child in obj.transform)
+                        {
+                            if (batchableObjectNames.Contains(child.gameObject.name) && child.gameObject.GetComponent<MeshFilter>() != null)
+                                objects.Add(child.gameObject);
+                        }
+                    }
+                    mergeMeshes(entry.Value.root, objects);
+                    updates += (int)(0.0625f * Batch.batchesSize);
+                }
+
+                entry.Value.needUpdate = false;
+            }
+            
+            // test if stop for this frame
+            if (updates > streamingUpdateCount)
+            {
+                updates = 0;
+                yield return null;
+            }
+        }
+        foreach (Vector2Int batch in deadBatches)
+            staticBatches.Remove(batch);
+
+        coroutineIsRunning = false;
     }
+
+    private void OnDrawGizmosSelected()
+    {
+        foreach(KeyValuePair<Vector2Int, Batch> b in staticBatches)
+        {
+            Gizmos.color = Color.black;
+            if (b.Value.needUpdate) Gizmos.color = Color.white;
+            else if (b.Value.child.Count != 0) continue;
+
+            if(b.Value.root)
+                Gizmos.DrawWireCube(b.Value.root.transform.position, (Batch.batchesSize - 0.1f) * Vector3.one);
+        }
+    }
+
+
+    private class CombineData
+    {
+        public List<Mesh> meshes = new List<Mesh>();
+        public List<int> submesh = new List<int>();
+        public List<Transform> transforms = new List<Transform>();
+    };
 }

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3023690503627035806}
   - component: {fileID: 2138124992962416323}
   m_Layer: 0
-  m_Name: Quad
+  m_Name: ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -123,7 +123,7 @@ GameObject:
   - component: {fileID: 6847549410597521066}
   - component: {fileID: 6188523475698518268}
   m_Layer: 0
-  m_Name: Quad (1)
+  m_Name: grass
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

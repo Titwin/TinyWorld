@@ -441,6 +441,11 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7388010046170877057, guid: 62ba87b6c5e83aa4c8aa812d99a5b08c,
+        type: 3}
+      propertyPath: shopOnStart
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7388010046171369696, guid: 62ba87b6c5e83aa4c8aa812d99a5b08c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3308,26 +3313,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 115278903, guid: a40a418a18d8333449d0e93b3032ed09, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 115278903, guid: a40a418a18d8333449d0e93b3032ed09, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 115278903, guid: a40a418a18d8333449d0e93b3032ed09, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1794699018, guid: a40a418a18d8333449d0e93b3032ed09, type: 3}
-      propertyPath: instantConstruct
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1794699018, guid: a40a418a18d8333449d0e93b3032ed09, type: 3}
-      propertyPath: mouseControl
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1794699018, guid: a40a418a18d8333449d0e93b3032ed09, type: 3}
       propertyPath: destroyInteractor
       value: 
@@ -7814,7 +7799,7 @@ PrefabInstance:
     - target: {fileID: 9071642676792837776, guid: f55029c8223eb73428517297ea10028b,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9071642676792837777, guid: f55029c8223eb73428517297ea10028b,
         type: 3}

@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(MeshFilter))]
-[RequireComponent(typeof(MeshRenderer))]
+
 public class Dirt : MonoBehaviour
 {
     static protected Vector3 v0 = new Vector3(-2, 0, -2);
@@ -17,6 +16,7 @@ public class Dirt : MonoBehaviour
     static protected Vector3 n = Vector3.up;
 
     public int configuration;
+    public MeshFilter meshFilter;
     public Transform childPivot = null;
 
     public void Initialize(bool xp, bool xm, bool zp, bool zm, float borderStrengh)
@@ -29,6 +29,8 @@ public class Dirt : MonoBehaviour
         {
             case 0:
                 mesh = CaseA(borderStrengh);
+                MeshRenderer mr = meshFilter.gameObject.GetComponent<MeshRenderer>();
+                mr.sharedMaterials = new Material[] { mr.sharedMaterials[0] };
                 rotation = 0f;
                 break;
             case 1:
@@ -96,9 +98,8 @@ public class Dirt : MonoBehaviour
                 break;
         }
 
-        // set mesh and orientation 
-        MeshFilter mf = GetComponent<MeshFilter>();
-        mf.mesh = mesh;
+        // set mesh and orientation
+        meshFilter.mesh = mesh;
         transform.localEulerAngles = new Vector3(0, rotation, 0);
         if (childPivot)
         {
@@ -119,8 +120,8 @@ public class Dirt : MonoBehaviour
             case 0:
                 mesh = TilePrefabsContainer.Instance.GetDirtA();
                 rotation = 0f;
-                MeshRenderer mr = GetComponent<MeshRenderer>();
-                mr.materials = new Material[] { mr.materials[0] };
+                MeshRenderer mr = meshFilter.gameObject.GetComponent<MeshRenderer>();
+                mr.sharedMaterials = new Material[] { mr.sharedMaterials[0] };
                 break;
             case 1:
                 mesh = TilePrefabsContainer.Instance.GetDirtB();
@@ -187,9 +188,8 @@ public class Dirt : MonoBehaviour
                 break;
         }
 
-        // set mesh and orientation 
-        MeshFilter mf = GetComponent<MeshFilter>();
-        mf.sharedMesh = mesh;
+        // set mesh and orientation
+        meshFilter.sharedMesh = mesh;
         if (childPivot)
             childPivot.localEulerAngles -= new Vector3(0, rotation - transform.localEulerAngles.y, 0);
         transform.localEulerAngles = new Vector3(0, rotation, 0);
@@ -201,16 +201,15 @@ public class Dirt : MonoBehaviour
         Vector3[] vertices = new Vector3[4] { v0, v1, v2, v3 };
         Vector3[] normals = new Vector3[4] { n, n, n, n };
         Vector2[] uv = new Vector2[4] { uv0, uv1, uv2, uv3 };
-        int[] tris = new int[6] { 0, 1, 3, 1, 2, 3 };
+        int[] dirttri = new int[6] { 0, 1, 3, 1, 2, 3 };
 
         //push in mesh struct
         Mesh mesh = new Mesh();
+        mesh.subMeshCount = 1;
         mesh.vertices = vertices;
-        mesh.triangles = tris;
         mesh.normals = normals;
         mesh.uv = uv;
-        MeshRenderer mr = GetComponent<MeshRenderer>();
-        mr.materials = new Material[] { mr.materials[0] };
+        mesh.SetTriangles(dirttri, 0);
         return mesh;
     }
     protected Mesh CaseB(float borderStrengh)

@@ -35,4 +35,8 @@ public class TreeComponent : MonoBehaviour
             billboardRenderer.billboard = barkBillboard;
         }
     }
+    private void OnDestroy()
+    {
+        Meteo.Instance.treesList.Remove(this);
+    }
 }

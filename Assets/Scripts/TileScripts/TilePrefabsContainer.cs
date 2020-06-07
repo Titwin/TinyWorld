@@ -79,7 +79,7 @@ public class TilePrefabsContainer : MonoBehaviour
                     default: break;
                 }
 
-                dirtMeshes[j * diversity + i] = go.GetComponent<MeshFilter>().sharedMesh;
+                dirtMeshes[j * diversity + i] = dirt.meshFilter.sharedMesh;
                 if (j == 5)
                     break;
             }

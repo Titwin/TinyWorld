@@ -41,6 +41,7 @@ MonoBehaviour:
   neighbourUpdate: 0
   buildingUpdate: 0
   isTerrain: 1
+  useStaticBatches: 1
   optionalMaterial: {fileID: 2100000, guid: be93189f65603cc459f70b67fe254e83, type: 2}
   optionalSprite: {fileID: 21300000, guid: b625f3e6736ee3c47a635be6086e674f, type: 3}
   helperText: Stone

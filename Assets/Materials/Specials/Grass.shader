@@ -3,7 +3,8 @@
 	Properties
 	{
 		[Header(Shading)]
-		_TopColor("Top Color", Color) = (1,1,1,1)
+		_TopColor1("Top Color 1", Color) = (1,1,1,1)
+		_TopColor2("Top Color 2", Color) = (1,1,1,1)
 		_BottomColor("Bottom Color", Color) = (1,1,1,1)
 		_TranslucentGain("Translucent Gain", Range(0,1)) = 0.5
 
@@ -20,8 +21,9 @@
 		_WindDistortionMap("Wind Distortion Map", 2D) = "white" {}
 		_WindFrequency("Wind Frequency", Vector) = (0.05, 0.05, 0, 0)
 		_WindStrength("Wind Strength", Range(-0.5, 0.5)) = 0.01
-		_PathTrajectory("Path trajectory", 2D) = "black" {}
+		_PathTrajectoriesSize("Number of trajectories", Int) = 1
 		_PathWidth("Path width", Range(0.001, 5.0)) = 1.0
+		_SmashedAngle("Smashed blade angle", Range(-3.14, 3.14)) = 0.7
 	}
 
 		CGINCLUDE
@@ -33,15 +35,16 @@
 		struct geometryOutput
 		{
 			float4 pos : SV_POSITION;
-			float2 uv : TEXCOORD0;
+			float4 uv : TEXCOORD0;
 			float3 normal : NORMAL;
-			float2 fog : TEXCOORD2;
-			float2 path : TEXCOORD3;
+			//float2 fog : TEXCOORD2;
+			//float2 path : TEXCOORD3;
 			unityShadowCoord4 _ShadowCoord : TEXCOORD1;
 		};
 
 		// parameters
-		float4 _TopColor;
+		float4 _TopColor1;
+		float4 _TopColor2;
 		float4 _BottomColor;
 		float _TranslucentGain;
 
@@ -58,8 +61,9 @@
 		float4 _WindDistortionMap_ST;
 		float2 _WindFrequency;
 		float _WindStrength;
+		float _SmashedAngle;
 
-		#include "CustomTessellation.cginc"
+		#include "GrassTessellation.cginc"
 
 
 		// Simple noise function, sourced from http://answers.unity.com/answers/624136/view.html
@@ -91,25 +95,23 @@
 		}
 
 
-		geometryOutput VertexOutput(float3 pos, float2 uv, float3 normal, float4 option)
+		geometryOutput VertexOutput(float3 pos, float2 uv, float3 normal, float2 option)
 		{
 			geometryOutput o;
 			o.pos = UnityObjectToClipPos(pos);
-			o.uv = uv;
+			o.uv = float4(uv.x, uv.y, option.x, option.y);
 			o.normal = UnityObjectToWorldNormal(normal);
 			o._ShadowCoord = ComputeScreenPos(o.pos);
-			o.fog = option.xy;
-			o.path = option.zw;
+			//o.fog = option.xy;
+			//o.path = option.zw;
 
 			#if UNITY_PASS_SHADOWCASTER
 			// Applying the bias prevents artifacts from appearing on the surface.
 				o.pos = UnityApplyLinearShadowBias(o.pos);
 			#endif
-
-			//UNITY_TRANSFER_FOG(o, o.pos);
 			return o;
 		}
-		geometryOutput GenerateGrassVertex(float3 vertexPosition, float width, float height, float forward, float2 uv, float3x3 transformMatrix, float4 option)
+		geometryOutput GenerateGrassVertex(float3 vertexPosition, float width, float height, float forward, float2 uv, float3x3 transformMatrix, float2 option)
 		{
 			float3 tangentPoint = float3(width, forward, height);
 			float3 tangentNormal = normalize(float3(0, -1, forward));
@@ -130,34 +132,27 @@
 			float3x3 facingRotationMatrix = AngleAxis3x3(rand(pos) * UNITY_TWO_PI, float3(0, 0, 1));
 
 			// wind
+			float windFactor = lerp(_WindStrength, 0.01, IN[0].smashed);
 			float2 uv = pos.xz * _WindDistortionMap_ST.xy + _WindDistortionMap_ST.zw + _WindFrequency * _Time.y;
-			float2 windSample = (tex2Dlod(_WindDistortionMap, float4(uv, 0, 0)).xy * 2 - 1) * _WindStrength;
+			float2 windSample = (tex2Dlod(_WindDistortionMap, float4(uv, 0, 0)).xy * 2 - 1) * windFactor;
 			float3 wind = normalize(float3(windSample.x, 0, windSample.y));
 			wind = mul(unity_WorldToObject, wind);
 			float3x3 windRotation = AngleAxis3x3((_WindStrength > 0 ? 1 : -1) *UNITY_PI * windSample, wind.xzy);
 
 			// end
 			float3x3 transformationMatrixFacing = mul(tangentToLocal, facingRotationMatrix);
-			float3x3 bendRotationMatrix = AngleAxis3x3(rand(pos.zzx) * _BendRotationRandom * UNITY_PI * 0.5, float3(-1, 0, 0));
+			float bendAngle = lerp(rand(pos.zzx) * _BendRotationRandom * UNITY_PI * 0.5, _SmashedAngle, IN[0].smashed);
+			float3x3 bendRotationMatrix = AngleAxis3x3(bendAngle, float3(-1, 0, 0));
 			float3x3 transformationMatrix = mul(mul(mul(tangentToLocal, windRotation), facingRotationMatrix), bendRotationMatrix);
 			float forward = rand(pos.yyz) * _BladeForward;
 			float width = _BladeWidth;
 			float height = _BladeHeight;
 			float bladeDistanceFromCamera = length(UnityObjectToViewPos(pos).xyz);
-			float4 option = float4(bladeDistanceFromCamera, 0, IN[0].path);
+			float2 option = float2(bladeDistanceFromCamera, rand(pos.xxz));
 			
 			// one grass string
 			geometryOutput o;
-			/*if (abs(length(pos.xz)) < 0.08)
-			{
-				float2 axis = wind.xz;
-				float2 naxis = float2(-axis.y, axis.x);
-
-				output.Append(GenerateGrassVertex(pos, -axis.x, 1, -axis.y, float2(0, 0), tangentToLocal));
-				output.Append(GenerateGrassVertex(pos, axis.x + 0.5*naxis.x, 1, axis.y + 0.5*naxis.y, float2(0, 0), tangentToLocal));
-				output.Append(GenerateGrassVertex(pos, axis.x - 0.5*naxis.x, 1, axis.y - 0.5*naxis.y, float2(0, 0), tangentToLocal));
-			}
-			else */if (bladeDistanceFromCamera < _BladeComplexRadius)
+			if (bladeDistanceFromCamera < _BladeComplexRadius)
 			{
 				for (int i = 0; i < BLADE_SEGMENTS; i++)
 				{
@@ -183,11 +178,13 @@
 		}
 			ENDCG
 
+
+
 		SubShader
 		{
 			Cull Off
-			Tags { "DisableBatching" = "True" "PreviewType" = "Plane"}
-			LOD 100
+			Tags {"PreviewType" = "Plane"} // "DisableBatching" = "True" 
+			LOD 250
 
 			Pass
 			{
@@ -216,13 +213,12 @@
 
 					float3 ambient = ShadeSH9(float4(normal, 1));
 					float4 lightIntensity = NdotL * _LightColor0 + float4(ambient, 1);
-					float4 col = lerp(_BottomColor, _TopColor * lightIntensity, i.uv.y);
+					float4 col = lerp(_TopColor1, _TopColor2, i.uv.w);
+					col = lerp(_BottomColor, col * lightIntensity, i.uv.y);
 
-					float fogFactor = (unity_FogParams.x * i.fog.x);
+					float fogFactor = (unity_FogParams.x * i.uv.z);
 					fogFactor = saturate(exp(-fogFactor * fogFactor));
 					col = lerp(col, unity_FogColor, 1 - fogFactor);
-
-					col = float4(i.path, 0, 1);
 
 					return col;
 				}
@@ -230,7 +226,7 @@
 			}
 
 
-				Pass
+			Pass
 			{
 				Tags
 				{

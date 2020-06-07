@@ -41,6 +41,7 @@ MonoBehaviour:
   neighbourUpdate: 0
   buildingUpdate: 0
   isTerrain: 1
+  useStaticBatches: 1
   optionalMaterial: {fileID: 2100000, guid: baa538561ad7cf84fb7a22d8fe6cab80, type: 2}
   optionalSprite: {fileID: 21300000, guid: 08a1758b37aa6194891337dd860366bc, type: 3}
   helperText: Crystal ore
