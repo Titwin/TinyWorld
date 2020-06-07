@@ -64,6 +64,7 @@
 		float _SmashedAngle;
 
 		#include "GrassTessellation.cginc"
+		#include "VegetationGeometry.cginc"
 
 
 		// Simple noise function, sourced from http://answers.unity.com/answers/624136/view.html
@@ -120,8 +121,8 @@
 			float3 localPosition = vertexPosition + mul(transformMatrix, tangentPoint);
 			return VertexOutput(localPosition, uv, localNormal, option);
 		}
-		[maxvertexcount(BLADE_SEGMENTS * 2 + 1)]
-		void geo(triangle vertexOutput IN[3] : SV_POSITION, inout TriangleStream<geometryOutput> output)
+		[maxvertexcount(BLADE_SEGMENTS * 2 + 1)] // 
+		void geo(triangle vertexOutput IN[3] : SV_POSITION, inout TriangleStream<geometryOutput> output) //OutputStream.RestartStrip();
 		{
 			// local base
 			float3 pos = 0.333 * (IN[0].vertex + IN[1].vertex + IN[2].vertex);

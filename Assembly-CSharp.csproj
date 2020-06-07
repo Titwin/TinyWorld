@@ -233,6 +233,7 @@
     <None Include="Assets\PostProcessing\Resources\Shaders\MotionBlur.shader" />
     <None Include="Assets\PostProcessing\Resources\Shaders\DiskKernels.cginc" />
     <None Include="Assets\PostProcessing\Resources\Bluenoise64\COPYING.txt" />
+    <None Include="Assets\Materials\Specials\VegetationGeometry.cginc" />
     <None Include="Assets\PostProcessing\Editor Resources\UI\Trackball.shader" />
     <None Include="Assets\Packages\FantasyHouse\06-Info\info.txt" />
     <None Include="Assets\PostProcessing\Editor Resources\Monitors\WaveformRender.shader" />
