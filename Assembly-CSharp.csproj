@@ -198,6 +198,7 @@
     <Compile Include="Assets\Scripts\Utils\LayerMaskExtensions.cs" />
     <Compile Include="Assets\Scripts\Utils\ScriptableObjectUtility.cs" />
     <Compile Include="Assets\Scripts\World.cs" />
+    <None Include="Assets\Materials\Specials\Water.shader" />
     <None Include="Assets\PostProcessing\Resources\Shaders\ScreenSpaceReflection.shader" />
     <None Include="Assets\PostProcessing\Resources\Shaders\GrainGen.shader" />
     <None Include="Assets\PostProcessing\Editor Resources\Monitors\HistogramCompute.compute" />

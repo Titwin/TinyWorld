@@ -342,7 +342,7 @@ public class QuadTree<T>
     }
     public void DrawDebug()
     {
-        UnityEditor.Handles.Label(new Vector3(m_bounds.center.x, 0, m_bounds.center.y), Count.ToString());
+        //UnityEditor.Handles.Label(new Vector3(m_bounds.center.x, 0, m_bounds.center.y), Count.ToString());
        
         if (cells[0] != null)
         {

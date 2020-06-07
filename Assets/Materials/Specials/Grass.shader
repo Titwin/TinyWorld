@@ -134,7 +134,7 @@
 			// wind
 			float windFactor = lerp(_WindStrength, 0.01, IN[0].smashed);
 			float2 uv = pos.xz * _WindDistortionMap_ST.xy + _WindDistortionMap_ST.zw + _WindFrequency * _Time.y;
-			float2 windSample = (tex2Dlod(_WindDistortionMap, float4(uv, 0, 0)).xy * 2 - 1) * windFactor;
+			float2 windSample = (tex2Dlod(_WindDistortionMap, float4(uv, 0, 0)).yz * 2 - 1) * windFactor;
 			float3 wind = normalize(float3(windSample.x, 0, windSample.y));
 			wind = mul(unity_WorldToObject, wind);
 			float3x3 windRotation = AngleAxis3x3((_WindStrength > 0 ? 1 : -1) *UNITY_PI * windSample, wind.xzy);
