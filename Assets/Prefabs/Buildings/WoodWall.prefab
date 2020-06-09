@@ -43,10 +43,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 292c0e2a919650c4aad166943f580706, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabA: {fileID: 7597501989073594416, guid: eefd6e8888d09674993a6133b11d75e3, type: 3}
-  prefabB: {fileID: 7698387830201202627, guid: c0ee3461db6299f489a0839898aec099, type: 3}
-  prefabC: {fileID: 5633689594566816224, guid: a96b50105bbf01044962b3a86dbc9703, type: 3}
-  prefabD: {fileID: 2011159957123386900, guid: 185076a009351ca4c952c7519d4d04b6, type: 3}
-  prefabE: {fileID: 1887449122954419177, guid: 3247daf353a601e4f86f591e73a6c112, type: 3}
-  prefabF: {fileID: 6750469044522398828, guid: 6796bf4a09a5b384c8012fa7513db6e4, type: 3}
   configuration: 0

@@ -34,13 +34,12 @@ MonoBehaviour:
   m_InstancedGameObject: {fileID: 0}
   m_Flags: 1
   m_ColliderType: 0
-  tilePrefab: {fileID: 2129560255247852762, guid: 9a40fd7eecd489d47b21aed590702d02,
-    type: 3}
-  buildingPrefab: {fileID: 0}
+  ground: {fileID: 2129560255247852762, guid: 9a40fd7eecd489d47b21aed590702d02, type: 3}
+  building: {fileID: 0}
+  decoration: {fileID: 0}
   neighbourUpdate: 1
   buildingUpdate: 0
   isTerrain: 1
-  useStaticBatches: 1
   optionalMaterial: {fileID: 0}
   optionalSprite: {fileID: 21300000, guid: 7185848fade60bc4fbec4a02d07d8e32, type: 3}
   helperText: Grass

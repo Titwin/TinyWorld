@@ -92,7 +92,7 @@ public class Wall : MonoBehaviour
 
         // end
         GameObject go = Instantiate(prefab);
-        go.name = "mesh";
+        go.name = "building";
         go.transform.parent = transform;
         go.transform.localPosition = Vector3.zero;
         go.transform.localRotation = Quaternion.identity;

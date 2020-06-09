@@ -167,7 +167,11 @@
     <Compile Include="Assets\Scripts\InteractionSystem\StoreHouseViewer.cs" />
     <Compile Include="Assets\Scripts\InteractionSystem\ToolDictionary.cs" />
     <Compile Include="Assets\Scripts\InteractionSystem\ToolType.cs" />
-    <Compile Include="Assets\Scripts\Map.cs" />
+    <Compile Include="Assets\Scripts\Map\Map.cs" />
+    <Compile Include="Assets\Scripts\Map\MapChunk.cs" />
+    <Compile Include="Assets\Scripts\Map\MapGrid.cs" />
+    <Compile Include="Assets\Scripts\Map\MapModifier.cs" />
+    <Compile Include="Assets\Scripts\Map\MapStreaming.cs" />
     <Compile Include="Assets\Scripts\Meteo.cs" />
     <Compile Include="Assets\Scripts\NavigationSystem\AgentBase.cs" />
     <Compile Include="Assets\Scripts\NavigationSystem\Navigation.cs" />
@@ -195,8 +199,10 @@
     <Compile Include="Assets\Scripts\UI\ResourceTemplate.cs" />
     <Compile Include="Assets\Scripts\UI\UIButton.cs" />
     <Compile Include="Assets\Scripts\UI\UIHandler.cs" />
+    <Compile Include="Assets\Scripts\Utils\CombineChildMeshes.cs" />
     <Compile Include="Assets\Scripts\Utils\LayerMaskExtensions.cs" />
     <Compile Include="Assets\Scripts\Utils\ScriptableObjectUtility.cs" />
+    <Compile Include="Assets\Scripts\Utils\SuperChildMerge.cs" />
     <Compile Include="Assets\Scripts\World.cs" />
     <None Include="Assets\Materials\Specials\Water.shader" />
     <None Include="Assets\PostProcessing\Resources\Shaders\ScreenSpaceReflection.shader" />
@@ -224,7 +230,6 @@
     <None Include="Assets\PostProcessing\Resources\Shaders\ACES.cginc" />
     <None Include="Assets\PostProcessing\Resources\Shaders\MotionBlur.cginc" />
     <None Include="Assets\PostProcessing\Resources\Shaders\AmbientOcclusion.shader" />
-    <None Include="Assets\Packages\LowpolyWeaponPack\README.txt" />
     <None Include="Assets\PostProcessing\Resources\Shaders\FXAA.shader" />
     <None Include="Assets\PostProcessing\Resources\Shaders\ScreenSpaceRaytrace.cginc" />
     <None Include="Assets\PostProcessing\Resources\Shaders\Tonemapping.cginc" />
@@ -235,7 +240,6 @@
     <None Include="Assets\PostProcessing\Resources\Bluenoise64\COPYING.txt" />
     <None Include="Assets\Materials\Specials\VegetationGeometry.cginc" />
     <None Include="Assets\PostProcessing\Editor Resources\UI\Trackball.shader" />
-    <None Include="Assets\Packages\FantasyHouse\06-Info\info.txt" />
     <None Include="Assets\PostProcessing\Editor Resources\Monitors\WaveformRender.shader" />
     <None Include="Assets\PostProcessing\Resources\Shaders\Common.cginc" />
     <None Include="Assets\Sound\sources.txt" />

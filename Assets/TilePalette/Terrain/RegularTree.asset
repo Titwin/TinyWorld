@@ -35,13 +35,13 @@ MonoBehaviour:
     type: 3}
   m_Flags: 1
   m_ColliderType: 0
-  tilePrefab: {fileID: 4177829937535863104, guid: 02ce42be066dcf14ea7a1b5d72449099,
+  ground: {fileID: 2129560255247852762, guid: 9a40fd7eecd489d47b21aed590702d02, type: 3}
+  building: {fileID: 0}
+  decoration: {fileID: 4177829937535863104, guid: 02ce42be066dcf14ea7a1b5d72449099,
     type: 3}
-  buildingPrefab: {fileID: 0}
   neighbourUpdate: 0
   buildingUpdate: 0
   isTerrain: 1
-  useStaticBatches: 1
   optionalMaterial: {fileID: 0}
   optionalSprite: {fileID: 21300000, guid: 40a2d4fcde814c34db6b96936dc81e47, type: 3}
   helperText: Regular tree

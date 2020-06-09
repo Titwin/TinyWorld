@@ -30564,7 +30564,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8319fcdafe23eaf408b4d14c59f7e58f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shopOnStart: 1
+  shopOnStart: 0
   pickablePrefab: {fileID: 9082372438455274285}
   playerTemplate: {fileID: 274576174245912502, guid: 2a7956e97e3788244962de36794e6cee,
     type: 3}

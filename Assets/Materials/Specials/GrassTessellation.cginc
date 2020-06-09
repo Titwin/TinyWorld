@@ -6,6 +6,7 @@ struct vertexInput
 	float4 vertex : POSITION;
 	float3 normal : NORMAL;
 	float4 tangent : TANGENT;
+	float2 uv : TEXCOORD0;
 };
 
 struct vertexOutput
@@ -13,7 +14,7 @@ struct vertexOutput
 	float4 vertex : SV_POSITION;
 	float3 normal : NORMAL;
 	float4 tangent : TANGENT;
-	float smashed : TEXCOORD0;
+	float4 uv : TEXCOORD0;
 };
 
 struct TessellationFactors 
@@ -28,7 +29,7 @@ vertexOutput vert(vertexInput v)
 	o.vertex = v.vertex;
 	o.normal = v.normal;
 	o.tangent = v.tangent;
-	o.smashed = 0;
+	o.uv = float4(v.uv, 0, 0);
 	return o;
 }
 
@@ -80,7 +81,7 @@ vertexOutput tessVert(vertexOutput v)
 	o.vertex = v.vertex;
 	o.normal = v.normal;
 	o.tangent = v.tangent;
-	o.smashed = computePathParameters(v).y;
+	o.uv = float4(v.uv.x, v.uv.y, computePathParameters(v).y, 0);
 	return o;
 }
 TessellationFactors patchConstantFunction (InputPatch<vertexOutput, 3> patch)
@@ -116,7 +117,7 @@ vertexOutput domain(TessellationFactors factors, OutputPatch<vertexOutput, 3> pa
 	MY_DOMAIN_PROGRAM_INTERPOLATE(vertex)
 	MY_DOMAIN_PROGRAM_INTERPOLATE(normal)
 	MY_DOMAIN_PROGRAM_INTERPOLATE(tangent)
-	MY_DOMAIN_PROGRAM_INTERPOLATE(smashed)
+	MY_DOMAIN_PROGRAM_INTERPOLATE(uv)
 
 	return tessVert(v);
 }

@@ -34,9 +34,9 @@ MonoBehaviour:
   m_InstancedGameObject: {fileID: 0}
   m_Flags: 1
   m_ColliderType: 0
-  tilePrefab: {fileID: 3532118651190152994, guid: 0bb11a37e54741f43866f817d3d9357c,
-    type: 3}
-  buildingPrefab: {fileID: 0}
+  ground: {fileID: 3532118651190152994, guid: 0bb11a37e54741f43866f817d3d9357c, type: 3}
+  building: {fileID: 0}
+  decoration: {fileID: 0}
   neighbourUpdate: 1
   buildingUpdate: 0
   isTerrain: 1

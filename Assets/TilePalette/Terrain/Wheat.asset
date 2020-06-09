@@ -34,13 +34,13 @@ MonoBehaviour:
   m_InstancedGameObject: {fileID: 0}
   m_Flags: 1
   m_ColliderType: 0
-  tilePrefab: {fileID: 5105674684001610595, guid: bc7ef4b4b93ad6a44b3953692b65f7b4,
+  ground: {fileID: 5586053671172209450, guid: b2bd31f28cd978a46a9bb932b796cb38, type: 3}
+  building: {fileID: 0}
+  decoration: {fileID: 5105674684001610595, guid: bc7ef4b4b93ad6a44b3953692b65f7b4,
     type: 3}
-  buildingPrefab: {fileID: 0}
   neighbourUpdate: 1
   buildingUpdate: 0
   isTerrain: 1
-  useStaticBatches: 1
   optionalMaterial: {fileID: 0}
   optionalSprite: {fileID: 21300000, guid: 44fd4d7c6789e6740801a987f5f438d7, type: 3}
   helperText: Wheat crop fields

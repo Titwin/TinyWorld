@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Sun : MonoBehaviour
 {
-    public Light light;
+    public new Light light;
     public float daySpeed = 1f;
     public Vector2 tresholds;
 
@@ -17,6 +17,11 @@ public class Sun : MonoBehaviour
     private void Start()
     {
         radius = transform.position.magnitude;
+
+        light.color = lightColor.Evaluate(t / 360f);
+        transform.position = new Vector3(Mathf.Sin(Mathf.Deg2Rad * t) * radius, Mathf.Cos(Mathf.Deg2Rad * t) * radius, 0);
+        transform.LookAt(Vector3.zero);
+        RenderSettings.fogColor = fogColor.Evaluate(t / 360f);
     }
     void Update()
     {

@@ -11,6 +11,7 @@ public class Water : MonoBehaviour
     static protected Vector3 n = Vector3.up;
 
     static float depth = 1f;
+    static protected float densityBorder = 0.6f;
 
     public int configuration;
     public MeshFilter ground;
@@ -124,6 +125,11 @@ public class Water : MonoBehaviour
         Vector3 v4 = v0 + sub.x * (v1 - v0) + sub.y * (v3 - v0);
         Vector3 n1 = Vector3.Cross(Vector3.up, v4 - v0).normalized;
         Vector3 n2 = Vector3.Cross(Vector3.up, v1 - v4).normalized;
+        Vector2 uv0 = densityBorder * Vector2.one;
+        Vector2 uv1 = densityBorder * Vector2.one;
+        Vector2 uv2 = Vector2.zero;
+        Vector2 uv3 = Vector2.zero;
+        Vector2 uv4 = Vector2.zero;
 
         // collider
         List<Vector3> v = new List<Vector3>();
@@ -137,6 +143,13 @@ public class Water : MonoBehaviour
             v0-depth*n, v1-depth*n, v2-depth*n, v4-depth*n, v3-depth*n,
             v0, v4, v0-depth*n, v4-depth*n,
             v1, v4, v1-depth*n, v4-depth*n
+        };
+        Vector2[] uv = new Vector2[16]
+        {
+            uv0, uv1, uv4,
+            Vector2.zero, Vector2.zero, Vector2.zero, Vector2.zero, Vector2.zero,
+            uv0, uv4, Vector2.zero,Vector2.zero,
+            uv1, uv4, Vector2.zero,Vector2.zero
         };
         Vector3[] normals = new Vector3[16]
         {
@@ -153,6 +166,7 @@ public class Water : MonoBehaviour
         mesh.subMeshCount = 3;
         mesh.vertices = vertices;
         mesh.normals = normals;
+        mesh.uv = uv;
         mesh.SetTriangles(dirttri, 0);
         mesh.SetTriangles(grasstri, 1);
         mesh.SetTriangles(grasstri, 2);
@@ -170,6 +184,12 @@ public class Water : MonoBehaviour
         Vector3 n2 = Vector3.Cross(Vector3.up, v1 - v4).normalized;
         Vector3 n3 = Vector3.Cross(Vector3.up, v3 - v5).normalized;
         Vector3 n4 = Vector3.Cross(Vector3.up, v5 - v2).normalized;
+        Vector2 uv0 = densityBorder * Vector2.one;
+        Vector2 uv1 = densityBorder * Vector2.one;
+        Vector2 uv2 = densityBorder * Vector2.one;
+        Vector2 uv3 = densityBorder * Vector2.one;
+        Vector2 uv4 = Vector2.zero;
+        Vector2 uv5 = Vector2.zero;
 
         // collider
         List<Vector3> v = new List<Vector3>();
@@ -185,6 +205,15 @@ public class Water : MonoBehaviour
             v1, v4, v1-d, v4-d,
             v5,v3,v5-d,v3-d,
             v2,v5,v2-d,v5-d
+        };
+        Vector2[] uv = new Vector2[28]
+        {
+            uv0, uv1, uv4, uv2, uv3, uv5,
+            Vector2.zero, Vector2.zero, Vector2.zero, Vector2.zero,Vector2.zero, Vector2.zero,
+            uv0, uv4, Vector2.zero, Vector2.zero,
+            uv1, uv4, Vector2.zero, Vector2.zero,
+            uv5, uv3, Vector2.zero, Vector2.zero,
+            uv2, uv5, Vector2.zero, Vector2.zero
         };
         Vector3[] normals = new Vector3[28]
         {
@@ -204,6 +233,7 @@ public class Water : MonoBehaviour
         mesh.subMeshCount = 3;
         mesh.vertices = vertices;
         mesh.normals = normals;
+        mesh.uv = uv;
         mesh.SetTriangles(dirttri, 0);
         mesh.SetTriangles(grasstri, 1);
         mesh.SetTriangles(grasstri, 2);
@@ -217,6 +247,11 @@ public class Water : MonoBehaviour
         Vector3 d = depth * n;
         Vector3 n1 = Vector3.Cross(Vector3.up, v4 - v0).normalized;
         Vector3 n2 = Vector3.Cross(Vector3.up, v2 - v4).normalized;
+        Vector2 uv0 = densityBorder * Vector2.one;
+        Vector2 uv1 = Vector2.one;
+        Vector2 uv2 = densityBorder * Vector2.one;
+        Vector2 uv3 = Vector2.zero;
+        Vector2 uv4 = uv1 + sub.x * (uv0 - uv1) + sub.y * (uv2 - uv1);
 
         // collider
         List<Vector3> v = new List<Vector3>();
@@ -230,6 +265,13 @@ public class Water : MonoBehaviour
             v0-d, v4-d, v2-d, v3-d,
             v0, v4, v0-d, v4-d,
             v2, v4, v2-d, v4-d
+        };
+        Vector2[] uv = new Vector2[16]
+        {
+            uv0, uv1, uv2, uv4,
+            Vector2.zero, Vector2.zero, Vector2.zero, Vector2.zero,
+            uv0, uv4, Vector2.zero, Vector2.zero,
+            uv2, uv4, Vector2.zero, Vector2.zero
         };
         Vector3[] normals = new Vector3[16]
         {
@@ -247,6 +289,7 @@ public class Water : MonoBehaviour
         mesh.subMeshCount = 3;
         mesh.vertices = vertices;
         mesh.normals = normals;
+        mesh.uv = uv;
         mesh.SetTriangles(dirttri, 0);
         mesh.SetTriangles(grasstri, 1);
         mesh.SetTriangles(grasstri, 2);
@@ -264,6 +307,13 @@ public class Water : MonoBehaviour
         Vector3 n2 = Vector3.Cross(Vector3.up, v5 - v4).normalized;
         Vector3 n3 = Vector3.Cross(Vector3.up, v2 - v5).normalized;
 
+        Vector2 uv0 = Vector2.one;
+        Vector2 uv1 = Vector2.one;
+        Vector2 uv2 = densityBorder * Vector2.one;
+        Vector2 uv3 = densityBorder * Vector2.one;
+        Vector2 uv4 = Vector2.zero;
+        Vector2 uv5 = Vector2.zero;
+
         // collider
         List<Vector3> v = new List<Vector3>();
         v.Add(v4); v.Add(v5); v.Add(v2); v.Add(v3);
@@ -277,6 +327,14 @@ public class Water : MonoBehaviour
             v3,v4, v3-d, v4-d,
             v4, v5, v4-d, v5-d,
             v5, v2, v5-d, v2-d
+        };
+        Vector2[] uv = new Vector2[22]
+        {
+            uv0, uv1, uv2, uv3, uv4, uv5,
+            Vector2.zero, Vector2.zero, Vector2.zero, Vector2.zero,
+            uv3,uv4, Vector2.zero, Vector2.zero,
+            uv4, uv5, Vector2.zero, Vector2.zero,
+            uv5, uv2, Vector2.zero, Vector2.zero,
         };
         Vector3[] normals = new Vector3[22]
         {
@@ -295,6 +353,7 @@ public class Water : MonoBehaviour
         mesh.subMeshCount = 3;
         mesh.vertices = vertices;
         mesh.normals = normals;
+        mesh.uv = uv;
         mesh.SetTriangles(dirttri, 0);
         mesh.SetTriangles(grasstri, 1);
         mesh.SetTriangles(grasstri, 2);
@@ -318,6 +377,16 @@ public class Water : MonoBehaviour
         Vector3 n3 = Vector3.Cross(v7-v6, v8-v6);
         Vector3 n4 = Vector3.Cross(v4-v7, v8-v7);
 
+        Vector2 uv0 = Vector2.one;
+        Vector2 uv1 = Vector2.one;
+        Vector2 uv2 = Vector2.one;
+        Vector2 uv3 = Vector2.one;
+        Vector2 uv4 = Vector2.zero;
+        Vector2 uv5 = Vector2.zero;
+        Vector2 uv6 = Vector2.zero;
+        Vector2 uv7 = Vector2.zero;
+        Vector2 uv8 = Vector2.zero;
+
         // collider
         List<Vector3> v = new List<Vector3>();
         v.Add(v4); v.Add(v5); v.Add(v6); v.Add(v7);
@@ -332,14 +401,21 @@ public class Water : MonoBehaviour
             v6, v7, v8,
             v7, v4, v8
         };
+        Vector2[] uv = new Vector2[20]
+        {
+            uv0, uv1, uv2, uv3, uv4, uv5, uv6, uv7,
+            uv4, uv5, uv8,
+            uv5, uv6, uv8,
+            uv6, uv7, uv8,
+            uv7, uv4, uv8
+        };
         Vector3[] normals = new Vector3[20]
         {
             n, n, n, n, n, n, n, n,
-            n1,n1,n1,
-            n2,n2,n2,
-            n3,n3,n3,
-            n4,n4,n4
-
+            n1, n1, n1,
+            n2, n2, n2,
+            n3, n3, n3,
+            n4, n4, n4
         };
         int[] dirttri = new int[12] { 8,9,10, 11,12,13, 14,15,16, 17,18,19 };
         int[] grasstri = new int[24] { 0,1,4, 4,1,5, 1,6,5, 1,2,6, 7,6,2, 7,2,3, 0,4,3, 3,4,7 };
@@ -349,6 +425,7 @@ public class Water : MonoBehaviour
         mesh.subMeshCount = 3;
         mesh.vertices = vertices;
         mesh.normals = normals;
+        mesh.uv = uv;
         mesh.SetTriangles(dirttri, 0);
         mesh.SetTriangles(grasstri, 1);
         mesh.SetTriangles(grasstri, 2);

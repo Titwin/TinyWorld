@@ -58,7 +58,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 390eb4f176b3565478948192b34354eb, type: 2}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -118,22 +118,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9071642676792837777}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 252ba2e0c0c1ccf43b39724f5c73060f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  windBase: {x: 0.2, y: 0, z: 0}
-  t: 270.3075
+  windBase: {x: 0.8, y: 0, z: 0}
   alpha1: 0.049
   alpha2: 0.75
-  windAffected:
-  - {fileID: 2100000, guid: d22dfa15ca6150e4b952a5d96ab03ec6, type: 2}
-  windTexture: {fileID: 0}
   snow: 0
   leaves: 1
-  waterMesh: {fileID: 7143748495756796372}
-  waterDiv: 10
-  amplitude: 0.11
-  alpha3: 1.24
-  alpha4: 1

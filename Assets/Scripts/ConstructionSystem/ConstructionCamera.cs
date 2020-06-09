@@ -365,7 +365,7 @@ public class ConstructionCamera : MonoBehaviour
 
             if (tilePrefab != null)
             {
-                currentObject = Instantiate(tilePrefab.tilePrefab);
+                currentObject = Instantiate(tilePrefab.ground);
                 currentObject.name = tilePrefab.name;
 
                 Water water = currentObject.GetComponent<Water>();
