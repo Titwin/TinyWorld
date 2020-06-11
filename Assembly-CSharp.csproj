@@ -63,6 +63,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Materials\Specials\GrassUpdater.cs" />
+    <Compile Include="Assets\Materials\Specials\WheatSynchronizer.cs" />
     <Compile Include="Assets\PostProcessing\Runtime\Attributes\GetSetAttribute.cs" />
     <Compile Include="Assets\PostProcessing\Runtime\Attributes\MinAttribute.cs" />
     <Compile Include="Assets\PostProcessing\Runtime\Attributes\TrackballAttribute.cs" />
@@ -179,6 +180,7 @@
     <Compile Include="Assets\Scripts\NavigationSystem\Utils\QuadTree.cs" />
     <Compile Include="Assets\Scripts\NavigationSystem\Utils\QuadTreeQuery.cs" />
     <Compile Include="Assets\Scripts\NavigationSystem\Utils\QuadTreeTest.cs" />
+    <Compile Include="Assets\Scripts\ObjectPooler.cs" />
     <Compile Include="Assets\Scripts\OreComponent.cs" />
     <Compile Include="Assets\Scripts\PeasantController.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
@@ -189,6 +191,7 @@
     <Compile Include="Assets\Scripts\TileScripts\MineralRessource.cs" />
     <Compile Include="Assets\Scripts\TileScripts\ScriptableTile.cs" />
     <Compile Include="Assets\Scripts\TileScripts\Stone.cs" />
+    <Compile Include="Assets\Scripts\TileScripts\StoneDecoration.cs" />
     <Compile Include="Assets\Scripts\TileScripts\TilePrefabsContainer.cs" />
     <Compile Include="Assets\Scripts\TileScripts\TreeComponent.cs" />
     <Compile Include="Assets\Scripts\TileScripts\Wall.cs" />
@@ -200,7 +203,9 @@
     <Compile Include="Assets\Scripts\UI\UIButton.cs" />
     <Compile Include="Assets\Scripts\UI\UIHandler.cs" />
     <Compile Include="Assets\Scripts\Utils\CombineChildMeshes.cs" />
+    <Compile Include="Assets\Scripts\Utils\IPoolableObject.cs" />
     <Compile Include="Assets\Scripts\Utils\LayerMaskExtensions.cs" />
+    <Compile Include="Assets\Scripts\Utils\Randomizer.cs" />
     <Compile Include="Assets\Scripts\Utils\ScriptableObjectUtility.cs" />
     <Compile Include="Assets\Scripts\Utils\SuperChildMerge.cs" />
     <Compile Include="Assets\Scripts\World.cs" />
@@ -236,14 +241,17 @@
     <None Include="Assets\PostProcessing\Resources\Shaders\Fog.shader" />
     <None Include="Assets\PostProcessing\Editor Resources\Monitors\ParadeRender.shader" />
     <None Include="Assets\PostProcessing\Resources\Shaders\MotionBlur.shader" />
+    <None Include="Assets\Materials\Specials\WindEffect.shader" />
     <None Include="Assets\PostProcessing\Resources\Shaders\DiskKernels.cginc" />
     <None Include="Assets\PostProcessing\Resources\Bluenoise64\COPYING.txt" />
     <None Include="Assets\Materials\Specials\VegetationGeometry.cginc" />
     <None Include="Assets\PostProcessing\Editor Resources\UI\Trackball.shader" />
+    <None Include="Assets\Materials\Specials\Wheat.shader" />
     <None Include="Assets\PostProcessing\Editor Resources\Monitors\WaveformRender.shader" />
     <None Include="Assets\PostProcessing\Resources\Shaders\Common.cginc" />
     <None Include="Assets\Sound\sources.txt" />
     <None Include="Assets\PostProcessing\Editor Resources\Monitors\VectorscopeRender.shader" />
+    <None Include="Assets\Materials\Specials\WheatEars.shader" />
     <None Include="Assets\PostProcessing\Resources\Shaders\Bloom.shader" />
     <None Include="Assets\PostProcessing\Resources\Shaders\Uber.shader" />
     <None Include="Assets\PostProcessing\Resources\Shaders\DepthOfField.shader" />

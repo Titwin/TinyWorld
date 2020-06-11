@@ -6,18 +6,37 @@ public class Stone : MonoBehaviour
 {
     public int size;
     public int yieldPerSize = 4;
+
+    private GameObject stone = null;
+
     public void Initialize(int rockSize)
     {
-        size = rockSize;
-
-        GameObject go = Instantiate(TilePrefabsContainer.Instance.GetStone(rockSize));
-        go.transform.parent = transform;
-        go.transform.localPosition = Vector3.zero;
-        go.transform.localScale = Vector3.one;
-        go.transform.localRotation = Quaternion.Euler(0, Random.Range(0, 360), 0);
-        go.SetActive(true);
+        stone = ObjectPooler.instance.get(GetPrefabName(rockSize));
+        stone.transform.parent = transform;
+        stone.transform.localPosition = Vector3.zero;
+        stone.transform.localScale = Vector3.one;
+        stone.transform.localRotation = Quaternion.Euler(0, Random.Range(0, 360), 0);
 
         int dispersion = (int)(0.25f * (rockSize + 1) * yieldPerSize);
-        go.transform.Find("Interactor").GetComponent<CollectData>().ressourceCount = Random.Range((rockSize + 1) * yieldPerSize - dispersion, (rockSize + 1) * yieldPerSize + dispersion);
+        stone.transform.Find("Interactor").GetComponent<CollectData>().ressourceCount = Random.Range((rockSize + 1) * yieldPerSize - dispersion, (rockSize + 1) * yieldPerSize + dispersion);
+    }
+
+    private string GetPrefabName(int size)
+    {
+        size = Mathf.Clamp(size, 0, 2);
+        switch (size)
+        {
+            case 0: return "SmallStone";
+            case 1: return "MidStone";
+            case 2: return "BigStone";
+            default: return "SmallStone";
+        }
+    }
+
+    private void OnDestroy()
+    {
+        if (ObjectPooler.instance.ContainTag(stone.name))
+            ObjectPooler.instance.free(stone);
+        else Destroy(stone);
     }
 }

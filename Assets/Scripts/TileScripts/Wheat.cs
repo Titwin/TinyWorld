@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class Wheat : MonoBehaviour
 {
-    public float width = 0.05f;
-    public float height = 0.7f;
     public Mesh prefab;
     public int density;
     static float dispersion = 0.3f;
@@ -13,7 +11,7 @@ public class Wheat : MonoBehaviour
 
     private void Start()
     {
-        InitializeFromPool();
+        Initialize();
     }
 
     private void OnValidate()
@@ -40,9 +38,9 @@ public class Wheat : MonoBehaviour
         GetComponent<MeshFilter>().mesh.CombineMeshes(combine);
         GetComponent<MeshFilter>().mesh.RecalculateBounds();
     }
-    public void InitializeFromPool()
+    /*public void InitializeFromPool()
     {
         GetComponent<MeshFilter>().sharedMesh = TilePrefabsContainer.Instance.GetWheet();
         transform.localEulerAngles = new Vector3(0, Random.Range(0, 3) * 90f, 0);
-    }
+    }*/
 }

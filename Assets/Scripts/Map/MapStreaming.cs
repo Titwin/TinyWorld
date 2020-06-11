@@ -10,8 +10,17 @@ public class MapStreaming : MonoBehaviour
     public int streamingCellRadius = 10;
     
     private MapModifier modifier;
-    
 
+    #region Singleton
+    public static MapStreaming instance;
+
+    private void Awake()
+    {
+        instance = this;
+    }
+    #endregion
+
+    // behaviour
     void Start()
     {
         if (focusAgent == null)
@@ -21,10 +30,9 @@ public class MapStreaming : MonoBehaviour
         modifier = GetComponent<MapModifier>();
     }
     
-
     void Update()
     {
-        if(focusAgent != null)
+        if (focusAgent != null)
         {
             Vector3 d = focusAgent.position - lastUpdatePosition;
             if (Mathf.Abs(d.x) > streamingThresholds.x || Mathf.Abs(d.z) > streamingThresholds.y)
@@ -36,10 +44,10 @@ public class MapStreaming : MonoBehaviour
                 lastUpdatePosition = modifier.GetTileCenter(modifier.tilemap.WorldToCell(focusAgent.position));
             }
         }
-
-        modifier.grid.GridUpdate();
     }
 
+
+    // internal
     private void TerrainUpdate(Vector3Int centerCell)
     {
         // remove far objects
@@ -48,27 +56,15 @@ public class MapStreaming : MonoBehaviour
         {
             if (Mathf.Abs(centerCell.x - entry.Key.x) > streamingCellRadius || Mathf.Abs(centerCell.y - entry.Key.y) > streamingCellRadius)
             {
-                modifier.RemoveTileAt(entry.Key, false);
-
-                if (entry.Value.ground != null)
-                {
-                    Destroy(entry.Value.ground);
-                }
-                if (entry.Value.building != null)
-                {
-                    Destroy(entry.Value.ground);
-                }
-                if (entry.Value.decoration != null)
-                {
-                    Destroy(entry.Value.ground);
-                }
-
                 removed.Add(entry.Key);
             }
         }
         foreach(Vector3Int cell in removed)
         {
-            modifier.tileObjects.Remove(cell);
+            MapModifier.JobModifier job = new MapModifier.JobModifier();
+            job.jobType = MapModifier.JobType.RemoveTile;
+            job.cellPosition = cell;
+            modifier.jobs.Enqueue(job);
         }
         
         // create new tiles
@@ -78,8 +74,11 @@ public class MapStreaming : MonoBehaviour
                 Vector3Int cellPosition = new Vector3Int(x, z, (int)modifier.tilemap.transform.position.y);
                 if (modifier.tilemap.HasTile(cellPosition) && !modifier.tileObjects.ContainsKey(cellPosition))
                 {
-                    ScriptableTile tile = modifier.tilemap.GetTile<ScriptableTile>(cellPosition);
-                    modifier.PlaceTile(tile, cellPosition);
+                    MapModifier.JobModifier job = new MapModifier.JobModifier();
+                    job.jobType = MapModifier.JobType.PlaceTile;
+                    job.cellPosition = cellPosition;
+                    job.tile = modifier.tilemap.GetTile<ScriptableTile>(cellPosition);
+                    modifier.jobs.Enqueue(job);
                 }
             }
 

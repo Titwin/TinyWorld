@@ -11,16 +11,23 @@ public class MapModifier : MonoBehaviour
     public Tilemap tilemap;
     public TilemapRenderer tilemapRenderer;
     public Transform staticObjects = null;
+    public float allocatedTimeForJobs = 0.01f;
+    public int remaningJobs = 0;
 
+    private ObjectPooler pool;
     public List<ScriptableTile> tileList = new List<ScriptableTile>();
     private Dictionary<string, Tile> tileDictionary = new Dictionary<string, Tile>();
     public Dictionary<Vector3Int, TileGameObject> tileObjects = new Dictionary<Vector3Int, TileGameObject>();
+    public Queue<JobModifier> jobs = new Queue<JobModifier>();
 
+
+    // behaviour
     void Start()
     {
         grid = GetComponent<MapGrid>();
         tilemapRenderer.enabled = false;
         tilemap.enabled = false;
+        pool = ObjectPooler.instance;
         
         foreach (Tile tile in tileList)
             tileDictionary.Add(tile.name, tile);
@@ -36,12 +43,39 @@ public class MapModifier : MonoBehaviour
             {
                 grid.AddGameObject(go, true, false);
             }
+
+            // destroy statics go container (it's empty anyway)
             Destroy(staticObjects.gameObject);
         }
     }
 
+    private void Update()
+    {
+        remaningJobs = jobs.Count;
+
+        float startTime = Time.realtimeSinceStartup;
+        while (jobs.Count != 0 && Time.realtimeSinceStartup - startTime < allocatedTimeForJobs)
+        {
+            JobModifier job = jobs.Dequeue();
+
+            if(job.jobType == JobType.RemoveTile)
+            {
+                RemoveTileAt(job.cellPosition, false);
+            }
+            else if (job.jobType == JobType.PlaceTile)
+            {
+                PlaceTile(job.tile, job.cellPosition, false);
+            }
+        }
+
+        if(Time.realtimeSinceStartup - startTime < allocatedTimeForJobs && jobs.Count == 0)
+        {
+            grid.GridUpdate();
+        }
+    }
     
 
+    // interface
     public TileGameObject GetObjectsAt(Vector3Int cellPosition)
     {
         if (tileObjects.ContainsKey(cellPosition))
@@ -62,27 +96,17 @@ public class MapModifier : MonoBehaviour
     public void RemoveTileAt(Vector3Int cellPosition, bool forceUpdate = true)
     {
         TileGameObject original = GetObjectsAt(cellPosition);
-        if (original.ground != null)
-        {
-            grid.RemoveGameObject(original.ground, forceUpdate);
-        }
-        if (original.building != null)
-        {
-            grid.RemoveGameObject(original.building, forceUpdate);
-        }
-        if (original.decoration != null)
-        {
-            grid.RemoveGameObject(original.decoration, forceUpdate);
-        }
+        FreeGameObject(original.ground, cellPosition, forceUpdate);
+        FreeGameObject(original.building, cellPosition, forceUpdate);
+        FreeGameObject(original.decoration, cellPosition, forceUpdate);
+        tileObjects.Remove(cellPosition);
     }
     public Vector3 GetTileCenter(Vector3Int cellPosition)
     {
         return tilemap.layoutGrid.GetCellCenterWorld(cellPosition) - new Vector3(0, 0.5f * tilemap.layoutGrid.cellSize.z, 0);
     }
-
-
-
-    public TileGameObject PlaceTile(ScriptableTile tile, Vector3Int cellPosition)
+    
+    public TileGameObject PlaceTile(ScriptableTile tile, Vector3Int cellPosition, bool forceUpdate = true)
     {
         TileGameObject tileGameObject = new TileGameObject();
         Vector3 tileCenter = GetTileCenter(cellPosition);
@@ -90,8 +114,7 @@ public class MapModifier : MonoBehaviour
         // ground prefab
         if(tile.ground)
         {
-            tileGameObject.ground = Instantiate(tile.ground);
-            tileGameObject.ground.name = tile.ground.name;
+            tileGameObject.ground = InstantiateGameObject(tile.ground);
             tileGameObject.ground.transform.localPosition = tileCenter;
             tileGameObject.ground.transform.localEulerAngles = new Vector3(0, -tilemap.GetTransformMatrix(cellPosition).rotation.eulerAngles.z, 0);
             tileGameObject.ground.SetActive(true);
@@ -101,18 +124,13 @@ public class MapModifier : MonoBehaviour
             InitWater(tileGameObject.ground.GetComponent<Water>(), cellPosition);
             InitBridge(tileGameObject.ground.GetComponent<Bridge>(), cellPosition);
 
-            grid.AddGameObject(tileGameObject.ground, true, false);
-        }
-        else
-        {
-            Debug.LogWarning("No ground in Tile : " + tile.name);
+            grid.AddGameObject(tileGameObject.ground, true, forceUpdate);
         }
         
         // building prefab
         if (tile.building)
         {
-            tileGameObject.building = Instantiate(tile.building);
-            tileGameObject.building.name = tile.building.name;
+            tileGameObject.building = InstantiateGameObject(tile.building);
             tileGameObject.building.transform.localPosition = tileCenter;
             tileGameObject.building.transform.localEulerAngles = new Vector3(-90, 90 - tilemap.GetTransformMatrix(cellPosition).rotation.eulerAngles.z, 0);
             tileGameObject.building.SetActive(true);
@@ -120,25 +138,25 @@ public class MapModifier : MonoBehaviour
             InitWall(tileGameObject.building.GetComponent<Wall>(), cellPosition, tile.name);
             InitFences(tileGameObject.building.GetComponent<Fences>(), cellPosition);
 
-            grid.AddGameObject(tileGameObject.building, true, false);
+            grid.AddGameObject(tileGameObject.building, true, forceUpdate);
         }
         
         //  decoration prefab
         if (tile.decoration)
         {
-            tileGameObject.decoration = Instantiate(tile.decoration);
-            tileGameObject.decoration.name = tile.decoration.name;
-            tileGameObject.decoration.transform.localPosition = tileCenter; // + new Vector3(Random.Range(-1.0f, 1.0f), 0, Random.Range(-1.0f, 1.0f));
-            tileGameObject.decoration.transform.localEulerAngles = Vector3.zero; // new Vector3(0, Random.Range(-180f, 180f), 0);
-            float scale = Random.Range(0.7f, 1.3f);
-            tileGameObject.decoration.transform.localScale = Vector3.one;// new Vector3(scale, scale, scale);
+            tileGameObject.decoration = InstantiateGameObject(tile.decoration);
+            tileGameObject.decoration.transform.localPosition = tileCenter + new Vector3(Random.Range(tile.decorationNoisePosition.x, tile.decorationNoisePosition.y), 0, Random.Range(tile.decorationNoisePosition.x, tile.decorationNoisePosition.y));
+            tileGameObject.decoration.transform.localEulerAngles = new Vector3(0, Random.Range(tile.decorationNoiseRotation.x, tile.decorationNoiseRotation.y), 0);
+            float scale = tile.decorationNoiseScale == Vector2.zero ? 1 : Random.Range(tile.decorationNoiseScale.x, tile.decorationNoiseScale.y);
+            tileGameObject.decoration.transform.localScale =  new Vector3(scale, scale, scale);
 
             InitStone(tileGameObject.decoration.GetComponent<Stone>(), cellPosition);
             InitMineral(tileGameObject.decoration.GetComponent<MineralRessource>(), cellPosition, tile.optionalMaterial);
 
-            grid.AddGameObject(tileGameObject.decoration, true, false);
+            grid.AddGameObject(tileGameObject.decoration, true, forceUpdate);
         }
 
+        // add to reference table
         if(tileObjects.ContainsKey(cellPosition))
         {
             Debug.LogWarning("A tile was already at this position ! " + cellPosition.ToString());
@@ -151,6 +169,8 @@ public class MapModifier : MonoBehaviour
         return tileGameObject;
     }
     
+
+    // internal
     private void InitDirt(Dirt dirt, Vector3Int cellPosition)
     {
         if (dirt)
@@ -276,10 +296,51 @@ public class MapModifier : MonoBehaviour
         }
     }
 
+    private void FreeGameObject(GameObject go, Vector3Int cell, bool forceUpdate)
+    {
+        if (go != null)
+        {
+            if (!grid.RemoveGameObject(go, forceUpdate))
+                Debug.LogWarning("Fail removing ground tile from " + cell.ToString());
+
+            if (pool.ContainTag(go.name))
+                pool.free(go);
+            else
+            {
+                if(!go.name.Contains("(Clone)"))
+                    Debug.LogWarning("Destroying " + go.name + " from MapModifier");
+                Destroy(go);
+            }
+        }
+    }
+    private GameObject InstantiateGameObject(GameObject go)
+    {
+        if (pool.ContainAvailableTag(go.name))
+            return pool.get(go.name);
+        else
+        {
+            if(pool.ContainTag(go.name))
+                Debug.Log("Aditionnal prefab " + go.name + " was instantiated");
+            return Instantiate(go);
+        }
+    }
+
     public class TileGameObject
     {
         public GameObject ground = null;
         public GameObject building = null;
         public GameObject decoration = null;
     };
+
+    public enum JobType
+    {
+        RemoveTile,
+        PlaceTile
+    }
+    public struct JobModifier
+    {
+        public JobType jobType;
+        public Vector3Int cellPosition;
+        public ScriptableTile tile;
+    }
 }

@@ -107,12 +107,12 @@ public class PlayerController : MonoBehaviour
 
         AnimationParameterRefresh();
 
-        ressourceContainer.AddItem("Gold", 100);
+        /*ressourceContainer.AddItem("Gold", 100);
         ressourceContainer.AddItem("Iron", 100);
         ressourceContainer.AddItem("Stone", 300);
         ressourceContainer.AddItem("Wood", 300);
         ressourceContainer.AddItem("Wheat", 100);
-        ressourceContainer.AddItem("Crystal", 10);
+        ressourceContainer.AddItem("Crystal", 10);*/
         if (inventoryViewer.visible)
             inventoryViewer.UpdateContent(ressourceContainer.inventory);
         inventoryViewer.transform.parent = null;
@@ -524,6 +524,8 @@ public class PlayerController : MonoBehaviour
                 else destination = Instantiate(Arsenal.Instance.mountedPlayerTemplate.gameObject).GetComponent<PlayerController>();
                 PlayerController.Copy(this, destination);
                 PlayerController.MainInstance = destination;
+                MapStreaming.instance.focusAgent = destination.transform;
+
                 Destroy(gameObject);
                 Destroy(inventoryViewer.gameObject);
                 Destroy(equipementViewer.gameObject);

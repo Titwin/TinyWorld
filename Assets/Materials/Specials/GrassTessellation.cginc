@@ -81,7 +81,8 @@ vertexOutput tessVert(vertexOutput v)
 	o.vertex = v.vertex;
 	o.normal = v.normal;
 	o.tangent = v.tangent;
-	o.uv = float4(v.uv.x, v.uv.y, computePathParameters(v).y, 0);
+	float2 bend = computePathParameters(v);
+	o.uv = float4(v.uv.x, v.uv.y,  bend.y, 0);
 	return o;
 }
 TessellationFactors patchConstantFunction (InputPatch<vertexOutput, 3> patch)

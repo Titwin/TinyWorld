@@ -37,8 +37,6 @@
 			float4 pos : SV_POSITION;
 			float4 uv : TEXCOORD0;
 			float3 normal : NORMAL;
-			//float2 fog : TEXCOORD2;
-			//float2 path : TEXCOORD3;
 			unityShadowCoord4 _ShadowCoord : TEXCOORD1;
 		};
 

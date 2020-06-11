@@ -36,9 +36,11 @@ MonoBehaviour:
   m_Flags: 1
   m_ColliderType: 0
   ground: {fileID: 5586053671172209450, guid: b2bd31f28cd978a46a9bb932b796cb38, type: 3}
-  building: {fileID: 0}
-  decoration: {fileID: 225000585385098911, guid: 351b1657808ed1c478862b4aadac714c,
-    type: 3}
+  building: {fileID: 225000585385098911, guid: 351b1657808ed1c478862b4aadac714c, type: 3}
+  decoration: {fileID: 0}
+  decorationNoisePosition: {x: 0, y: 0}
+  decorationNoiseRotation: {x: 0, y: 0}
+  decorationNoiseScale: {x: 1, y: 1}
   neighbourUpdate: 1
   buildingUpdate: 1
   isTerrain: 0

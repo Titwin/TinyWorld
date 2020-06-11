@@ -9,11 +9,7 @@ public class Dirt : MonoBehaviour
     static protected Vector3 v1 = new Vector3(-2, 0,  2);
     static protected Vector3 v2 = new Vector3( 2, 0,  2);
     static protected Vector3 v3 = new Vector3( 2, 0, -2);
-
-    /*static protected Vector2 uv0 = new Vector2(1, 1);
-    static protected Vector2 uv1 = new Vector2(1, 1);
-    static protected Vector2 uv2 = new Vector2(1, 1);
-    static protected Vector2 uv3 = new Vector2(1, 1);*/
+    
     static protected Vector3 n = Vector3.up;
     static protected float densityBorder = 0.6f;
 
@@ -32,8 +28,6 @@ public class Dirt : MonoBehaviour
         {
             case 0:
                 mesh = CaseA(borderStrengh);
-                MeshRenderer mr = meshFilter.gameObject.GetComponent<MeshRenderer>();
-                mr.sharedMaterials = new Material[] { mr.sharedMaterials[0] };
                 rotation = 0f;
                 break;
             case 1:
@@ -123,8 +117,6 @@ public class Dirt : MonoBehaviour
             case 0:
                 mesh = TilePrefabsContainer.Instance.GetDirtA();
                 rotation = 0f;
-                MeshRenderer mr = meshFilter.gameObject.GetComponent<MeshRenderer>();
-                mr.sharedMaterials = new Material[] { mr.sharedMaterials[0] };
                 break;
             case 1:
                 mesh = TilePrefabsContainer.Instance.GetDirtB();
@@ -209,7 +201,7 @@ public class Dirt : MonoBehaviour
 
         //push in mesh struct
         Mesh mesh = new Mesh();
-        mesh.subMeshCount = 1;
+        mesh.subMeshCount = 3;
         mesh.vertices = vertices;
         mesh.normals = normals;
         mesh.uv = uv;
@@ -226,7 +218,7 @@ public class Dirt : MonoBehaviour
         Vector2 uv1 = densityBorder * Vector2.one;
         Vector2 uv2 = Vector2.zero;
         Vector2 uv3 = Vector2.zero;
-        Vector2 uv4 = Vector2.zero; //uv0 + sub.x * (uv1 - uv0) + sub.y * (uv3 - uv0);
+        Vector2 uv4 = Vector2.zero;
 
         // creates arrays
         Vector3[] vertices = new Vector3[5] { v0, v1, v2, v3, v4 };

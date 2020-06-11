@@ -15,7 +15,6 @@ public class Water : MonoBehaviour
 
     public int configuration;
     public MeshFilter ground;
-    public MeshFilter water;
     public MeshCollider waterCollider;
     
     public void Initialize(bool xp, bool xm, bool zp, bool zm, float borderStrengh)
@@ -28,8 +27,8 @@ public class Water : MonoBehaviour
         {
             case 0:
                 mesh = CaseA(borderStrengh);
-                MeshRenderer mr = ground.gameObject.GetComponent<MeshRenderer>();
-                mr.sharedMaterials = new Material[] { mr.sharedMaterials[0] };
+                /*MeshRenderer mr = ground.gameObject.GetComponent<MeshRenderer>();
+                mr.sharedMaterials = new Material[] { mr.sharedMaterials[0] };*/
                 rotation = 0f;
                 break;
             case 1:
@@ -100,7 +99,7 @@ public class Water : MonoBehaviour
         // set mesh and orientation
         ground.mesh = mesh;
         transform.localEulerAngles = new Vector3(0, rotation, 0);
-        water.transform.rotation = Quaternion.identity;
+        //water.transform.rotation = Quaternion.identity;
     }
     
     protected Mesh CaseA(float borderStrengh)
@@ -112,7 +111,7 @@ public class Water : MonoBehaviour
 
         //push in mesh struct
         Mesh mesh = new Mesh();
-        mesh.subMeshCount = 1;
+        mesh.subMeshCount = 3;
         mesh.vertices = vertices;
         mesh.normals = normals;
         mesh.SetTriangles(tris, 0);

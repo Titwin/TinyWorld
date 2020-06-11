@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GrassUpdater : MonoBehaviour
 {
-    public Material grass;
+    public List<Material> mats;
     private List<Vector4> positions = new List<Vector4>();
     public float timer = 0.1f;
     public float t;
@@ -32,22 +32,27 @@ public class GrassUpdater : MonoBehaviour
             transform.position = radius * Mathf.Cos(t2) * Vector3.right + radius * Mathf.Sin(t2) * Vector3.forward;
         t += Time.deltaTime;
         t2 += 0.2f * Time.deltaTime;
+        positions[positions.Count - 1] = new Vector4(transform.position.x, transform.position.y, transform.position.z, 0);
 
         if (t > timer)
         {
+            //positions[positions.Count - 1] = new Vector4(transform.position.x, transform.position.y, transform.position.z, 0);
             positions.Add(new Vector4(transform.position.x, transform.position.y, transform.position.z, 0));
             positions.RemoveAt(0);
             t = 0;
         }
 
-        positions[positions.Count - 1] = transform.position;
+        
         for (int i = 0; i < fadingCount; i++)
         {
             Vector4 v = positions[i];
             positions[i] = new Vector4(v.x, v.y, v.z, v.w - Time.deltaTime * timer);
         }
 
-        grass.SetVectorArray("_PathTrajectories", positions);
-        grass.SetInt("_PathTrajectoriesSize", 1);
+        foreach(Material m in mats)
+        {
+            m.SetVectorArray("_PathTrajectories", positions);
+            m.SetInt("_PathTrajectoriesSize", 1);
+        }
     }
 }

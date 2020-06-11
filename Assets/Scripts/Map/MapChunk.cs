@@ -6,13 +6,13 @@ using UnityEngine;
 
 public class MapChunk : MonoBehaviour
 {
+    public static ObjectPooler pool;
     public static int chunkSize = 16;
     public static List<string> batchableNames = new List<string>();
 
     [Header("Linking")]
     public Transform batchContainer;
     public Transform objectContainer;
-    //public List<MeshRenderer> batchMeshRenderers = new List<MeshRenderer>();
 
     [Header("Content and debug inspection")]
     private Dictionary<GameObject, Child> childs = new Dictionary<GameObject, Child>();

@@ -37,6 +37,6 @@ public class TreeComponent : MonoBehaviour
     }
     private void OnDestroy()
     {
-        Meteo.Instance.treesList.Remove(this);
+        //Meteo.Instance.treesList.Remove(this);
     }
 }

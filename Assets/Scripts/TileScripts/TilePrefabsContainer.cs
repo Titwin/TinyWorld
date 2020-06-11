@@ -11,8 +11,8 @@ public class TilePrefabsContainer : MonoBehaviour
     public Dirt originalDirt;
     private Mesh[] dirtMeshes;
 
-    public GameObject originalWheet;
-    private Mesh wheetMeshes;
+    /*public GameObject originalWheet;
+    private Mesh wheetMeshes;*/
 
     public List<GameObject> bigStones;
     public List<GameObject> midStones;
@@ -43,11 +43,51 @@ public class TilePrefabsContainer : MonoBehaviour
         grassMeshes = new Mesh[9 * diversity];
         InitDirt();
         InitGrass();
-        InitWheet();
         InitStone();
     }
 
     private void InitDirt()
+    {
+        GameObject container = new GameObject();
+        container.name = originalDirt.name + "_container";
+        container.transform.parent = transform;
+        container.transform.localPosition = Vector3.zero;
+        container.transform.localScale = Vector3.one;
+        container.transform.localRotation = Quaternion.identity;
+
+        for (int j = 0; j < 6; j++)
+        {
+            for (int i = 0; i < diversity; i++)
+            {
+                GameObject go = Instantiate(originalDirt.gameObject);
+                go.transform.parent = container.transform;
+                go.transform.localPosition = Vector3.zero;
+                go.transform.localScale = Vector3.one;
+                go.transform.localRotation = Quaternion.identity;
+
+                Dirt dirt = go.GetComponent<Dirt>();
+
+                switch (j)
+                {
+                    case 0: dirt.Initialize(false, false, false, false, 0.3f); break;
+                    case 1: dirt.Initialize(false, true, false, false, 0.3f); break;
+                    case 2: dirt.Initialize(false, false, true, true, 0.3f); break;
+                    case 3: dirt.Initialize(false, true, true, false, 0.3f); break;
+                    case 4: dirt.Initialize(false, true, true, true, 0.3f); break;
+                    case 5: dirt.Initialize(true, true, true, true, 0.3f); break;
+                    default: break;
+                }
+
+                dirtMeshes[j * diversity + i] = dirt.meshFilter.sharedMesh;
+                if (j == 5)
+                    break;
+            }
+        }
+
+        container.SetActive(false);
+    }
+    
+    private void InitWater()
     {
         GameObject container = new GameObject();
         container.name = originalDirt.name + "_container";
@@ -116,7 +156,7 @@ public class TilePrefabsContainer : MonoBehaviour
         container.SetActive(false);
     }
 
-    private void InitWheet()
+    /*private void InitWheet()
     {
         GameObject container = new GameObject();
         container.name = originalWheet.name + "_container";
@@ -136,7 +176,7 @@ public class TilePrefabsContainer : MonoBehaviour
         wheetMeshes = wheet.GetComponent<MeshFilter>().sharedMesh;
 
         container.SetActive(false);
-    }
+    }*/
 
     private void InitStone()
     {
@@ -188,36 +228,8 @@ public class TilePrefabsContainer : MonoBehaviour
 
     public Mesh GetGrass(int n) { return grassMeshes[n * diversity + Random.Range(0, diversity - 1)]; }
 
-    public Mesh GetWheet() { return wheetMeshes; }
+    //public Mesh GetWheet() { return wheetMeshes; }
 
-    public GameObject GetStone(int size)
-    {
-        size = Mathf.Clamp(size, 0, 2);
-        switch(size)
-        {
-            case 0: return smallStones[Random.Range(0, smallStones.Count - 1)];
-            case 1: return midStones[Random.Range(0, midStones.Count - 1)];
-            case 2: return bigStones[Random.Range(0, bigStones.Count - 1)];
-            default: return null;
-        }
-    }
-    public GameObject GetStone(int size, int index)
-    {
-        size = Mathf.Clamp(size, 0, 2);
-        switch (size)
-        {
-            case 0:
-                index = Mathf.Clamp(index, 0, smallStones.Count - 1);
-                return smallStones[index];
-            case 1:
-                index = Mathf.Clamp(index, 0, midStones.Count - 1);
-                return midStones[index];
-            case 2:
-                index = Mathf.Clamp(index, 0, bigStones.Count - 1);
-                return bigStones[index];
-            default: return null;
-        }
-    }
     public GameObject GetOre(string ressource)
     {
         GameObject go = Instantiate(ores[Random.Range(0, ores.Count - 1)].gameObject);

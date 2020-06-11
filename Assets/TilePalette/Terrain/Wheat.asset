@@ -38,6 +38,9 @@ MonoBehaviour:
   building: {fileID: 0}
   decoration: {fileID: 5105674684001610595, guid: bc7ef4b4b93ad6a44b3953692b65f7b4,
     type: 3}
+  decorationNoisePosition: {x: 0, y: 0}
+  decorationNoiseRotation: {x: 0, y: 0}
+  decorationNoiseScale: {x: 1, y: 1}
   neighbourUpdate: 1
   buildingUpdate: 0
   isTerrain: 1

@@ -7,6 +7,7 @@ public class MineralRessource : MonoBehaviour
     public void Initialize(Material m)
     {
         GameObject go = TilePrefabsContainer.Instance.GetOre(m.name);
+        go.name = "stone";
         go.transform.parent = transform;
         go.transform.localPosition = Vector3.zero;
         go.transform.localScale = Vector3.one;
