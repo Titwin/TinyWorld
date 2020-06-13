@@ -70,7 +70,7 @@ public class MapModifier : MonoBehaviour
 
         if(Time.realtimeSinceStartup - startTime < allocatedTimeForJobs && jobs.Count == 0)
         {
-            grid.GridUpdate();
+            grid.GridUpdate(allocatedTimeForJobs);
         }
     }
     
@@ -90,8 +90,8 @@ public class MapModifier : MonoBehaviour
     }
     public TileGameObject OverrideTile(ScriptableTile tile, Vector3Int cellPosition, bool forceUpdate = true)
     {
-        RemoveTileAt(cellPosition);
-        return PlaceTile(tile, cellPosition);
+        RemoveTileAt(cellPosition, forceUpdate);
+        return PlaceTile(tile, cellPosition, forceUpdate);
     }
     public void RemoveTileAt(Vector3Int cellPosition, bool forceUpdate = true)
     {
@@ -118,8 +118,7 @@ public class MapModifier : MonoBehaviour
             tileGameObject.ground.transform.localPosition = tileCenter;
             tileGameObject.ground.transform.localEulerAngles = new Vector3(0, -tilemap.GetTransformMatrix(cellPosition).rotation.eulerAngles.z, 0);
             tileGameObject.ground.SetActive(true);
-
-            InitGrass(tileGameObject.ground.GetComponent<Grass>(), cellPosition);
+            
             InitDirt(tileGameObject.ground.GetComponent<Dirt>(), cellPosition);
             InitWater(tileGameObject.ground.GetComponent<Water>(), cellPosition);
             InitBridge(tileGameObject.ground.GetComponent<Bridge>(), cellPosition);
@@ -136,7 +135,7 @@ public class MapModifier : MonoBehaviour
             tileGameObject.building.SetActive(true);
 
             InitWall(tileGameObject.building.GetComponent<Wall>(), cellPosition, tile.name);
-            InitFences(tileGameObject.building.GetComponent<Fences>(), cellPosition);
+            InitFences(tileGameObject.building.GetComponent<Fences>(), cellPosition, tile.name);
 
             grid.AddGameObject(tileGameObject.building, true, forceUpdate);
         }
@@ -186,25 +185,6 @@ public class MapModifier : MonoBehaviour
             bool zpb = (zp && zp.ground && (zp.ground.GetComponent<Dirt>() != null || zp.ground.name == "Bridge"));
 
             dirt.InitializeFromPool(xpb, xmb, zmb, zpb, 0.3f);
-        }
-    }
-    private void InitGrass(Grass grass, Vector3Int cellPosition)
-    {
-        if (grass)
-        {
-            BoundsInt area = new BoundsInt();
-            area.min = cellPosition + new Vector3Int(-1, -1, 0);
-            area.max = cellPosition + new Vector3Int(2, 2, 1);
-            TileBase[] neighbours = tilemap.GetTilesBlock(area);
-
-            int grassNeighbours = 0;
-            for (int i = 0; i < neighbours.Length; i++)
-            {
-                ScriptableTile n = (ScriptableTile)neighbours[i];
-                if (n && n.name == "Grass")
-                    grassNeighbours++;
-            }
-            grass.InitializeFromPool(Mathf.Clamp(grassNeighbours - 1 + Random.Range(-1, 1), 0, 8));
         }
     }
     private void InitWall(Wall wall, Vector3Int cellPosition, string tileName)
@@ -276,7 +256,7 @@ public class MapModifier : MonoBehaviour
         if (mineral)
             mineral.Initialize(material);
     }
-    private void InitFences(Fences fence, Vector3Int cellPosition)
+    private void InitFences(Fences fence, Vector3Int cellPosition, string tileName)
     {
         if (fence)
         {
@@ -291,7 +271,7 @@ public class MapModifier : MonoBehaviour
             bool zpb = (zp && zp.building && zp.building.name.Contains("Fence"));
 
             if (!xmb || !xpb || !zmb || !zpb)
-                fence.Initialize(xpb, xmb, zmb, zpb);
+                fence.Initialize(xpb, xmb, zmb, zpb, tileName);
             else Destroy(fence.gameObject);
         }
     }
@@ -304,7 +284,11 @@ public class MapModifier : MonoBehaviour
                 Debug.LogWarning("Fail removing ground tile from " + cell.ToString());
 
             if (pool.ContainTag(go.name))
-                pool.free(go);
+            {
+                pool.Free(go);
+                go.SetActive(false);
+                go = null;
+            }
             else
             {
                 if(!go.name.Contains("(Clone)"))
@@ -316,11 +300,12 @@ public class MapModifier : MonoBehaviour
     private GameObject InstantiateGameObject(GameObject go)
     {
         if (pool.ContainAvailableTag(go.name))
-            return pool.get(go.name);
+            return pool.Get(go.name);
         else
         {
             if(pool.ContainTag(go.name))
                 Debug.Log("Aditionnal prefab " + go.name + " was instantiated");
+            else Debug.Log("Object " + go.name + " was instantiated, not extracted from pool");
             return Instantiate(go);
         }
     }

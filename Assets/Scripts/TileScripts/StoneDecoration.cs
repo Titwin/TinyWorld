@@ -10,12 +10,22 @@ public class StoneDecoration : MonoBehaviour, IPoolableObject
 
     public List<Mesh> availableMeshes;
     public List<Material> availableMaterials;
-
-    public void PoolInit()
+    
+    public void OnInit()
     {
         meshRenderer.sharedMaterial = availableMaterials[Random.Range(0, availableMaterials.Count)];
         meshFilter.sharedMesh = availableMeshes[Random.Range(0, availableMeshes.Count)];
         meshCollider.sharedMesh = meshFilter.sharedMesh;
-        this.enabled = false;
     }
+
+    public void OnReset()
+    {
+
+    }
+
+    public void OnFree()
+    {
+
+    }
+
 }

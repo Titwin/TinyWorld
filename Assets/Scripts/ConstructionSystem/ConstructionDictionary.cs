@@ -8,8 +8,12 @@ public class ConstructionDictionary : MonoBehaviour
     public List<GameObject> templateList;
     public Dictionary<string, GameObject> dictionary;
     public Dictionary<string, ConstructionTemplate> templateDictionary;
+
+    [Header("Building prefabs")]
     public List<GameObject> wallPrefabsStone;
     public List<GameObject> wallPrefabsWood;
+    public List<GameObject> fencePrefabs;
+    public List<GameObject> openFencePrefabs;
 
     public GameObject resourcePile;
 

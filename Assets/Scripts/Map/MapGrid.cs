@@ -24,8 +24,10 @@ public class MapGrid : MonoBehaviour
         chunkContainer = container.transform;
     }
 
-    public void GridUpdate()
+    public void GridUpdate(float timeBudget)
     {
+        float startTime = Time.realtimeSinceStartup;
+
         List<Vector2Int> deadChunks = new List<Vector2Int>();
         foreach (KeyValuePair<Vector2Int, MapChunk> entry in grid)
         {
@@ -38,6 +40,9 @@ public class MapGrid : MonoBehaviour
             {
                 entry.Value.Bake();
             }
+
+            if (Time.realtimeSinceStartup - startTime > timeBudget)
+                break;
         }
         foreach (Vector2Int cell in deadChunks)
             grid.Remove(cell);

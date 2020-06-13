@@ -89,6 +89,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9071642676792837783}
   - component: {fileID: 9071642676792837776}
+  - component: {fileID: 1125806269}
   m_Layer: 0
   m_Name: Meteo
   m_TagString: Untagged
@@ -128,3 +129,22 @@ MonoBehaviour:
   alpha2: 0.75
   snow: 0
   leaves: 1
+--- !u!114 &1125806269
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9071642676792837777}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28f8a5db85be52b44abb86a45505efbd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wheat: {fileID: 2100000, guid: b502d6616c42d4247a0985e2033c1e48, type: 2}
+  wheatEar: {fileID: 2100000, guid: bc923219ce5a539478fe20ec535a81fb, type: 2}
+  bendAngle: 0.06
+  tesselation: 4
+  wind: 0.066
+  growth: 1
+  smashedAngle: 1.3

@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5635477144309855641}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.2, y: 0, z: -0.2}
+  m_LocalPosition: {x: -284, y: 46.7, z: -465.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5635477143836033355}
@@ -97,12 +97,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33e2a7d684ecb0b4baacea2eb632e4d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  diversity: 5
-  originalGrass: {fileID: 809898631360946255, guid: 9a40fd7eecd489d47b21aed590702d02,
-    type: 3}
+  diversity: 15
   originalDirt: {fileID: 3519308851485402565, guid: b2bd31f28cd978a46a9bb932b796cb38,
-    type: 3}
-  originalWheet: {fileID: 5105674684001610595, guid: bc7ef4b4b93ad6a44b3953692b65f7b4,
     type: 3}
   bigStones:
   - {fileID: 5635477144801579475}

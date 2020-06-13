@@ -380,8 +380,8 @@ public class ConstructionCamera : MonoBehaviour
                 MineralRessource mineral = currentObject.GetComponent<MineralRessource>();
                 if (mineral) mineral.Initialize(tilePrefab.optionalMaterial);
                 
-                Grass grass = currentObject.GetComponent<Grass>();
-                if (grass) grass.Initialize(9);
+                /*Grass grass = currentObject.GetComponent<Grass>();
+                if (grass) grass.Initialize(9);*/
 
                 Dirt dirt = currentObject.GetComponent<Dirt>();
                 if (dirt) dirt.Initialize(true, true, true, true, 0.1f);

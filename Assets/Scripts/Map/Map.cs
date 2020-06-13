@@ -351,7 +351,7 @@ public class Map : MonoBehaviour
             buildinggo.SetActive(true);
 
             InitWall(buildinggo.GetComponent<Wall>(), cellPosition, tile.name);
-            InitFences(buildinggo.GetComponent<Fences>(), cellPosition);
+            InitFences(buildinggo.GetComponent<Fences>(), cellPosition, tile.name);
 
             return buildinggo;
         }
@@ -390,7 +390,7 @@ public class Map : MonoBehaviour
                 if (n && n.name == "Grass")
                     grassNeighbours++;
             }
-            grass.InitializeFromPool(Mathf.Clamp(grassNeighbours - 1 + Random.Range(-1, 1), 0, 8));
+            //grass.InitializeFromPool(Mathf.Clamp(grassNeighbours - 1 + Random.Range(-1, 1), 0, 8));
         }
     }
     private void InitWall(Wall wall, Vector3Int cellPosition, string tileName)
@@ -462,7 +462,7 @@ public class Map : MonoBehaviour
         if (mineral)
             mineral.Initialize(material);
     }
-    private void InitFences(Fences fence, Vector3Int cellPosition)
+    private void InitFences(Fences fence, Vector3Int cellPosition, string tileName)
     {
         if (fence)
         {
@@ -477,7 +477,7 @@ public class Map : MonoBehaviour
             bool zpb = (zp && zp.building && zp.building.name.Contains("Fence"));
 
             if (!xmb || !xpb || !zmb || !zpb)
-                fence.Initialize(xpb, xmb, zmb, zpb);
+                fence.Initialize(xpb, xmb, zmb, zpb, tileName);
             else Destroy(fence.gameObject);
         }
     }

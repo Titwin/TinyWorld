@@ -1,5 +1,7 @@
 ﻿
 public interface IPoolableObject
 {
-    void PoolInit();
+    void OnInit();
+    void OnReset();
+    void OnFree();
 }

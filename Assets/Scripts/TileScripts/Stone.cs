@@ -2,16 +2,35 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Stone : MonoBehaviour
+
+public class Stone : MonoBehaviour, IPoolableObject
 {
     public int size;
     public int yieldPerSize = 4;
 
     private GameObject stone = null;
 
+    public void OnFree()
+    {
+        ObjectPooler.instance.Free(stone);
+        stone = null;
+    }
+
+    public void OnInit()
+    {
+
+    }
+
+    public void OnReset()
+    {
+        OnFree();
+    }
+
     public void Initialize(int rockSize)
     {
-        stone = ObjectPooler.instance.get(GetPrefabName(rockSize));
+        OnFree();
+
+        stone = ObjectPooler.instance.Get(GetPrefabName(rockSize));
         stone.transform.parent = transform;
         stone.transform.localPosition = Vector3.zero;
         stone.transform.localScale = Vector3.one;
@@ -20,6 +39,7 @@ public class Stone : MonoBehaviour
         int dispersion = (int)(0.25f * (rockSize + 1) * yieldPerSize);
         stone.transform.Find("Interactor").GetComponent<CollectData>().ressourceCount = Random.Range((rockSize + 1) * yieldPerSize - dispersion, (rockSize + 1) * yieldPerSize + dispersion);
     }
+
 
     private string GetPrefabName(int size)
     {
@@ -31,12 +51,5 @@ public class Stone : MonoBehaviour
             case 2: return "BigStone";
             default: return "SmallStone";
         }
-    }
-
-    private void OnDestroy()
-    {
-        if (ObjectPooler.instance.ContainTag(stone.name))
-            ObjectPooler.instance.free(stone);
-        else Destroy(stone);
     }
 }

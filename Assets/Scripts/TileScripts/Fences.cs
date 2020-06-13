@@ -2,58 +2,116 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Fences : MonoBehaviour
+public class Fences : MonoBehaviour, IPoolableObject
 {
-    public MeshFilter meshFilter;
+    private GameObject fence = null;
+    
 
-    public GameObject fl;
-    public GameObject fr;
-    public GameObject fu;
-    public GameObject fd;
-
-    public GameObject flu;
-    public GameObject fld;
-    public GameObject fru;
-    public GameObject frd;
-
-    public List<GameObject> childs;
-
-    public void Initialize(bool left, bool right, bool up, bool down)
+    public void Initialize(bool xp, bool xm, bool zp, bool zm, string tileName)
     {
-        List<GameObject> allChilds = new List<GameObject>(childs);
-
-        if (left) childs.Remove(fl);
-        if (right) childs.Remove(fr);
-        if (up) childs.Remove(fu);
-        if (down) childs.Remove(fd);
-
-        if (left && up) childs.Remove(flu);
-        if (left && down) childs.Remove(fld);
-        if (right && up) childs.Remove(fru);
-        if (right && down) childs.Remove(frd);
+        if (fence) ObjectPooler.instance.Free(fence);
         
-        CombineInstance[] combine = new CombineInstance[childs.Count];
-        for (int i = 0; i < childs.Count; i++)
+        int configuration = (zp ? 0 : 1) << 3 | (zm ? 0 : 1) << 2 | (xp ? 0 : 1) << 1 | (xm ? 0 : 1) << 0;
+        float rotation = 0f;
+
+
+        string poolName;
+        if (tileName.Contains("Open"))
+            poolName = "OpenFence_";
+        else poolName = "Fence_";
+
+        switch (configuration)
         {
-            combine[i].mesh = childs[i].GetComponent<MeshFilter>().mesh;
-            combine[i].transform = Matrix4x4.identity;
-
-            BoxCollider[] box2 = childs[i].GetComponents<BoxCollider>();
-            if(box2.Length > 0)
-            {
-                foreach(BoxCollider b2 in box2)
-                {
-                    BoxCollider box = gameObject.AddComponent<BoxCollider>();
-                    box.center = transform.InverseTransformPoint(childs[i].transform.TransformPoint(b2.center));
-                    box.size = transform.InverseTransformDirection(childs[i].transform.TransformDirection(b2.size));
-                }
-            }
+            case 0:
+                poolName += "A";
+                rotation = 0f;
+                break;
+            case 1:
+                poolName += "B";
+                rotation = 0f;
+                break;
+            case 2:
+                poolName += "B";
+                rotation = 180f;
+                break;
+            case 3:
+                poolName += "C";
+                rotation = 0f;
+                break;
+            case 4:
+                poolName += "B";
+                rotation = 90f;
+                break;
+            case 5:
+                poolName += "D";
+                rotation = 0f;
+                break;
+            case 6:
+                poolName += "D";
+                rotation = 90f;
+                break;
+            case 7:
+                poolName += "E";
+                rotation = 90f;
+                break;
+            case 8:
+                poolName += "B";
+                rotation = -90f;
+                break;
+            case 9:
+                poolName += "D";
+                rotation = -90f;
+                break;
+            case 10:
+                poolName += "D";
+                rotation = -180f;
+                break;
+            case 11:
+                poolName += "E";
+                rotation = -90f;
+                break;
+            case 12:
+                poolName += "C";
+                rotation = 90f;
+                break;
+            case 13:
+                poolName += "E";
+                rotation = 0f;
+                break;
+            case 14:
+                poolName += "E";
+                rotation = 180f;
+                break;
+            case 15:
+                poolName += "F";
+                rotation = 0f;
+                break;
+            default:
+                Debug.LogError("Wall init : invald tile configuration");
+                break;
         }
-        meshFilter.mesh = new Mesh();
-        meshFilter.mesh.CombineMeshes(combine);
-        meshFilter.mesh.RecalculateBounds();
+        
+        fence = ObjectPooler.instance.Get(poolName);
+        fence.transform.parent = transform;
+        fence.transform.localPosition = Vector3.zero;
+        fence.transform.localRotation = Quaternion.identity;
+        fence.transform.localScale = Vector3.one;
+        transform.localEulerAngles = new Vector3(0, rotation, 0);
+    }
 
-        foreach (GameObject child in allChilds)
-            Destroy(child);
+    public void OnFree()
+    {
+        ObjectPooler.instance.Free(fence);
+        fence = null;
+    }
+
+    public void OnInit()
+    {
+
+    }
+
+    public void OnReset()
+    {
+        OnFree();
     }
 }

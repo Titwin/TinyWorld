@@ -44,24 +44,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e456f159b97cfc4197b4a3b4564c424, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  meshFilter: {fileID: 883060723283412568}
-  fl: {fileID: 6319283836299201447}
-  fr: {fileID: 5991563993171497291}
-  fu: {fileID: 5410126508959137434}
-  fd: {fileID: 8226184623483212611}
-  flu: {fileID: 1850225057210233058}
-  fld: {fileID: 6292293847968596755}
-  fru: {fileID: 6326794003625619413}
-  frd: {fileID: 2798345130802512657}
-  childs:
-  - {fileID: 2798345130802512657}
-  - {fileID: 6326794003625619413}
-  - {fileID: 6319283836299201447}
-  - {fileID: 5991563993171497291}
-  - {fileID: 6292293847968596755}
-  - {fileID: 1850225057210233058}
-  - {fileID: 8226184623483212611}
-  - {fileID: 5410126508959137434}
 --- !u!1 &1850225057210233058
 GameObject:
   m_ObjectHideFlags: 0
@@ -153,12 +135,12 @@ GameObject:
   - component: {fileID: 883060723283412568}
   - component: {fileID: 1346319655623718480}
   m_Layer: 0
-  m_Name: building
+  m_Name: building2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5607841543473376179
 Transform:
   m_ObjectHideFlags: 0

@@ -5,15 +5,10 @@ using UnityEngine;
 public class TilePrefabsContainer : MonoBehaviour
 {
     public int diversity = 10;
-    public Grass originalGrass;
-    private Mesh[] grassMeshes;
 
     public Dirt originalDirt;
     private Mesh[] dirtMeshes;
-
-    /*public GameObject originalWheet;
-    private Mesh wheetMeshes;*/
-
+    
     public List<GameObject> bigStones;
     public List<GameObject> midStones;
     public List<GameObject> smallStones;
@@ -40,9 +35,7 @@ public class TilePrefabsContainer : MonoBehaviour
         }
 
         dirtMeshes = new Mesh[5 * diversity + 1];
-        grassMeshes = new Mesh[9 * diversity];
         InitDirt();
-        InitGrass();
         InitStone();
     }
 
@@ -127,57 +120,7 @@ public class TilePrefabsContainer : MonoBehaviour
 
         container.SetActive(false);
     }
-
-    private void InitGrass()
-    {
-        GameObject container = new GameObject();
-        container.name = originalGrass.name + "_container";
-        container.transform.parent = transform;
-        container.transform.localPosition = Vector3.zero;
-        container.transform.localScale = Vector3.one;
-        container.transform.localRotation = Quaternion.identity;
-
-        for (int j = 0; j < 9; j++) 
-        {
-            for (int i = 0; i < diversity; i++)
-            {
-                GameObject go = Instantiate(originalGrass.gameObject);
-                go.transform.parent = container.transform;
-                go.transform.localPosition = Vector3.zero;
-                go.transform.localScale = Vector3.one;
-                go.transform.localRotation = Quaternion.identity;
-
-                Grass grass = go.GetComponent<Grass>();
-                grass.Initialize(j);
-                grassMeshes[j * diversity + i] = grass.GetComponent<MeshFilter>().sharedMesh;
-            }
-        }
-
-        container.SetActive(false);
-    }
-
-    /*private void InitWheet()
-    {
-        GameObject container = new GameObject();
-        container.name = originalWheet.name + "_container";
-        container.transform.parent = transform;
-        container.transform.localPosition = Vector3.zero;
-        container.transform.localScale = Vector3.one;
-        container.transform.localRotation = Quaternion.identity;
-
-        GameObject go = Instantiate(originalWheet.gameObject);
-        go.transform.parent = container.transform;
-        go.transform.localPosition = Vector3.zero;
-        go.transform.localScale = Vector3.one;
-        go.transform.localRotation = Quaternion.identity;
-
-        Wheat wheet = go.GetComponentInChildren<Wheat>();
-        wheet.Initialize();
-        wheetMeshes = wheet.GetComponent<MeshFilter>().sharedMesh;
-
-        container.SetActive(false);
-    }*/
-
+    
     private void InitStone()
     {
         GameObject container = new GameObject();
@@ -225,11 +168,7 @@ public class TilePrefabsContainer : MonoBehaviour
     public Mesh GetDirtD() { return dirtMeshes[3 * diversity + Random.Range(0, diversity)]; }
     public Mesh GetDirtE() { return dirtMeshes[1 * diversity + Random.Range(0, diversity)]; }
     public Mesh GetDirtF() { return dirtMeshes[Random.Range(0, diversity - 1)]; }
-
-    public Mesh GetGrass(int n) { return grassMeshes[n * diversity + Random.Range(0, diversity - 1)]; }
-
-    //public Mesh GetWheet() { return wheetMeshes; }
-
+    
     public GameObject GetOre(string ressource)
     {
         GameObject go = Instantiate(ores[Random.Range(0, ores.Count - 1)].gameObject);
