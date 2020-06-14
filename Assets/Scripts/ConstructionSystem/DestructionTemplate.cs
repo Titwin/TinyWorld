@@ -23,7 +23,7 @@ public class DestructionTemplate : MonoBehaviour
         {
             Destroy(transform.parent.gameObject);
 
-            GameObject go = Instantiate(ConstructionDictionary.Instance.resourcePile, Map.Instance.buildingsContainer.transform);
+            /*GameObject go = Instantiate(ConstructionDictionary.Instance.resourcePile, Map.Instance.buildingsContainer.transform);
             go.name = "ResourcePile";
             go.transform.position = transform.parent.position;
             go.transform.localEulerAngles = new Vector3(0, 90 * Random.Range(0, 3), 0);
@@ -44,7 +44,7 @@ public class DestructionTemplate : MonoBehaviour
                 List<Vector3> positions = new List<Vector3>();
                 positions.Add(transform.parent.position);
                 Map.Instance.PlaceTiles(positions, Map.Instance.SearchTilesGameObject(transform.parent.position, 0.5f), "Grass");
-            }
+            }*/
         }
     }
 

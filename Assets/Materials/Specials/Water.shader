@@ -162,12 +162,12 @@
 				float NdotL = saturate(saturate(dotresult) + _TranslucentGain) * shadow;
 
 				float3 ambient = ShadeSH9(float4(normal, 1));
-				float4 lightIntensity = NdotL * _LightColor0 + float4(ambient, 1);
-				float4 col = _Color * shadow;
+				float4 lightIntensity = (NdotL * _LightColor0 + float4(ambient, 1)) * shadow;
+				float4 col = _Color * lightIntensity;
 
 				float4 skyData = UNITY_SAMPLE_TEXCUBE(unity_SpecCube0, i.worldRefl);
-				float3 skyColor = DecodeHDR(skyData, unity_SpecCube0_HDR) * _LightColor0;
-				col = float4(lerp(col.xyz, skyColor, _Glossiness), col.w);
+				float3 skyColor = DecodeHDR(skyData, unity_SpecCube0_HDR);
+				col = float4(lerp(col.xyz, skyColor, _Glossiness), col.w) * _LightColor0;
 
 				float fogFactor = (unity_FogParams.x * i.uv.x);
 				fogFactor = saturate(exp(-fogFactor * fogFactor));

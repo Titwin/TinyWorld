@@ -159,7 +159,7 @@ public class ConstructionTemplate : MonoBehaviour
     }
     public GameObject Finish()
     {
-        List<Vector3> positions = new List<Vector3>();
+        /*List<Vector3> positions = new List<Vector3>();
         List<GameObject> tileList = Map.Instance.SearchTilesGameObject(transform.parent.transform.position, tileSearchRadius);
         foreach (GameObject go2 in tileList)
             positions.Add(go2.transform.position);
@@ -173,15 +173,15 @@ public class ConstructionTemplate : MonoBehaviour
             go.transform.localEulerAngles = new Vector3(-90, transform.parent.localEulerAngles.y, 0);
             go.SetActive(true);
 
-            /*List<Vector3> positions = new List<Vector3>();
+            List<Vector3> positions = new List<Vector3>();
             List<GameObject> tileList = Map.Instance.SearchTilesGameObject(transform.parent.transform.position, tileSearchRadius);
             foreach (GameObject go2 in tileList)
                 positions.Add(go2.transform.position);
-            Map.Instance.PlaceTiles(positions, tileList, tileInitializerOption);*/
+            Map.Instance.PlaceTiles(positions, tileList, tileInitializerOption);
 
             return go;
         }
-        //else Debug.Log("Nothing to instanciate at end of construction process, check template " + gameObject.name);
+        else Debug.Log("Nothing to instanciate at end of construction process, check template " + gameObject.name);*/
         return null;
     }
 }

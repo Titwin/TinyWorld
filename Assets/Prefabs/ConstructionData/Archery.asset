@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af830b438a6152a40beb25475e805516, type: 3}
+  m_Name: Archery
+  m_EditorClassIdentifier: 
+  layer: 0
+  icon: {fileID: 21300000, guid: 4524e844683017341ba6beb1f969b1f3, type: 3}
+  optionalIcon: {fileID: 0}
+  description: Archery
+  incrementSpeed: 0.03
+  constructionSteps:
+  - {fileID: 4300000, guid: 9018b9e829e697640b479e00dd8fdcc0, type: 3}
+  - {fileID: 4300000, guid: 27fdd863cab8d1a419f247f4ed7a2b01, type: 3}
+  preview: {fileID: 4300000, guid: 7036859d28e2cb84c9948a1fcf49fe95, type: 3}
+  step0Resources:
+  - Stone 5
+  - Wood 1
+  step1Resources:
+  - Stone 3
+  - Wood 2
+  - Iron 1

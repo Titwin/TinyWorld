@@ -95,8 +95,10 @@
 		// wind
 		float3 pos = mul(unity_ObjectToWorld, float4(vertexPosition, 1)).xyz;
 		float2 winduv = pos.xz * _WindDistortionMap_ST.xy + _WindDistortionMap_ST.zw + _WindFrequency * _Time.y;
-		float windFactor = min(_WindStrength * pos.y, 0.2);
+		float windFactor = 0.2 * saturate(_WindStrength * pos.y);
 		float2 windSample = (tex2Dlod(_WindDistortionMap, float4(winduv, 0, 0)).yz * 2 - 1) * windFactor;
+		if (windSample.x * windSample.y == 0)
+			windSample = float2(0, 1);
 		float3 wind = normalize(float3(windSample.x, 0, windSample.y));
 		wind = mul(unity_WorldToObject, wind);
 		float3x3 windRotation = AngleAxis3x3((_WindStrength > 0 ? 1 : -1) * UNITY_PI * windSample, wind.xzy);

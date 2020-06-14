@@ -69,6 +69,7 @@ public class UIHandler : MonoBehaviour
         selectedOne = null;
         helpVideo.SetActive(false);
     }
+
     public void OnFamilyClick(BuildingFamilyTemplate click)
     {
         string family = "";
@@ -238,7 +239,7 @@ public class UIHandler : MonoBehaviour
 
         if(family == "Terrain")
         {
-            List<ScriptableTile> terrainTile = Map.Instance.tileList;
+            List<ScriptableTile> terrainTile = new List<ScriptableTile>() ;// Map.Instance.tileList;
             Vector3 p = new Vector3(95, 236, 0);
             
             foreach (ScriptableTile st in terrainTile)
@@ -254,7 +255,7 @@ public class UIHandler : MonoBehaviour
                     go.image.sprite = st.optionalSprite;
                     go.helper = st.helperText;
                     go.name = st.name;
-                    go.handler = this;
+                    //go.handler = this;
                     go.nok.enabled = false;
                     go.option.enabled = false;
 
@@ -287,7 +288,7 @@ public class UIHandler : MonoBehaviour
                     go.image.sprite = entry.Value.sprite;
                     go.helper = entry.Key;
                     go.name = entry.Key;
-                    go.handler = this;
+                    //go.handler = this;
                     go.nok.enabled = false;
 
                     if (entry.Value.additionalIcon)

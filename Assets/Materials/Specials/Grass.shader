@@ -215,7 +215,7 @@
 					float3 ambient = ShadeSH9(float4(normal, 1));
 					float4 lightIntensity = NdotL * _LightColor0 + float4(ambient, 1);
 					float4 col = lerp(_TopColor1, _TopColor2, i.uv.w);
-					col = lerp(_BottomColor, col * lightIntensity, i.uv.y);
+					col = lerp(_BottomColor, col, i.uv.y) * lightIntensity;
 
 					float fogFactor = (unity_FogParams.x * i.uv.z);
 					fogFactor = saturate(exp(-fogFactor * fogFactor));

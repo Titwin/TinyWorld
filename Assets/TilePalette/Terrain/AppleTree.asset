@@ -41,7 +41,7 @@ MonoBehaviour:
     type: 3}
   decorationNoisePosition: {x: -0.5, y: 0.5}
   decorationNoiseRotation: {x: -180, y: 180}
-  decorationNoiseScale: {x: 0.7, y: 1.3}
+  decorationNoiseScale: {x: 1, y: 1.6}
   neighbourUpdate: 0
   buildingUpdate: 0
   isTerrain: 1

@@ -30,14 +30,19 @@ public class Stone : MonoBehaviour, IPoolableObject
     {
         OnFree();
 
-        stone = ObjectPooler.instance.Get(GetPrefabName(rockSize));
-        stone.transform.parent = transform;
-        stone.transform.localPosition = Vector3.zero;
-        stone.transform.localScale = Vector3.one;
-        stone.transform.localRotation = Quaternion.Euler(0, Random.Range(0, 360), 0);
+        string tag = GetPrefabName(rockSize);
+        stone = ObjectPooler.instance.Get(tag);
+        if(stone)
+        {
+            stone.transform.parent = transform;
+            stone.transform.localPosition = Vector3.zero;
+            stone.transform.localScale = Vector3.one;
+            stone.transform.localRotation = Quaternion.Euler(0, Random.Range(0, 360), 0);
 
-        int dispersion = (int)(0.25f * (rockSize + 1) * yieldPerSize);
-        stone.transform.Find("Interactor").GetComponent<CollectData>().ressourceCount = Random.Range((rockSize + 1) * yieldPerSize - dispersion, (rockSize + 1) * yieldPerSize + dispersion);
+            int dispersion = (int)(0.25f * (rockSize + 1) * yieldPerSize);
+            stone.transform.Find("Interactor").GetComponent<CollectData>().ressourceCount = Random.Range((rockSize + 1) * yieldPerSize - dispersion, (rockSize + 1) * yieldPerSize + dispersion);
+        }
+        else Debug.LogWarning("Not enough instance in pool " + tag);
     }
 
 

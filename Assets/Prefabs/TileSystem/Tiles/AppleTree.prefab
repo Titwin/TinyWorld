@@ -47,7 +47,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8292684382423706618
 Transform:
   m_ObjectHideFlags: 0
@@ -297,7 +297,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4548621610538417162
 Transform:
   m_ObjectHideFlags: 0
@@ -310,7 +310,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7001019243413375139}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7219312154919190013
 MonoBehaviour:
@@ -857,7 +857,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &341736461911951686
 Transform:
   m_ObjectHideFlags: 0
@@ -1023,7 +1023,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5302407004080786543
 Transform:
   m_ObjectHideFlags: 0
@@ -1149,8 +1149,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7001019243413375139}
-  - component: {fileID: 5196176263626468799}
-  - component: {fileID: 458613458397475312}
+  - component: {fileID: 3632796231255418540}
   m_Layer: 0
   m_Name: AppleTree
   m_TagString: Untagged
@@ -1174,12 +1173,12 @@ Transform:
   - {fileID: 341736461911951686}
   - {fileID: 5484951036963749381}
   - {fileID: 5302407004080786543}
-  - {fileID: 1502538778902095583}
   - {fileID: 4548621610538417162}
+  - {fileID: 1502538778902095583}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5196176263626468799
+--- !u!114 &3632796231255418540
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1188,43 +1187,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 6301596015179004592}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 81ec081228ca7364bb500771047c85bc, type: 3}
+  m_Script: {fileID: 11500000, guid: 3faf842487a437a46bb4e0f526992841, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 2
-  cell: {x: 0, y: 0, z: 0}
-  cellPosition: {x: 0, y: 0, z: 0}
-  isStatic: 0
-  position2D: {x: 0, y: 0}
-  team: 0
---- !u!114 &458613458397475312
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6301596015179004592}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c4eff746ddc12c64a99528a3e2855d79, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  snow: {fileID: 915634012276050482}
-  leaves:
-  - {fileID: 2185363171607178126}
-  fruits:
-  - {fileID: 3261768630191881398}
-  - {fileID: 8173938964548162569}
-  - {fileID: 3769955765170906481}
-  - {fileID: 136961277896269542}
-  - {fileID: 7177836869604366554}
-  - {fileID: 4220964357152506015}
-  - {fileID: 4829310906502215643}
-  - {fileID: 1241694683303699044}
-  billboardRenderer: {fileID: 0}
-  snowBillboard: {fileID: 0}
-  barkBillboard: {fileID: 0}
-  leaveBillboard: {fileID: 0}
+  meshList:
+  - Tree01
+  - Tree02
+  - Tree03
 --- !u!1 &6354204106118799835
 GameObject:
   m_ObjectHideFlags: 0
@@ -1362,11 +1331,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6417797201897402469}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.252, y: -0.548, z: 0.137}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7001019243413375139}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &4267800048016501105
 MonoBehaviour:
@@ -1381,6 +1350,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 6
+  callback:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!136 &705699826427579867
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1391,8 +1363,8 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 0.65
-  m_Height: 3.28
+  m_Radius: 0.85
+  m_Height: 2.89
   m_Direction: 1
   m_Center: {x: 0, y: 1.17, z: 0}
 --- !u!114 &2256353166445257992
@@ -1457,7 +1429,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7485941849343214395
 Transform:
   m_ObjectHideFlags: 0
@@ -1591,7 +1563,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5484951036963749381
 Transform:
   m_ObjectHideFlags: 0

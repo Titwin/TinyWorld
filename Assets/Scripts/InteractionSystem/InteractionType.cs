@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class InteractionType : MonoBehaviour
 {
@@ -28,6 +29,7 @@ public class InteractionType : MonoBehaviour
         pickableHorse
     };
     public Type type;
+    public EventTrigger.TriggerEvent callback;
 
     static public bool isCollectingMinerals(InteractionType.Type type)
     {

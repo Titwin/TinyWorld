@@ -49,7 +49,7 @@ public class MapChunk : MonoBehaviour
         childs = newChilds;
         return childs.Count == 0;
     }
-    public void Bake()
+    public void BakeAll()
     {
         // clean
         foreach(Transform t in batchContainer)
@@ -126,7 +126,74 @@ public class MapChunk : MonoBehaviour
         needBatchingUpdate = false;
         SetBatchVisible(true);
     }
-    
+    public void Rebake(Material material)
+    {
+        string batchName = "batch " + material.name;
+        Transform batch = batchContainer.Find(batchName);
+        if(batch && material)
+        {
+            SetBatchVisible(false);
+
+            // prepare data to combine
+            Dictionary<Material, CombineData> combineData = new Dictionary<Material, CombineData>();
+            foreach (KeyValuePair<GameObject, Child> entry in childs)
+            {
+                if (entry.Value.meshFilters.Count != 0)
+                {
+                    for (int k = 0; k < entry.Value.meshFilters.Count; k++)
+                    {
+                        List<Material> mats = new List<Material>();
+                        entry.Value.meshRenderers[k].GetSharedMaterials(mats);
+
+                        for (int i = 0; i < mats.Count; i++)
+                        {
+                            if(mats[i] == material)
+                            {
+                                if(!combineData.ContainsKey(mats[i]))
+                                {
+                                    combineData.Add(material, new CombineData());
+                                }
+                                
+                                combineData[material].meshes.Add(entry.Value.meshFilters[k].sharedMesh);
+                                combineData[material].submesh.Add(i);
+                                combineData[material].transforms.Add(entry.Value.meshFilters[k].transform);
+                            }
+                        }
+                    }
+                }
+            }
+
+            foreach (KeyValuePair<Material, CombineData> entry in combineData)
+            {
+                // sub meshes combine
+                List<CombineInstance> combine = new List<CombineInstance>();
+                for (int i = 0; i < entry.Value.meshes.Count; i++)
+                {
+                    Mesh m = entry.Value.meshes[i];
+                    CombineInstance ci = new CombineInstance();
+                    ci.mesh = new Mesh();
+                    ci.mesh.subMeshCount = 1;
+                    ci.mesh.vertices = m.vertices;
+                    ci.mesh.normals = m.normals;
+                    ci.mesh.uv = m.uv;
+                    ci.mesh.SetTriangles(m.GetTriangles(entry.Value.submesh[i]), 0);
+                    ci.transform = transform.worldToLocalMatrix * entry.Value.transforms[i].localToWorldMatrix;
+
+                    combine.Add(ci);
+                }
+
+                // assign to new GO
+                MeshFilter meshfilter = batch.gameObject.GetComponent<MeshFilter>();
+                meshfilter.mesh = new Mesh();
+                meshfilter.mesh.CombineMeshes(combine.ToArray(), true, true);
+            }
+
+            needBatchingUpdate = false;
+            SetBatchVisible(true);
+        }
+    }
+
+
     public void SetBatchVisible(bool visible)
     {
         batchContainer.gameObject.SetActive(visible);

@@ -4,28 +4,29 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
+
+
 public class BuildingIconTemplate : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler
 {
     public Image image;
     public Image nok;
     public Image option;
-    public UIHandler handler;
     public string helper;
     
     public void OnPointerClick(PointerEventData eventData)
     {
-        handler.OnIconClick(this);
+        //ConstructionUI.instance.OnIconClick(this);
     }
     
     public void OnPointerEnter(PointerEventData eventData)
     {
-        handler.SetHelperText(helper);
-        handler.OnIconHover(this);
+        //ConstructionUI.instance.SetHelperText(helper);
+        //ConstructionUI.instance.OnIconHover(this);
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        handler.SetHelperText("");
-        handler.OnIconLeftHover();
+        //ConstructionUI.instance.SetHelperText("");
+        //ConstructionUI.instance.OnIconLeftHover();
     }
 }

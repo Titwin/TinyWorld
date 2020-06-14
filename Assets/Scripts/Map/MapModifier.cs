@@ -105,6 +105,10 @@ public class MapModifier : MonoBehaviour
     {
         return tilemap.layoutGrid.GetCellCenterWorld(cellPosition) - new Vector3(0, 0.5f * tilemap.layoutGrid.cellSize.z, 0);
     }
+    public Vector3Int WorldToCell(Vector3 position)
+    {
+        return tilemap.WorldToCell(position);
+    }
     
     public TileGameObject PlaceTile(ScriptableTile tile, Vector3Int cellPosition, bool forceUpdate = true)
     {
@@ -149,6 +153,7 @@ public class MapModifier : MonoBehaviour
             float scale = tile.decorationNoiseScale == Vector2.zero ? 1 : Random.Range(tile.decorationNoiseScale.x, tile.decorationNoiseScale.y);
             tileGameObject.decoration.transform.localScale =  new Vector3(scale, scale, scale);
 
+            InitTree(tileGameObject.decoration.GetComponent<TreeStandard>(), cellPosition);
             InitStone(tileGameObject.decoration.GetComponent<Stone>(), cellPosition);
             InitMineral(tileGameObject.decoration.GetComponent<MineralRessource>(), cellPosition, tile.optionalMaterial);
 
@@ -249,6 +254,13 @@ public class MapModifier : MonoBehaviour
                     grassNeighbours++;
             }
             stone.Initialize(2 - grassNeighbours / 3);
+        }
+    }
+    private void InitTree(TreeStandard tree, Vector3Int cellPosition)
+    {
+        if (tree)
+        {
+            tree.Initialize();
         }
     }
     private void InitMineral(MineralRessource mineral, Vector3Int cellPosition, Material material)

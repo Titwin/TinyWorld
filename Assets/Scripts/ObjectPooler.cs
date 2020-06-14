@@ -24,7 +24,7 @@ public class ObjectPooler : MonoBehaviour
 
     [SerializeField] private int pooledInstance;
 
-    [Header("Tiles[0-20], Buildings[21-n]")]
+    [Header("Tiles[0-20], Buildings[21-70], Vegetation[71-n]")]
     public List<Pool> pools;
     public Dictionary<string, Pool> sortedPools = new Dictionary<string, Pool>(); // windmill 10, House 400, granary 20
     public Dictionary<string, Queue<GameObject>> poolDictionary;

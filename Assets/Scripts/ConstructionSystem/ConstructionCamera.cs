@@ -20,7 +20,7 @@ public class ConstructionCamera : MonoBehaviour
     public CameraController trackballController;
     public GameObject constructionUI;
     public GameObject destroyInteractor;
-    private Map map;
+    public MapModifier modifier;
     public GameObject currentObject;
     private MeshRenderer currentRenderer;
     public ConstructionTemplate currentTemplate;
@@ -63,11 +63,10 @@ public class ConstructionCamera : MonoBehaviour
         if (eventsystem == null)
             Debug.LogError("No event system in scene");
         helper.transform.parent = null;
-        map = Map.Instance;
         helper.SetKeys(keyLeft, keyRight);
     }
 
-    // Update is called once per frame
+
     private void Update()
     {
         // standart stuff
@@ -120,8 +119,15 @@ public class ConstructionCamera : MonoBehaviour
             RaycastHit hit;
             if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 50f, 1 << LayerMask.NameToLayer("Ground")))
             {
-                Vector3 pointing = map.grid.GetCellCenterWorld(map.grid.WorldToCell(hit.point));
-                
+
+            }
+
+            /*RaycastHit hit;
+            if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 50f, 1 << LayerMask.NameToLayer("Ground")))
+            {
+                Vector3 pointing = modifier.GetTileCenter(modifier.WorldToCell(hit.point));
+
+
                 if (uihandler.toolName == "building")
                 {
                     if(currentObject)
@@ -183,7 +189,7 @@ public class ConstructionCamera : MonoBehaviour
                                 {
                                     GameObject go = Instantiate(currentObject);
                                     go.name = currentObject.name;
-                                    go.transform.parent = map.buildingsContainer.transform;
+                                    //go.transform.parent = map.buildingsContainer.transform;
                                     go.transform.position = currentObject.transform.position;
                                     go.transform.rotation = currentObject.transform.rotation;
                                     go.transform.Find("mesh").GetComponent<MeshRenderer>().sharedMaterial = buildingMaterial;
@@ -202,7 +208,7 @@ public class ConstructionCamera : MonoBehaviour
                         Destroy(currentObject);
                     helper.mode = 2;
                     helper.transform.rotation = Quaternion.identity;
-                    List<GameObject> buildings = map.SearchBuildingsGameObject(pointing, 4f);
+                    List<GameObject> buildings = new List<GameObject>();// map.SearchBuildingsGameObject(pointing, 4f);
 
                     if (buildings.Count != 0)
                     {
@@ -261,15 +267,15 @@ public class ConstructionCamera : MonoBehaviour
                     {
                         pointing = new Vector3(pointing.x, 0, pointing.z);
                         currentObject.transform.position = pointing;
-                        Vector3Int cell = map.GetCellFromWorld(pointing);
-                        ScriptableTile tile = map.tilemap.GetTile<ScriptableTile>(cell);
+                        Vector3Int cell;// = map.GetCellFromWorld(pointing);
+                        ScriptableTile tile;// = map.tilemap.GetTile<ScriptableTile>(cell);
                         
                         if (prevTerrainBrushTile != cell)
                         {
                             if (ocludedTerrainTile)
                                 ocludedTerrainTile.SetActive(true);
 
-                            List<GameObject> ocludedList = map.SearchTilesGameObject(pointing, 3f);
+                            List<GameObject> ocludedList = new List<GameObject>();// map.SearchTilesGameObject(pointing, 3f);
                             if (ocludedList.Count != 0)
                             {
                                 ocludedTerrainTile = ocludedList[0];
@@ -307,13 +313,13 @@ public class ConstructionCamera : MonoBehaviour
 
                             uihandler.audiosource.Play();
                         }
-
+                        
                         prevTerrainBrushTile = cell;
                     }                    
                 }
                 else if (uihandler.toolName.Length != 0)
                     Debug.LogWarning("Construction mode tool " + uihandler.toolName + " unknown");
-            }
+            }*/
         }
 
         // check if quit mode
@@ -337,6 +343,11 @@ public class ConstructionCamera : MonoBehaviour
     }
     public void SelectedBuilding(GameObject icon)
     {
+        Debug.Log("selected brush : " + icon.name);
+        return;
+
+
+
         if(uihandler.toolName == "building")
         {
             if (currentObject)
@@ -354,14 +365,14 @@ public class ConstructionCamera : MonoBehaviour
             ocludedTerrainTile = null;
 
             ScriptableTile tilePrefab = null;
-            foreach(ScriptableTile st in map.tileList)
+            /*foreach(ScriptableTile st in map.tileList)
             {
                 if(st.name == icon.name)
                 {
                     tilePrefab = st;
                     break;
                 }
-            }
+            }*/
 
             if (tilePrefab != null)
             {

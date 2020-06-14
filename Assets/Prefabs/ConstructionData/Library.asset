@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af830b438a6152a40beb25475e805516, type: 3}
+  m_Name: Library
+  m_EditorClassIdentifier: 
+  layer: 0
+  icon: {fileID: 21300000, guid: ea053b2be08ae9b43b104f62bb3ff35f, type: 3}
+  optionalIcon: {fileID: 0}
+  description: Library
+  incrementSpeed: 0.02
+  constructionSteps:
+  - {fileID: 4300000, guid: 3fae66635eefa35409bdeb9bcad140ff, type: 3}
+  - {fileID: 4300000, guid: 2969cfa0fe7f35d4c94a50c9fb1d9f8c, type: 3}
+  preview: {fileID: 4300000, guid: a219455911288e84da9a9c5f55fd95c6, type: 3}
+  step0Resources:
+  - Stone 3
+  - Wood 2
+  step1Resources:
+  - Wood 2
+  - Gold 1

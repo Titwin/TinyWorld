@@ -14,7 +14,7 @@ public class WindAnimation : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        meteo = Meteo.Instance;
+        //meteo = Meteo.Instance;
         Stack iterativePath = new Stack();
         iterativePath.Push(this.transform);
         while (iterativePath.Count != 0)
@@ -30,7 +30,7 @@ public class WindAnimation : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    /*void Update()
     {
         if(meshRenderer.isVisible)
         {
@@ -54,5 +54,5 @@ public class WindAnimation : MonoBehaviour
                 bone.localRotation = q * initialRotation[bone];
             }
         }
-    }
+    }*/
 }
