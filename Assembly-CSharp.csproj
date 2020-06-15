@@ -121,7 +121,6 @@
     <Compile Include="Assets\Scripts\Animation\AnimationRotation.cs" />
     <Compile Include="Assets\Scripts\Animation\AnimationStoneGate.cs" />
     <Compile Include="Assets\Scripts\Animation\AnimationWoodGate.cs" />
-    <Compile Include="Assets\Scripts\CameraController.cs" />
     <Compile Include="Assets\Scripts\ChickController.cs" />
     <Compile Include="Assets\Scripts\ChikenController.cs" />
     <Compile Include="Assets\Scripts\ConstructionSystem\ConstructionCamera.cs" />
@@ -130,6 +129,7 @@
     <Compile Include="Assets\Scripts\ConstructionSystem\ConstructionHelper.cs" />
     <Compile Include="Assets\Scripts\ConstructionSystem\ConstructionIcon.cs" />
     <Compile Include="Assets\Scripts\ConstructionSystem\ConstructionLayer.cs" />
+    <Compile Include="Assets\Scripts\ConstructionSystem\ConstructionSystem.cs" />
     <Compile Include="Assets\Scripts\ConstructionSystem\ConstructionTemplate.cs" />
     <Compile Include="Assets\Scripts\ConstructionSystem\ConstructionUIJuicer.cs" />
     <Compile Include="Assets\Scripts\ConstructionSystem\ConstructionViewer.cs" />
@@ -189,6 +189,8 @@
     <Compile Include="Assets\Scripts\OreComponent.cs" />
     <Compile Include="Assets\Scripts\PeasantController.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
+    <Compile Include="Assets\Scripts\RTSCameraController.cs" />
+    <Compile Include="Assets\Scripts\TPSCameraController.cs" />
     <Compile Include="Assets\Scripts\TileScripts\Bridge.cs" />
     <Compile Include="Assets\Scripts\TileScripts\Dirt.cs" />
     <Compile Include="Assets\Scripts\TileScripts\Fences.cs" />

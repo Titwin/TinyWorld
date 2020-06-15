@@ -16,6 +16,7 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: ddc52cba27f6fba429820409e218fb1d, type: 3}
   optionalIcon: {fileID: 0}
   description: Stable
+  tileSize: {x: 2, y: 2}
   incrementSpeed: 0.03
   constructionSteps:
   - {fileID: 4300000, guid: c8f46a36db3ed5d4ba1ec3877467e8ca, type: 3}

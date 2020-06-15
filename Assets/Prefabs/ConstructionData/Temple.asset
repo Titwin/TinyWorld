@@ -16,6 +16,7 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: d0d00f28bc077f44aa243f47009bb4d3, type: 3}
   optionalIcon: {fileID: 0}
   description: Temple
+  tileSize: {x: 2, y: 2}
   incrementSpeed: 0.02
   constructionSteps:
   - {fileID: 4300000, guid: 2c19f74705f3b6b44af06171a67178a1, type: 3}

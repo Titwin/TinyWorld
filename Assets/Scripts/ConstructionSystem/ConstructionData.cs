@@ -16,6 +16,7 @@ public class ConstructionData : ScriptableObject
     public string description;
 
     [Header("Construction")]
+    public Vector2Int tileSize = Vector2Int.one;
     public float incrementSpeed = 1;
     public Mesh[] constructionSteps;
     public Mesh preview;

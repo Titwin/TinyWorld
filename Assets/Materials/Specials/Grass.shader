@@ -37,7 +37,7 @@
 			float4 pos : SV_POSITION;
 			float4 uv : TEXCOORD0;
 			float3 normal : NORMAL;
-			unityShadowCoord4 _ShadowCoord : TEXCOORD1;
+			float4 _ShadowCoord : TEXCOORD1;
 		};
 
 		// parameters
@@ -101,8 +101,6 @@
 			o.uv = float4(uv.x, uv.y, option.x, option.y);
 			o.normal = UnityObjectToWorldNormal(normal);
 			o._ShadowCoord = ComputeScreenPos(o.pos);
-			//o.fog = option.xy;
-			//o.path = option.zw;
 
 			#if UNITY_PASS_SHADOWCASTER
 			// Applying the bias prevents artifacts from appearing on the surface.
@@ -123,18 +121,19 @@
 		void geo(triangle vertexOutput IN[3] : SV_POSITION, inout TriangleStream<geometryOutput> output) //OutputStream.RestartStrip();
 		{
 			float3 pos = 0.333 * (IN[0].vertex + IN[1].vertex + IN[2].vertex);
-			if (rand(pos.xxy) < IN[0].uv.x)
+			float3 randseed = pos;
+			if (rand(randseed.xxy) < IN[0].uv.x)
 			{
 				// local base
 				float3 vNormal = IN[0].normal;
 				float4 vTangent = IN[0].tangent;
 				float3 vBinormal = cross(vNormal, vTangent) * vTangent.w;
 				float3x3 tangentToLocal = float3x3(vTangent.x, vBinormal.x, vNormal.x, vTangent.y, vBinormal.y, vNormal.y, vTangent.z, vBinormal.z, vNormal.z);
-				float3x3 facingRotationMatrix = AngleAxis3x3(rand(pos) * UNITY_TWO_PI, float3(0, 0, 1));
+				float3x3 facingRotationMatrix = AngleAxis3x3(rand(randseed) * UNITY_TWO_PI, float3(0, 0, 1));
 
 				// wind
 				float windFactor = lerp(_WindStrength, 0.01, IN[0].uv.z);
-				float2 uv = pos.xz * _WindDistortionMap_ST.xy + _WindDistortionMap_ST.zw + _WindFrequency * _Time.y;
+				float2 uv =  randseed.xz * _WindDistortionMap_ST.xy + _WindDistortionMap_ST.zw + _WindFrequency * _Time.y;
 				float2 windSample = (tex2Dlod(_WindDistortionMap, float4(uv, 0, 0)).yz * 2 - 1) * windFactor;
 				float3 wind = normalize(float3(windSample.x, 0, windSample.y));
 				wind = mul(unity_WorldToObject, wind);
@@ -142,14 +141,14 @@
 
 				// end
 				float3x3 transformationMatrixFacing = mul(tangentToLocal, facingRotationMatrix);
-				float bendAngle = lerp(rand(pos.zzx) * _BendRotationRandom * UNITY_PI * 0.5, _SmashedAngle, IN[0].uv.z);
+				float bendAngle = lerp(rand(randseed.zzx) * _BendRotationRandom * UNITY_PI * 0.5, _SmashedAngle, IN[0].uv.z);
 				float3x3 bendRotationMatrix = AngleAxis3x3(bendAngle, float3(-1, 0, 0));
 				float3x3 transformationMatrix = mul(mul(mul(tangentToLocal, windRotation), facingRotationMatrix), bendRotationMatrix);
-				float forward = rand(pos.yyz) * _BladeForward;
+				float forward = rand(randseed.yyz) * _BladeForward;
 				float width = _BladeWidth;
 				float height = _BladeHeight;
 				float bladeDistanceFromCamera = length(UnityObjectToViewPos(pos).xyz);
-				float2 option = float2(bladeDistanceFromCamera, rand(pos.xxz));
+				float2 option = float2(bladeDistanceFromCamera, rand(randseed.xxz));
 			
 				// one grass string
 				geometryOutput o;

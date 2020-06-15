@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using UnityEngine.Tilemaps;
 
+
 public class ConstructionCamera : MonoBehaviour
 {
     [Header("Interfaces")]
@@ -17,7 +18,7 @@ public class ConstructionCamera : MonoBehaviour
     public KeyCode keyMode;
     public KeyCode keyLeft;
     public KeyCode keyRight;
-    public CameraController trackballController;
+    public TPSCameraController trackballController;
     public GameObject constructionUI;
     public GameObject destroyInteractor;
     public MapModifier modifier;
@@ -119,7 +120,7 @@ public class ConstructionCamera : MonoBehaviour
             RaycastHit hit;
             if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 50f, 1 << LayerMask.NameToLayer("Ground")))
             {
-
+                Vector3 pointing = modifier.GetTileCenter(modifier.WorldToCell(hit.point));
             }
 
             /*RaycastHit hit;

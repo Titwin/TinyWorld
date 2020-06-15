@@ -92,7 +92,7 @@ public class Water : MonoBehaviour
                 rotation = 0f;
                 break;
             default:
-                Debug.LogError("Dirt init : invald tile configuration");
+                Debug.LogError("Water init : invald tile configuration");
                 break;
         }
 
@@ -101,7 +101,92 @@ public class Water : MonoBehaviour
         transform.localEulerAngles = new Vector3(0, rotation, 0);
         //water.transform.rotation = Quaternion.identity;
     }
-    
+    public void InitializeFromPool(bool xp, bool xm, bool zp, bool zm)
+    {
+        // compute configuration and choose the resolve mesh algorithm accordingly
+        configuration = (zp ? 0 : 1) << 3 | (zm ? 0 : 1) << 2 | (xp ? 0 : 1) << 1 | (xm ? 0 : 1) << 0;
+        float rotation = 0f;
+        Mesh mesh = new Mesh();
+
+        // initialize configs
+        switch (configuration)
+        {
+            case 0:
+                mesh = TilePrefabsContainer.Instance.GetWaterA();
+                rotation = 0f;
+                break;
+            case 1:
+                mesh = TilePrefabsContainer.Instance.GetWaterB();
+                rotation = 0f;
+                break;
+            case 2:
+                mesh = TilePrefabsContainer.Instance.GetWaterB();
+                rotation = 180f;
+                break;
+            case 3:
+                mesh = TilePrefabsContainer.Instance.GetWaterC();
+                rotation = 0f;
+                break;
+            case 4:
+                mesh = TilePrefabsContainer.Instance.GetWaterB();
+                rotation = 90f;
+                break;
+            case 5:
+                mesh = TilePrefabsContainer.Instance.GetWaterD();
+                rotation = 0f;
+                break;
+            case 6:
+                mesh = TilePrefabsContainer.Instance.GetWaterD();
+                rotation = 90f;
+                break;
+            case 7:
+                mesh = TilePrefabsContainer.Instance.GetWaterE();
+                rotation = 90f;
+                break;
+            case 8:
+                mesh = TilePrefabsContainer.Instance.GetWaterB();
+                rotation = -90f;
+                break;
+            case 9:
+                mesh = TilePrefabsContainer.Instance.GetWaterD();
+                rotation = -90f;
+                break;
+            case 10:
+                mesh = TilePrefabsContainer.Instance.GetWaterD();
+                rotation = -180f;
+                break;
+            case 11:
+                mesh = TilePrefabsContainer.Instance.GetWaterE();
+                rotation = -90f;
+                break;
+            case 12:
+                mesh = TilePrefabsContainer.Instance.GetWaterC();
+                rotation = 90f;
+                break;
+            case 13:
+                mesh = TilePrefabsContainer.Instance.GetWaterE();
+                rotation = 0f;
+                break;
+            case 14:
+                mesh = TilePrefabsContainer.Instance.GetWaterE();
+                rotation = 180f;
+                break;
+            case 15:
+                mesh = TilePrefabsContainer.Instance.GetWaterF();
+                rotation = 0f;
+                break;
+            default:
+                Debug.LogError("Water init 2 : invald tile configuration");
+                break;
+        }
+
+        // set mesh and orientation
+        ground.sharedMesh = mesh;
+        /*if (childPivot)
+            childPivot.localEulerAngles -= new Vector3(0, rotation - transform.localEulerAngles.y, 0);*/
+        transform.localEulerAngles = new Vector3(0, rotation, 0);
+    }
+
     protected Mesh CaseA(float borderStrengh)
     {
         // creates arrays
@@ -158,7 +243,7 @@ public class Water : MonoBehaviour
             n2, n2, n2, n2
         };
         int[] grasstri = new int[3] { 0, 1, 2 };
-        int[] dirttri = new int[21] { 3,6,7, 6,4,7, 4,5,7, 8,11,10, 8,9,11, 12,15,13, 12,14,15};
+        int[] Watertri = new int[21] { 3,6,7, 6,4,7, 4,5,7, 8,11,10, 8,9,11, 12,15,13, 12,14,15};
         
         //push in mesh struct
         Mesh mesh = new Mesh();
@@ -166,7 +251,7 @@ public class Water : MonoBehaviour
         mesh.vertices = vertices;
         mesh.normals = normals;
         mesh.uv = uv;
-        mesh.SetTriangles(dirttri, 0);
+        mesh.SetTriangles(Watertri, 0);
         mesh.SetTriangles(grasstri, 1);
         mesh.SetTriangles(grasstri, 2);
         return mesh;
@@ -225,7 +310,7 @@ public class Water : MonoBehaviour
         };
 
         int[] grasstri = new int[6] { 0, 1, 2, 3,4,5 };
-        int[] dirttri = new int[36] { 6,7,9, 7,8,9, 8,10,9, 8,11,10, 12,15,14, 12,13,15, 17,16,18, 17,18,19, 20,21,22, 22,21,23, 24,25,26, 26,25,27 };
+        int[] Watertri = new int[36] { 6,7,9, 7,8,9, 8,10,9, 8,11,10, 12,15,14, 12,13,15, 17,16,18, 17,18,19, 20,21,22, 22,21,23, 24,25,26, 26,25,27 };
         
         //push in mesh struct
         Mesh mesh = new Mesh();
@@ -233,7 +318,7 @@ public class Water : MonoBehaviour
         mesh.vertices = vertices;
         mesh.normals = normals;
         mesh.uv = uv;
-        mesh.SetTriangles(dirttri, 0);
+        mesh.SetTriangles(Watertri, 0);
         mesh.SetTriangles(grasstri, 1);
         mesh.SetTriangles(grasstri, 2);
         return mesh;
@@ -281,7 +366,7 @@ public class Water : MonoBehaviour
         };
 
         int[] grasstri = new int[6] { 0,1,3, 1,2,3 };
-        int[] dirttri = new int[18] { 4,5,6, 4,6,7, 8,9,11, 8,11,10, 13,12,14, 13,14,15 };
+        int[] Watertri = new int[18] { 4,5,6, 4,6,7, 8,9,11, 8,11,10, 13,12,14, 13,14,15 };
         
         //push in mesh struct
         Mesh mesh = new Mesh();
@@ -289,7 +374,7 @@ public class Water : MonoBehaviour
         mesh.vertices = vertices;
         mesh.normals = normals;
         mesh.uv = uv;
-        mesh.SetTriangles(dirttri, 0);
+        mesh.SetTriangles(Watertri, 0);
         mesh.SetTriangles(grasstri, 1);
         mesh.SetTriangles(grasstri, 2);
         return mesh;
@@ -345,7 +430,7 @@ public class Water : MonoBehaviour
         };
 
         int[] grasstri = new int[12] { 0, 4, 3, 0, 1, 4, 4, 1, 5, 5, 1, 2 };
-        int[] dirttri = new int[24] { 6,7,8, 6,8,9, 10,11,12, 12,11,13, 14,15,17, 14,17,16, 18,19,21, 18,21,20 };
+        int[] Watertri = new int[24] { 6,7,8, 6,8,9, 10,11,12, 12,11,13, 14,15,17, 14,17,16, 18,19,21, 18,21,20 };
         
         //push in mesh struct
         Mesh mesh = new Mesh();
@@ -353,7 +438,7 @@ public class Water : MonoBehaviour
         mesh.vertices = vertices;
         mesh.normals = normals;
         mesh.uv = uv;
-        mesh.SetTriangles(dirttri, 0);
+        mesh.SetTriangles(Watertri, 0);
         mesh.SetTriangles(grasstri, 1);
         mesh.SetTriangles(grasstri, 2);
         return mesh;
@@ -416,7 +501,7 @@ public class Water : MonoBehaviour
             n3, n3, n3,
             n4, n4, n4
         };
-        int[] dirttri = new int[12] { 8,9,10, 11,12,13, 14,15,16, 17,18,19 };
+        int[] Watertri = new int[12] { 8,9,10, 11,12,13, 14,15,16, 17,18,19 };
         int[] grasstri = new int[24] { 0,1,4, 4,1,5, 1,6,5, 1,2,6, 7,6,2, 7,2,3, 0,4,3, 3,4,7 };
 
         //push in mesh struct
@@ -425,7 +510,7 @@ public class Water : MonoBehaviour
         mesh.vertices = vertices;
         mesh.normals = normals;
         mesh.uv = uv;
-        mesh.SetTriangles(dirttri, 0);
+        mesh.SetTriangles(Watertri, 0);
         mesh.SetTriangles(grasstri, 1);
         mesh.SetTriangles(grasstri, 2);
         return mesh;

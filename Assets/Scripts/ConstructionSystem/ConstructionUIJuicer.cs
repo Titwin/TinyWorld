@@ -15,7 +15,7 @@ public class ConstructionUIJuicer : MonoBehaviour
     public ConstructionIcon hoveredIcon;
     public ConstructionIcon selectedIcon;
 
-    private ConstructionIcon layerIcon;
+    public ConstructionIcon layerIcon;
     public ConstructionLayer selectedLayer;
 
     public List<ConstructionIcon> icons;
@@ -28,6 +28,8 @@ public class ConstructionUIJuicer : MonoBehaviour
     public Dictionary<string, ResourceData> sortedResources;
     public List<ResourceIcon> resourceIconList;
 
+    public GameObject helpVideo;
+
     #region Singleton
     public static ConstructionUIJuicer instance;
     private void Awake()
@@ -38,22 +40,13 @@ public class ConstructionUIJuicer : MonoBehaviour
 
     private void Start()
     {
-        description.text = "";
-        cost.text = "";
-
         sortedResources = new Dictionary<string, ResourceData>();
         foreach (ResourceData res in allResources)
         {
             sortedResources.Add(res.name, res);
         }
-        foreach(ResourceIcon res in resourceIconList)
-        {
-            res.gameObject.SetActive(false);
-        }
-        foreach(ConstructionIcon ico in icons)
-        {
-            ico.gameObject.SetActive(false);
-        }
+
+        ResetState();
     }
 
     public void OnIconClick(ConstructionIcon icon)
@@ -131,14 +124,8 @@ public class ConstructionUIJuicer : MonoBehaviour
             hoveredIcon.border.color = hoveredColorCache;
         }
         hoveredIcon = null;
-
-
+        
         description.text = "";
-        cost.text = "";
-        foreach (ResourceIcon res in resourceIconList)
-        {
-            res.gameObject.SetActive(false);
-        }
     }
 
     private void LoadLayerIcons(ConstructionLayer layer)
@@ -153,16 +140,18 @@ public class ConstructionUIJuicer : MonoBehaviour
         {
             if(i < layer.elements.Count)
             {
+                ConstructionData data = layer.elements[i];
                 icons[i].gameObject.SetActive(true);
-                icons[i].gameObject.name = layer.elements[i].name;
-                icons[i].image.sprite = layer.elements[i].icon;
-                icons[i].option.sprite = layer.elements[i].optionalIcon;
-                icons[i].description = layer.elements[i].description;
+                icons[i].gameObject.name = data.name;
+                icons[i].image.sprite = data.icon;
+                icons[i].option.sprite = data.optionalIcon;
+                icons[i].description = data.description;
                 icons[i].nok.enabled = false;
-                icons[i].option.enabled = layer.elements[i].optionalIcon != null;
-                icons[i].cost = layer.elements[i].GetTotalCost();
+                icons[i].option.enabled = data.optionalIcon != null;
+                icons[i].cost = data.GetTotalCost();
+                icons[i].data = data;
 
-                if(icons[i].cost.Count == 0)
+                if (icons[i].cost.Count == 0)
                 {
                     cost.text = "Free";
                 }
@@ -212,5 +201,32 @@ public class ConstructionUIJuicer : MonoBehaviour
         {
             resourceIconList[index].gameObject.SetActive(false);
         }
+    }
+
+    public void ResetState()
+    {
+        description.text = "";
+        cost.text = "";
+
+        foreach (ResourceIcon res in resourceIconList)
+        {
+            res.gameObject.SetActive(false);
+        }
+        foreach (ConstructionIcon ico in icons)
+        {
+            ico.gameObject.SetActive(false);
+        }
+
+        if (layerIcon)
+            layerIcon.border.color = selectedLayerColorCache;
+        if (selectedIcon)
+            selectedIcon.border.color = selectedLayerColorCache;
+
+        hoveredIcon = null;
+        selectedIcon = null;
+        layerIcon = null;
+        selectedLayer = null;
+
+        iconsContainer.sizeDelta = new Vector2(iconsContainer.sizeDelta.x, 122);
     }
 }

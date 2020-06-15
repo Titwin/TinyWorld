@@ -8,7 +8,9 @@ public class TilePrefabsContainer : MonoBehaviour
 
     public Dirt originalDirt;
     private Mesh[] dirtMeshes;
-    
+    public Water originalWater;
+    private Mesh[] waterMeshes;
+
     public List<GameObject> bigStones;
     public List<GameObject> midStones;
     public List<GameObject> smallStones;
@@ -35,7 +37,9 @@ public class TilePrefabsContainer : MonoBehaviour
         }
 
         dirtMeshes = new Mesh[5 * diversity + 1];
+        waterMeshes = new Mesh[5 * diversity + 1];
         InitDirt();
+        InitWater();
         InitStone();
     }
 
@@ -83,7 +87,7 @@ public class TilePrefabsContainer : MonoBehaviour
     private void InitWater()
     {
         GameObject container = new GameObject();
-        container.name = originalDirt.name + "_container";
+        container.name = originalWater.name + "_container";
         container.transform.parent = transform;
         container.transform.localPosition = Vector3.zero;
         container.transform.localScale = Vector3.one;
@@ -93,26 +97,26 @@ public class TilePrefabsContainer : MonoBehaviour
         {
             for (int i = 0; i < diversity; i++)
             {
-                GameObject go = Instantiate(originalDirt.gameObject);
+                GameObject go = Instantiate(originalWater.gameObject);
                 go.transform.parent = container.transform;
                 go.transform.localPosition = Vector3.zero;
                 go.transform.localScale = Vector3.one;
                 go.transform.localRotation = Quaternion.identity;
 
-                Dirt dirt = go.GetComponent<Dirt>();
+                Water water = go.GetComponent<Water>();
 
                 switch (j)
                 {
-                    case 0: dirt.Initialize(false, false, false, false, 0.3f); break;
-                    case 1: dirt.Initialize(false, true, false, false, 0.3f); break;
-                    case 2: dirt.Initialize(false, false, true, true, 0.3f); break;
-                    case 3: dirt.Initialize(false, true, true, false, 0.3f); break;
-                    case 4: dirt.Initialize(false, true, true, true, 0.3f); break;
-                    case 5: dirt.Initialize(true, true, true, true, 0.3f); break;
+                    case 0: water.Initialize(false, false, false, false, 0.3f); break;
+                    case 1: water.Initialize(false, true, false, false, 0.3f); break;
+                    case 2: water.Initialize(false, false, true, true, 0.3f); break;
+                    case 3: water.Initialize(false, true, true, false, 0.3f); break;
+                    case 4: water.Initialize(false, true, true, true, 0.3f); break;
+                    case 5: water.Initialize(true, true, true, true, 0.3f); break;
                     default: break;
                 }
 
-                dirtMeshes[j * diversity + i] = dirt.meshFilter.sharedMesh;
+                waterMeshes[j * diversity + i] = water.ground.sharedMesh;
                 if (j == 5)
                     break;
             }
@@ -168,7 +172,14 @@ public class TilePrefabsContainer : MonoBehaviour
     public Mesh GetDirtD() { return dirtMeshes[3 * diversity + Random.Range(0, diversity)]; }
     public Mesh GetDirtE() { return dirtMeshes[1 * diversity + Random.Range(0, diversity)]; }
     public Mesh GetDirtF() { return dirtMeshes[Random.Range(0, diversity - 1)]; }
-    
+
+    public Mesh GetWaterA() { return waterMeshes[5 * diversity]; }
+    public Mesh GetWaterB() { return waterMeshes[4 * diversity + Random.Range(0, diversity)]; }
+    public Mesh GetWaterC() { return waterMeshes[2 * diversity + Random.Range(0, diversity)]; }
+    public Mesh GetWaterD() { return waterMeshes[3 * diversity + Random.Range(0, diversity)]; }
+    public Mesh GetWaterE() { return waterMeshes[1 * diversity + Random.Range(0, diversity)]; }
+    public Mesh GetWaterF() { return waterMeshes[Random.Range(0, diversity - 1)]; }
+
     public GameObject GetOre(string ressource)
     {
         GameObject go = Instantiate(ores[Random.Range(0, ores.Count - 1)].gameObject);

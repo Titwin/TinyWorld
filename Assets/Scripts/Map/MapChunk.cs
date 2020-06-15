@@ -8,15 +8,18 @@ public class MapChunk : MonoBehaviour
 {
     public static ObjectPooler pool;
     public static int chunkSize = 16;
-    public static List<string> batchableNames = new List<string>();
+    public static int extend = 2;
+    public static HashSet<string> batchableNames = new HashSet<string>();
 
     [Header("Linking")]
     public Transform batchContainer;
     public Transform objectContainer;
 
     [Header("Content and debug inspection")]
-    private Dictionary<GameObject, Child> childs = new Dictionary<GameObject, Child>();
-    public bool needBatchingUpdate;
+    private Dictionary<GameObject, ChildRendering> childRendering = new Dictionary<GameObject, ChildRendering>();
+    public Dictionary<ConstructionLayer.LayerType, List<GameObject>> childs;
+    public HashSet<Material> batchUpdate;
+    //public bool needBatchingUpdate;
     public bool isOptimized;
 
     public void InitContainers()
@@ -39,18 +42,37 @@ public class MapChunk : MonoBehaviour
         objectContainer = objects.transform;
         objects.SetActive(true);
     }
+
     public bool Clean()
     {
-        Dictionary<GameObject, Child> newChilds = new Dictionary<GameObject, Child>();
-        foreach (KeyValuePair<GameObject, Child> entry in childs)
+        Dictionary<GameObject, ChildRendering> newChildRendering = new Dictionary<GameObject, ChildRendering>();
+        foreach (KeyValuePair<GameObject, ChildRendering> entry in childRendering)
         {
-            if (entry.Key) newChilds.Add(entry.Key, entry.Value);
+            if (entry.Key)
+                newChildRendering.Add(entry.Key, entry.Value);
         }
+
+        Dictionary<ConstructionLayer.LayerType, List<GameObject>> newChilds = new Dictionary<ConstructionLayer.LayerType, List<GameObject>>();
+        foreach (var entry in childs)
+        {
+            newChilds.Add(entry.Key, new List<GameObject>());
+            foreach (GameObject go in entry.Value)
+            {
+                if(go)
+                {
+                    newChilds[entry.Key].Add(go);
+                }
+            }
+        }
+        childRendering = newChildRendering;
         childs = newChilds;
         return childs.Count == 0;
     }
+
     public void BakeAll()
     {
+        return;
+
         // clean
         foreach(Transform t in batchContainer)
         {
@@ -59,7 +81,7 @@ public class MapChunk : MonoBehaviour
 
         // prepare data to combine
         Dictionary<Material, CombineData> combineData = new Dictionary<Material, CombineData>();
-        foreach (KeyValuePair<GameObject, Child> entry in childs)
+        foreach (KeyValuePair<GameObject, ChildRendering> entry in childRendering)
         {
             if (entry.Value.meshFilters.Count != 0)
             {
@@ -123,11 +145,14 @@ public class MapChunk : MonoBehaviour
             meshRenderer.sharedMaterial = entry.Key;
         }
 
-        needBatchingUpdate = false;
+        batchUpdate.Clear();
         SetBatchVisible(true);
     }
+
     public void Rebake(Material material)
     {
+        return;
+
         string batchName = "batch " + material.name;
         Transform batch = batchContainer.Find(batchName);
         if(batch && material)
@@ -136,7 +161,7 @@ public class MapChunk : MonoBehaviour
 
             // prepare data to combine
             Dictionary<Material, CombineData> combineData = new Dictionary<Material, CombineData>();
-            foreach (KeyValuePair<GameObject, Child> entry in childs)
+            foreach (KeyValuePair<GameObject, ChildRendering> entry in childRendering)
             {
                 if (entry.Value.meshFilters.Count != 0)
                 {
@@ -188,7 +213,7 @@ public class MapChunk : MonoBehaviour
                 meshfilter.mesh.CombineMeshes(combine.ToArray(), true, true);
             }
 
-            needBatchingUpdate = false;
+            batchUpdate.Remove(material);
             SetBatchVisible(true);
         }
     }
@@ -197,7 +222,7 @@ public class MapChunk : MonoBehaviour
     public void SetBatchVisible(bool visible)
     {
         batchContainer.gameObject.SetActive(visible);
-        foreach (KeyValuePair<GameObject, Child> entry in childs)
+        foreach (KeyValuePair<GameObject, ChildRendering> entry in childRendering)
         {
             foreach(MeshRenderer mr in entry.Value.meshRenderers)
             {
@@ -205,62 +230,97 @@ public class MapChunk : MonoBehaviour
             }
         }
     }
-    public int GetChildCount()
+    public bool IsEmpty()
     {
-        return childs.Count;
+        return childs.Count == 0;
     }
 
-    public void AddGameObject(GameObject go, bool isBatchable)
+    public void AddGameObject(GameObject go, ConstructionLayer.LayerType layer, bool isBatchable)
     {
-        Child child = new Child();
-        child.gameObject = go;
-
-        if(isBatchable)
+        if (!childs.ContainsKey(layer))
+            childs.Add(layer, new List<GameObject>());
+        
+        if (!childs[layer].Contains(go))
         {
-            foreach(Transform t in go.transform)
-            {
-                if (batchableNames.Contains(t.name))
-                {
-                    MeshFilter mf = t.gameObject.GetComponent<MeshFilter>();
-                    MeshRenderer mr = t.gameObject.GetComponent<MeshRenderer>();
-                    
-                    if(mf != null && mf.sharedMesh != null && mr != null)
-                    {
-                        child.meshFilters.Add(mf);
-                        child.meshRenderers.Add(mr);
+            childs[layer].Add(go);
+            go.transform.parent = objectContainer;
 
-                        needBatchingUpdate = true;
+
+            ChildRendering cr = new ChildRendering();
+            cr.gameObject = go;
+            cr.meshMaterials = new HashSet<Material>();
+
+            if (isBatchable)
+            {
+                foreach (Transform t in go.transform)
+                {
+                    if (batchableNames.Contains(t.name))
+                    {
+                        MeshFilter mf = t.gameObject.GetComponent<MeshFilter>();
+                        MeshRenderer mr = t.gameObject.GetComponent<MeshRenderer>();
+
+                        if (mf != null && mf.sharedMesh != null && mr != null)
+                        {
+                            cr.meshFilters.Add(mf);
+                            cr.meshRenderers.Add(mr);
+                            List<Material> m = new List<Material>();
+                            mr.GetSharedMaterials(m);
+                            cr.meshMaterials.UnionWith(m);
+
+                            batchUpdate.UnionWith(m);
+                        }
                     }
                 }
-            }
 
-            if (needBatchingUpdate)
-            {
-                SetBatchVisible(false);
+                if (batchUpdate.Count != 0)
+                {
+                    SetBatchVisible(false);
+                }
             }
         }
-
-        childs.Add(go, child);
-        go.transform.parent = objectContainer;
-    }
-    public bool RemoveGameObject(GameObject go)
-    {
-        if(childs.ContainsKey(go))
+        else
         {
-            needBatchingUpdate = childs[go].meshFilters.Count != 0;
-            if(needBatchingUpdate)
+            Debug.LogError(go.name + " already inserted in " + gameObject.name);
+        }
+    }
+    public bool RemoveGameObject(GameObject obj)
+    {
+        // remove object from container
+        ConstructionLayer.LayerType layer = ConstructionLayer.LayerType.Delete;
+        bool found = false;
+        foreach (var entry in childs)
+        {
+            if (entry.Value.Remove(obj))
+            {
+                layer = entry.Key;
+                found = true;
+                break;
+            }
+        }
+        if(found && childs[layer].Count == 0)
+        {
+            childs.Remove(layer);
+        }
+        
+        // remove object from rendering structure, and indiquate if the chunk need an update (and for which material
+        if (childRendering.ContainsKey(obj))
+        {
+            batchUpdate.UnionWith(childRendering[obj].meshMaterials);
+            if (batchUpdate.Count != 0)
             {
                 SetBatchVisible(false);
             }
         }
-        return childs.Remove(go);
+        childRendering.Remove(obj);
+
+        return found;
     }
 
-    public static Vector2Int worldToCell(Vector3 position)
+    public static Vector2Int WorldToCell(Vector3 position)
     {
         return new Vector2Int((int)(position.x / chunkSize), (int)(position.z / chunkSize));
     }
-    public static Vector3 cellToWorld(Vector2Int cell)
+    public static Vector3 CellToWorld(Vector2Int cell)
     {
         return new Vector3(chunkSize * (cell.x - 0.5f), 0, chunkSize * (cell.y - 0.5f));
     }
@@ -268,8 +328,10 @@ public class MapChunk : MonoBehaviour
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.black;
-        if (needBatchingUpdate) Gizmos.color = Color.white;
-        else if (childs.Count != 0) Gizmos.color = Color.gray;
+        if (batchUpdate.Count != 0)
+            Gizmos.color = Color.white;
+        else if (childs.Count != 0)
+            Gizmos.color = Color.gray;
 
         Gizmos.DrawWireCube(transform.position, (chunkSize - 0.1f) * Vector3.one);
     }
@@ -280,10 +342,11 @@ public class MapChunk : MonoBehaviour
         public List<int> submesh = new List<int>();
         public List<Transform> transforms = new List<Transform>();
     };
-    private class Child
+    private class ChildRendering
     {
         public GameObject gameObject;
         public List<MeshFilter> meshFilters = new List<MeshFilter>();
         public List<MeshRenderer> meshRenderers = new List<MeshRenderer>();
+        public HashSet<Material> meshMaterials;
     };
 }

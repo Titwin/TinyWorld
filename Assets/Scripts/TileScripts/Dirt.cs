@@ -104,7 +104,7 @@ public class Dirt : MonoBehaviour
             Debug.Log(childPivot.eulerAngles);
         }
     }
-    public void InitializeFromPool(bool xp, bool xm, bool zp, bool zm, float borderStrengh)
+    public void InitializeFromPool(bool xp, bool xm, bool zp, bool zm)
     {
         // compute configuration and choose the resolve mesh algorithm accordingly
         configuration = (zp ? 0 : 1) << 3 | (zm ? 0 : 1) << 2 | (xp ? 0 : 1) << 1 | (xm ? 0 : 1) << 0;

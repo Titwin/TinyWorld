@@ -16,6 +16,7 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: dece9702ba40aa6409a4149fa5f17fe1, type: 3}
   optionalIcon: {fileID: 21300000, guid: 7de5ff998f7d7c8409caa6d4e1f42e8b, type: 3}
   description: Tavern
+  tileSize: {x: 2, y: 2}
   incrementSpeed: 0.02
   constructionSteps:
   - {fileID: 4300000, guid: 8bfa3476d6d02f04aac71fd7a8d1da0a, type: 3}

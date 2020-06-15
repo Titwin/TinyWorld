@@ -11,6 +11,8 @@ public class MapStreaming : MonoBehaviour
     
     private MapModifier modifier;
 
+    public Transform staticBuildingContainer = null;
+
     #region Singleton
     public static MapStreaming instance;
 
@@ -44,6 +46,23 @@ public class MapStreaming : MonoBehaviour
                 lastUpdatePosition = modifier.GetTileCenter(modifier.tilemap.WorldToCell(focusAgent.position));
             }
         }
+
+        /*if (staticBuildingContainer != null)
+        {
+            foreach (Transform t in staticBuildingContainer)
+            {
+                MapModifier.JobModifier job = new MapModifier.JobModifier();
+                job.jobType = MapModifier.JobType.InsertLargeObject;
+                job.cellPosition = modifier.WorldToCell(t.position - 0.5f * new Vector3(t.localScale.x, 0, t.localScale.z));
+                job.cellPosition.z = 0;
+                job.layer = ConstructionLayer.LayerType.Building;
+                job.size = new Vector2Int(2, 2);
+                job.go = t.gameObject;
+                
+                modifier.jobs.Enqueue(job);
+            }
+            staticBuildingContainer = null;
+        }*/
     }
 
 
@@ -86,7 +105,7 @@ public class MapStreaming : MonoBehaviour
         int radius = (int)(streamingCellRadius + MapChunk.chunkSize / modifier.tilemap.layoutGrid.cellSize.x);
         foreach (KeyValuePair<Vector2Int, MapChunk> entry in modifier.grid.grid)
         {
-            Vector3Int chunkCellPos = modifier.tilemap.WorldToCell(MapChunk.cellToWorld(entry.Key));
+            Vector3Int chunkCellPos = modifier.tilemap.WorldToCell(MapChunk.CellToWorld(entry.Key));
 
             if (Mathf.Abs(centerCell.x - chunkCellPos.x) > radius || Mathf.Abs(centerCell.y - chunkCellPos.y) > radius)
             {

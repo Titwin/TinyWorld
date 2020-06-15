@@ -100,6 +100,8 @@ MonoBehaviour:
   diversity: 15
   originalDirt: {fileID: 3519308851485402565, guid: b2bd31f28cd978a46a9bb932b796cb38,
     type: 3}
+  originalWater: {fileID: 5237027749259140529, guid: e9745d8cb34ce464bb727ac51c04475b,
+    type: 3}
   bigStones:
   - {fileID: 5635477144801579475}
   - {fileID: 5635477144355656413}

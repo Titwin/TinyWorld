@@ -14,6 +14,7 @@ public class ConstructionIcon : MonoBehaviour, IPointerClickHandler, IPointerEnt
     public Image option;
     public string description;
     public Dictionary<string, int> cost;
+    public ConstructionData data;
 
     public void OnPointerClick(PointerEventData eventData)
     {

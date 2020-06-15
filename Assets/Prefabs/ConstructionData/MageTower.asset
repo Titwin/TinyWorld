@@ -16,6 +16,7 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 49075edae9c602344a6728378695981f, type: 3}
   optionalIcon: {fileID: 0}
   description: Mage tower
+  tileSize: {x: 2, y: 2}
   incrementSpeed: 0.02
   constructionSteps:
   - {fileID: 4300000, guid: 23f5e8bfeddc6454da643b5f31d0ff9a, type: 3}

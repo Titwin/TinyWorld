@@ -41,7 +41,6 @@ public class PlayerController : MonoBehaviour
     public InventoryViewer inventoryViewer;
     public EquipementViewer equipementViewer;
     public InteractionHelper interactionHelper;
-    public ConstructionCamera constructionCamera;
 
     private bool needEquipementAnimationUpdate = false;
     public  float interactionDelay = 0f;
@@ -136,7 +135,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         // begin
-        if (constructionCamera && constructionCamera.activated)
+        if (ConstructionSystem.instance.activated)
             return;
 
         float speedFactor = Input.GetKey(KeyCode.LeftShift) && loadFactor > 0.75f ? 2 : 1;
@@ -184,7 +183,7 @@ public class PlayerController : MonoBehaviour
         else if(Input.GetKeyDown(KeyCode.Space) && scanLength == 0 && weapon.equipedItem.toolFamily == "Hammer" && !interacting)
         {
             interactionType = InteractionType.Type.constructionMode;
-            currentInteractor = constructionCamera.gameObject;
+            currentInteractor = ConstructionSystem.instance.gameObject;
             interactionConfirmedDelay = 0.001f;
         }
         interacting = currentInteractor && (interactionDelay > 0f || interactionConfirmedDelay > 0f);
@@ -262,7 +261,7 @@ public class PlayerController : MonoBehaviour
         Vector3 position = transform.TransformPoint(controller.center);
         scanLength = Physics.BoxCastNonAlloc(position, size, Vector3.forward, scanResults, Quaternion.identity, 1f, 1 << LayerMask.NameToLayer("Interaction"));
 
-        if (scanLength > 0 && !constructionCamera.activated)
+        if (scanLength > 0 && !ConstructionSystem.instance.activated)
             interactionJuicer.hovered = scanResults[0].collider.gameObject;
         else interactionJuicer.hovered = null;
         if (interactionJuicer.hovered != null && interactionJuicer.hovered.GetComponent<RessourceContainer>() != null)
@@ -359,7 +358,7 @@ public class PlayerController : MonoBehaviour
                 break;
 
             case InteractionType.Type.constructionMode:
-                constructionCamera.activated = true;
+                ConstructionSystem.instance.SetActive(true);
                 break;
 
             // error
@@ -531,7 +530,7 @@ public class PlayerController : MonoBehaviour
                 Destroy(equipementViewer.gameObject);
 
                 destination.pickableInteraction(type, interactor);
-                constructionCamera.gameObject.GetComponent<CameraController>().target = destination.transform.Find("CameraTarget");
+                //constructionCamera.gameObject.GetComponent<TPSCameraController>().target = destination.transform.Find("CameraTarget");
             }
             else
             {
@@ -776,7 +775,6 @@ public class PlayerController : MonoBehaviour
         RessourceContainer.Copy(source.ressourceContainer, destination.ressourceContainer);
 
         // other
-        destination.constructionCamera = source.constructionCamera;
         destination.transform.parent = source.transform.parent;
         destination.transform.position = source.transform.position;
         destination.transform.localScale = source.transform.localScale;

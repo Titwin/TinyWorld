@@ -6,16 +6,16 @@ using UnityEngine;
 public class MapGrid : MonoBehaviour
 {
     public Dictionary<Vector2Int, MapChunk> grid = new Dictionary<Vector2Int, MapChunk>();
-    public List<string> batchableGameObjectNames = new List<string>();
     public Transform chunkContainer;
-
+    public List<string> batchableGameObjectNames = new List<string>();
+    
     public Queue<JobGrid> jobs = new Queue<JobGrid>();
     public int remaningJobs = 0;
 
 
     private void Awake()
     {
-        MapChunk.batchableNames = batchableGameObjectNames;
+        MapChunk.batchableNames.UnionWith(batchableGameObjectNames);
 
         GameObject container = new GameObject();
         container.name = "chunk container";
@@ -34,6 +34,7 @@ public class MapGrid : MonoBehaviour
 
         if(jobs.Count == 0)
         {
+            // iterate over the grid and search for job to do
             List<Vector2Int> deadChunks = new List<Vector2Int>();
             foreach (KeyValuePair<Vector2Int, MapChunk> entry in grid)
             {
@@ -42,12 +43,16 @@ public class MapGrid : MonoBehaviour
                     deadChunks.Add(entry.Key);
                     Destroy(entry.Value.gameObject);
                 }
-                else if (entry.Value.needBatchingUpdate)
+                else if (entry.Value.batchUpdate.Count != 0)
                 {
-                    JobGrid job = new JobGrid();
-                    job.jobType = JobType.BakeAll;
-                    job.chunkCell = entry.Key;
-                    jobs.Enqueue(job);
+                    foreach(Material m in entry.Value.batchUpdate)
+                    {
+                        JobGrid job = new JobGrid();
+                        job.jobType = JobType.Rebake;
+                        job.chunkCell = entry.Key;
+                        job.material = m;
+                        jobs.Enqueue(job);
+                    }
                 }
             }
             foreach (Vector2Int cell in deadChunks)
@@ -55,6 +60,7 @@ public class MapGrid : MonoBehaviour
         }
         else
         {
+            // unque job pile
             while (jobs.Count != 0 && Time.realtimeSinceStartup - startTime < timeBudget)
             {
                 JobGrid job = jobs.Dequeue();
@@ -70,15 +76,20 @@ public class MapGrid : MonoBehaviour
             }
         }
     }
-    public void AddGameObject(GameObject go, bool objectIsBatchable, bool forceUpdate = true)
+
+
+
+    public void AddGameObject(GameObject go, ConstructionLayer.LayerType layer, bool objectIsBatchable, bool forceUpdate)
     {
-        Vector2Int cell = MapChunk.worldToCell(go.transform.position);
+        Vector2Int cell = MapChunk.WorldToCell(go.transform.position);
+
+        // create new chunk if needed
         if (!grid.ContainsKey(cell))
         {
             GameObject chunkGo = new GameObject();
             chunkGo.name = "chunk " + cell.ToString();
             chunkGo.transform.parent = chunkContainer;
-            chunkGo.transform.position = MapChunk.cellToWorld(cell);
+            chunkGo.transform.position = MapChunk.CellToWorld(cell);
             chunkGo.transform.localRotation = Quaternion.identity;
             chunkGo.transform.localScale = Vector3.one;
             chunkGo.SetActive(true);
@@ -88,31 +99,67 @@ public class MapGrid : MonoBehaviour
             grid.Add(cell, newchunk);
         }
 
+        // add object and schedule batching job if needed
         MapChunk chunk = grid[cell];
-        chunk.AddGameObject(go, objectIsBatchable);
-        if (forceUpdate && chunk.needBatchingUpdate)
+        chunk.AddGameObject(go, layer, objectIsBatchable);
+        if (forceUpdate && chunk.batchUpdate.Count != 0)
         {
-            chunk.BakeAll();
+            foreach (Material m in chunk.batchUpdate)
+            {
+                JobGrid job = new JobGrid();
+                job.jobType = JobType.Rebake;
+                job.chunkCell = cell;
+                job.material = m;
+                jobs.Enqueue(job);
+            }
         }
     }
-    public bool RemoveGameObject(GameObject go, bool forceUpdate = true)
+    public bool RemoveGameObject(GameObject go, bool forceUpdate)
     {
-        Vector2Int cell = MapChunk.worldToCell(go.transform.position);
+        Vector2Int cell = MapChunk.WorldToCell(go.transform.position);
         MapChunk chunk = grid[cell];
         bool result = chunk.RemoveGameObject(go);
-        if (forceUpdate && chunk.needBatchingUpdate)
-        {
-            chunk.BakeAll();
-        }
 
-        if(forceUpdate && chunk.GetChildCount() == 0)
+        if(result && forceUpdate)
         {
-            Destroy(chunk.gameObject);
-            grid.Remove(cell);
-        }
+            if(chunk.batchUpdate.Count != 0)
+            {
+                foreach (Material m in chunk.batchUpdate)
+                {
+                    JobGrid job = new JobGrid();
+                    job.jobType = JobType.Rebake;
+                    job.chunkCell = cell;
+                    job.material = m;
+                    jobs.Enqueue(job);
+                }
+            }
 
+            if(chunk.IsEmpty())
+            {
+                Destroy(chunk.gameObject);
+                grid.Remove(cell);
+            }
+        }
         return result;
     }
+    public HashSet<GameObject> BoxQuery(Vector3 center, Vector3 size, ConstructionLayer.LayerType layer)
+    {
+        HashSet<GameObject> result = new HashSet<GameObject>();
+        Vector2Int minCell = MapChunk.WorldToCell(center - 0.5f * size - MapChunk.extend * Vector3.one);
+        Vector2Int maxCell = MapChunk.WorldToCell(center + 0.5f * size + MapChunk.extend * Vector3.one);
+
+        for (int i = minCell.x; i <= maxCell.x; i++)
+            for (int j = minCell.y; j <= maxCell.y; j++)
+            {
+                Vector2Int cell = new Vector2Int(i, j);
+                if(grid.ContainsKey(cell))
+                {
+                    result.UnionWith(grid[cell].childs[layer]);
+                }
+            }
+        return result;
+    }
+
     public void SetChunkVisible(Vector2Int cell, bool visible)
     {
         if (grid.ContainsKey(cell))
@@ -121,6 +168,8 @@ public class MapGrid : MonoBehaviour
         }
     }
     
+
+
 
     public enum JobType
     {

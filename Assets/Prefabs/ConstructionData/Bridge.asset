@@ -16,9 +16,10 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 0bebaec7501c40a469786e619f96b457, type: 3}
   optionalIcon: {fileID: 0}
   description: Simple bridge
+  tileSize: {x: 1, y: 1}
   incrementSpeed: 1
   constructionSteps: []
-  preview: {fileID: -2432090755550338912, guid: a195fcbb34f93844d872416d8e753b70,
+  preview: {fileID: -2432090755550338912, guid: 8c7f7ac42e19f094e9191a8f72ad66ef,
     type: 3}
   step0Resources: []
   step1Resources: []

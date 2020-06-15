@@ -30,7 +30,7 @@
 		float4 pos : SV_POSITION;
 		float4 uv : TEXCOORD0;
 		float3 normal : NORMAL;
-		unityShadowCoord4 _ShadowCoord : TEXCOORD1;
+		float4 _ShadowCoord : TEXCOORD1;
 	};
 
 	sampler2D _ColorAtlas;
@@ -143,7 +143,6 @@
 
 				float3 ambient = ShadeSH9(float4(i.normal, 1));
 				float4 lightIntensity = NdotL * _LightColor0 + float4(ambient, 1);
-				//float4 col = lerp(_TopColor1, _TopColor2, i.uv.w);
 				float4 col = tex2D(_ColorAtlas, i.uv.xy);
 				col = col * lightIntensity;
 
