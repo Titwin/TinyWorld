@@ -117,6 +117,9 @@ public class MapGrid : MonoBehaviour
     public bool RemoveGameObject(GameObject go, bool forceUpdate)
     {
         Vector2Int cell = MapChunk.WorldToCell(go.transform.position);
+        if (!grid.ContainsKey(cell))
+            return false;
+
         MapChunk chunk = grid[cell];
         bool result = chunk.RemoveGameObject(go);
 
@@ -142,9 +145,36 @@ public class MapGrid : MonoBehaviour
         }
         return result;
     }
-    public HashSet<GameObject> BoxQuery(Vector3 center, Vector3 size, ConstructionLayer.LayerType layer)
+    public List<GameObject> GetGameObjects(Vector3 position, ConstructionLayer.LayerType layer, Vector3 checkingSize)
     {
-        HashSet<GameObject> result = new HashSet<GameObject>();
+        List<GameObject> result = new List<GameObject>();
+        List<GameObject> closest = BoxQuery(position, checkingSize, layer);
+        Bounds bound = new Bounds(position, checkingSize);
+
+        foreach (GameObject go in closest)
+        {
+            MeshRenderer mr = go.GetComponent<MeshRenderer>();
+            if(mr && mr.bounds.Intersects(bound))
+            {
+                result.Add(go);
+            }
+            else if(!mr)
+            {
+                foreach(Transform t in go.transform)
+                {
+                    MeshRenderer mr2 = t.gameObject.GetComponent<MeshRenderer>();
+                    if (mr2 && mr2.bounds.Intersects(bound))
+                    {
+                        result.Add(go);
+                    }
+                }
+            }
+        }
+        return result;
+    }
+    private List<GameObject> BoxQuery(Vector3 center, Vector3 size, ConstructionLayer.LayerType layer)
+    {
+        List<GameObject> result = new List<GameObject>();
         Vector2Int minCell = MapChunk.WorldToCell(center - 0.5f * size - MapChunk.extend * Vector3.one);
         Vector2Int maxCell = MapChunk.WorldToCell(center + 0.5f * size + MapChunk.extend * Vector3.one);
 
@@ -154,7 +184,7 @@ public class MapGrid : MonoBehaviour
                 Vector2Int cell = new Vector2Int(i, j);
                 if(grid.ContainsKey(cell))
                 {
-                    result.UnionWith(grid[cell].childs[layer]);
+                    result.AddRange(grid[cell].childs[layer]);
                 }
             }
         return result;

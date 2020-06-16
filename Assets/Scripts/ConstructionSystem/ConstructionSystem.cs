@@ -139,15 +139,15 @@ public class ConstructionSystem : MonoBehaviour
                     // enable and disable element depending on pointer (only if needed)
                     if (lastTilePointing != tilePointing)
                     {
-                        MapModifier.TileGameObject pointedTile = modifier.GetObjectsAt(tilePointing);
+                        MapModifier.TileGameObject pointedTile = modifier.GetObjectsAtTile(tilePointing);
                         if(pointedTile != lastPointedTile)
                         {
                             if (targetLayer.layerType == ConstructionLayer.LayerType.Terrain)
                             {
-                                if (lastPointedTile != null && lastPointedTile.ground)
-                                    lastPointedTile.ground.SetActive(true);
-                                if (pointedTile.ground)
-                                    pointedTile.ground.SetActive(false);
+                                if (lastPointedTile != null && lastPointedTile.terrain)
+                                    lastPointedTile.terrain.SetActive(true);
+                                if (pointedTile.terrain)
+                                    pointedTile.terrain.SetActive(false);
                             }
                         }
                         lastPointedTile = pointedTile;
@@ -186,8 +186,8 @@ public class ConstructionSystem : MonoBehaviour
             grid.grid[lastChunkPointing].SetBatchVisible(true);
         if (lastPointedTile != null)
         {
-            if (lastPointedTile.ground)
-                lastPointedTile.ground.SetActive(true);
+            if (lastPointedTile.terrain)
+                lastPointedTile.terrain.SetActive(true);
             if (lastPointedTile.building)
                 lastPointedTile.building.SetActive(true);
             if (lastPointedTile.decoration)
@@ -207,8 +207,8 @@ public class ConstructionSystem : MonoBehaviour
     {
         if (targetLayer && targetLayer != constructionUI.selectedLayer && targetLayer.layerType == ConstructionLayer.LayerType.Terrain)
         {
-            if (lastPointedTile != null && lastPointedTile.ground)
-                lastPointedTile.ground.SetActive(true);
+            if (lastPointedTile != null && lastPointedTile.terrain)
+                lastPointedTile.terrain.SetActive(true);
         }
 
         targetLayer = constructionUI.selectedLayer;
@@ -249,7 +249,9 @@ public class ConstructionSystem : MonoBehaviour
     }
     private bool ValidPosition(Vector3Int tilePointing, MapModifier.TileGameObject current, ref string message)
     {
-        if(targetLayer.layerType == ConstructionLayer.LayerType.Terrain)
+        return false;
+
+        /*if(targetLayer.layerType == ConstructionLayer.LayerType.Terrain)
         {
             bool valid = (current.building == null) && (current.decoration == null);
             message = valid ? "" : "Remove building or decoration before assign a new one at this place";
@@ -291,6 +293,6 @@ public class ConstructionSystem : MonoBehaviour
                 message = valid ? "" : "Remove building or decoration before assign a new one at these places";
                 return valid;
             }
-        }
+        }*/
     }
 }

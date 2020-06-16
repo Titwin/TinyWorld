@@ -16,7 +16,7 @@ public class MapModifier : MonoBehaviour
     private ObjectPooler pool;
     public List<ScriptableTile> tileList = new List<ScriptableTile>();
     private Dictionary<string, ScriptableTile> tileDictionary = new Dictionary<string, ScriptableTile>();
-    //public Dictionary<Vector3Int, TileGameObject> tileObjects = new Dictionary<Vector3Int, TileGameObject>();
+    public Dictionary<Vector3Int, TileGameObject> tileObjects = new Dictionary<Vector3Int, TileGameObject>();
     public Queue<JobModifier> jobs = new Queue<JobModifier>();
 
     // behaviour
@@ -58,18 +58,11 @@ public class MapModifier : MonoBehaviour
     
 
     // interface
-    public TileGameObject GetObjectsAt(Vector3Int cellPosition)
+    public TileGameObject GetObjectsAtTile(Vector3Int cellPosition)
     {
-        /*if (tileObjects.ContainsKey(cellPosition))
+        if (tileObjects.ContainsKey(cellPosition))
             return tileObjects[cellPosition];
-        return new TileGameObject();*/
-    }
-    public Dictionary<ConstructionLayer.LayerType, HashSet<GameObject>> GetObjectsRange(Vector3 cellCorner, Vector3 size)
-    {
-        Dictionary<ConstructionLayer.LayerType, HashSet<GameObject>> result = new Dictionary<ConstructionLayer.LayerType, HashSet<GameObject>>();
-        
-
-
+        return new TileGameObject();
     }
     public TileGameObject OverrideTile(ScriptableTile tile, Vector3Int cellPosition, bool forceUpdate)
     {
@@ -78,11 +71,10 @@ public class MapModifier : MonoBehaviour
     }
     public void RemoveTileAt(Vector3Int cellPosition, bool forceUpdate)
     {
-        TileGameObject original = GetObjectsAt(cellPosition);
-        foreach(var entry in original.gameObjects)
-        {
-            FreeGameObject(entry.Value, cellPosition, forceUpdate);
-        }
+        TileGameObject original = GetObjectsAtTile(cellPosition);
+        FreeGameObject(original.terrain, cellPosition, forceUpdate);
+        FreeGameObject(original.building, cellPosition, forceUpdate);
+        FreeGameObject(original.decoration, cellPosition, forceUpdate);
     }
     public Vector3 GetTileCenter(Vector3Int cellPosition)
     {
@@ -101,17 +93,17 @@ public class MapModifier : MonoBehaviour
         // ground prefab
         if(tile.ground)
         {
-            GameObject ground = InstantiateGameObject(tile.ground);
-            ground.transform.localPosition = tileCenter;
-            ground.transform.localEulerAngles = new Vector3(0, -tilemap.GetTransformMatrix(cellPosition).rotation.eulerAngles.z, 0);
-            ground.SetActive(true);
+            GameObject terrain = InstantiateGameObject(tile.ground);
+            terrain.transform.localPosition = tileCenter;
+            terrain.transform.localEulerAngles = new Vector3(0, -tilemap.GetTransformMatrix(cellPosition).rotation.eulerAngles.z, 0);
+            terrain.SetActive(true);
             
-            InitDirt(ground.GetComponent<Dirt>(), cellPosition);
-            InitWater(ground.GetComponent<Water>(), cellPosition);
-            InitBridge(ground.GetComponent<Bridge>(), cellPosition);
+            InitDirt(terrain.GetComponent<Dirt>(), cellPosition);
+            InitWater(terrain.GetComponent<Water>(), cellPosition);
+            InitBridge(terrain.GetComponent<Bridge>(), cellPosition);
 
-            grid.AddGameObject(ground, ConstructionLayer.LayerType.Terrain, true, forceUpdate);
-            tileGameObject.gameObjects.Add(ConstructionLayer.LayerType.Terrain, ground);
+            grid.AddGameObject(terrain, ConstructionLayer.LayerType.Terrain, true, forceUpdate);
+            tileGameObject.terrain = terrain;
         }
         
         // building prefab
@@ -126,7 +118,7 @@ public class MapModifier : MonoBehaviour
             InitFences(building.GetComponent<Fences>(), cellPosition, tile.name);
 
             grid.AddGameObject(building, ConstructionLayer.LayerType.Terrain, true, forceUpdate);
-            tileGameObject.gameObjects.Add(ConstructionLayer.LayerType.Terrain, building);
+            tileGameObject.building = building;
         }
         
         //  decoration prefab
@@ -143,9 +135,12 @@ public class MapModifier : MonoBehaviour
             InitMineral(decoration.GetComponent<MineralRessource>(), cellPosition, tile.optionalMaterial);
 
             grid.AddGameObject(decoration, ConstructionLayer.LayerType.Decoration, true, forceUpdate);
-            tileGameObject.gameObjects.Add(ConstructionLayer.LayerType.Decoration, decoration);
+            tileGameObject.decoration = decoration;
         }
-        
+
+        if (!tileObjects.ContainsKey(cellPosition))
+            tileObjects.Add(cellPosition, tileGameObject);
+        else Debug.LogWarning("already a tile Here !!");
         return tileGameObject;
     }
     
@@ -300,7 +295,9 @@ public class MapModifier : MonoBehaviour
 
     public class TileGameObject
     {
-        public Dictionary<ConstructionLayer.LayerType, GameObject> gameObjects;
+        public GameObject terrain = null;
+        public GameObject building = null;
+        public GameObject decoration = null;
     };
 
     public enum JobType

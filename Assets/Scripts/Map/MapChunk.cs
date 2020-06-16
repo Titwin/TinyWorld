@@ -17,9 +17,8 @@ public class MapChunk : MonoBehaviour
 
     [Header("Content and debug inspection")]
     private Dictionary<GameObject, ChildRendering> childRendering = new Dictionary<GameObject, ChildRendering>();
-    public Dictionary<ConstructionLayer.LayerType, List<GameObject>> childs;
-    public HashSet<Material> batchUpdate;
-    //public bool needBatchingUpdate;
+    public Dictionary<ConstructionLayer.LayerType, List<GameObject>> childs = new Dictionary<ConstructionLayer.LayerType, List<GameObject>>();
+    public HashSet<Material> batchUpdate = new HashSet<Material>();
     public bool isOptimized;
 
     public void InitContainers()
@@ -71,8 +70,6 @@ public class MapChunk : MonoBehaviour
 
     public void BakeAll()
     {
-        return;
-
         // clean
         foreach(Transform t in batchContainer)
         {
@@ -151,8 +148,6 @@ public class MapChunk : MonoBehaviour
 
     public void Rebake(Material material)
     {
-        return;
-
         string batchName = "batch " + material.name;
         Transform batch = batchContainer.Find(batchName);
         if(batch && material)
