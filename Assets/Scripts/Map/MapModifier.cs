@@ -19,6 +19,8 @@ public class MapModifier : MonoBehaviour
     public Dictionary<Vector3Int, TileGameObject> tileObjects = new Dictionary<Vector3Int, TileGameObject>();
     public Queue<JobModifier> jobs = new Queue<JobModifier>();
 
+    public Transform staticBuildingContainer = null;
+
     // behaviour
     void Start()
     {
@@ -29,6 +31,19 @@ public class MapModifier : MonoBehaviour
         
         foreach (ScriptableTile tile in tileList)
             tileDictionary.Add(tile.name, tile);
+
+        if (staticBuildingContainer != null)
+        {
+            List<GameObject> staticList = new List<GameObject>();
+            foreach (Transform t in staticBuildingContainer)
+            {
+                staticList.Add(t.gameObject);
+            }
+            foreach(GameObject go in staticList)
+            {
+                grid.AddGameObject(go, ConstructionLayer.LayerType.Building, false, false);
+            }
+        }
     }
 
     private void Update()

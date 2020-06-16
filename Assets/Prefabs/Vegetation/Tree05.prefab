@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 267857255730973472}
   - component: {fileID: 1885701045911312327}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -58,7 +58,7 @@ GameObject:
   - component: {fileID: 187864005173700636}
   - component: {fileID: 1464146022386393658}
   - component: {fileID: 1300537511997096111}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Tree05
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -167,7 +167,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2879447279283679069}
   - component: {fileID: 7978851611136857193}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}

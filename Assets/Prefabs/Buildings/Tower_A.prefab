@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &7726851135739423287
+--- !u!1 &1603737890801564012
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,47 +8,47 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 7726851135739655703}
-  - component: {fileID: 7726851135740425783}
-  - component: {fileID: 7726851135741424887}
-  - component: {fileID: 7726851134757298546}
-  - component: {fileID: 7726851134757298547}
-  m_Layer: 0
-  m_Name: Tower_A
+  - component: {fileID: 1897939641180718720}
+  - component: {fileID: 6887763448226203163}
+  - component: {fileID: 5817253442117375038}
+  - component: {fileID: 6064703794885554936}
+  - component: {fileID: 3091569297956595299}
+  m_Layer: 15
+  m_Name: building
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &7726851135739655703
+--- !u!4 &1897939641180718720
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7726851135739423287}
-  m_LocalRotation: {x: -0, y: -0.7071068, z: -0.7071068, w: 0}
-  m_LocalPosition: {x: -130.7938, y: -0.010000229, z: -76.91515}
+  m_GameObject: {fileID: 1603737890801564012}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 7726851135739655703}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -90, y: -180, z: 0}
---- !u!33 &7726851135740425783
+--- !u!33 &6887763448226203163
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7726851135739423287}
+  m_GameObject: {fileID: 1603737890801564012}
   m_Mesh: {fileID: 4300004, guid: 5921e45280d702e44ad0fb582ac16d26, type: 3}
---- !u!23 &7726851135741424887
+--- !u!23 &5817253442117375038
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7726851135739423287}
+  m_GameObject: {fileID: 1603737890801564012}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -81,29 +81,60 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &7726851134757298546
+--- !u!65 &6064703794885554936
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7726851135739423287}
+  m_GameObject: {fileID: 1603737890801564012}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1.64, y: 1.11, z: 10.257639}
   m_Center: {x: -0.004823568, y: -1.16, z: -2.57}
---- !u!65 &7726851134757298547
+--- !u!65 &3091569297956595299
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7726851135739423287}
+  m_GameObject: {fileID: 1603737890801564012}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 2.74, y: 2.74, z: 10.257639}
   m_Center: {x: -0.004823568, y: 0.034514338, z: 1.54}
+--- !u!1 &7726851135739423287
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7726851135739655703}
+  m_Layer: 13
+  m_Name: Tower_A
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7726851135739655703
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7726851135739423287}
+  m_LocalRotation: {x: -0, y: -0.7071068, z: -0.7071068, w: 0}
+  m_LocalPosition: {x: -130.7938, y: -0.010000229, z: -76.91515}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1897939641180718720}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -90, y: -180, z: 0}

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 9063761464962733647}
   - component: {fileID: 7646466791903282189}
   - component: {fileID: -2889752869124930825}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: MineralRessource
   m_TagString: Untagged
   m_Icon: {fileID: 0}

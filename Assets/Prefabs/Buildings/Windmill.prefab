@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2918840147807507839}
   - component: {fileID: 6605889234682500035}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: wings
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -57,8 +57,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8217912092712410358}
-  - component: {fileID: 4749589200199632086}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Windmill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -81,30 +80,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
---- !u!205 &4749589200199632086
-LODGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2310836331964168294}
-  serializedVersion: 2
-  m_LocalReferencePoint: {x: -0.07999992, y: -0.00000047683716, z: 2.0901542}
-  m_Size: 7.482415
-  m_FadeMode: 1
-  m_AnimateCrossFading: 1
-  m_LastLODIsBillboard: 0
-  m_LODs:
-  - screenRelativeHeight: 0.19124852
-    fadeTransitionWidth: 0
-    renderers:
-    - renderer: {fileID: 3237411925102094419}
-    - renderer: {fileID: 3714748595277987428}
-  - screenRelativeHeight: 0.059591718
-    fadeTransitionWidth: 0
-    renderers:
-    - renderer: {fileID: 0}
-  m_Enabled: 1
 --- !u!1 &5106866638772524756
 GameObject:
   m_ObjectHideFlags: 0
@@ -641,6 +616,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 12
+  callback:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &5106866640556380752
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -696,7 +674,7 @@ GameObject:
   - component: {fileID: 3714748595277987428}
   - component: {fileID: 8476329505500222106}
   - component: {fileID: 7392543714418036532}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -804,7 +782,7 @@ GameObject:
   - component: {fileID: 5183152705589642370}
   - component: {fileID: 6888459406790530574}
   - component: {fileID: 4802623006950663791}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: building
   m_TagString: Untagged
   m_Icon: {fileID: 0}

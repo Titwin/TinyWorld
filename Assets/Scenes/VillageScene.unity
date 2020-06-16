@@ -296,19 +296,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 288391447, guid: b7b88e225fd5b704dba6c629cc2426cd, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3462427326419741398, guid: b7b88e225fd5b704dba6c629cc2426cd,
         type: 3}
       propertyPath: focusAgent
       value: 
       objectReference: {fileID: 274576173976662415}
-    - target: {fileID: 3462427326419741398, guid: b7b88e225fd5b704dba6c629cc2426cd,
+    - target: {fileID: 6290642057618703171, guid: b7b88e225fd5b704dba6c629cc2426cd,
         type: 3}
-      propertyPath: streamingCellRadius
-      value: 30
+      propertyPath: rootObjectLayer.m_Bits
+      value: 8192
       objectReference: {fileID: 0}
     - target: {fileID: 7900350191113553080, guid: b7b88e225fd5b704dba6c629cc2426cd,
         type: 3}

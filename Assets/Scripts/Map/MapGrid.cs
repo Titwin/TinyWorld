@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,6 +8,7 @@ public class MapGrid : MonoBehaviour
 {
     public Dictionary<Vector2Int, MapChunk> grid = new Dictionary<Vector2Int, MapChunk>();
     public Transform chunkContainer;
+    public LayerMask rootObjectLayer;
     public List<string> batchableGameObjectNames = new List<string>();
     
     public Queue<JobGrid> jobs = new Queue<JobGrid>();
@@ -101,7 +103,7 @@ public class MapGrid : MonoBehaviour
 
         // add object and schedule batching job if needed
         MapChunk chunk = grid[cell];
-        chunk.AddGameObject(go, layer, objectIsBatchable);
+        chunk.AddGameObject(go, (int)layer, objectIsBatchable);
         if (forceUpdate && chunk.batchUpdate.Count != 0)
         {
             foreach (Material m in chunk.batchUpdate)
@@ -145,50 +147,35 @@ public class MapGrid : MonoBehaviour
         }
         return result;
     }
-    public List<GameObject> GetGameObjects(Vector3 position, ConstructionLayer.LayerType layer, Vector3 checkingSize)
+    public List<GameObject> GetObjectsInBound(Vector3 center, Vector3 size, int layer)
     {
+        Collider[] overlap = Physics.OverlapBox(center, 0.5f * size, Quaternion.identity, layer);
         List<GameObject> result = new List<GameObject>();
-        List<GameObject> closest = BoxQuery(position, checkingSize, layer);
-        Bounds bound = new Bounds(position, checkingSize);
 
-        foreach (GameObject go in closest)
+        foreach(Collider collider in overlap)
         {
-            MeshRenderer mr = go.GetComponent<MeshRenderer>();
-            if(mr && mr.bounds.Intersects(bound))
+            GameObject root = collider.gameObject;
+            while(root && (root.layer & (1 << rootObjectLayer)) == 0)
             {
-                result.Add(go);
+                root = root.transform.parent.gameObject;
             }
-            else if(!mr)
+
+            if(root)
             {
-                foreach(Transform t in go.transform)
-                {
-                    MeshRenderer mr2 = t.gameObject.GetComponent<MeshRenderer>();
-                    if (mr2 && mr2.bounds.Intersects(bound))
-                    {
-                        result.Add(go);
-                    }
-                }
+                result.Add(root);
+            }
+            else
+            {
+                Debug.LogWarning("Unable to fint root object for collider " + collider.gameObject.name);
             }
         }
-        return result;
-    }
-    private List<GameObject> BoxQuery(Vector3 center, Vector3 size, ConstructionLayer.LayerType layer)
-    {
-        List<GameObject> result = new List<GameObject>();
-        Vector2Int minCell = MapChunk.WorldToCell(center - 0.5f * size - MapChunk.extend * Vector3.one);
-        Vector2Int maxCell = MapChunk.WorldToCell(center + 0.5f * size + MapChunk.extend * Vector3.one);
 
-        for (int i = minCell.x; i <= maxCell.x; i++)
-            for (int j = minCell.y; j <= maxCell.y; j++)
-            {
-                Vector2Int cell = new Vector2Int(i, j);
-                if(grid.ContainsKey(cell))
-                {
-                    result.AddRange(grid[cell].childs[layer]);
-                }
-            }
+        Debug.Log(overlap.Length);
+
+
         return result;
     }
+
 
     public void SetChunkVisible(Vector2Int cell, bool visible)
     {
@@ -198,8 +185,6 @@ public class MapGrid : MonoBehaviour
         }
     }
     
-
-
 
     public enum JobType
     {

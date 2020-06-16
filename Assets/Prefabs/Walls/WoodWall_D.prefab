@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 226459418}
   - component: {fileID: 226459419}
   - component: {fileID: 226459420}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: WoodWall_D
   m_TagString: Untagged
   m_Icon: {fileID: 0}

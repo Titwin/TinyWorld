@@ -85,7 +85,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4480983407086944309}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: FirTree
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -120,7 +120,7 @@ GameObject:
   - component: {fileID: 4796069177381634244}
   - component: {fileID: 4300283747251858484}
   - component: {fileID: 641304096622019580}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: tree
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -17,7 +17,7 @@ public class MapChunk : MonoBehaviour
 
     [Header("Content and debug inspection")]
     private Dictionary<GameObject, ChildRendering> childRendering = new Dictionary<GameObject, ChildRendering>();
-    public Dictionary<ConstructionLayer.LayerType, List<GameObject>> childs = new Dictionary<ConstructionLayer.LayerType, List<GameObject>>();
+    public Dictionary<GameObject, int> childs = new Dictionary<GameObject, int>();
     public HashSet<Material> batchUpdate = new HashSet<Material>();
     public bool isOptimized;
 
@@ -51,16 +51,12 @@ public class MapChunk : MonoBehaviour
                 newChildRendering.Add(entry.Key, entry.Value);
         }
 
-        Dictionary<ConstructionLayer.LayerType, List<GameObject>> newChilds = new Dictionary<ConstructionLayer.LayerType, List<GameObject>>();
+        Dictionary<GameObject, int> newChilds = new Dictionary<GameObject, int>();
         foreach (var entry in childs)
         {
-            newChilds.Add(entry.Key, new List<GameObject>());
-            foreach (GameObject go in entry.Value)
+            if(entry.Key)
             {
-                if(go)
-                {
-                    newChilds[entry.Key].Add(go);
-                }
+                newChilds.Add(entry.Key, entry.Value);
             }
         }
         childRendering = newChildRendering;
@@ -230,14 +226,11 @@ public class MapChunk : MonoBehaviour
         return childs.Count == 0;
     }
 
-    public void AddGameObject(GameObject go, ConstructionLayer.LayerType layer, bool isBatchable)
+    public void AddGameObject(GameObject go, int layer, bool isBatchable)
     {
-        if (!childs.ContainsKey(layer))
-            childs.Add(layer, new List<GameObject>());
-        
-        if (!childs[layer].Contains(go))
+        if (!childs.ContainsKey(go))
         {
-            childs[layer].Add(go);
+            childs.Add(go, layer);
             go.transform.parent = objectContainer;
 
 
@@ -280,25 +273,9 @@ public class MapChunk : MonoBehaviour
     }
     public bool RemoveGameObject(GameObject obj)
     {
-        // remove object from container
-        ConstructionLayer.LayerType layer = ConstructionLayer.LayerType.Delete;
-        bool found = false;
-        foreach (var entry in childs)
-        {
-            if (entry.Value.Remove(obj))
-            {
-                layer = entry.Key;
-                found = true;
-                break;
-            }
-        }
-        if(found && childs[layer].Count == 0)
-        {
-            childs.Remove(layer);
-        }
-        
-        // remove object from rendering structure, and indiquate if the chunk need an update (and for which material
-        if (childRendering.ContainsKey(obj))
+        bool found = childs.Remove(obj);
+
+        if (found && childRendering.ContainsKey(obj))
         {
             batchUpdate.UnionWith(childRendering[obj].meshMaterials);
             if (batchUpdate.Count != 0)

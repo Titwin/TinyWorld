@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2278813522587852730}
   - component: {fileID: 3519308851485402565}
   - component: {fileID: 4413755026728038774}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Dirt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25,14 +25,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5586053671172209450}
-  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4015414120975592976}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3519308851485402565
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -48,6 +48,7 @@ MonoBehaviour:
   configuration: 0
   meshFilter: {fileID: 8337613803760133265}
   childPivot: {fileID: 0}
+  rotation: 0
 --- !u!114 &4413755026728038774
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -78,7 +79,8 @@ GameObject:
   - component: {fileID: 4015414120975592976}
   - component: {fileID: 8337613803760133265}
   - component: {fileID: 5395230921586495524}
-  m_Layer: 0
+  - component: {fileID: 5772857391177139529}
+  m_Layer: 14
   m_Name: ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -148,3 +150,16 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &5772857391177139529
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5655899091889971952}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 4, y: 0.5, z: 4}
+  m_Center: {x: 0, y: -0.25, z: 0}

@@ -42,9 +42,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6867048810804990418}
   - component: {fileID: 8742762429802616170}
-  - component: {fileID: 66387616166657852}
-  - component: {fileID: 72646132194849255}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: GateA
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -91,32 +89,6 @@ MonoBehaviour:
   boxExtend: {x: 4, y: 2, z: 1.5}
   door1: {fileID: 6867048810804990422}
   door2: {fileID: 6867048810804990420}
---- !u!65 &66387616166657852
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6867048810804891122}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 2.1, y: 1.01, z: 4.92}
-  m_Center: {x: 0, y: 2.66, z: 2.41}
---- !u!65 &72646132194849255
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6867048810804891122}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 2.1, y: 1.01, z: 4.92}
-  m_Center: {x: 0, y: -2.66, z: 2.41}
 --- !u!1 &6867048810804891124
 GameObject:
   m_ObjectHideFlags: 0
@@ -127,7 +99,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6867048810804990420}
   - component: {fileID: 1586583905}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Bone_door_B
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -171,7 +143,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6867048810804990422}
   - component: {fileID: 1735384989}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Bone_door_A
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -381,6 +353,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6867048810804990430}
   - component: {fileID: 6867048810810163440}
+  - component: {fileID: 4999574412114707196}
+  - component: {fileID: 4496755187540772337}
   m_Layer: 0
   m_Name: Wall_A_gate
   m_TagString: Untagged
@@ -454,3 +428,29 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.0064365864, y: 0, z: 2.6934254}
     m_Extent: {x: 1.2968175, y: 3.1754076, z: 2.9989626}
   m_DirtyAABB: 0
+--- !u!65 &4999574412114707196
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6867048810804891134}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.1, y: 1.01, z: 4.92}
+  m_Center: {x: 0, y: 2.66, z: 2.41}
+--- !u!65 &4496755187540772337
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6867048810804891134}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.1, y: 1.01, z: 4.92}
+  m_Center: {x: 0, y: -2.66, z: 2.41}

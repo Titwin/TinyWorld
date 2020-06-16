@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1807730272439593484}
   - component: {fileID: 1138001675154274841}
   - component: {fileID: 3765793176927647378}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: water
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -90,7 +90,7 @@ GameObject:
   - component: {fileID: 7142363588444842930}
   - component: {fileID: 6459959854681280205}
   - component: {fileID: 4510749163302179095}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Bridge
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -129,7 +129,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   configuration: 0
   ground: {fileID: 3505826849773367995}
-  water: {fileID: 1138001675154274841}
   waterCollider: {fileID: 4096353421574248899}
 --- !u!114 &4510749163302179095
 MonoBehaviour:
@@ -155,7 +154,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6923542226354150007}
   - component: {fileID: 4096353421574248899}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -202,7 +201,7 @@ GameObject:
   - component: {fileID: 4094405358046056781}
   - component: {fileID: 4751470452274625981}
   - component: {fileID: 4812262713383624626}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: bridge
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -295,7 +294,7 @@ GameObject:
   - component: {fileID: 4778649189561918980}
   - component: {fileID: 3505826849773367995}
   - component: {fileID: 3728488328849304532}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}

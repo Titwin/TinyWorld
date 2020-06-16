@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2327856}
   - component: {fileID: 1722631816146322854}
   - component: {fileID: 7113981677443113685}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Rock Type5 02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -492,6 +492,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 7
+  callback:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &5766114913694083306
 MonoBehaviour:
   m_ObjectHideFlags: 0

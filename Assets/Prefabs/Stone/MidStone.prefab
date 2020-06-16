@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 446419069229424824}
   - component: {fileID: 124938036257048276}
   - component: {fileID: 446419069227266123}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: MidStone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -185,6 +185,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 7
+  callback:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &5598760891099597470
 MonoBehaviour:
   m_ObjectHideFlags: 0

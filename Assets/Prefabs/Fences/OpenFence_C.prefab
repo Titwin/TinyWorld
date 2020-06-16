@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2678132211984743039}
   - component: {fileID: 2909610258794485092}
   - component: {fileID: 8489092859226602302}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: OpenFence_C
   m_TagString: Untagged
   m_Icon: {fileID: 0}

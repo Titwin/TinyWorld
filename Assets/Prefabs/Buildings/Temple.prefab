@@ -9,10 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1970513481640906045}
-  - component: {fileID: 1970513481642233117}
-  - component: {fileID: 1970513481643200477}
-  - component: {fileID: 1970513482111541760}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Temple
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29,25 +26,59 @@ Transform:
   m_LocalRotation: {x: -0.5, y: -0.5, z: -0.5, w: 0.5}
   m_LocalPosition: {x: 6.283785, y: 31.327898, z: -6.044846}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 546262469285161958}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -90.00001, y: -90, z: 0}
---- !u!33 &1970513481642233117
+--- !u!1 &7630089427382027526
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 546262469285161958}
+  - component: {fileID: 2767365970645475471}
+  - component: {fileID: 708156963790584390}
+  - component: {fileID: 3804949185811102894}
+  m_Layer: 15
+  m_Name: building
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &546262469285161958
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7630089427382027526}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1970513481640906045}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -90.00001, y: -90, z: 0}
+--- !u!33 &2767365970645475471
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1970513481641005341}
+  m_GameObject: {fileID: 7630089427382027526}
   m_Mesh: {fileID: 4300002, guid: 9bf280570cf5dce45a29b84470a52c7e, type: 3}
---- !u!23 &1970513481643200477
+--- !u!23 &708156963790584390
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1970513481641005341}
+  m_GameObject: {fileID: 7630089427382027526}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -80,13 +111,13 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &1970513482111541760
+--- !u!65 &3804949185811102894
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1970513481641005341}
+  m_GameObject: {fileID: 7630089427382027526}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1

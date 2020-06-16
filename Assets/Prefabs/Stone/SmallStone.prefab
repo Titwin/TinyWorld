@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1147414748368828528}
   - component: {fileID: 5800476024074232240}
   - component: {fileID: 1147414748370852055}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: SmallStone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -184,6 +184,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 7
+  callback:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &9086055421963902257
 MonoBehaviour:
   m_ObjectHideFlags: 0

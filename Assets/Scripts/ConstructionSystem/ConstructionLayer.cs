@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class ConstructionLayer : MonoBehaviour
 {
     public enum LayerType
@@ -13,4 +14,9 @@ public class ConstructionLayer : MonoBehaviour
     }
     public LayerType layerType;
     public List<ConstructionData> elements = new List<ConstructionData>();
+
+    public LayerMask ToLayerMask()
+    {
+        return LayerMask.NameToLayer(layerType.ToString());
+    }
 }

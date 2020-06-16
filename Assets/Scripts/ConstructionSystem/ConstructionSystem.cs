@@ -159,7 +159,7 @@ public class ConstructionSystem : MonoBehaviour
                     {
                         preview.transform.position = pointing + new Vector3(2f * (brush.data.tileSize.x - 1), 0,  2f * (brush.data.tileSize.y - 1));
                         string message = "";
-                        bool valid = ValidPosition(tilePointing, lastPointedTile, ref message);
+                        bool valid = ValidPosition(preview.transform.position, ref message);
                         currentPreviewMaterial.color = valid ? previewOk : previewInvalid;
                         constructionUI.description.text = message;
                     
@@ -247,52 +247,52 @@ public class ConstructionSystem : MonoBehaviour
     {
         Debug.Log("Place building");
     }
-    private bool ValidPosition(Vector3Int tilePointing, MapModifier.TileGameObject current, ref string message)
-    {
-        return false;
 
-        /*if(targetLayer.layerType == ConstructionLayer.LayerType.Terrain)
+    
+    private bool ValidPosition(Vector3 pointing, ref string message)
+    {
+        int searchingLayers = 0;
+        if(targetLayer.layerType == ConstructionLayer.LayerType.Terrain)
         {
-            bool valid = (current.building == null) && (current.decoration == null);
-            message = valid ? "" : "Remove building or decoration before assign a new one at this place";
-            return valid;
+            searchingLayers = (1 << LayerMask.NameToLayer("Building")) + (1 << LayerMask.NameToLayer("Decoration"));
+            message = "Remove building or decoration before assign a new one at this place";
+        }
+        else if (targetLayer.layerType == ConstructionLayer.LayerType.Building)
+        {
+            searchingLayers = (1 << LayerMask.NameToLayer("Building")) + (1 << LayerMask.NameToLayer("Decoration"));
+            message = "Remove building or decoration before assign a new one at this place";
+        }
+        else if (targetLayer.layerType == ConstructionLayer.LayerType.Decoration)
+        {
+            searchingLayers = (1 << LayerMask.NameToLayer("Building")) + (1 << LayerMask.NameToLayer("Decoration"));
+            message = "Remove building or decoration before assign a new one at this place";
+        }
+
+        _debugPointing = pointing;
+        Vector3 size = new Vector3(4f * brush.data.tileSize.x, 4f, 4f * brush.data.tileSize.y) - 0.5f * Vector3.one;
+        List<GameObject> objects = grid.GetObjectsInBound(pointing, size, searchingLayers);
+
+        if(objects.Count == 0)
+        {
+            message = "";
+            return true;
         }
         else
         {
-            if (brush.data.tileSize == Vector2Int.one)
-            {
-                bool valid;
-                if (targetLayer.layerType == ConstructionLayer.LayerType.Building || targetLayer.layerType == ConstructionLayer.LayerType.Decoration)
-                { 
-                    valid = (current.building == null) && (current.decoration == null);
-                    message = valid ? "" : "Remove building or decoration before constructing a new one at this place";
-                }
-                else
-                {
-                    Debug.LogWarning("Unsuported object layer " + targetLayer.layerType.ToString());
-                    valid = false;
-                    message = "Internal error";
-                }
-                return valid;
-            }
-            else
-            {
-                List<MapModifier.TileGameObject> objectRanged = new List<MapModifier.TileGameObject>();
-                for (int i = 0; i < brush.data.tileSize.x; i++) 
-                    for (int j = 0; j < brush.data.tileSize.y; j++)
-                    {
-                        objectRanged.Add(modifier.GetObjectsAt(tilePointing + new Vector3Int(i, j, 0)));
-                    }
+            return false;
+        }
+    }
 
-                bool valid = true;
-                foreach(MapModifier.TileGameObject tile in objectRanged)
-                {
-                    valid &= (tile.building == null) && (tile.decoration == null);
-                }
 
-                message = valid ? "" : "Remove building or decoration before assign a new one at these places";
-                return valid;
-            }
-        }*/
+    Vector3 _debugPointing;
+    private void OnDrawGizmos()
+    {
+        if(activated && brush)
+        {
+            Vector3 size = new Vector3(4f * brush.data.tileSize.x, 4f, 4f * brush.data.tileSize.y) - 0.5f * Vector3.one;
+            Gizmos.color = Color.red;
+            Gizmos.DrawWireCube(_debugPointing, size);
+        }
+
     }
 }

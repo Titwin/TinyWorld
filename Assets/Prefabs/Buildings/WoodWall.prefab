@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3811273459324750762}
   - component: {fileID: 4490616217438090506}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: WoodWall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43,4 +43,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 292c0e2a919650c4aad166943f580706, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  configuration: 0

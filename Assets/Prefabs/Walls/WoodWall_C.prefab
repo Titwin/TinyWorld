@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5428235606866411209}
   - component: {fileID: 2032102397}
   - component: {fileID: 2032102398}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: WoodWall_C
   m_TagString: Untagged
   m_Icon: {fileID: 0}

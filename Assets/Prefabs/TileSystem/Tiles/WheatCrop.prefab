@@ -12,7 +12,8 @@ GameObject:
   - component: {fileID: 8041424020168871880}
   - component: {fileID: 1941859511548859558}
   - component: {fileID: 6710757271590451597}
-  m_Layer: 0
+  - component: {fileID: 4526787855458365079}
+  m_Layer: 16
   m_Name: wheat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -95,6 +96,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &4526787855458365079
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2906432604231363139}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 4, y: 1, z: 4}
+  m_Center: {x: 0, y: 0.5, z: 0}
 --- !u!1 &3827869366852085856
 GameObject:
   m_ObjectHideFlags: 0
@@ -154,6 +168,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 11
+  callback:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!65 &9164864856737634118
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -177,7 +194,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1495580963862089715}
   - component: {fileID: 4358404406311902353}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: WheatCrop
   m_TagString: Untagged
   m_Icon: {fileID: 0}

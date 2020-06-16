@@ -59,6 +59,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 7
+  callback:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &2075534099879936920
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -85,7 +88,7 @@ GameObject:
   - component: {fileID: 5532845533720161858}
   - component: {fileID: 6566416689526517460}
   - component: {fileID: 5532845533717922895}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: BigStone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
