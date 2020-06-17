@@ -16,6 +16,7 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 91218d99d0f05f84186fe9e315340d0e, type: 3}
   optionalIcon: {fileID: 0}
   description: Wood wall
+  tileSize: {x: 1, y: 1}
   incrementSpeed: 0.1
   constructionSteps:
   - {fileID: 4300000, guid: 84027b74851eeb942a03f4a723b1a66e, type: 3}
@@ -25,3 +26,6 @@ MonoBehaviour:
   - Wood 3
   step1Resources:
   - Wood 2
+  IsTile: 1
+  tile: {fileID: 11400000, guid: cbecfc181e103ab48a59c63cdb8d4a29, type: 2}
+  prefab: {fileID: 0}

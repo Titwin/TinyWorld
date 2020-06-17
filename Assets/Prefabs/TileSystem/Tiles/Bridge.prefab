@@ -129,7 +129,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   configuration: 0
   ground: {fileID: 3505826849773367995}
-  waterCollider: {fileID: 4096353421574248899}
+  waterCollider: {fileID: 0}
+  waterMeshPivot: {fileID: 1807730272439593484}
 --- !u!114 &4510749163302179095
 MonoBehaviour:
   m_ObjectHideFlags: 0

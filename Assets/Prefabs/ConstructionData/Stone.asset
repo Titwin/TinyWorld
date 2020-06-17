@@ -16,8 +16,12 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: b625f3e6736ee3c47a635be6086e674f, type: 3}
   optionalIcon: {fileID: 0}
   description: Stone
+  tileSize: {x: 1, y: 1}
   incrementSpeed: 1
   constructionSteps: []
   preview: {fileID: 4300000, guid: 19497d68b37d2594fb3e269601d333be, type: 3}
   step0Resources: []
   step1Resources: []
+  IsTile: 1
+  tile: {fileID: 11400000, guid: 1420169ec1cf6b34aa0b1dfc7b0369ae, type: 2}
+  prefab: {fileID: 0}

@@ -10,8 +10,7 @@ public class MapStreaming : MonoBehaviour
     public int streamingCellRadius = 10;
     
     private MapModifier modifier;
-
-    public Transform staticBuildingContainer = null;
+    
 
     #region Singleton
     public static MapStreaming instance;

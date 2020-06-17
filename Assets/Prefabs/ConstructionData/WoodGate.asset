@@ -16,6 +16,7 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 850c385dae9a6304c8f30db0ee383e47, type: 3}
   optionalIcon: {fileID: 0}
   description: Wood gate
+  tileSize: {x: 1, y: 1}
   incrementSpeed: 0.05
   constructionSteps:
   - {fileID: 4300000, guid: 5e5b7457c68ebd447b8a03dd55c4f660, type: 3}
@@ -25,3 +26,6 @@ MonoBehaviour:
   - Wood 4
   step1Resources:
   - Wood 3
+  IsTile: 1
+  tile: {fileID: 0}
+  prefab: {fileID: 0}

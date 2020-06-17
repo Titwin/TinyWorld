@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class Water : MonoBehaviour
 {
     static protected Vector3 v0 = new Vector3(-2, 0, -2);
@@ -16,6 +17,7 @@ public class Water : MonoBehaviour
     public int configuration;
     public MeshFilter ground;
     public MeshCollider waterCollider;
+    public Transform waterMeshPivot;
     
     public void Initialize(bool xp, bool xm, bool zp, bool zm, float borderStrengh)
     {
@@ -97,9 +99,12 @@ public class Water : MonoBehaviour
         }
 
         // set mesh and orientation
-        ground.mesh = mesh;
+        ground.sharedMesh = mesh;
+        /*if (waterCollider)
+            waterCollider.sharedMesh = collider;*/
         transform.localEulerAngles = new Vector3(0, rotation, 0);
-        //water.transform.rotation = Quaternion.identity;
+        if (waterMeshPivot)
+            waterMeshPivot.rotation = Quaternion.identity;
     }
     public void InitializeFromPool(bool xp, bool xm, bool zp, bool zm)
     {
@@ -107,72 +112,90 @@ public class Water : MonoBehaviour
         configuration = (zp ? 0 : 1) << 3 | (zm ? 0 : 1) << 2 | (xp ? 0 : 1) << 1 | (xm ? 0 : 1) << 0;
         float rotation = 0f;
         Mesh mesh = new Mesh();
+        Mesh collider = new Mesh();
+        int seed = TilePrefabsContainer.Instance.GetSeed();
 
         // initialize configs
         switch (configuration)
         {
             case 0:
-                mesh = TilePrefabsContainer.Instance.GetWaterA();
+                mesh = TilePrefabsContainer.Instance.GetWaterA(seed);
+                collider = TilePrefabsContainer.Instance.GetWaterColliderA(seed);
                 rotation = 0f;
                 break;
             case 1:
-                mesh = TilePrefabsContainer.Instance.GetWaterB();
+                mesh = TilePrefabsContainer.Instance.GetWaterB(seed);
+                collider = TilePrefabsContainer.Instance.GetWaterColliderB(seed);
                 rotation = 0f;
                 break;
             case 2:
-                mesh = TilePrefabsContainer.Instance.GetWaterB();
+                mesh = TilePrefabsContainer.Instance.GetWaterB(seed);
+                collider = TilePrefabsContainer.Instance.GetWaterColliderB(seed);
                 rotation = 180f;
                 break;
             case 3:
-                mesh = TilePrefabsContainer.Instance.GetWaterC();
+                mesh = TilePrefabsContainer.Instance.GetWaterC(seed);
+                collider = TilePrefabsContainer.Instance.GetWaterColliderC(seed);
                 rotation = 0f;
                 break;
             case 4:
-                mesh = TilePrefabsContainer.Instance.GetWaterB();
+                mesh = TilePrefabsContainer.Instance.GetWaterB(seed);
+                collider = TilePrefabsContainer.Instance.GetWaterColliderB(seed);
                 rotation = 90f;
                 break;
             case 5:
-                mesh = TilePrefabsContainer.Instance.GetWaterD();
+                mesh = TilePrefabsContainer.Instance.GetWaterD(seed);
+                collider = TilePrefabsContainer.Instance.GetWaterColliderD(seed);
                 rotation = 0f;
                 break;
             case 6:
-                mesh = TilePrefabsContainer.Instance.GetWaterD();
+                mesh = TilePrefabsContainer.Instance.GetWaterD(seed);
+                collider = TilePrefabsContainer.Instance.GetWaterColliderD(seed);
                 rotation = 90f;
                 break;
             case 7:
-                mesh = TilePrefabsContainer.Instance.GetWaterE();
+                mesh = TilePrefabsContainer.Instance.GetWaterE(seed);
+                collider = TilePrefabsContainer.Instance.GetWaterColliderE(seed);
                 rotation = 90f;
                 break;
             case 8:
-                mesh = TilePrefabsContainer.Instance.GetWaterB();
+                mesh = TilePrefabsContainer.Instance.GetWaterB(seed);
+                collider = TilePrefabsContainer.Instance.GetWaterColliderB(seed);
                 rotation = -90f;
                 break;
             case 9:
-                mesh = TilePrefabsContainer.Instance.GetWaterD();
+                mesh = TilePrefabsContainer.Instance.GetWaterD(seed);
+                collider = TilePrefabsContainer.Instance.GetWaterColliderD(seed);
                 rotation = -90f;
                 break;
             case 10:
-                mesh = TilePrefabsContainer.Instance.GetWaterD();
+                mesh = TilePrefabsContainer.Instance.GetWaterD(seed);
+                collider = TilePrefabsContainer.Instance.GetWaterColliderD(seed);
                 rotation = -180f;
                 break;
             case 11:
-                mesh = TilePrefabsContainer.Instance.GetWaterE();
+                mesh = TilePrefabsContainer.Instance.GetWaterE(seed);
+                collider = TilePrefabsContainer.Instance.GetWaterColliderE(seed);
                 rotation = -90f;
                 break;
             case 12:
-                mesh = TilePrefabsContainer.Instance.GetWaterC();
+                mesh = TilePrefabsContainer.Instance.GetWaterC(seed);
+                collider = TilePrefabsContainer.Instance.GetWaterColliderC(seed);
                 rotation = 90f;
                 break;
             case 13:
-                mesh = TilePrefabsContainer.Instance.GetWaterE();
+                mesh = TilePrefabsContainer.Instance.GetWaterE(seed);
+                collider = TilePrefabsContainer.Instance.GetWaterColliderE(seed);
                 rotation = 0f;
                 break;
             case 14:
-                mesh = TilePrefabsContainer.Instance.GetWaterE();
+                mesh = TilePrefabsContainer.Instance.GetWaterE(seed);
+                collider = TilePrefabsContainer.Instance.GetWaterColliderE(seed);
                 rotation = 180f;
                 break;
             case 15:
-                mesh = TilePrefabsContainer.Instance.GetWaterF();
+                mesh = TilePrefabsContainer.Instance.GetWaterF(seed);
+                collider = TilePrefabsContainer.Instance.GetWaterColliderF(seed);
                 rotation = 0f;
                 break;
             default:
@@ -182,9 +205,11 @@ public class Water : MonoBehaviour
 
         // set mesh and orientation
         ground.sharedMesh = mesh;
-        /*if (childPivot)
-            childPivot.localEulerAngles -= new Vector3(0, rotation - transform.localEulerAngles.y, 0);*/
+        if(waterCollider)
+            waterCollider.sharedMesh = collider;
         transform.localEulerAngles = new Vector3(0, rotation, 0);
+        if(waterMeshPivot)
+            waterMeshPivot.rotation = Quaternion.identity;
     }
 
     protected Mesh CaseA(float borderStrengh)

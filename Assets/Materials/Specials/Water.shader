@@ -1,4 +1,7 @@
-﻿Shader "Perso/Water"
+﻿// Upgrade NOTE: replaced '_Object2World' with 'unity_ObjectToWorld'
+// Upgrade NOTE: replaced '_World2Object' with 'unity_WorldToObject'
+
+Shader "Perso/Water"
 {
 	Properties
 	{
@@ -14,7 +17,6 @@
 		_DistortionMap("Distortion Map", 2D) = "white" {}
 		_NoiseFrequency("Noise Frequency", Vector) = (0.05, 0.05, 0, 0)
 		_NoiseStrength("Noise Strength", Range(-2, 2)) = 0.01
-		_NormalFactor("Reflection factor", Range(0, 10)) = 0.01
 	}
 
 
@@ -77,13 +79,6 @@
 		{
 			vertexOutput v;
 
-			/*#define MY_DOMAIN_PROGRAM_INTERPOLATE(fieldName) v.fieldName = \
-				patch[0].fieldName * barycentricCoordinates.x + \
-				patch[1].fieldName * barycentricCoordinates.y + \
-				patch[2].fieldName * barycentricCoordinates.z;
-
-			MY_DOMAIN_PROGRAM_INTERPOLATE(vertex)*/
-
 			v.vertex = patch[0].vertex * barycentricCoordinates.x + patch[1].vertex * barycentricCoordinates.y + patch[2].vertex * barycentricCoordinates.z;
 			return v;
 		}
@@ -97,7 +92,6 @@
 		float4 _DistortionMap_ST;
 		float4 _NoiseFrequency;
 		float _NoiseStrength;
-		float _NormalFactor;
 
 		geometryOutput VertexOutput(float3 pos, float3 normal)
 		{
@@ -110,15 +104,28 @@
 
 			return o;
 		}
-		geometryOutput GenerateVertexFrom(float3 pos)
+		float getDisplacement(float3 wpos)
 		{
-			float4 p = mul(unity_ObjectToWorld, float4(pos, 1));
-			float2 uv = p.xz * _DistortionMap_ST.xy + _DistortionMap_ST.zw + _NoiseFrequency.xy * _Time.y;
-			float2 distortion = tex2Dlod(_DistortionMap, float4(uv, 0, 0)).yz * 2 - 1;
-			float3 displacement = float3(0, distortion.y * _NoiseStrength, 0);
-			uv = p.xz * _NormalFactor *_DistortionMap_ST.xy + _DistortionMap_ST.zw +  _NoiseFrequency.zw * _Time.y;
-			distortion = tex2Dlod(_DistortionMap, float4(uv, 0, 0)).yz * 2 - 1;
-			float3 normal = normalize(float3(distortion.x, 1, distortion.y));
+			float2 uv = wpos.xz * _DistortionMap_ST.xy + _NoiseFrequency.xy * _Time.y;
+			return tex2Dlod(_DistortionMap, float4(uv, 0, 0)).y * 2 - 1;
+
+			/*float phase = _Time * 20.0;
+			float offset1 = _NoiseFrequency.x * wpos.x + _NoiseFrequency.y * wpos.z;
+			float offset2 = _NoiseFrequency.z * wpos.x + _NoiseFrequency.w * wpos.z;
+
+			return sin(phase + offset1) * 0.2 + sin(phase + offset2) * 0.2;*/
+		}
+		geometryOutput GenerateVertexFrom(float4 pos)
+		{
+			float4 p = mul(unity_ObjectToWorld, pos);
+			float3 displacement = float3(0, getDisplacement(p.xyz) * _NoiseStrength, 0);
+
+			float z1 = getDisplacement(p.xyz + float3(-_NoiseFrequency.w, 0, 0));
+			float z2 = getDisplacement(p.xyz + float3(_NoiseFrequency.w, 0, 0));
+			float z3 = getDisplacement(p.xyz + float3( 0, 0, -_NoiseFrequency.w));
+			float z4 = getDisplacement(p.xyz + float3( 0, 0, _NoiseFrequency.w));
+
+			float3 normal = normalize(float3((z2 - z1) * _NoiseStrength, 4 * _NoiseFrequency.w, (z4 - z3) * _NoiseStrength).zyx);
 			return VertexOutput(pos.xyz + displacement, normal);
 		}
 		[maxvertexcount(3)]
@@ -155,7 +162,7 @@
 
 			float4 frag(geometryOutput i, fixed facing : VFACE) : SV_Target
 			{
-				float3 normal = normalize(facing > 0 ? i.normal : -i.normal);
+				float3 normal = i.normal;// normalize(facing > 0 ? i.normal : -i.normal);
 				float shadow = SHADOW_ATTENUATION(i);
 				float dotresult = dot(normal, _WorldSpaceLightPos0);
 				dotresult *= dotresult < 0 ? -1 : 1;
@@ -167,7 +174,7 @@
 
 				float4 skyData = UNITY_SAMPLE_TEXCUBE(unity_SpecCube0, i.worldRefl);
 				float3 skyColor = DecodeHDR(skyData, unity_SpecCube0_HDR);
-				col = float4(lerp(col.xyz, skyColor, _Glossiness), col.w) * _LightColor0;
+				col = float4(lerp(col.xyz, skyColor, _Glossiness), _Color.w) * _LightColor0;
 
 				float fogFactor = (unity_FogParams.x * i.uv.x);
 				fogFactor = saturate(exp(-fogFactor * fogFactor));

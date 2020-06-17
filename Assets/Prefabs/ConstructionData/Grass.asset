@@ -16,9 +16,13 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 7185848fade60bc4fbec4a02d07d8e32, type: 3}
   optionalIcon: {fileID: 0}
   description: Grass tile
+  tileSize: {x: 1, y: 1}
   incrementSpeed: 1
   constructionSteps: []
   preview: {fileID: -2432090755550338912, guid: 5980dc3f57d112b4382b22c8e7e3cfe1,
     type: 3}
   step0Resources: []
   step1Resources: []
+  IsTile: 1
+  tile: {fileID: 11400000, guid: f260c591474d2e846aced7759542e98b, type: 2}
+  prefab: {fileID: 0}

@@ -301,11 +301,6 @@ PrefabInstance:
       propertyPath: focusAgent
       value: 
       objectReference: {fileID: 274576173976662415}
-    - target: {fileID: 6290642057618703171, guid: b7b88e225fd5b704dba6c629cc2426cd,
-        type: 3}
-      propertyPath: rootObjectLayer.m_Bits
-      value: 8192
-      objectReference: {fileID: 0}
     - target: {fileID: 7900350191113553080, guid: b7b88e225fd5b704dba6c629cc2426cd,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1710,7 +1705,7 @@ PrefabInstance:
     - target: {fileID: 8730490982015208158, guid: a40a418a18d8333449d0e93b3032ed09,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -429
+      value: 434
       objectReference: {fileID: 0}
     - target: {fileID: 8730490982015208158, guid: a40a418a18d8333449d0e93b3032ed09,
         type: 3}
@@ -1720,7 +1715,7 @@ PrefabInstance:
     - target: {fileID: 8730490982015208158, guid: a40a418a18d8333449d0e93b3032ed09,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -510.14996
+      value: -564.31
       objectReference: {fileID: 0}
     - target: {fileID: 8730490982015208158, guid: a40a418a18d8333449d0e93b3032ed09,
         type: 3}
@@ -2054,7 +2049,7 @@ PrefabInstance:
     - target: {fileID: 274576173308503113, guid: 2a7956e97e3788244962de36794e6cee,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -429
+      value: 434
       objectReference: {fileID: 0}
     - target: {fileID: 274576173308503113, guid: 2a7956e97e3788244962de36794e6cee,
         type: 3}
@@ -2064,7 +2059,7 @@ PrefabInstance:
     - target: {fileID: 274576173308503113, guid: 2a7956e97e3788244962de36794e6cee,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -503.8
+      value: -557.96
       objectReference: {fileID: 0}
     - target: {fileID: 274576173308503113, guid: 2a7956e97e3788244962de36794e6cee,
         type: 3}
@@ -2236,7 +2231,7 @@ PrefabInstance:
     - target: {fileID: 3017689288023411784, guid: 758fc0d3c571cdd4caf5a5fb1dfe5528,
         type: 3}
       propertyPath: pools.Array.data[11].size
-      value: 5
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 3017689288023411784, guid: 758fc0d3c571cdd4caf5a5fb1dfe5528,
         type: 3}
@@ -2429,6 +2424,11 @@ PrefabInstance:
         type: 3}
       propertyPath: pools.Array.data[3].size
       value: 2100
+      objectReference: {fileID: 0}
+    - target: {fileID: 3017689288023411784, guid: 758fc0d3c571cdd4caf5a5fb1dfe5528,
+        type: 3}
+      propertyPath: pools.Array.data[6].size
+      value: 4000
       objectReference: {fileID: 0}
     - target: {fileID: 3017689288023411785, guid: 758fc0d3c571cdd4caf5a5fb1dfe5528,
         type: 3}

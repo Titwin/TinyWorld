@@ -146,6 +146,23 @@ public class MapChunk : MonoBehaviour
     {
         string batchName = "batch " + material.name;
         Transform batch = batchContainer.Find(batchName);
+
+        if(!batch)
+        {
+            GameObject go = new GameObject();
+            go.name = batchName;
+            go.transform.parent = batchContainer;
+            go.transform.localPosition = Vector3.zero;
+            go.transform.localRotation = Quaternion.identity;
+            go.transform.localScale = Vector3.one;
+
+            MeshFilter meshfilter = go.AddComponent<MeshFilter>();
+            MeshRenderer meshRenderer = go.AddComponent<MeshRenderer>();
+            meshRenderer.sharedMaterial = material;
+
+            batch = go.transform;
+        }
+        
         if(batch && material)
         {
             SetBatchVisible(false);
@@ -232,14 +249,12 @@ public class MapChunk : MonoBehaviour
         {
             childs.Add(go, layer);
             go.transform.parent = objectContainer;
-
-
-            ChildRendering cr = new ChildRendering();
-            cr.gameObject = go;
-            cr.meshMaterials = new HashSet<Material>();
-
+            
             if (isBatchable)
             {
+                ChildRendering cr = new ChildRendering();
+                cr.gameObject = go;
+
                 foreach (Transform t in go.transform)
                 {
                     if (batchableNames.Contains(t.name))
@@ -258,6 +273,11 @@ public class MapChunk : MonoBehaviour
                             batchUpdate.UnionWith(m);
                         }
                     }
+                }
+
+                if(cr.meshFilters.Count != 0)
+                {
+                    childRendering.Add(go, cr);
                 }
 
                 if (batchUpdate.Count != 0)
@@ -319,6 +339,6 @@ public class MapChunk : MonoBehaviour
         public GameObject gameObject;
         public List<MeshFilter> meshFilters = new List<MeshFilter>();
         public List<MeshRenderer> meshRenderers = new List<MeshRenderer>();
-        public HashSet<Material> meshMaterials;
+        public HashSet<Material> meshMaterials = new HashSet<Material>();
     };
 }

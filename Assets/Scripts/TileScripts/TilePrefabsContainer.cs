@@ -9,7 +9,7 @@ public class TilePrefabsContainer : MonoBehaviour
     public Dirt originalDirt;
     private Mesh[] dirtMeshes;
     public Water originalWater;
-    private Mesh[] waterMeshes;
+    private Water[] waterPool;
 
     public List<GameObject> bigStones;
     public List<GameObject> midStones;
@@ -37,7 +37,7 @@ public class TilePrefabsContainer : MonoBehaviour
         }
 
         dirtMeshes = new Mesh[5 * diversity + 1];
-        waterMeshes = new Mesh[5 * diversity + 1];
+        waterPool = new Water[5 * diversity + 1];
         InitDirt();
         InitWater();
         InitStone();
@@ -116,9 +116,9 @@ public class TilePrefabsContainer : MonoBehaviour
                     default: break;
                 }
 
-                waterMeshes[j * diversity + i] = water.ground.sharedMesh;
-                if (j == 5)
-                    break;
+                waterPool[j * diversity + i] = water;
+
+                if (j == 5) break; // only one of type F
             }
         }
 
@@ -166,20 +166,29 @@ public class TilePrefabsContainer : MonoBehaviour
         }
     }
 
-    public Mesh GetDirtA() { return dirtMeshes[5 * diversity]; }
-    public Mesh GetDirtB() { return dirtMeshes[4 * diversity + Random.Range(0, diversity)]; }
-    public Mesh GetDirtC() { return dirtMeshes[2 * diversity + Random.Range(0, diversity)]; }
-    public Mesh GetDirtD() { return dirtMeshes[3 * diversity + Random.Range(0, diversity)]; }
-    public Mesh GetDirtE() { return dirtMeshes[1 * diversity + Random.Range(0, diversity)]; }
-    public Mesh GetDirtF() { return dirtMeshes[Random.Range(0, diversity - 1)]; }
+    public int GetSeed() { return Random.Range(0, diversity); }
 
-    public Mesh GetWaterA() { return waterMeshes[5 * diversity]; }
-    public Mesh GetWaterB() { return waterMeshes[4 * diversity + Random.Range(0, diversity)]; }
-    public Mesh GetWaterC() { return waterMeshes[2 * diversity + Random.Range(0, diversity)]; }
-    public Mesh GetWaterD() { return waterMeshes[3 * diversity + Random.Range(0, diversity)]; }
-    public Mesh GetWaterE() { return waterMeshes[1 * diversity + Random.Range(0, diversity)]; }
-    public Mesh GetWaterF() { return waterMeshes[Random.Range(0, diversity - 1)]; }
+    public Mesh GetDirtA( ) { return dirtMeshes[5 * diversity]; }
+    public Mesh GetDirtB( ) { return dirtMeshes[4 * diversity + Random.Range(0, diversity)]; }
+    public Mesh GetDirtC( ) { return dirtMeshes[2 * diversity + Random.Range(0, diversity)]; }
+    public Mesh GetDirtD( ) { return dirtMeshes[3 * diversity + Random.Range(0, diversity)]; }
+    public Mesh GetDirtE( ) { return dirtMeshes[1 * diversity + Random.Range(0, diversity)]; }
+    public Mesh GetDirtF( ) { return dirtMeshes[Random.Range(0, diversity)]; }
 
+    public Mesh GetWaterA(int seed) { return waterPool[5 * diversity].ground.sharedMesh; }
+    public Mesh GetWaterB(int seed) { return waterPool[4 * diversity + seed].ground.sharedMesh; }
+    public Mesh GetWaterC(int seed) { return waterPool[2 * diversity + seed].ground.sharedMesh; }
+    public Mesh GetWaterD(int seed) { return waterPool[3 * diversity + seed].ground.sharedMesh; }
+    public Mesh GetWaterE(int seed) { return waterPool[1 * diversity + seed].ground.sharedMesh; }
+    public Mesh GetWaterF(int seed) { return waterPool[Mathf.Min(diversity - 1, seed)].ground.sharedMesh; }
+
+    public Mesh GetWaterColliderA(int seed) { return waterPool[5 * diversity].waterCollider.sharedMesh; }
+    public Mesh GetWaterColliderB(int seed) { return waterPool[4 * diversity + seed].waterCollider.sharedMesh; }
+    public Mesh GetWaterColliderC(int seed) { return waterPool[2 * diversity + seed].waterCollider.sharedMesh; }
+    public Mesh GetWaterColliderD(int seed) { return waterPool[3 * diversity + seed].waterCollider.sharedMesh; }
+    public Mesh GetWaterColliderE(int seed) { return waterPool[1 * diversity + seed].waterCollider.sharedMesh; }
+    public Mesh GetWaterColliderF(int seed) { return waterPool[seed].waterCollider.sharedMesh; }
+    
     public GameObject GetOre(string ressource)
     {
         GameObject go = Instantiate(ores[Random.Range(0, ores.Count - 1)].gameObject);

@@ -16,9 +16,13 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: d2d93af7b5209644b97fc3deea51fce5, type: 3}
   optionalIcon: {fileID: 0}
   description: Fir tree
+  tileSize: {x: 1, y: 1}
   incrementSpeed: 1
   constructionSteps: []
   preview: {fileID: -2432090755550338912, guid: 2f4dfa4ec34396742bee079fea8e8244,
     type: 3}
   step0Resources: []
   step1Resources: []
+  IsTile: 1
+  tile: {fileID: 11400000, guid: adf6dfb84d0b7fb47b725913a37fc685, type: 2}
+  prefab: {fileID: 0}

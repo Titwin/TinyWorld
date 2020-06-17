@@ -23,3 +23,6 @@ MonoBehaviour:
     type: 3}
   step0Resources: []
   step1Resources: []
+  IsTile: 1
+  tile: {fileID: 11400000, guid: 7493b5eca62307d4db0c1ef4fcb1950b, type: 2}
+  prefab: {fileID: 0}
