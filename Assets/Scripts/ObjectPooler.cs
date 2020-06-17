@@ -40,6 +40,12 @@ public class ObjectPooler : MonoBehaviour
         {
             if(pool.prefab != null)
             { 
+                if(pool.size <= 0)
+                {
+                    Debug.LogError("Invalid pool capacity for " + pool.prefab.name);
+                    continue;
+                }
+
                 Queue<GameObject> objectPool = new Queue<GameObject>(pool.size + 1);
 
                 // container
@@ -116,7 +122,6 @@ public class ObjectPooler : MonoBehaviour
     {
         if(go && sortedPools.ContainsKey(go.name))
         {
-            go.SetActive(false);
             go.transform.parent = poolContainers[go.name];
             go.transform.position = Vector3.zero;
             go.transform.rotation = Quaternion.identity;
@@ -126,6 +131,7 @@ public class ObjectPooler : MonoBehaviour
             {
                 go.GetComponent<IPoolableObject>().OnFree();
             }
+            go.SetActive(false);
 
             poolDictionary[go.name].Enqueue(go);
         }

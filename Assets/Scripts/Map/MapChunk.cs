@@ -47,17 +47,19 @@ public class MapChunk : MonoBehaviour
         Dictionary<GameObject, ChildRendering> newChildRendering = new Dictionary<GameObject, ChildRendering>();
         foreach (KeyValuePair<GameObject, ChildRendering> entry in childRendering)
         {
-            if (entry.Key)
+            if (entry.Key != null)
                 newChildRendering.Add(entry.Key, entry.Value);
+            else Debug.Log("dead child rendering");
         }
 
         Dictionary<GameObject, int> newChilds = new Dictionary<GameObject, int>();
         foreach (var entry in childs)
         {
-            if(entry.Key)
+            if(entry.Key != null)
             {
                 newChilds.Add(entry.Key, entry.Value);
             }
+            else Debug.Log("dead child");
         }
         childRendering = newChildRendering;
         childs = newChilds;
@@ -247,7 +249,8 @@ public class MapChunk : MonoBehaviour
     {
         if (!childs.ContainsKey(go))
         {
-            childs.Add(go, layer);
+            childs.Add(go, 0);
+            
             go.transform.parent = objectContainer;
             
             if (isBatchable)
@@ -304,7 +307,7 @@ public class MapChunk : MonoBehaviour
             }
         }
         childRendering.Remove(obj);
-
+        
         return found;
     }
 

@@ -77,7 +77,7 @@ public class MapModifier : MonoBehaviour
     {
         if (tileObjects.ContainsKey(cellPosition))
             return tileObjects[cellPosition];
-        return new TileGameObject();
+        return null;
     }
     public TileGameObject OverrideTile(ScriptableTile tile, Vector3Int cellPosition, bool forceUpdate)
     {
@@ -87,9 +87,13 @@ public class MapModifier : MonoBehaviour
     public void RemoveTileAt(Vector3Int cellPosition, bool forceUpdate)
     {
         TileGameObject original = GetObjectsAtTile(cellPosition);
-        FreeGameObject(original.terrain, cellPosition, forceUpdate);
-        FreeGameObject(original.building, cellPosition, forceUpdate);
-        FreeGameObject(original.decoration, cellPosition, forceUpdate);
+        if (original != null)
+        {
+            FreeGameObject(original.terrain, cellPosition, forceUpdate);
+            FreeGameObject(original.building, cellPosition, forceUpdate);
+            FreeGameObject(original.decoration, cellPosition, forceUpdate);
+            tileObjects.Remove(cellPosition);
+        }
     }
     public Vector3 GetTileCenter(Vector3Int cellPosition)
     {
@@ -132,7 +136,7 @@ public class MapModifier : MonoBehaviour
             InitWall(building.GetComponent<Wall>(), cellPosition, tile.name);
             InitFences(building.GetComponent<Fences>(), cellPosition, tile.name);
 
-            grid.AddGameObject(building, ConstructionLayer.LayerType.Terrain, true, forceUpdate);
+            grid.AddGameObject(building, ConstructionLayer.LayerType.Building, true, forceUpdate);
             tileGameObject.building = building;
         }
         
@@ -279,13 +283,11 @@ public class MapModifier : MonoBehaviour
         if (go != null)
         {
             if (!grid.RemoveGameObject(go, forceUpdate))
-                Debug.LogWarning("Fail removing ground tile from " + cell.ToString());
+                Debug.LogWarning("Fail removing tile " + go.name + " from "/* + cell.ToString()*/);
 
             if (pool.ContainTag(go.name))
             {
                 pool.Free(go);
-                go.SetActive(false);
-                go = null;
             }
             else
             {

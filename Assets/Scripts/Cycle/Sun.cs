@@ -7,7 +7,7 @@ public class Sun : MonoBehaviour
 {
     public new Light light;
     public float daySpeed = 1f;
-    public Vector2 tresholds;
+    public float azimut;
 
     public Gradient lightColor;
     public Gradient fogColor;
@@ -22,7 +22,7 @@ public class Sun : MonoBehaviour
         radius = transform.position.magnitude;
 
         light.color = lightColor.Evaluate(t / 360f);
-        transform.position = new Vector3(Mathf.Sin(Mathf.Deg2Rad * t) * radius, Mathf.Cos(Mathf.Deg2Rad * t) * radius, 0);
+        transform.position = new Vector3(Mathf.Sin(Mathf.Deg2Rad * t) * radius, Mathf.Cos(Mathf.Deg2Rad * t) * radius, azimut);
         transform.LookAt(Vector3.zero);
         RenderSettings.fogColor = fogColor.Evaluate(t / 360f);
     }
@@ -32,7 +32,7 @@ public class Sun : MonoBehaviour
         hour = string.Format("{0:D2}h{1:D2}", time.Hours, time.Minutes);
 
         light.color = lightColor.Evaluate(t / 360f);
-        transform.position = new Vector3(Mathf.Sin(Mathf.Deg2Rad * t) * radius, Mathf.Cos(Mathf.Deg2Rad * t) * radius, 0);
+        transform.position = new Vector3(Mathf.Sin(Mathf.Deg2Rad * t) * radius, Mathf.Cos(Mathf.Deg2Rad * t) * radius, azimut);
         transform.LookAt(Vector3.zero);
         RenderSettings.fogColor = fogColor.Evaluate(t / 360f);
         RenderSettings.ambientIntensity = ambiantLightningIntensity.Evaluate(t / 360f);
