@@ -11,7 +11,7 @@ public class StoreHouseViewer : MonoBehaviour
     public InventoryLineTemplate template;
     public GameObject pivot;
     public Transform list;
-    public RessourceContainer container;
+    public ResourceContainer container;
     public TextMesh loadSum;
     public Transform background;
     private int prevLoad;

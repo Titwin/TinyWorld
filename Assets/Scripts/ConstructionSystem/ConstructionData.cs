@@ -8,7 +8,6 @@ using UnityEditor;
 
 
 [CreateAssetMenu(fileName = "ConstructionData", menuName = "Custom/ConstructionData", order = 3)]
-[System.Serializable]
 public class ConstructionData : ScriptableObject
 {
     [Header("Layer")]
@@ -28,16 +27,15 @@ public class ConstructionData : ScriptableObject
     public List<string> step1Resources = new List<string>();
 
     [Header("Placement attributes")]
-    public bool IsTile = false;
-    [HideInInspector] public ScriptableTile tile;
-    [HideInInspector] public GameObject prefab;
+    public ScriptableTile tile;
+    public GameObject prefab;
 
+    static private char[] separator = { ' ' };
 
 
     // helper functions
     public Dictionary<string, int> GetTotalCost()
     {
-        char[] separator = { ' ' };
         Dictionary<string, int> resources = new Dictionary<string, int>();
         foreach (string line in step0Resources)
         {
@@ -54,34 +52,19 @@ public class ConstructionData : ScriptableObject
         }
         return resources;
     }
-}
-
-
-#if UNITY_EDITOR
-[CustomEditor(typeof(ConstructionData))]
-public class ConstructionData_Editor : Editor
-{
-    public override void OnInspectorGUI()
+    public Dictionary<string, int> GetStepResources(int step)
     {
-        DrawDefaultInspector(); // for other non-HideInInspector fields
+        List<string> list = step0Resources;
+        if (step != 0)
+            list = step1Resources;
 
-        ConstructionData data = (ConstructionData)target;
+        Dictionary<string, int> resources = new Dictionary<string, int>();
+        foreach (string line in list)
+        {
+            string[] s = line.Split(separator);
+            resources.Add(s[0], int.Parse(s[1]));
+        }
 
-        // draw checkbox for the bool
-        //data.IsTile = EditorGUILayout.Toggle("Is tile ?", data.IsTile);
-        if(data.IsTile)
-        {
-            data.tile = EditorGUILayout.ObjectField("Tile", data.tile, typeof(ScriptableTile), true) as ScriptableTile;
-        }
-        else
-        {
-            data.prefab = EditorGUILayout.ObjectField("Prefab", data.prefab, typeof(GameObject), true) as GameObject;
-        }
-        /*if (script.StartTemp) // if bool is true, show other fields
-        {
-            script.iField = EditorGUILayout.ObjectField("I Field", script.iField, typeof(InputField), true) as InputField;
-            script.Template = EditorGUILayout.ObjectField("Template", script.Template, typeof(GameObject), true) as GameObject;
-        }*/
+        return resources;
     }
 }
-#endif

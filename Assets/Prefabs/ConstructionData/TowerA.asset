@@ -27,6 +27,5 @@ MonoBehaviour:
   step1Resources:
   - Wood 3
   - Iron 1
-  IsTile: 1
-  tile: {fileID: 0}
+  tile: {fileID: 11400000, guid: 59317e7b361a8a041b26dac90cdeb4a7, type: 2}
   prefab: {fileID: 0}

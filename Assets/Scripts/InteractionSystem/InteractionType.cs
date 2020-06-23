@@ -29,7 +29,7 @@ public class InteractionType : MonoBehaviour
         pickableHorse
     };
     public Type type;
-    public EventTrigger.TriggerEvent callback;
+    //public EventTrigger.TriggerEvent callback;
 
     static public bool isCollectingMinerals(InteractionType.Type type)
     {

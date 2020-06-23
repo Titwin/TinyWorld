@@ -5,7 +5,7 @@ using UnityEngine;
 public class InventoryViewer : MonoBehaviour
 {
     public bool visible = false;
-    public RessourceContainer storage;
+    public ResourceContainer storage;
     public float spacing;
     public PlayerController player;
     public Vector2 backgroundWidth = new Vector2(2.4f, 1.5f);
@@ -13,7 +13,7 @@ public class InventoryViewer : MonoBehaviour
     public InventoryLineTemplate template;
     public GameObject pivot;
     public Transform container;
-    public RessourceContainer backpack;
+    public ResourceContainer backpack;
     public TextMesh loadSum;
     public Transform background;
     private AudioSource audiosource;

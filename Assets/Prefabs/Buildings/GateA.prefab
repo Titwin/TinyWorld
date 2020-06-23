@@ -57,8 +57,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6867048810804891122}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -108.06647, y: 0, z: -100.81759}
-  m_LocalScale: {x: 0.88, y: 0.88, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6867048810804990416}
   - {fileID: 6867048810804990426}
@@ -86,7 +86,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   boxCenter: {x: 0, y: 1.76, z: 0}
-  boxExtend: {x: 4, y: 2, z: 1.5}
+  boxExtend: {x: 4, y: 2, z: 2.23}
   door1: {fileID: 6867048810804990422}
   door2: {fileID: 6867048810804990420}
 --- !u!1 &6867048810804891124

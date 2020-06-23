@@ -29,3 +29,5 @@ MonoBehaviour:
   - Stone 2
   - Wood 1
   - Gold 1
+  tile: {fileID: 0}
+  prefab: {fileID: 4837761079565488270, guid: 6d4f01612b6b63b46857eff82d2b869f, type: 3}

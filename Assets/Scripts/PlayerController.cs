@@ -37,7 +37,7 @@ public class PlayerController : MonoBehaviour
     public InteractionType.Type interactionType;
     public GameObject currentInteractor = null;
     public InteractionJuicer interactionJuicer;
-    public RessourceContainer ressourceContainer;
+    public ResourceContainer ressourceContainer;
     public InventoryViewer inventoryViewer;
     public EquipementViewer equipementViewer;
     public InteractionHelper interactionHelper;
@@ -105,6 +105,10 @@ public class PlayerController : MonoBehaviour
         backpack.Equip(backpack.equipedItem.type, true);
 
         AnimationParameterRefresh();
+
+        ressourceContainer.AddItem("Stone", 8);
+        ressourceContainer.AddItem("Wood", 3);
+        ressourceContainer.AddItem("Iron", 1);
 
         /*ressourceContainer.AddItem("Gold", 100);
         ressourceContainer.AddItem("Iron", 100);
@@ -264,8 +268,8 @@ public class PlayerController : MonoBehaviour
         if (scanLength > 0 && !ConstructionSystem.instance.activated)
             interactionJuicer.hovered = scanResults[0].collider.gameObject;
         else interactionJuicer.hovered = null;
-        if (interactionJuicer.hovered != null && interactionJuicer.hovered.GetComponent<RessourceContainer>() != null)
-            inventoryViewer.storage = interactionJuicer.hovered.GetComponent<RessourceContainer>();
+        if (interactionJuicer.hovered != null && interactionJuicer.hovered.GetComponent<ResourceContainer>() != null)
+            inventoryViewer.storage = interactionJuicer.hovered.GetComponent<ResourceContainer>();
         else inventoryViewer.storage = null;
 
         interactionBox.position = position;
@@ -555,7 +559,7 @@ public class PlayerController : MonoBehaviour
     }
     private bool storeAllInteraction(InteractionType.Type type, GameObject interactor)
     {
-        RessourceContainer storehouse = interactor.GetComponent<RessourceContainer>();
+        ResourceContainer storehouse = interactor.GetComponent<ResourceContainer>();
         if(storehouse)
         {
             Dictionary<string, int> transfers = new Dictionary<string, int>();
@@ -646,8 +650,8 @@ public class PlayerController : MonoBehaviour
                 audiosource.Play();
 
             // increment progress bar
-            ConstructionTemplate construction = currentInteractor.GetComponent<ConstructionTemplate>();
-            if (construction.Increment())
+            ConstructionController construction = currentInteractor.GetComponent<ConstructionController>();
+            if (construction && construction.Increment())
             {
                 interactionDelay = 0f;
                 currentInteractor = null;
@@ -772,7 +776,7 @@ public class PlayerController : MonoBehaviour
         destination.head.Equip(source.head.equipedItem.type, true);
         destination.body.Equip(source.body.equipedItem.type, true);
         destination.backpack.Equip(source.backpack.equipedItem.type, true);
-        RessourceContainer.Copy(source.ressourceContainer, destination.ressourceContainer);
+        ResourceContainer.Copy(source.ressourceContainer, destination.ressourceContainer);
 
         // other
         destination.transform.parent = source.transform.parent;

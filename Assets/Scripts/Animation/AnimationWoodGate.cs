@@ -21,7 +21,7 @@ public class AnimationWoodGate : MonoBehaviour
 
     private void Update()
     {
-        open = Physics.CheckBox(transform.TransformPoint(boxCenter), boxExtend, Quaternion.identity, mask);
+        open = Physics.CheckBox(transform.TransformPoint(boxCenter), boxExtend, Quaternion.Euler(0, transform.localEulerAngles.y, 0), mask);
         door2.localEulerAngles = new Vector3(Mathf.Clamp(Mathf.MoveTowards(door2.localEulerAngles.x, open ? positions.y : positions.x, speed * Time.deltaTime), 0f, 90f), -90, -90);
         door1.localEulerAngles = new Vector3(-door2.localEulerAngles.x, -90, 90);
     }
@@ -29,6 +29,8 @@ public class AnimationWoodGate : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.color = open ? Color.white : Color.black;
-        Gizmos.DrawWireCube(transform.TransformPoint(boxCenter), 2 * boxExtend);
+        Gizmos.matrix = Matrix4x4.TRS(transform.position, transform.rotation, transform.lossyScale);
+
+        Gizmos.DrawWireCube(boxCenter, 2 * boxExtend);
     }
 }

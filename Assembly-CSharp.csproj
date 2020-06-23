@@ -119,11 +119,13 @@
     <Compile Include="Assets\Scripts\AISystem\UnitAI.cs" />
     <Compile Include="Assets\Scripts\AISystem\WeaponData.cs" />
     <Compile Include="Assets\Scripts\Animation\AnimationRotation.cs" />
+    <Compile Include="Assets\Scripts\Animation\AnimationSinTranslation.cs" />
     <Compile Include="Assets\Scripts\Animation\AnimationStoneGate.cs" />
     <Compile Include="Assets\Scripts\Animation\AnimationWoodGate.cs" />
     <Compile Include="Assets\Scripts\ChickController.cs" />
     <Compile Include="Assets\Scripts\ChikenController.cs" />
     <Compile Include="Assets\Scripts\ConstructionSystem\ConstructionCamera.cs" />
+    <Compile Include="Assets\Scripts\ConstructionSystem\ConstructionController.cs" />
     <Compile Include="Assets\Scripts\ConstructionSystem\ConstructionData.cs" />
     <Compile Include="Assets\Scripts\ConstructionSystem\ConstructionDictionary.cs" />
     <Compile Include="Assets\Scripts\ConstructionSystem\ConstructionHelper.cs" />
@@ -150,7 +152,7 @@
     <Compile Include="Assets\Scripts\EquipementSystem\HorseSlot.cs" />
     <Compile Include="Assets\Scripts\EquipementSystem\InventoryLineTemplate.cs" />
     <Compile Include="Assets\Scripts\EquipementSystem\InventoryViewer.cs" />
-    <Compile Include="Assets\Scripts\EquipementSystem\RessourceContainer.cs" />
+    <Compile Include="Assets\Scripts\EquipementSystem\ResourceContainer.cs" />
     <Compile Include="Assets\Scripts\EquipementSystem\SecondItem.cs" />
     <Compile Include="Assets\Scripts\EquipementSystem\SecondSlot.cs" />
     <Compile Include="Assets\Scripts\EquipementSystem\ShieldItem.cs" />

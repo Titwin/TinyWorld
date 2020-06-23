@@ -21,6 +21,16 @@ public class MapModifier : MonoBehaviour
 
     public Transform staticBuildingContainer = null;
 
+    #region Singleton
+    static public MapModifier instance;
+    private void Awake()
+    {
+        if (instance == null)
+            instance = this;
+        else Debug.LogError("More than one instance of type MapModifier");
+    }
+    #endregion
+
     // behaviour
     void Start()
     {
@@ -79,10 +89,11 @@ public class MapModifier : MonoBehaviour
             return tileObjects[cellPosition];
         return null;
     }
-    public TileGameObject OverrideTile(ScriptableTile tile, Vector3Int cellPosition, bool forceUpdate)
+    public TileGameObject OverrideTile(ScriptableTile tile, Matrix4x4 matrix, Vector3Int cellPosition, bool forceUpdate)
     {
         RemoveTileAt(cellPosition, forceUpdate);
         tilemap.SetTile(cellPosition, tile);
+        tilemap.SetTransformMatrix(cellPosition, matrix);
         TileGameObject result = PlaceTile(tile, cellPosition, forceUpdate);
 
         if (tile.neighbourUpdate)

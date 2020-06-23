@@ -29,3 +29,5 @@ MonoBehaviour:
   - Wood 1
   - Iron 1
   - Wheat 2
+  tile: {fileID: 0}
+  prefab: {fileID: 9008800489242748233, guid: 3da807429c196404db46445c8d7067aa, type: 3}

@@ -8,6 +8,7 @@ public class ConstructionSystem : MonoBehaviour
 {
     [Header("Configuration")]
     public bool instantConstruct = false;
+    public int maximumMultiplacement = 50;
 
     [Header("Current state")]
     public bool activated = false;
@@ -17,8 +18,8 @@ public class ConstructionSystem : MonoBehaviour
     private ConstructionIcon lastIcon;
     private Vector2Int lastChunkPointing;
     private Vector3Int lastTilePointing;
+    private Vector3Int clickDownTilePointing;
     private MapModifier.TileGameObject lastPointedTile;
-
     
     [Header("Linking")]
     public ConstructionUIJuicer constructionUI;
@@ -27,6 +28,7 @@ public class ConstructionSystem : MonoBehaviour
     public RTSCameraController rtsController;
     public MapGrid grid;
     private EventSystem eventsystem;
+    public ConstructionController constructionInteractor;
     public KeyCode keyMode;
     public KeyCode rotationLeft;
     public KeyCode rotationRight;
@@ -35,10 +37,15 @@ public class ConstructionSystem : MonoBehaviour
     public Material previewMaterial;
     public Color previewOk;
     public Color previewInvalid;
-    private GameObject preview;
+    public GameObject preview;
+    public GameObject previewArrow;
     private MeshFilter previewMeshFilter;
     private Material currentPreviewMaterial;
     public Mesh deletionMesh;
+
+    /*private Transform previewsContainer;
+    private List<Transform> previews;
+    private List<Transform> previewsMeshes;*/
 
 
     #region Singleton
@@ -61,14 +68,7 @@ public class ConstructionSystem : MonoBehaviour
         RenderSettings.fog = !activated;
 
         lastIcon = constructionUI.selectedIcon;
-
-        preview = new GameObject();
-        preview.name = "preview";
-        preview.transform.parent = transform;
-        preview.transform.position = Vector3.zero;
-        preview.transform.rotation = Quaternion.identity;
-        preview.transform.localScale = Vector3.one;
-
+        
         previewMeshFilter = preview.AddComponent<MeshFilter>();
         MeshRenderer mr = preview.AddComponent<MeshRenderer>();
         mr.sharedMaterial = previewMaterial;
@@ -180,43 +180,91 @@ public class ConstructionSystem : MonoBehaviour
         {
             preview.transform.position = pointing + new Vector3(2f * (brush.data.tileSize.x - 1), 0, 2f * (brush.data.tileSize.y - 1));
             if (Input.GetKeyDown(rotationLeft))
-                preview.transform.eulerAngles = new Vector3(preview.transform.eulerAngles.x, preview.transform.eulerAngles.y + 90, preview.transform.eulerAngles.z);
+                preview.transform.eulerAngles += new Vector3(0, 90, 0);
             else if (Input.GetKeyDown(rotationRight))
-                preview.transform.eulerAngles = new Vector3(preview.transform.eulerAngles.x, preview.transform.eulerAngles.y + 90, preview.transform.eulerAngles.z);
+                preview.transform.eulerAngles -= new Vector3(0, 90, 0);
 
             string message = "";
-
             List<GameObject> hovered = GetPointedObjects(preview.transform.position, ref message);
 
             currentPreviewMaterial.color = hovered.Count == 0 ? previewOk : previewInvalid;
             constructionUI.description.text = message;
 
-            if (Input.GetMouseButtonDown(0) && hovered.Count == 0)
+            if (Input.GetMouseButtonDown(0))
+                clickDownTilePointing = tilePointing;
+
+            if (Input.GetMouseButtonUp(0) && hovered.Count == 0)
             {
                 if(instantConstruct || brush.data.incrementSpeed >= 1f)
                 {
-                    if(brush.data.IsTile)
+                    if(brush.data.tile != null)
                     {
-                        modifier.OverrideTile(brush.data.tile, lastTilePointing, true);
+                        Matrix4x4 matrix = Matrix4x4.identity;
+
+                        if(brush.name.Contains("House") || brush.name.Contains("Windmill") || brush.name.Contains("Gate"))
+                            matrix = Matrix4x4.TRS(Vector3.zero, Quaternion.Euler(0f, 0f, 90 - preview.transform.eulerAngles.y), Vector3.one);
+                        else matrix = Matrix4x4.TRS(Vector3.zero, Quaternion.Euler(0f, 0f, 180 - preview.transform.eulerAngles.y), Vector3.one);
+
+                        int multiplacementCount = 0;
+                        for (int i = Mathf.Min(tilePointing.x, clickDownTilePointing.x); i <= Mathf.Max(tilePointing.x, clickDownTilePointing.x) && multiplacementCount < maximumMultiplacement; i++)
+                            for (int j = Mathf.Min(tilePointing.y, clickDownTilePointing.y); j <= Mathf.Max(tilePointing.y, clickDownTilePointing.y) && multiplacementCount < maximumMultiplacement; j++)
+                            {
+                                Vector3Int cell = new Vector3Int(i, j, tilePointing.z);
+                                modifier.OverrideTile(brush.data.tile, matrix, cell, false);
+                                multiplacementCount++;
+                            }
                     }
                     else
                     {
                         GameObject element = Instantiate(brush.data.prefab);
                         element.name = brush.data.prefab.name;
                         element.transform.position = preview.transform.position;
-                        element.transform.rotation = preview.transform.rotation;
+                        element.transform.eulerAngles = new Vector3(0, preview.transform.eulerAngles.y, 0);
                         element.transform.localScale = Vector3.one;
                         modifier.grid.AddGameObject(element, brush.data.layer, true, false);
 
-                        modifier.OverrideTile(modifier.tileDictionary["Dirt"], lastTilePointing, true);
-                        modifier.OverrideTile(modifier.tileDictionary["Dirt"], lastTilePointing + new Vector3Int(1, 0, 0), true);
-                        modifier.OverrideTile(modifier.tileDictionary["Dirt"], lastTilePointing + new Vector3Int(0, 1, 0), true);
-                        modifier.OverrideTile(modifier.tileDictionary["Dirt"], lastTilePointing + new Vector3Int(1, 1, 0), true);
+                        modifier.OverrideTile(modifier.tileDictionary["Dirt"], Matrix4x4.identity, tilePointing, true);
+                        modifier.OverrideTile(modifier.tileDictionary["Dirt"], Matrix4x4.identity, tilePointing + new Vector3Int(1, 0, 0), true);
+                        modifier.OverrideTile(modifier.tileDictionary["Dirt"], Matrix4x4.identity, tilePointing + new Vector3Int(0, 1, 0), true);
+                        modifier.OverrideTile(modifier.tileDictionary["Dirt"], Matrix4x4.identity, tilePointing + new Vector3Int(1, 1, 0), true);
                     }
                 }
                 else
                 {
-                    Debug.Log("Not yet implemented !!");
+                    if (brush.data.tile != null)
+                    {
+                        Debug.Log("Not yet implemented !!");
+                    }
+                    else
+                    {
+                        // building object
+                        GameObject prefab = Instantiate(brush.data.prefab);
+                        prefab.name = brush.data.prefab.name;
+                        prefab.transform.position = preview.transform.position;
+                        prefab.transform.eulerAngles = new Vector3(0, preview.transform.eulerAngles.y, 0);
+                        prefab.transform.localScale = Vector3.one;
+                        modifier.grid.AddGameObject(prefab, brush.data.layer, false, false);
+
+                        modifier.OverrideTile(modifier.tileDictionary["Dirt"], Matrix4x4.identity, tilePointing, true);
+                        modifier.OverrideTile(modifier.tileDictionary["Dirt"], Matrix4x4.identity, tilePointing + new Vector3Int(1, 0, 0), true);
+                        modifier.OverrideTile(modifier.tileDictionary["Dirt"], Matrix4x4.identity, tilePointing + new Vector3Int(0, 1, 0), true);
+                        modifier.OverrideTile(modifier.tileDictionary["Dirt"], Matrix4x4.identity, tilePointing + new Vector3Int(1, 1, 0), true);
+
+                        // override interactor
+                        Transform previousInteractor = prefab.transform.Find("interactor");
+                        if (previousInteractor != null)
+                            Destroy(previousInteractor.gameObject);
+
+                        ConstructionController interactor = Instantiate<ConstructionController>(constructionInteractor);
+                        interactor.transform.parent = prefab.transform;
+                        interactor.gameObject.name = "interactor";
+                        interactor.transform.localPosition = Vector3.zero;
+                        interactor.transform.localRotation = Quaternion.identity;
+                        interactor.transform.localScale = Vector3.one;
+
+                        interactor.data = brush.data;
+                        interactor.Initialize();
+                    }
                 }
             }
         }
@@ -244,7 +292,7 @@ public class ConstructionSystem : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0) && objects.Count != 0)
         {
-            modifier.OverrideTile(modifier.tileDictionary["Dirt"], tilePointing, true);
+            modifier.OverrideTile(modifier.tileDictionary["Dirt"], Matrix4x4.identity, tilePointing, true);
             modifier.NeighbourgRefresh(tilePointing, true);
 
             foreach (GameObject go in objects)
@@ -296,16 +344,46 @@ public class ConstructionSystem : MonoBehaviour
             brush = icon;
             preview.SetActive(true);
             previewMeshFilter.sharedMesh = brush.data.preview;
+            previewArrow.transform.localEulerAngles = new Vector3(0, 0, 0);
 
-            if(targetLayer.layerType == ConstructionLayer.LayerType.Building)
+            // preview rotation
+            if (brush.name.Contains("Fence"))
+                preview.transform.localEulerAngles = new Vector3(0, 0, 0);
+            else if (brush.name.Contains("Tower"))
+            {
+                preview.transform.localEulerAngles = new Vector3(-90, 0, -90);
+                previewArrow.transform.localEulerAngles = new Vector3(0, 0, -90);
+            }
+            else if (brush.name.Contains("Granary") || brush.name.Contains("Windmill"))
+            {
+                preview.transform.localEulerAngles = new Vector3(-90, 0, -90);
+                previewArrow.transform.localEulerAngles = new Vector3(0, 0, -90);
+            }
+            else if (targetLayer.layerType == ConstructionLayer.LayerType.Building)
                 preview.transform.localEulerAngles = new Vector3(-90, 0, 0);
             else
                 preview.transform.localEulerAngles = new Vector3(0, 0, 0);
-            preview.transform.localScale = Vector3.one;
+
+            // preview scale
+            if (brush.name.Contains("RegularTree"))
+                preview.transform.localScale = 2f * Vector3.one;
+            else
+                preview.transform.localScale = Vector3.one;
+
+            // preview arrows
+            if(targetLayer.layerType != ConstructionLayer.LayerType.Building || brush.name.Contains("Fence"))
+            {
+                previewArrow.SetActive(false);
+            }
+            else
+            {
+                previewArrow.SetActive(true);
+            }
         }
         else if(targetLayer.layerType == ConstructionLayer.LayerType.Delete)
         {
             preview.SetActive(true);
+            previewArrow.SetActive(false);
             previewMeshFilter.sharedMesh = deletionMesh;
             preview.transform.localEulerAngles = new Vector3(0, 0, 0);
             preview.transform.localScale = Vector3.one;
@@ -316,6 +394,7 @@ public class ConstructionSystem : MonoBehaviour
         {
             brush = null;
             preview.SetActive(false);
+            previewArrow.SetActive(false);
         }
     }
     public void SetActive(bool active)
@@ -344,7 +423,7 @@ public class ConstructionSystem : MonoBehaviour
         }
 
         _debugPointing = pointing;
-        Vector3 size = new Vector3(4f * brush.data.tileSize.x, 4f, 4f * brush.data.tileSize.y) - 0.5f * Vector3.one;
+        Vector3 size = new Vector3(4f * brush.data.tileSize.x, 8f, 4f * brush.data.tileSize.y) - 0.5f * Vector3.one;
         List<GameObject> objects = grid.GetObjectsInBound(pointing, size, searchingLayers);
 
         if(objects.Count == 0)
@@ -364,7 +443,7 @@ public class ConstructionSystem : MonoBehaviour
     {
         if(activated && brush)
         {
-            Vector3 size = new Vector3(4f * brush.data.tileSize.x, 4f, 4f * brush.data.tileSize.y) - 0.5f * Vector3.one;
+            Vector3 size = new Vector3(4f * brush.data.tileSize.x, 8f, 4f * brush.data.tileSize.y) - 0.5f * Vector3.one;
             Gizmos.color = Color.red;
             Gizmos.DrawWireCube(_debugPointing, size);
         }

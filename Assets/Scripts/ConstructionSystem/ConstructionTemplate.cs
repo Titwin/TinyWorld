@@ -23,7 +23,7 @@ public class ConstructionTemplate : MonoBehaviour
     public SpriteMask mask2;
     public InteractionType interactor;
     public ConstructionViewer viewer;
-    private RessourceContainer container;
+    private ResourceContainer container;
     public Vector3 colliderSize;
     private char[] separator = { ' ' };
     public string tileInitializerOption = "Dirt";
@@ -142,7 +142,7 @@ public class ConstructionTemplate : MonoBehaviour
     }
     private void InitContainer(List<string> transition)
     {
-        container = GetComponent<RessourceContainer>();
+        container = GetComponent<ResourceContainer>();
         if(container)
         {
             container.capacity = 0;

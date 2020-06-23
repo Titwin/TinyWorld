@@ -32,7 +32,7 @@ public class DestructionTemplate : MonoBehaviour
             
             ConstructionTemplate template = ConstructionDictionary.Instance.dictionary[transform.parent.name].transform.Find("interactor").GetComponent<ConstructionTemplate>();
             Dictionary<string, int> cost = UIHandler.ComputeCost(template);
-            RessourceContainer container = go.transform.Find("interactor").GetComponent<RessourceContainer>();
+            ResourceContainer container = go.transform.Find("interactor").GetComponent<ResourceContainer>();
             foreach(KeyValuePair<string, int> entry in cost)
                 container.AddItem(entry.Key, Mathf.CeilToInt(recuperation * entry.Value));
             foreach(KeyValuePair<string, int> entry in previousContent)

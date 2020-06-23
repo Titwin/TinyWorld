@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class DestroyOnEmpty : MonoBehaviour
 {
-    private RessourceContainer container;
+    private ResourceContainer container;
 
     void Start()
     {
-        container = GetComponent<RessourceContainer>();
+        container = GetComponent<ResourceContainer>();
     }
     
     void LateUpdate()

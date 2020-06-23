@@ -29,3 +29,5 @@ MonoBehaviour:
   - Stone 1
   - Wood 1
   - Iron 1
+  tile: {fileID: 0}
+  prefab: {fileID: 382080559067319368, guid: 18ac5908b44582549a081ff5a201825f, type: 3}

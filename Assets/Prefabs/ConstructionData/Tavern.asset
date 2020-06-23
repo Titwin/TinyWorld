@@ -28,3 +28,5 @@ MonoBehaviour:
   step1Resources:
   - Wood 1
   - Wheat 1
+  tile: {fileID: 0}
+  prefab: {fileID: 6265969469850559424, guid: 2de95408e5c443448a4e8ae164183433, type: 3}

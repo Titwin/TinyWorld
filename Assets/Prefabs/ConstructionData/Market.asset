@@ -27,3 +27,5 @@ MonoBehaviour:
   - Wood 4
   step1Resources:
   - Wood 2
+  tile: {fileID: 0}
+  prefab: {fileID: 1692986561052925713, guid: 7ebc90cdffb51704ebb63364a7d6ba30, type: 3}

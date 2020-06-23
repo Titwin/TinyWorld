@@ -239,8 +239,8 @@ public class ConstructionCamera : MonoBehaviour
                         Dictionary<string, int> interactorContent = new Dictionary<string, int>();
                         if (interactorTransform)
                         {
-                            if (interactorTransform.GetComponent<RessourceContainer>())
-                                interactorTransform.GetComponent<RessourceContainer>().CopyInventory(interactorContent);
+                            if (interactorTransform.GetComponent<ResourceContainer>())
+                                interactorTransform.GetComponent<ResourceContainer>().CopyInventory(interactorContent);
                             Destroy(interactorTransform.gameObject);
                         }
 

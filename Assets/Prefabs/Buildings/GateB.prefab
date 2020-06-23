@@ -96,7 +96,8 @@ GameObject:
   - component: {fileID: 6625664373786856143}
   - component: {fileID: 809690449246614687}
   - component: {fileID: 4642722746686874114}
-  m_Layer: 15
+  - component: {fileID: 1687632130732262708}
+  m_Layer: 0
   m_Name: Wall_B_gate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -181,8 +182,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2.1, y: 1.01, z: 4.92}
-  m_Center: {x: 0, y: 2.66, z: 2.41}
+  m_Size: {x: 2.1, y: 0.5, z: 4.92}
+  m_Center: {x: 0, y: 2.7, z: 2.41}
 --- !u!65 &4642722746686874114
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -194,8 +195,21 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2.1, y: 1.01, z: 4.92}
-  m_Center: {x: 0, y: -2.66, z: 2.41}
+  m_Size: {x: 2.1, y: 0.5, z: 4.92}
+  m_Center: {x: 0, y: -2.7, z: 2.41}
+--- !u!65 &1687632130732262708
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6625664373783676873}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.1, y: 4.75, z: 1.95}
+  m_Center: {x: 0, y: 0, z: 4.33}
 --- !u!1 &6625664373783676875
 GameObject:
   m_ObjectHideFlags: 0
@@ -205,7 +219,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6625664373783387115}
-  - component: {fileID: 8691467493857884720}
   - component: {fileID: 1294293676}
   m_Layer: 15
   m_Name: Bone_gate
@@ -228,26 +241,6 @@ Transform:
   m_Father: {fileID: 6625664373783387117}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
---- !u!114 &8691467493857884720
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6625664373783676875}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 05d868d7da5129443bcea270479ce324, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  positions: {x: 2, y: 4.7}
-  open: 1
-  speed: 1
-  mask:
-    serializedVersion: 2
-    m_Bits: 512
-  boxCenter: {x: -2.73, y: 0, z: 0}
-  boxExtend: {x: 4, y: 2, z: 2}
 --- !u!65 &1294293676
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -259,7 +252,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 3.03, y: 4.72, z: 0.23}
+  m_Size: {x: 3.03, y: 4.25, z: 0.23}
   m_Center: {x: -0.31, y: 0, z: 0}
 --- !u!1 &6625664373783676877
 GameObject:
@@ -301,6 +294,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6625664373783387119}
+  - component: {fileID: 8073958227503923876}
   m_Layer: 13
   m_Name: GateB
   m_TagString: Untagged
@@ -316,8 +310,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6625664373783676879}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -118.84526, y: -0.010000229, z: -100.700165}
-  m_LocalScale: {x: 0.88, y: 0.88, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6625664373783387117}
   - {fileID: 6625664373783387113}
@@ -325,3 +319,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8073958227503923876
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6625664373783676879}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05d868d7da5129443bcea270479ce324, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  positions: {x: 2, y: 4.7}
+  open: 1
+  speed: 1
+  mask:
+    serializedVersion: 2
+    m_Bits: 512
+  boxCenter: {x: 0, y: 1.33, z: 0}
+  boxExtend: {x: 4.5, y: 2.19, z: 2}
+  door: {fileID: 6625664373783387115}
