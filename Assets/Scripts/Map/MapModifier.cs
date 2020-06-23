@@ -15,7 +15,7 @@ public class MapModifier : MonoBehaviour
 
     private ObjectPooler pool;
     public List<ScriptableTile> tileList = new List<ScriptableTile>();
-    private Dictionary<string, ScriptableTile> tileDictionary = new Dictionary<string, ScriptableTile>();
+    public Dictionary<string, ScriptableTile> tileDictionary = new Dictionary<string, ScriptableTile>();
     public Dictionary<Vector3Int, TileGameObject> tileObjects = new Dictionary<Vector3Int, TileGameObject>();
     public Queue<JobModifier> jobs = new Queue<JobModifier>();
 
@@ -82,7 +82,31 @@ public class MapModifier : MonoBehaviour
     public TileGameObject OverrideTile(ScriptableTile tile, Vector3Int cellPosition, bool forceUpdate)
     {
         RemoveTileAt(cellPosition, forceUpdate);
-        return PlaceTile(tile, cellPosition, forceUpdate);
+        tilemap.SetTile(cellPosition, tile);
+        TileGameObject result = PlaceTile(tile, cellPosition, forceUpdate);
+
+        if (tile.neighbourUpdate)
+            NeighbourgRefresh(cellPosition, forceUpdate);
+
+        return result;
+    }
+    public void NeighbourgRefresh(Vector3Int cellPosition, bool forceUpdate)
+    {
+        Vector3Int p = cellPosition + new Vector3Int(-1, 0, 0);
+        RemoveTileAt(p, forceUpdate);
+        PlaceTile(tilemap.GetTile<ScriptableTile>(p), p, forceUpdate);
+
+        p = cellPosition + new Vector3Int(1, 0, 0);
+        RemoveTileAt(p, forceUpdate);
+        PlaceTile(tilemap.GetTile<ScriptableTile>(p), p, forceUpdate);
+
+        p = cellPosition + new Vector3Int(0, -1, 0);
+        RemoveTileAt(p, forceUpdate);
+        PlaceTile(tilemap.GetTile<ScriptableTile>(p), p, forceUpdate);
+
+        p = cellPosition + new Vector3Int(0, 1, 0);
+        RemoveTileAt(p, forceUpdate);
+        PlaceTile(tilemap.GetTile<ScriptableTile>(p), p, forceUpdate);
     }
     public void RemoveTileAt(Vector3Int cellPosition, bool forceUpdate)
     {
@@ -130,7 +154,7 @@ public class MapModifier : MonoBehaviour
         {
             GameObject building = InstantiateGameObject(tile.building);
             building.transform.localPosition = tileCenter;
-            building.transform.localEulerAngles = new Vector3(-90, 90 - tilemap.GetTransformMatrix(cellPosition).rotation.eulerAngles.z, 0);
+            building.transform.localEulerAngles = new Vector3(0, 90 - tilemap.GetTransformMatrix(cellPosition).rotation.eulerAngles.z, 0);// new Vector3(-90, 90 - tilemap.GetTransformMatrix(cellPosition).rotation.eulerAngles.z, 0);
             building.SetActive(true);
 
             InitWall(building.GetComponent<Wall>(), cellPosition, tile.name);
@@ -278,12 +302,12 @@ public class MapModifier : MonoBehaviour
         }
     }
 
-    private void FreeGameObject(GameObject go, Vector3Int cell, bool forceUpdate)
+    public void FreeGameObject(GameObject go, Vector3Int cell, bool forceUpdate)
     {
         if (go != null)
         {
             if (!grid.RemoveGameObject(go, forceUpdate))
-                Debug.LogWarning("Fail removing tile " + go.name + " from "/* + cell.ToString()*/);
+                Debug.LogWarning("Fail removing tile " + go.name);
 
             if (pool.ContainTag(go.name))
             {

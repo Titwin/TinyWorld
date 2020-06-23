@@ -147,32 +147,29 @@ public class MapGrid : MonoBehaviour
         }
         return result;
     }
-    public List<GameObject> GetObjectsInBound(Vector3 center, Vector3 size, int layer)
+    public List<GameObject> GetObjectsInBound(Vector3 center, Vector3 size, LayerMask mask)
     {
-        Collider[] overlap = Physics.OverlapBox(center, 0.5f * size, Quaternion.identity, layer);
+        Collider[] overlap = Physics.OverlapBox(center, 0.5f * size, Quaternion.identity, mask);
         List<GameObject> result = new List<GameObject>();
 
         foreach(Collider collider in overlap)
         {
             GameObject root = collider.gameObject;
-            while(root && (root.layer & (1 << rootObjectLayer)) == 0)
+            while(root && rootObjectLayer != (1 << root.layer))
             {
                 root = root.transform.parent.gameObject;
             }
 
             if(root)
             {
-                result.Add(root);
+                if(!result.Contains(root))
+                    result.Add(root);
             }
             else
             {
                 Debug.LogWarning("Unable to fint root object for collider " + collider.gameObject.name);
             }
         }
-
-        Debug.Log(overlap.Length);
-
-
         return result;
     }
 

@@ -16,7 +16,7 @@ public class ScriptableTile : Tile
 
     [Header("Attributes")]
     public bool neighbourUpdate = false;
-    public bool buildingUpdate = false;
+    //public bool buildingUpdate = false;
     public bool isTerrain = false;
     
     [Header("Options")]

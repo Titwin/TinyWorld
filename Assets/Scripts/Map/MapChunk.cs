@@ -223,6 +223,11 @@ public class MapChunk : MonoBehaviour
                 meshfilter.mesh.CombineMeshes(combine.ToArray(), true, true);
             }
 
+            if(combineData.Count == 0)
+            {
+                Destroy(batch.gameObject);
+            }
+
             batchUpdate.Remove(material);
             SetBatchVisible(true);
         }
@@ -297,6 +302,10 @@ public class MapChunk : MonoBehaviour
     public bool RemoveGameObject(GameObject obj)
     {
         bool found = childs.Remove(obj);
+        if(found)
+        {
+            obj.transform.parent = null;
+        }
 
         if (found && childRendering.ContainsKey(obj))
         {

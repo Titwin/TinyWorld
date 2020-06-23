@@ -6,6 +6,9 @@ using UnityEngine.EventSystems;
 
 public class ConstructionSystem : MonoBehaviour
 {
+    [Header("Configuration")]
+    public bool instantConstruct = false;
+
     [Header("Current state")]
     public bool activated = false;
     private bool lastActivated;
@@ -25,6 +28,8 @@ public class ConstructionSystem : MonoBehaviour
     public MapGrid grid;
     private EventSystem eventsystem;
     public KeyCode keyMode;
+    public KeyCode rotationLeft;
+    public KeyCode rotationRight;
 
     [Header("Apperance")]
     public Material previewMaterial;
@@ -75,35 +80,7 @@ public class ConstructionSystem : MonoBehaviour
 
     void Update()
     {
-        // mode update
-        if (activated && (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(keyMode)))
-        {
-            activated = false;
-        }
-        else if (!activated && Input.GetKeyDown(keyMode))
-        {
-            activated = true;
-        }
-
-        if (lastActivated != activated)
-        {
-            if (activated)
-            {
-                
-            }
-            else
-            {
-                constructionUI.helpVideo.SetActive(false);
-            }
-
-            tpsController.activated = !activated;
-            rtsController.activated = activated;
-            constructionUI.ResetState();
-            constructionUI.gameObject.SetActive(activated);
-            RenderSettings.fog = !activated;
-            ResetState();
-        }
-        lastActivated = activated;
+        ModeUpdate();
         if (!activated)
             return;
         
@@ -133,53 +110,154 @@ public class ConstructionSystem : MonoBehaviour
                     lastChunkPointing = chunkPointing;
                 }
 
-                // standard brush 
+                // update depending on selected tool
                 if(brush != null)
                 {
-                    // enable and disable element depending on pointer (only if needed)
-                    if (lastTilePointing != tilePointing)
-                    {
-                        MapModifier.TileGameObject pointedTile = modifier.GetObjectsAtTile(tilePointing);
-                        if(pointedTile != lastPointedTile)
-                        {
-                            if (targetLayer.layerType == ConstructionLayer.LayerType.Terrain)
-                            {
-                                if (lastPointedTile != null && lastPointedTile.terrain)
-                                    lastPointedTile.terrain.SetActive(true);
-                                if (pointedTile.terrain)
-                                    pointedTile.terrain.SetActive(false);
-                            }
-                        }
-                        lastPointedTile = pointedTile;
-                    }
-                    lastTilePointing = tilePointing;
-
-                    // if ponter is valid (we are on something with a brush)
-                    if(lastPointedTile != null)
-                    {
-                        preview.transform.position = pointing + new Vector3(2f * (brush.data.tileSize.x - 1), 0,  2f * (brush.data.tileSize.y - 1));
-                        string message = "";
-                        bool valid = ValidPosition(preview.transform.position, ref message);
-                        currentPreviewMaterial.color = valid ? previewOk : previewInvalid;
-                        constructionUI.description.text = message;
-                    
-                        if (Input.GetMouseButtonDown(0))
-                        {
-                            PaintElement(tilePointing, lastPointedTile);
-                        }
-                    }
+                    BrushToolUpdate(tilePointing, pointing);
                 }
-
-                // deletion tool
                 else if(targetLayer && targetLayer.layerType == ConstructionLayer.LayerType.Delete)
                 {
-
+                    DeleteToolUpdate(tilePointing, pointing);
                 }
             }
         }
     }
 
+    private void ModeUpdate()
+    {
+        // mode update
+        if (activated && (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(keyMode)))
+        {
+            activated = false;
+        }
+        else if (!activated && Input.GetKeyDown(keyMode))
+        {
+            activated = true;
+        }
 
+        if (lastActivated != activated)
+        {
+            if (activated)
+            {
+
+            }
+            else
+            {
+                constructionUI.helpVideo.SetActive(false);
+            }
+
+            tpsController.activated = !activated;
+            rtsController.activated = activated;
+            constructionUI.ResetState();
+            constructionUI.gameObject.SetActive(activated);
+            RenderSettings.fog = !activated;
+            ResetState();
+        }
+        lastActivated = activated;
+    }
+    private void BrushToolUpdate(Vector3Int tilePointing, Vector3 pointing)
+    {
+        // enable and disable element depending on pointer (only if needed)
+        if (lastTilePointing != tilePointing)
+        {
+            MapModifier.TileGameObject pointedTile = modifier.GetObjectsAtTile(tilePointing);
+            if (pointedTile != lastPointedTile)
+            {
+                if (targetLayer.layerType == ConstructionLayer.LayerType.Terrain)
+                {
+                    if (lastPointedTile != null && lastPointedTile.terrain)
+                        lastPointedTile.terrain.SetActive(true);
+                    if (pointedTile.terrain)
+                        pointedTile.terrain.SetActive(false);
+                }
+            }
+            lastPointedTile = pointedTile;
+        }
+        lastTilePointing = tilePointing;
+
+        // if ponter is valid (we are on something with a brush)
+        if (lastPointedTile != null)
+        {
+            preview.transform.position = pointing + new Vector3(2f * (brush.data.tileSize.x - 1), 0, 2f * (brush.data.tileSize.y - 1));
+            if (Input.GetKeyDown(rotationLeft))
+                preview.transform.eulerAngles = new Vector3(preview.transform.eulerAngles.x, preview.transform.eulerAngles.y + 90, preview.transform.eulerAngles.z);
+            else if (Input.GetKeyDown(rotationRight))
+                preview.transform.eulerAngles = new Vector3(preview.transform.eulerAngles.x, preview.transform.eulerAngles.y + 90, preview.transform.eulerAngles.z);
+
+            string message = "";
+
+            List<GameObject> hovered = GetPointedObjects(preview.transform.position, ref message);
+
+            currentPreviewMaterial.color = hovered.Count == 0 ? previewOk : previewInvalid;
+            constructionUI.description.text = message;
+
+            if (Input.GetMouseButtonDown(0) && hovered.Count == 0)
+            {
+                if(instantConstruct || brush.data.incrementSpeed >= 1f)
+                {
+                    if(brush.data.IsTile)
+                    {
+                        modifier.OverrideTile(brush.data.tile, lastTilePointing, true);
+                    }
+                    else
+                    {
+                        GameObject element = Instantiate(brush.data.prefab);
+                        element.name = brush.data.prefab.name;
+                        element.transform.position = preview.transform.position;
+                        element.transform.rotation = preview.transform.rotation;
+                        element.transform.localScale = Vector3.one;
+                        modifier.grid.AddGameObject(element, brush.data.layer, true, false);
+
+                        modifier.OverrideTile(modifier.tileDictionary["Dirt"], lastTilePointing, true);
+                        modifier.OverrideTile(modifier.tileDictionary["Dirt"], lastTilePointing + new Vector3Int(1, 0, 0), true);
+                        modifier.OverrideTile(modifier.tileDictionary["Dirt"], lastTilePointing + new Vector3Int(0, 1, 0), true);
+                        modifier.OverrideTile(modifier.tileDictionary["Dirt"], lastTilePointing + new Vector3Int(1, 1, 0), true);
+                    }
+                }
+                else
+                {
+                    Debug.Log("Not yet implemented !!");
+                }
+            }
+        }
+    }
+    private void DeleteToolUpdate(Vector3Int tilePointing, Vector3 pointing)
+    {
+        int searchingLayers = (1 << LayerMask.NameToLayer("Building")) + (1 << LayerMask.NameToLayer("Decoration"));
+        List<GameObject> objects = grid.GetObjectsInBound(pointing, 3.5f * Vector3.one, searchingLayers);
+        preview.transform.position = pointing;
+
+        string message = "";
+        if (objects.Count == 0)
+        {
+            message = "No object under brush";
+        }
+        else
+        {
+            message = "Object under brush :\n";
+            foreach (GameObject go in objects)
+            {
+                message += go.name + ", ";
+            }
+        }
+        constructionUI.description.text = message;
+
+        if (Input.GetMouseButtonDown(0) && objects.Count != 0)
+        {
+            modifier.OverrideTile(modifier.tileDictionary["Dirt"], tilePointing, true);
+            modifier.NeighbourgRefresh(tilePointing, true);
+
+            foreach (GameObject go in objects)
+            {
+                modifier.grid.RemoveGameObject(go, true);
+
+                if (ObjectPooler.instance.ContainTag(go.name))
+                    ObjectPooler.instance.Free(go);
+                else
+                    Destroy(go);
+            }
+        }
+    }
     private void ResetState()
     {
         if (grid.grid.ContainsKey(lastChunkPointing))
@@ -232,6 +310,7 @@ public class ConstructionSystem : MonoBehaviour
             preview.transform.localEulerAngles = new Vector3(0, 0, 0);
             preview.transform.localScale = Vector3.one;
             currentPreviewMaterial.color = previewInvalid;
+            brush = null;
         }
         else
         {
@@ -243,13 +322,9 @@ public class ConstructionSystem : MonoBehaviour
     {
         activated = active;
     }
-    private void PaintElement(Vector3Int position, MapModifier.TileGameObject current)
-    {
-        Debug.Log("Place building");
-    }
 
     
-    private bool ValidPosition(Vector3 pointing, ref string message)
+    private List<GameObject> GetPointedObjects(Vector3 pointing, ref string message)
     {
         int searchingLayers = 0;
         if(targetLayer.layerType == ConstructionLayer.LayerType.Terrain)
@@ -275,11 +350,11 @@ public class ConstructionSystem : MonoBehaviour
         if(objects.Count == 0)
         {
             message = "";
-            return true;
+            return objects;
         }
         else
         {
-            return false;
+            return objects;
         }
     }
 
