@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af830b438a6152a40beb25475e805516, type: 3}
+  m_Name: Bridge
+  m_EditorClassIdentifier: 
+  layer: 0
+  icon: {fileID: 21300000, guid: 0bebaec7501c40a469786e619f96b457, type: 3}
+  optionalIcon: {fileID: 0}
+  description: Simple bridge
+  tileSize: {x: 1, y: 1}
+  incrementSpeed: 1
+  constructionSteps: []
+  preview: {fileID: -2432090755550338912, guid: 8c7f7ac42e19f094e9191a8f72ad66ef,
+    type: 3}
+  step0Resources: []
+  step1Resources: []
+  tile: {fileID: 11400000, guid: cacd291cf36481f47b64e6e7df76094a, type: 2}
+  prefab: {fileID: 0}
+  placementEulerOffset: {x: 0, y: 0, z: 180}
+  previewEulerOffset: {x: 0, y: 0, z: 0}

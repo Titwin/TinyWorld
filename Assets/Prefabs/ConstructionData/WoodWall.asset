@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af830b438a6152a40beb25475e805516, type: 3}
+  m_Name: WoodWall
+  m_EditorClassIdentifier: 
+  layer: 0
+  icon: {fileID: 21300000, guid: 91218d99d0f05f84186fe9e315340d0e, type: 3}
+  optionalIcon: {fileID: 0}
+  description: Wood wall
+  tileSize: {x: 1, y: 1}
+  incrementSpeed: 0.1
+  constructionSteps:
+  - {fileID: 4300000, guid: 84027b74851eeb942a03f4a723b1a66e, type: 3}
+  - {fileID: 4300000, guid: 8410783fe3ef98c4e8b34dcdc9b92e41, type: 3}
+  preview: {fileID: 4300010, guid: cba5dcbe606db5c489d9a7269c56598a, type: 3}
+  step0Resources:
+  - Wood 3
+  step1Resources:
+  - Wood 2
+  tile: {fileID: 11400000, guid: cbecfc181e103ab48a59c63cdb8d4a29, type: 2}
+  prefab: {fileID: 0}
+  placementEulerOffset: {x: 0, y: 0, z: 180}
+  previewEulerOffset: {x: -90, y: 0, z: 0}

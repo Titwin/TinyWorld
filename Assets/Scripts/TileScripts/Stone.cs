@@ -2,22 +2,59 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Stone : MonoBehaviour
+
+public class Stone : MonoBehaviour, IPoolableObject
 {
     public int size;
     public int yieldPerSize = 4;
+
+    private GameObject stone = null;
+
+    public void OnFree()
+    {
+        ObjectPooler.instance.Free(stone);
+        stone = null;
+    }
+
+    public void OnInit()
+    {
+
+    }
+
+    public void OnReset()
+    {
+        OnFree();
+    }
+
     public void Initialize(int rockSize)
     {
-        size = rockSize;
+        OnFree();
 
-        GameObject go = Instantiate(TilePrefabsContainer.Instance.GetStone(rockSize));
-        go.transform.parent = transform;
-        go.transform.localPosition = Vector3.zero;
-        go.transform.localScale = Vector3.one;
-        go.transform.localRotation = Quaternion.Euler(0, Random.Range(0, 360), 0);
-        go.SetActive(true);
+        string tag = GetPrefabName(rockSize);
+        stone = ObjectPooler.instance.Get(tag);
+        if(stone)
+        {
+            stone.transform.parent = transform;
+            stone.transform.localPosition = Vector3.zero;
+            stone.transform.localScale = Vector3.one;
+            stone.transform.localRotation = Quaternion.Euler(0, Random.Range(0, 360), 0);
 
-        int dispersion = (int)(0.25f * (rockSize + 1) * yieldPerSize);
-        go.transform.Find("Interactor").GetComponent<CollectData>().ressourceCount = Random.Range((rockSize + 1) * yieldPerSize - dispersion, (rockSize + 1) * yieldPerSize + dispersion);
+            int dispersion = (int)(0.25f * (rockSize + 1) * yieldPerSize);
+            stone.transform.Find("Interactor").GetComponent<CollectData>().ressourceCount = Random.Range((rockSize + 1) * yieldPerSize - dispersion, (rockSize + 1) * yieldPerSize + dispersion);
+        }
+        else Debug.LogWarning("Not enough instance in pool " + tag);
+    }
+
+
+    private string GetPrefabName(int size)
+    {
+        size = Mathf.Clamp(size, 0, 2);
+        switch (size)
+        {
+            case 0: return "SmallStone";
+            case 1: return "MidStone";
+            case 2: return "BigStone";
+            default: return "SmallStone";
+        }
     }
 }

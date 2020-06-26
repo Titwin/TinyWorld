@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af830b438a6152a40beb25475e805516, type: 3}
+  m_Name: Keep
+  m_EditorClassIdentifier: 
+  layer: 0
+  icon: {fileID: 21300000, guid: 6ae48989acc695c41bb6f5308e5598b2, type: 3}
+  optionalIcon: {fileID: 0}
+  description: Keep
+  tileSize: {x: 2, y: 2}
+  incrementSpeed: 0.01
+  constructionSteps:
+  - {fileID: 4300000, guid: 9f1a76b274a57c841b1aa03e7c5e5200, type: 3}
+  - {fileID: 4300000, guid: 70a74a7e3a8172e4d9fc5cd02c4800ba, type: 3}
+  preview: {fileID: 4300004, guid: 003306f67c7bed24b8be307fb52fb0ab, type: 3}
+  step0Resources:
+  - Stone 5
+  - Wood 4
+  step1Resources:
+  - Stone 2
+  - Wood 1
+  - Gold 1
+  tile: {fileID: 0}
+  prefab: {fileID: 4837761079565488270, guid: 6d4f01612b6b63b46857eff82d2b869f, type: 3}
+  placementEulerOffset: {x: 0, y: 0, z: 180}
+  previewEulerOffset: {x: -90, y: 0, z: 0}

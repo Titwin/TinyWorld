@@ -35,5 +35,13 @@ MonoBehaviour:
     type: 3}
   m_Flags: 1
   m_ColliderType: 0
-  prefab3d: {fileID: 413935372908655832, guid: 321bcd436dc7a094299501eff731260a, type: 3}
-  option1: {fileID: 0}
+  ground: {fileID: 2129560255247852762, guid: 9a40fd7eecd489d47b21aed590702d02, type: 3}
+  building: {fileID: 7132917672616384463, guid: 80aa71f34f21466408ff6413f025a915,
+    type: 3}
+  decoration: {fileID: 0}
+  neighbourUpdate: 1
+  buildingUpdate: 1
+  isTerrain: 0
+  optionalMaterial: {fileID: 0}
+  optionalSprite: {fileID: 0}
+  helperText: Wood wall

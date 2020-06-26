@@ -16,12 +16,12 @@ TagManager:
   - Interaction
   - Player
   - PlayerUI
+  - Ground
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - RootObject
+  - Terrain
+  - Building
+  - Decoration
   - 
   - 
   - 
@@ -43,4 +43,7 @@ TagManager:
     locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: helper
+    uniqueID: 3380649387
     locked: 0

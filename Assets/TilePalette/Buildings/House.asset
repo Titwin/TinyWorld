@@ -35,6 +35,13 @@ MonoBehaviour:
     type: 3}
   m_Flags: 1
   m_ColliderType: 0
-  prefab3d: {fileID: 1810705199814785647, guid: 8c6cf4d7a5fa18d4baaf5fb33b29b477,
+  ground: {fileID: 5586053671172209450, guid: b2bd31f28cd978a46a9bb932b796cb38, type: 3}
+  building: {fileID: 7797357159900661640, guid: 9ba6e17dcf4785147a59f9ea8fcd5c58,
     type: 3}
-  option1: {fileID: 0}
+  decoration: {fileID: 0}
+  neighbourUpdate: 1
+  buildingUpdate: 0
+  isTerrain: 0
+  optionalMaterial: {fileID: 0}
+  optionalSprite: {fileID: 0}
+  helperText: House

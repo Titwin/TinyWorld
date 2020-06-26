@@ -2,100 +2,115 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Wall : MonoBehaviour
+public class Wall : MonoBehaviour, IPoolableObject
 {
-    public GameObject prefabA;
-    public GameObject prefabB;
-    public GameObject prefabC;
-    public GameObject prefabD;
-    public GameObject prefabE;
-    public GameObject prefabF;
+    //public int configuration;
+    private GameObject wall = null;
 
-    public int configuration;
-
-    public void Initialize(bool xp, bool xm, bool zp, bool zm)
+    public void Initialize(bool xp, bool xm, bool zp, bool zm, string tileName)
     {
-        // compute configuration and choose the resolve mesh algorithm accordingly
-        configuration = (zp ? 0 : 1) << 3 | (zm ? 0 : 1) << 2 | (xp ? 0 : 1) << 1 | (xm ? 0 : 1) << 0;
+        if (wall) ObjectPooler.instance.Free(wall);
+        
+        int configuration = (zp ? 0 : 1) << 3 | (zm ? 0 : 1) << 2 | (xp ? 0 : 1) << 1 | (xm ? 0 : 1) << 0;
         float rotation = 0f;
-        GameObject prefab = null;
+        
+        string poolName;
+        if (tileName.Contains("Stone"))
+            poolName = "StoneWall_";
+        else poolName = "WoodWall_";
+
         switch (configuration)
         {
             case 0:
-                prefab = prefabA;
+                poolName += "A";
                 rotation = 0f;
                 break;
             case 1:
-                prefab = prefabB;
+                poolName += "B";
                 rotation = 0f;
                 break;
             case 2:
-                prefab = prefabB;
+                poolName += "B";
                 rotation = 180f;
                 break;
             case 3:
-                prefab = prefabC;
+                poolName += "C";
                 rotation = 0f;
                 break;
             case 4:
-                prefab = prefabB;
+                poolName += "B";
                 rotation = 90f;
                 break;
             case 5:
-                prefab = prefabD;
+                poolName += "D";
                 rotation = 0f;
                 break;
             case 6:
-                prefab = prefabD;
+                poolName += "D";
                 rotation = 90f;
                 break;
             case 7:
-                prefab = prefabE;
+                poolName += "E";
                 rotation = 90f;
                 break;
             case 8:
-                prefab = prefabB;
+                poolName += "B";
                 rotation = -90f;
                 break;
             case 9:
-                prefab = prefabD;
+                poolName += "D";
                 rotation = -90f;
                 break;
             case 10:
-                prefab = prefabD;
+                poolName += "D";
                 rotation = -180f;
                 break;
             case 11:
-                prefab = prefabE;
+                poolName += "E";
                 rotation = -90f;
                 break;
             case 12:
-                prefab = prefabC;
+                poolName += "C";
                 rotation = 90f;
                 break;
             case 13:
-                prefab = prefabE;
+                poolName += "E";
                 rotation = 0f;
                 break;
             case 14:
-                prefab = prefabE;
+                poolName += "E";
                 rotation = 180f;
                 break;
             case 15:
-                prefab = prefabF;
+                poolName += "F";
                 rotation = 0f;
                 break;
             default:
                 Debug.LogError("Wall init : invald tile configuration");
                 break;
         }
-
-        // end
-        GameObject go = Instantiate(prefab);
-        go.transform.parent = transform;
-        go.transform.localPosition = Vector3.zero;
-        go.transform.localRotation = Quaternion.identity;
-        go.transform.localScale = Vector3.one;
+        
+        wall = ObjectPooler.instance.Get(poolName);
+        wall.transform.parent = transform;
+        wall.transform.localPosition = Vector3.zero;
+        wall.transform.localRotation = Quaternion.identity;
+        wall.transform.localScale = Vector3.one;
         transform.localEulerAngles = new Vector3(0, rotation, 0);
+    }
+
+    public void OnFree()
+    {
+        ObjectPooler.instance.Free(wall);
+        wall = null;
+    }
+
+    public void OnInit()
+    {
+        
+    }
+
+    public void OnReset()
+    {
+        OnFree();
     }
 }

@@ -7,4 +7,5 @@ public class SpecialPickableShopArsenal : MonoBehaviour
     public TextMesh textmesh;
     public MeshFilter itemMesh;
     public SkinnedMeshRenderer body;
+    public SkinnedMeshRenderer horse;
 }

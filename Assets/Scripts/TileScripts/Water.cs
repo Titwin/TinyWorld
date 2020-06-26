@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class Water : MonoBehaviour
 {
     static protected Vector3 v0 = new Vector3(-2, 0, -2);
@@ -11,11 +12,13 @@ public class Water : MonoBehaviour
     static protected Vector3 n = Vector3.up;
 
     static float depth = 1f;
+    static protected float densityBorder = 0.6f;
 
     public int configuration;
-    public MeshFilter water;
+    public MeshFilter ground;
     public MeshCollider waterCollider;
-
+    public Transform waterMeshPivot;
+    
     public void Initialize(bool xp, bool xm, bool zp, bool zm, float borderStrengh)
     {
         // compute configuration and choose the resolve mesh algorithm accordingly
@@ -26,6 +29,8 @@ public class Water : MonoBehaviour
         {
             case 0:
                 mesh = CaseA(borderStrengh);
+                /*MeshRenderer mr = ground.gameObject.GetComponent<MeshRenderer>();
+                mr.sharedMaterials = new Material[] { mr.sharedMaterials[0] };*/
                 rotation = 0f;
                 break;
             case 1:
@@ -89,18 +94,123 @@ public class Water : MonoBehaviour
                 rotation = 0f;
                 break;
             default:
-                Debug.LogError("Dirt init : invald tile configuration");
+                Debug.LogError("Water init : invald tile configuration");
                 break;
         }
 
         // set mesh and orientation
-        MeshFilter mf = GetComponent<MeshFilter>();
-        mf.mesh = mesh;
+        ground.sharedMesh = mesh;
+        /*if (waterCollider)
+            waterCollider.sharedMesh = collider;*/
         transform.localEulerAngles = new Vector3(0, rotation, 0);
-        water.sharedMesh = Meteo.Instance.waterMesh.sharedMesh;
-        water.transform.rotation = Quaternion.identity;
+        if (waterMeshPivot)
+            waterMeshPivot.rotation = Quaternion.identity;
     }
+    public void InitializeFromPool(bool xp, bool xm, bool zp, bool zm)
+    {
+        // compute configuration and choose the resolve mesh algorithm accordingly
+        configuration = (zp ? 0 : 1) << 3 | (zm ? 0 : 1) << 2 | (xp ? 0 : 1) << 1 | (xm ? 0 : 1) << 0;
+        float rotation = 0f;
+        Mesh mesh = new Mesh();
+        Mesh collider = new Mesh();
+        int seed = TilePrefabsContainer.Instance.GetSeed();
 
+        // initialize configs
+        switch (configuration)
+        {
+            case 0:
+                mesh = TilePrefabsContainer.Instance.GetWaterA(seed);
+                collider = TilePrefabsContainer.Instance.GetWaterColliderA(seed);
+                rotation = 0f;
+                break;
+            case 1:
+                mesh = TilePrefabsContainer.Instance.GetWaterB(seed);
+                collider = TilePrefabsContainer.Instance.GetWaterColliderB(seed);
+                rotation = 0f;
+                break;
+            case 2:
+                mesh = TilePrefabsContainer.Instance.GetWaterB(seed);
+                collider = TilePrefabsContainer.Instance.GetWaterColliderB(seed);
+                rotation = 180f;
+                break;
+            case 3:
+                mesh = TilePrefabsContainer.Instance.GetWaterC(seed);
+                collider = TilePrefabsContainer.Instance.GetWaterColliderC(seed);
+                rotation = 0f;
+                break;
+            case 4:
+                mesh = TilePrefabsContainer.Instance.GetWaterB(seed);
+                collider = TilePrefabsContainer.Instance.GetWaterColliderB(seed);
+                rotation = 90f;
+                break;
+            case 5:
+                mesh = TilePrefabsContainer.Instance.GetWaterD(seed);
+                collider = TilePrefabsContainer.Instance.GetWaterColliderD(seed);
+                rotation = 0f;
+                break;
+            case 6:
+                mesh = TilePrefabsContainer.Instance.GetWaterD(seed);
+                collider = TilePrefabsContainer.Instance.GetWaterColliderD(seed);
+                rotation = 90f;
+                break;
+            case 7:
+                mesh = TilePrefabsContainer.Instance.GetWaterE(seed);
+                collider = TilePrefabsContainer.Instance.GetWaterColliderE(seed);
+                rotation = 90f;
+                break;
+            case 8:
+                mesh = TilePrefabsContainer.Instance.GetWaterB(seed);
+                collider = TilePrefabsContainer.Instance.GetWaterColliderB(seed);
+                rotation = -90f;
+                break;
+            case 9:
+                mesh = TilePrefabsContainer.Instance.GetWaterD(seed);
+                collider = TilePrefabsContainer.Instance.GetWaterColliderD(seed);
+                rotation = -90f;
+                break;
+            case 10:
+                mesh = TilePrefabsContainer.Instance.GetWaterD(seed);
+                collider = TilePrefabsContainer.Instance.GetWaterColliderD(seed);
+                rotation = -180f;
+                break;
+            case 11:
+                mesh = TilePrefabsContainer.Instance.GetWaterE(seed);
+                collider = TilePrefabsContainer.Instance.GetWaterColliderE(seed);
+                rotation = -90f;
+                break;
+            case 12:
+                mesh = TilePrefabsContainer.Instance.GetWaterC(seed);
+                collider = TilePrefabsContainer.Instance.GetWaterColliderC(seed);
+                rotation = 90f;
+                break;
+            case 13:
+                mesh = TilePrefabsContainer.Instance.GetWaterE(seed);
+                collider = TilePrefabsContainer.Instance.GetWaterColliderE(seed);
+                rotation = 0f;
+                break;
+            case 14:
+                mesh = TilePrefabsContainer.Instance.GetWaterE(seed);
+                collider = TilePrefabsContainer.Instance.GetWaterColliderE(seed);
+                rotation = 180f;
+                break;
+            case 15:
+                mesh = TilePrefabsContainer.Instance.GetWaterF(seed);
+                collider = TilePrefabsContainer.Instance.GetWaterColliderF(seed);
+                rotation = 0f;
+                break;
+            default:
+                Debug.LogError("Water init 2 : invald tile configuration");
+                break;
+        }
+
+        // set mesh and orientation
+        ground.sharedMesh = mesh;
+        if(waterCollider)
+            waterCollider.sharedMesh = collider;
+        transform.localEulerAngles = new Vector3(0, rotation, 0);
+        if(waterMeshPivot)
+            waterMeshPivot.rotation = Quaternion.identity;
+    }
 
     protected Mesh CaseA(float borderStrengh)
     {
@@ -111,11 +221,10 @@ public class Water : MonoBehaviour
 
         //push in mesh struct
         Mesh mesh = new Mesh();
+        mesh.subMeshCount = 3;
         mesh.vertices = vertices;
-        mesh.triangles = tris;
         mesh.normals = normals;
-        MeshRenderer mr = GetComponent<MeshRenderer>();
-        mr.materials = new Material[] { mr.materials[0] };
+        mesh.SetTriangles(tris, 0);
         return mesh;
     }
     protected Mesh CaseB(float borderStrengh)
@@ -125,6 +234,11 @@ public class Water : MonoBehaviour
         Vector3 v4 = v0 + sub.x * (v1 - v0) + sub.y * (v3 - v0);
         Vector3 n1 = Vector3.Cross(Vector3.up, v4 - v0).normalized;
         Vector3 n2 = Vector3.Cross(Vector3.up, v1 - v4).normalized;
+        Vector2 uv0 = densityBorder * Vector2.one;
+        Vector2 uv1 = densityBorder * Vector2.one;
+        Vector2 uv2 = Vector2.zero;
+        Vector2 uv3 = Vector2.zero;
+        Vector2 uv4 = Vector2.zero;
 
         // collider
         List<Vector3> v = new List<Vector3>();
@@ -139,6 +253,13 @@ public class Water : MonoBehaviour
             v0, v4, v0-depth*n, v4-depth*n,
             v1, v4, v1-depth*n, v4-depth*n
         };
+        Vector2[] uv = new Vector2[16]
+        {
+            uv0, uv1, uv4,
+            Vector2.zero, Vector2.zero, Vector2.zero, Vector2.zero, Vector2.zero,
+            uv0, uv4, Vector2.zero,Vector2.zero,
+            uv1, uv4, Vector2.zero,Vector2.zero
+        };
         Vector3[] normals = new Vector3[16]
         {
             n, n, n,
@@ -147,15 +268,17 @@ public class Water : MonoBehaviour
             n2, n2, n2, n2
         };
         int[] grasstri = new int[3] { 0, 1, 2 };
-        int[] dirttri = new int[21] { 3,6,7, 6,4,7, 4,5,7, 8,11,10, 8,9,11, 12,15,13, 12,14,15};
+        int[] Watertri = new int[21] { 3,6,7, 6,4,7, 4,5,7, 8,11,10, 8,9,11, 12,15,13, 12,14,15};
         
         //push in mesh struct
         Mesh mesh = new Mesh();
-        mesh.subMeshCount = 2;
+        mesh.subMeshCount = 3;
         mesh.vertices = vertices;
         mesh.normals = normals;
-        mesh.SetTriangles(dirttri, 0);
+        mesh.uv = uv;
+        mesh.SetTriangles(Watertri, 0);
         mesh.SetTriangles(grasstri, 1);
+        mesh.SetTriangles(grasstri, 2);
         return mesh;
     }
     protected Mesh CaseC(float borderStrengh)
@@ -170,6 +293,12 @@ public class Water : MonoBehaviour
         Vector3 n2 = Vector3.Cross(Vector3.up, v1 - v4).normalized;
         Vector3 n3 = Vector3.Cross(Vector3.up, v3 - v5).normalized;
         Vector3 n4 = Vector3.Cross(Vector3.up, v5 - v2).normalized;
+        Vector2 uv0 = densityBorder * Vector2.one;
+        Vector2 uv1 = densityBorder * Vector2.one;
+        Vector2 uv2 = densityBorder * Vector2.one;
+        Vector2 uv3 = densityBorder * Vector2.one;
+        Vector2 uv4 = Vector2.zero;
+        Vector2 uv5 = Vector2.zero;
 
         // collider
         List<Vector3> v = new List<Vector3>();
@@ -186,6 +315,15 @@ public class Water : MonoBehaviour
             v5,v3,v5-d,v3-d,
             v2,v5,v2-d,v5-d
         };
+        Vector2[] uv = new Vector2[28]
+        {
+            uv0, uv1, uv4, uv2, uv3, uv5,
+            Vector2.zero, Vector2.zero, Vector2.zero, Vector2.zero,Vector2.zero, Vector2.zero,
+            uv0, uv4, Vector2.zero, Vector2.zero,
+            uv1, uv4, Vector2.zero, Vector2.zero,
+            uv5, uv3, Vector2.zero, Vector2.zero,
+            uv2, uv5, Vector2.zero, Vector2.zero
+        };
         Vector3[] normals = new Vector3[28]
         {
             n, n, n, n, n, n,
@@ -197,15 +335,17 @@ public class Water : MonoBehaviour
         };
 
         int[] grasstri = new int[6] { 0, 1, 2, 3,4,5 };
-        int[] dirttri = new int[36] { 6,7,9, 7,8,9, 8,10,9, 8,11,10, 12,15,14, 12,13,15, 17,16,18, 17,18,19, 20,21,22, 22,21,23, 24,25,26, 26,25,27 };
+        int[] Watertri = new int[36] { 6,7,9, 7,8,9, 8,10,9, 8,11,10, 12,15,14, 12,13,15, 17,16,18, 17,18,19, 20,21,22, 22,21,23, 24,25,26, 26,25,27 };
         
         //push in mesh struct
         Mesh mesh = new Mesh();
-        mesh.subMeshCount = 2;
+        mesh.subMeshCount = 3;
         mesh.vertices = vertices;
         mesh.normals = normals;
-        mesh.SetTriangles(dirttri, 0);
+        mesh.uv = uv;
+        mesh.SetTriangles(Watertri, 0);
         mesh.SetTriangles(grasstri, 1);
+        mesh.SetTriangles(grasstri, 2);
         return mesh;
     }
     protected Mesh CaseD(float borderStrengh)
@@ -216,6 +356,11 @@ public class Water : MonoBehaviour
         Vector3 d = depth * n;
         Vector3 n1 = Vector3.Cross(Vector3.up, v4 - v0).normalized;
         Vector3 n2 = Vector3.Cross(Vector3.up, v2 - v4).normalized;
+        Vector2 uv0 = densityBorder * Vector2.one;
+        Vector2 uv1 = Vector2.one;
+        Vector2 uv2 = densityBorder * Vector2.one;
+        Vector2 uv3 = Vector2.zero;
+        Vector2 uv4 = uv1 + sub.x * (uv0 - uv1) + sub.y * (uv2 - uv1);
 
         // collider
         List<Vector3> v = new List<Vector3>();
@@ -230,6 +375,13 @@ public class Water : MonoBehaviour
             v0, v4, v0-d, v4-d,
             v2, v4, v2-d, v4-d
         };
+        Vector2[] uv = new Vector2[16]
+        {
+            uv0, uv1, uv2, uv4,
+            Vector2.zero, Vector2.zero, Vector2.zero, Vector2.zero,
+            uv0, uv4, Vector2.zero, Vector2.zero,
+            uv2, uv4, Vector2.zero, Vector2.zero
+        };
         Vector3[] normals = new Vector3[16]
         {
             n, n, n, n,
@@ -239,15 +391,17 @@ public class Water : MonoBehaviour
         };
 
         int[] grasstri = new int[6] { 0,1,3, 1,2,3 };
-        int[] dirttri = new int[18] { 4,5,6, 4,6,7, 8,9,11, 8,11,10, 13,12,14, 13,14,15 };
+        int[] Watertri = new int[18] { 4,5,6, 4,6,7, 8,9,11, 8,11,10, 13,12,14, 13,14,15 };
         
         //push in mesh struct
         Mesh mesh = new Mesh();
-        mesh.subMeshCount = 2;
+        mesh.subMeshCount = 3;
         mesh.vertices = vertices;
         mesh.normals = normals;
-        mesh.SetTriangles(dirttri, 0);
+        mesh.uv = uv;
+        mesh.SetTriangles(Watertri, 0);
         mesh.SetTriangles(grasstri, 1);
+        mesh.SetTriangles(grasstri, 2);
         return mesh;
     }
     protected Mesh CaseE(float borderStrengh)
@@ -261,6 +415,13 @@ public class Water : MonoBehaviour
         Vector3 n1 = Vector3.Cross(Vector3.up, v4 - v3).normalized;
         Vector3 n2 = Vector3.Cross(Vector3.up, v5 - v4).normalized;
         Vector3 n3 = Vector3.Cross(Vector3.up, v2 - v5).normalized;
+
+        Vector2 uv0 = Vector2.one;
+        Vector2 uv1 = Vector2.one;
+        Vector2 uv2 = densityBorder * Vector2.one;
+        Vector2 uv3 = densityBorder * Vector2.one;
+        Vector2 uv4 = Vector2.zero;
+        Vector2 uv5 = Vector2.zero;
 
         // collider
         List<Vector3> v = new List<Vector3>();
@@ -276,6 +437,14 @@ public class Water : MonoBehaviour
             v4, v5, v4-d, v5-d,
             v5, v2, v5-d, v2-d
         };
+        Vector2[] uv = new Vector2[22]
+        {
+            uv0, uv1, uv2, uv3, uv4, uv5,
+            Vector2.zero, Vector2.zero, Vector2.zero, Vector2.zero,
+            uv3,uv4, Vector2.zero, Vector2.zero,
+            uv4, uv5, Vector2.zero, Vector2.zero,
+            uv5, uv2, Vector2.zero, Vector2.zero,
+        };
         Vector3[] normals = new Vector3[22]
         {
             n,n,n,n,n,n,
@@ -286,15 +455,17 @@ public class Water : MonoBehaviour
         };
 
         int[] grasstri = new int[12] { 0, 4, 3, 0, 1, 4, 4, 1, 5, 5, 1, 2 };
-        int[] dirttri = new int[24] { 6,7,8, 6,8,9, 10,11,12, 12,11,13, 14,15,17, 14,17,16, 18,19,21, 18,21,20 };
+        int[] Watertri = new int[24] { 6,7,8, 6,8,9, 10,11,12, 12,11,13, 14,15,17, 14,17,16, 18,19,21, 18,21,20 };
         
         //push in mesh struct
         Mesh mesh = new Mesh();
-        mesh.subMeshCount = 2;
+        mesh.subMeshCount = 3;
         mesh.vertices = vertices;
         mesh.normals = normals;
-        mesh.SetTriangles(dirttri, 0);
+        mesh.uv = uv;
+        mesh.SetTriangles(Watertri, 0);
         mesh.SetTriangles(grasstri, 1);
+        mesh.SetTriangles(grasstri, 2);
         return mesh;
     }
     protected Mesh CaseF(float borderStrengh)
@@ -315,6 +486,16 @@ public class Water : MonoBehaviour
         Vector3 n3 = Vector3.Cross(v7-v6, v8-v6);
         Vector3 n4 = Vector3.Cross(v4-v7, v8-v7);
 
+        Vector2 uv0 = Vector2.one;
+        Vector2 uv1 = Vector2.one;
+        Vector2 uv2 = Vector2.one;
+        Vector2 uv3 = Vector2.one;
+        Vector2 uv4 = Vector2.zero;
+        Vector2 uv5 = Vector2.zero;
+        Vector2 uv6 = Vector2.zero;
+        Vector2 uv7 = Vector2.zero;
+        Vector2 uv8 = Vector2.zero;
+
         // collider
         List<Vector3> v = new List<Vector3>();
         v.Add(v4); v.Add(v5); v.Add(v6); v.Add(v7);
@@ -329,25 +510,34 @@ public class Water : MonoBehaviour
             v6, v7, v8,
             v7, v4, v8
         };
+        Vector2[] uv = new Vector2[20]
+        {
+            uv0, uv1, uv2, uv3, uv4, uv5, uv6, uv7,
+            uv4, uv5, uv8,
+            uv5, uv6, uv8,
+            uv6, uv7, uv8,
+            uv7, uv4, uv8
+        };
         Vector3[] normals = new Vector3[20]
         {
             n, n, n, n, n, n, n, n,
-            n1,n1,n1,
-            n2,n2,n2,
-            n3,n3,n3,
-            n4,n4,n4
-
+            n1, n1, n1,
+            n2, n2, n2,
+            n3, n3, n3,
+            n4, n4, n4
         };
-        int[] dirttri = new int[12] { 8,9,10, 11,12,13, 14,15,16, 17,18,19 };
+        int[] Watertri = new int[12] { 8,9,10, 11,12,13, 14,15,16, 17,18,19 };
         int[] grasstri = new int[24] { 0,1,4, 4,1,5, 1,6,5, 1,2,6, 7,6,2, 7,2,3, 0,4,3, 3,4,7 };
 
         //push in mesh struct
         Mesh mesh = new Mesh();
-        mesh.subMeshCount = 2;
+        mesh.subMeshCount = 3;
         mesh.vertices = vertices;
         mesh.normals = normals;
-        mesh.SetTriangles(dirttri, 0);
+        mesh.uv = uv;
+        mesh.SetTriangles(Watertri, 0);
         mesh.SetTriangles(grasstri, 1);
+        mesh.SetTriangles(grasstri, 2);
         return mesh;
     }
 

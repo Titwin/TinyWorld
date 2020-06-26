@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af830b438a6152a40beb25475e805516, type: 3}
+  m_Name: Stable
+  m_EditorClassIdentifier: 
+  layer: 0
+  icon: {fileID: 21300000, guid: ddc52cba27f6fba429820409e218fb1d, type: 3}
+  optionalIcon: {fileID: 0}
+  description: Stable
+  tileSize: {x: 2, y: 2}
+  incrementSpeed: 0.03
+  constructionSteps:
+  - {fileID: 4300000, guid: c8f46a36db3ed5d4ba1ec3877467e8ca, type: 3}
+  - {fileID: 4300000, guid: cca1c5a0500e0194cbfcc9780cb0f8d5, type: 3}
+  preview: {fileID: 4300000, guid: 0c6eb60ad59a81145839dbc6dedcbc3f, type: 3}
+  step0Resources:
+  - Stone 3
+  - Wood 2
+  step1Resources:
+  - Wood 1
+  - Iron 1
+  - Wheat 2
+  tile: {fileID: 0}
+  prefab: {fileID: 9008800489242748233, guid: 3da807429c196404db46445c8d7067aa, type: 3}
+  placementEulerOffset: {x: 0, y: 0, z: 180}
+  previewEulerOffset: {x: -90, y: 0, z: 0}

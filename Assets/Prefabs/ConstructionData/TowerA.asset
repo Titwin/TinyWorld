@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af830b438a6152a40beb25475e805516, type: 3}
+  m_Name: TowerA
+  m_EditorClassIdentifier: 
+  layer: 0
+  icon: {fileID: 21300000, guid: 99acab94706488d4299c15196c6295f6, type: 3}
+  optionalIcon: {fileID: 0}
+  description: Simple tower
+  tileSize: {x: 1, y: 1}
+  incrementSpeed: 0.05
+  constructionSteps:
+  - {fileID: 4300000, guid: ce8b6056e281f7c40b4f6f25ef610477, type: 3}
+  - {fileID: 4300000, guid: 240875b6dee8d804883a4a485f4ed145, type: 3}
+  preview: {fileID: 4300004, guid: 5921e45280d702e44ad0fb582ac16d26, type: 3}
+  step0Resources:
+  - Wood 3
+  step1Resources:
+  - Wood 3
+  - Iron 1
+  tile: {fileID: 11400000, guid: 59317e7b361a8a041b26dac90cdeb4a7, type: 2}
+  prefab: {fileID: 0}
+  placementEulerOffset: {x: 0, y: 0, z: 180}
+  previewEulerOffset: {x: -90, y: 0, z: -90}

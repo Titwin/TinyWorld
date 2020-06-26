@@ -62,6 +62,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Materials\Specials\GrassUpdater.cs" />
+    <Compile Include="Assets\Materials\Specials\WheatSynchronizer.cs" />
     <Compile Include="Assets\PostProcessing\Runtime\Attributes\GetSetAttribute.cs" />
     <Compile Include="Assets\PostProcessing\Runtime\Attributes\MinAttribute.cs" />
     <Compile Include="Assets\PostProcessing\Runtime\Attributes\TrackballAttribute.cs" />
@@ -107,20 +109,47 @@
     <Compile Include="Assets\PostProcessing\Runtime\Utils\MaterialFactory.cs" />
     <Compile Include="Assets\PostProcessing\Runtime\Utils\RenderTextureFactory.cs" />
     <Compile Include="Assets\PostProcessing\Utilities\CustomMotionTexture\ExampleWheelController.cs" />
-    <Compile Include="Assets\Scripts\CameraController.cs" />
+    <Compile Include="Assets\Scripts\AISystem\BuildingBase.cs" />
+    <Compile Include="Assets\Scripts\AISystem\CharacterAnimationController.cs" />
+    <Compile Include="Assets\Scripts\AISystem\EquipData.cs" />
+    <Compile Include="Assets\Scripts\AISystem\Government.cs" />
+    <Compile Include="Assets\Scripts\AISystem\Projectile.cs" />
+    <Compile Include="Assets\Scripts\AISystem\ResourceSource.cs" />
+    <Compile Include="Assets\Scripts\AISystem\Unit.cs" />
+    <Compile Include="Assets\Scripts\AISystem\UnitAI.cs" />
+    <Compile Include="Assets\Scripts\AISystem\WeaponData.cs" />
+    <Compile Include="Assets\Scripts\Animation\AnimationRotation.cs" />
+    <Compile Include="Assets\Scripts\Animation\AnimationSinTranslation.cs" />
+    <Compile Include="Assets\Scripts\Animation\AnimationStoneGate.cs" />
+    <Compile Include="Assets\Scripts\Animation\AnimationWoodGate.cs" />
+    <Compile Include="Assets\Scripts\CameraController\RTSCameraController.cs" />
+    <Compile Include="Assets\Scripts\CameraController\TPSCameraController.cs" />
     <Compile Include="Assets\Scripts\ChickController.cs" />
     <Compile Include="Assets\Scripts\ChikenController.cs" />
-    <Compile Include="Assets\Scripts\Cycle\Sun.cs" />
+    <Compile Include="Assets\Scripts\ConstructionSystem\ConstructionController.cs" />
+    <Compile Include="Assets\Scripts\ConstructionSystem\ConstructionData.cs" />
+    <Compile Include="Assets\Scripts\ConstructionSystem\ConstructionIcon.cs" />
+    <Compile Include="Assets\Scripts\ConstructionSystem\ConstructionLayer.cs" />
+    <Compile Include="Assets\Scripts\ConstructionSystem\ConstructionSystem.cs" />
+    <Compile Include="Assets\Scripts\ConstructionSystem\ConstructionUIJuicer.cs" />
+    <Compile Include="Assets\Scripts\ConstructionSystem\DestroyOnEmpty.cs" />
+    <Compile Include="Assets\Scripts\ConstructionSystem\DestructionTemplate.cs" />
+    <Compile Include="Assets\Scripts\ConstructionSystem\ResourceIcon.cs" />
+    <Compile Include="Assets\Scripts\Environement\Sun.cs" />
     <Compile Include="Assets\Scripts\EquipementSystem\Arsenal.cs" />
     <Compile Include="Assets\Scripts\EquipementSystem\BackpackItem.cs" />
     <Compile Include="Assets\Scripts\EquipementSystem\BackpackSlot.cs" />
     <Compile Include="Assets\Scripts\EquipementSystem\BodyItem.cs" />
     <Compile Include="Assets\Scripts\EquipementSystem\BodySlot.cs" />
+    <Compile Include="Assets\Scripts\EquipementSystem\EquipementLineTemplate.cs" />
+    <Compile Include="Assets\Scripts\EquipementSystem\EquipementViewer.cs" />
     <Compile Include="Assets\Scripts\EquipementSystem\HeadItem.cs" />
     <Compile Include="Assets\Scripts\EquipementSystem\HeadSlot.cs" />
+    <Compile Include="Assets\Scripts\EquipementSystem\HorseItem.cs" />
+    <Compile Include="Assets\Scripts\EquipementSystem\HorseSlot.cs" />
     <Compile Include="Assets\Scripts\EquipementSystem\InventoryLineTemplate.cs" />
     <Compile Include="Assets\Scripts\EquipementSystem\InventoryViewer.cs" />
-    <Compile Include="Assets\Scripts\EquipementSystem\RessourceContainer.cs" />
+    <Compile Include="Assets\Scripts\EquipementSystem\ResourceContainer.cs" />
     <Compile Include="Assets\Scripts\EquipementSystem\SecondItem.cs" />
     <Compile Include="Assets\Scripts\EquipementSystem\SecondSlot.cs" />
     <Compile Include="Assets\Scripts\EquipementSystem\ShieldItem.cs" />
@@ -131,36 +160,59 @@
     <Compile Include="Assets\Scripts\Helper\Billboard.cs" />
     <Compile Include="Assets\Scripts\Helper\Follower.cs" />
     <Compile Include="Assets\Scripts\Helper\WindAnimation.cs" />
-    <Compile Include="Assets\Scripts\InteractionSystem\Button3D.cs" />
+    <Compile Include="Assets\Scripts\InteractionSystem\AppleTree.cs" />
     <Compile Include="Assets\Scripts\InteractionSystem\CollectData.cs" />
     <Compile Include="Assets\Scripts\InteractionSystem\InteractionConditionTemplate.cs" />
     <Compile Include="Assets\Scripts\InteractionSystem\InteractionHelper.cs" />
     <Compile Include="Assets\Scripts\InteractionSystem\InteractionJuicer.cs" />
     <Compile Include="Assets\Scripts\InteractionSystem\InteractionType.cs" />
+    <Compile Include="Assets\Scripts\InteractionSystem\ResourceData.cs" />
     <Compile Include="Assets\Scripts\InteractionSystem\ResourceDictionary.cs" />
     <Compile Include="Assets\Scripts\InteractionSystem\ResourceType.cs" />
     <Compile Include="Assets\Scripts\InteractionSystem\SpecialPickableShopArsenal.cs" />
     <Compile Include="Assets\Scripts\InteractionSystem\StoreHouseViewer.cs" />
     <Compile Include="Assets\Scripts\InteractionSystem\ToolDictionary.cs" />
     <Compile Include="Assets\Scripts\InteractionSystem\ToolType.cs" />
-    <Compile Include="Assets\Scripts\Map.cs" />
+    <Compile Include="Assets\Scripts\Map\MapChunk.cs" />
+    <Compile Include="Assets\Scripts\Map\MapGrid.cs" />
+    <Compile Include="Assets\Scripts\Map\MapModifier.cs" />
+    <Compile Include="Assets\Scripts\Map\MapStreaming.cs" />
     <Compile Include="Assets\Scripts\Meteo.cs" />
+    <Compile Include="Assets\Scripts\NavigationSystem\AgentBase.cs" />
+    <Compile Include="Assets\Scripts\NavigationSystem\Navigation.cs" />
+    <Compile Include="Assets\Scripts\NavigationSystem\TerrainBase.cs" />
+    <Compile Include="Assets\Scripts\NavigationSystem\Utils\QuadTree.cs" />
+    <Compile Include="Assets\Scripts\NavigationSystem\Utils\QuadTreeQuery.cs" />
+    <Compile Include="Assets\Scripts\NavigationSystem\Utils\QuadTreeTest.cs" />
+    <Compile Include="Assets\Scripts\ObjectPooler.cs" />
     <Compile Include="Assets\Scripts\OreComponent.cs" />
     <Compile Include="Assets\Scripts\PeasantController.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
     <Compile Include="Assets\Scripts\TileScripts\Bridge.cs" />
     <Compile Include="Assets\Scripts\TileScripts\Dirt.cs" />
+    <Compile Include="Assets\Scripts\TileScripts\Fences.cs" />
     <Compile Include="Assets\Scripts\TileScripts\Grass.cs" />
     <Compile Include="Assets\Scripts\TileScripts\MineralRessource.cs" />
     <Compile Include="Assets\Scripts\TileScripts\ScriptableTile.cs" />
     <Compile Include="Assets\Scripts\TileScripts\Stone.cs" />
+    <Compile Include="Assets\Scripts\TileScripts\StoneDecoration.cs" />
     <Compile Include="Assets\Scripts\TileScripts\TilePrefabsContainer.cs" />
-    <Compile Include="Assets\Scripts\TileScripts\TreeComponent.cs" />
+    <Compile Include="Assets\Scripts\TileScripts\TreeMesh.cs" />
+    <Compile Include="Assets\Scripts\TileScripts\TreeStandard.cs" />
     <Compile Include="Assets\Scripts\TileScripts\Wall.cs" />
     <Compile Include="Assets\Scripts\TileScripts\Water.cs" />
-    <Compile Include="Assets\Scripts\TileScripts\Wheet.cs" />
+    <Compile Include="Assets\Scripts\TileScripts\Wheat.cs" />
+    <Compile Include="Assets\Scripts\Utils\CombineChildMeshes.cs" />
+    <Compile Include="Assets\Scripts\Utils\IPoolableObject.cs" />
+    <Compile Include="Assets\Scripts\Utils\LayerMaskExtensions.cs" />
+    <Compile Include="Assets\Scripts\Utils\Randomizer.cs" />
+    <Compile Include="Assets\Scripts\Utils\ScriptableObjectUtility.cs" />
+    <Compile Include="Assets\Scripts\Utils\SuperChildMerge.cs" />
+    <Compile Include="Assets\Scripts\World.cs" />
+    <None Include="Assets\Materials\Specials\Water.shader" />
     <None Include="Assets\PostProcessing\Resources\Shaders\ScreenSpaceReflection.shader" />
     <None Include="Assets\PostProcessing\Resources\Shaders\GrainGen.shader" />
+    <None Include="Assets\Materials\Specials\noise-simplex.shader" />
     <None Include="Assets\PostProcessing\Editor Resources\Monitors\HistogramCompute.compute" />
     <None Include="Assets\PostProcessing\Resources\Shaders\FXAA3.cginc" />
     <None Include="Assets\PostProcessing\Resources\Shaders\EyeAdaptation.shader" />
@@ -171,32 +223,37 @@
     <None Include="Assets\PostProcessing\Resources\Shaders\EyeAdaptation.cginc" />
     <None Include="Assets\PostProcessing\Resources\Shaders\LutGen.shader" />
     <None Include="Assets\PostProcessing\Resources\Shaders\EyeHistogram.compute" />
+    <None Include="Assets\Materials\Specials\GrassTessellation.cginc" />
     <None Include="Assets\PostProcessing\Resources\Shaders\TAA.cginc" />
     <None Include="Assets\PostProcessing\Resources\Shaders\AmbientOcclusion.cginc" />
     <None Include="Assets\PostProcessing\Editor Resources\Monitors\VectorscopeCompute.compute" />
     <None Include="Assets\PostProcessing\Resources\Shaders\ColorGrading.cginc" />
     <None Include="Assets\PostProcessing\Editor Resources\Monitors\HistogramRender.shader" />
     <None Include="Assets\PostProcessing\Resources\Shaders\UberSecondPass.cginc" />
+    <None Include="Assets\Materials\Specials\Grass.shader" />
     <None Include="Assets\PostProcessing\Resources\Bluenoise64\LICENSE.txt" />
     <None Include="Assets\Materials\Specials\Vegetation.shader" />
     <None Include="Assets\PostProcessing\Resources\Shaders\ACES.cginc" />
     <None Include="Assets\PostProcessing\Resources\Shaders\MotionBlur.cginc" />
     <None Include="Assets\PostProcessing\Resources\Shaders\AmbientOcclusion.shader" />
-    <None Include="Assets\Packages\LowpolyWeaponPack\README.txt" />
     <None Include="Assets\PostProcessing\Resources\Shaders\FXAA.shader" />
     <None Include="Assets\PostProcessing\Resources\Shaders\ScreenSpaceRaytrace.cginc" />
     <None Include="Assets\PostProcessing\Resources\Shaders\Tonemapping.cginc" />
     <None Include="Assets\PostProcessing\Resources\Shaders\Fog.shader" />
     <None Include="Assets\PostProcessing\Editor Resources\Monitors\ParadeRender.shader" />
     <None Include="Assets\PostProcessing\Resources\Shaders\MotionBlur.shader" />
+    <None Include="Assets\Materials\Specials\WindEffect.shader" />
     <None Include="Assets\PostProcessing\Resources\Shaders\DiskKernels.cginc" />
     <None Include="Assets\PostProcessing\Resources\Bluenoise64\COPYING.txt" />
+    <None Include="Assets\Materials\Specials\VegetationGeometry.cginc" />
+    <None Include="Assets\Materials\Specials\noiseSimplex.cginc" />
     <None Include="Assets\PostProcessing\Editor Resources\UI\Trackball.shader" />
-    <None Include="Assets\Packages\FantasyHouse\06-Info\info.txt" />
+    <None Include="Assets\Materials\Specials\Wheat.shader" />
     <None Include="Assets\PostProcessing\Editor Resources\Monitors\WaveformRender.shader" />
     <None Include="Assets\PostProcessing\Resources\Shaders\Common.cginc" />
     <None Include="Assets\Sound\sources.txt" />
     <None Include="Assets\PostProcessing\Editor Resources\Monitors\VectorscopeRender.shader" />
+    <None Include="Assets\Materials\Specials\WheatEars.shader" />
     <None Include="Assets\PostProcessing\Resources\Shaders\Bloom.shader" />
     <None Include="Assets\PostProcessing\Resources\Shaders\Uber.shader" />
     <None Include="Assets\PostProcessing\Resources\Shaders\DepthOfField.shader" />
@@ -206,40 +263,40 @@
     <None Include="Assets\PostProcessing\Editor Resources\Monitors\WaveformCompute.compute" />
     <None Include="Assets\PostProcessing\Resources\Shaders\DepthOfField.cginc" />
     <Reference Include="Unity.Timeline.Editor">
-      <HintPath>D:/BOULOT/CODE/GAME_PROJECTS/TinyWorld/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
+      <HintPath>C:/Users/Thibault/Documents/GitHub/TinyWorld/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VSCode.Editor">
-      <HintPath>D:/BOULOT/CODE/GAME_PROJECTS/TinyWorld/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
+      <HintPath>C:/Users/Thibault/Documents/GitHub/TinyWorld/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
-      <HintPath>D:/BOULOT/CODE/GAME_PROJECTS/TinyWorld/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+      <HintPath>C:/Users/Thibault/Documents/GitHub/TinyWorld/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UI">
-      <HintPath>D:/BOULOT/CODE/GAME_PROJECTS/TinyWorld/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+      <HintPath>C:/Users/Thibault/Documents/GitHub/TinyWorld/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline">
-      <HintPath>D:/BOULOT/CODE/GAME_PROJECTS/TinyWorld/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
+      <HintPath>C:/Users/Thibault/Documents/GitHub/TinyWorld/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
     </Reference>
     <Reference Include="Unity.CollabProxy.Editor">
-      <HintPath>D:/BOULOT/CODE/GAME_PROJECTS/TinyWorld/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
+      <HintPath>C:/Users/Thibault/Documents/GitHub/TinyWorld/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Rider.Editor">
-      <HintPath>D:/BOULOT/CODE/GAME_PROJECTS/TinyWorld/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
+      <HintPath>C:/Users/Thibault/Documents/GitHub/TinyWorld/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.Sprite.Editor">
-      <HintPath>D:/BOULOT/CODE/GAME_PROJECTS/TinyWorld/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
+      <HintPath>C:/Users/Thibault/Documents/GitHub/TinyWorld/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.Tilemap.Editor">
-      <HintPath>D:/BOULOT/CODE/GAME_PROJECTS/TinyWorld/Library/ScriptAssemblies/Unity.2D.Tilemap.Editor.dll</HintPath>
+      <HintPath>C:/Users/Thibault/Documents/GitHub/TinyWorld/Library/ScriptAssemblies/Unity.2D.Tilemap.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
-      <HintPath>D:/BOULOT/CODE/GAME_PROJECTS/TinyWorld/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+      <HintPath>C:/Users/Thibault/Documents/GitHub/TinyWorld/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.DataPrivacy">
-      <HintPath>D:/BOULOT/CODE/GAME_PROJECTS/TinyWorld/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
+      <HintPath>C:/Users/Thibault/Documents/GitHub/TinyWorld/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.UI">
-      <HintPath>D:/BOULOT/CODE/GAME_PROJECTS/TinyWorld/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+      <HintPath>C:/Users/Thibault/Documents/GitHub/TinyWorld/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.3.0f6/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -418,14 +475,17 @@
     <Reference Include="UnityEngine.XRModule">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.3.0f6/Editor/Data/Managed/UnityEngine/UnityEngine.XRModule.dll</HintPath>
     </Reference>
+    <Reference Include="Pathfinding.Ionic.Zip.Reduced">
+      <HintPath>C:/Users/Thibault/Documents/GitHub/TinyWorld/Assets/Packages/AstarPathfindingProject/Plugins/DotNetZip/Pathfinding.Ionic.Zip.Reduced.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.Analytics.Editor">
-      <HintPath>D:/BOULOT/CODE/GAME_PROJECTS/TinyWorld/Library/PackageCache/com.unity.analytics@3.3.5/Unity.Analytics.Editor.dll</HintPath>
+      <HintPath>C:/Users/Thibault/Documents/GitHub/TinyWorld/Library/PackageCache/com.unity.analytics@3.3.5/Unity.Analytics.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.Tracker">
-      <HintPath>D:/BOULOT/CODE/GAME_PROJECTS/TinyWorld/Library/PackageCache/com.unity.analytics@3.3.5/Unity.Analytics.Tracker.dll</HintPath>
+      <HintPath>C:/Users/Thibault/Documents/GitHub/TinyWorld/Library/PackageCache/com.unity.analytics@3.3.5/Unity.Analytics.Tracker.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.StandardEvents">
-      <HintPath>D:/BOULOT/CODE/GAME_PROJECTS/TinyWorld/Library/PackageCache/com.unity.analytics@3.3.5/AnalyticsStandardEvents/Unity.Analytics.StandardEvents.dll</HintPath>
+      <HintPath>C:/Users/Thibault/Documents/GitHub/TinyWorld/Library/PackageCache/com.unity.analytics@3.3.5/AnalyticsStandardEvents/Unity.Analytics.StandardEvents.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.3.0f6/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/mscorlib.dll</HintPath>
@@ -781,6 +841,20 @@
     <Reference Include="Boo.Lang">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.3.0f6/Editor/Data/MonoBleedingEdge/lib/mono/unityscript/Boo.Lang.dll</HintPath>
     </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="AstarPathfindingProject.csproj">
+      <Project>{A5EFF52E-7226-A91B-76E2-6F4CAC792EDD}</Project>
+      <Name>AstarPathfindingProject</Name>
+    </ProjectReference>
+    <ProjectReference Include="PackageToolsEditor.csproj">
+      <Project>{AE6AC807-DAFE-CB7B-C693-7B5E0D2B75B8}</Project>
+      <Name>PackageToolsEditor</Name>
+    </ProjectReference>
+    <ProjectReference Include="AstarPathfindingProjectEditor.csproj">
+      <Project>{178F788B-DF02-EEB9-D6DF-BBBAF533987B}</Project>
+      <Name>AstarPathfindingProjectEditor</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />

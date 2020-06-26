@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af830b438a6152a40beb25475e805516, type: 3}
+  m_Name: Barracks
+  m_EditorClassIdentifier: 
+  layer: 0
+  icon: {fileID: 21300000, guid: efd68bb24eef4874b83d607abab981c7, type: 3}
+  optionalIcon: {fileID: 0}
+  description: Barracks
+  tileSize: {x: 2, y: 2}
+  incrementSpeed: 0.02
+  constructionSteps:
+  - {fileID: 4300000, guid: 89fb5f68a7a07e24aa03504d5a034e9e, type: 3}
+  - {fileID: 4300000, guid: a2bc843dcc7a5be45993257d22444585, type: 3}
+  preview: {fileID: 4300004, guid: e2f28d7d7478cb64597ebb9077abfe6e, type: 3}
+  step0Resources:
+  - Stone 7
+  - Wood 3
+  step1Resources:
+  - Stone 5
+  - Wood 2
+  - Iron 2
+  tile: {fileID: 0}
+  prefab: {fileID: 1554657036930048183, guid: ef8623b8c5f379a49b5c39453d9d7c90, type: 3}
+  placementEulerOffset: {x: 0, y: 0, z: 180}
+  previewEulerOffset: {x: -90, y: 0, z: 0}

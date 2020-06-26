@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af830b438a6152a40beb25475e805516, type: 3}
+  m_Name: Wheat
+  m_EditorClassIdentifier: 
+  layer: 2
+  icon: {fileID: 21300000, guid: 44fd4d7c6789e6740801a987f5f438d7, type: 3}
+  optionalIcon: {fileID: 0}
+  description: Wheat
+  tileSize: {x: 1, y: 1}
+  incrementSpeed: 1
+  constructionSteps: []
+  preview: {fileID: -2432090755550338912, guid: bee476f7268ab854989da4d72dab8ad2,
+    type: 3}
+  step0Resources: []
+  step1Resources: []
+  tile: {fileID: 11400000, guid: 27262478219d78346ab79fbdbef36875, type: 2}
+  prefab: {fileID: 0}
+  placementEulerOffset: {x: 0, y: 0, z: 180}
+  previewEulerOffset: {x: 0, y: 0, z: 0}

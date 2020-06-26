@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af830b438a6152a40beb25475e805516, type: 3}
+  m_Name: Granary
+  m_EditorClassIdentifier: 
+  layer: 0
+  icon: {fileID: 21300000, guid: 503d8db2c2e6ce24fae787968a45e1c3, type: 3}
+  optionalIcon: {fileID: 0}
+  description: Granary
+  tileSize: {x: 1, y: 1}
+  incrementSpeed: 0.09
+  constructionSteps:
+  - {fileID: 4300000, guid: b18013bceef29894d95932ffbdf069c0, type: 3}
+  - {fileID: 4300000, guid: 25ef05172876b8742b290e10ba4393cf, type: 3}
+  preview: {fileID: 4300002, guid: aec20226064bbcc4d850e8da90e49a4b, type: 3}
+  step0Resources:
+  - Stone 2
+  - Wood 1
+  step1Resources:
+  - Stone 1
+  - Wood 1
+  tile: {fileID: 11400000, guid: 9e2c96acb5a05bb43b7a80c53e807d48, type: 2}
+  prefab: {fileID: 0}
+  placementEulerOffset: {x: 0, y: 0, z: 180}
+  previewEulerOffset: {x: -90, y: 0, z: -90}

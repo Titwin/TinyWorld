@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8e5ff727f98500438bd0d275b3281a9, type: 3}
+  m_Name: OpenFences
+  m_EditorClassIdentifier: 
+  m_Sprite: {fileID: 21300000, guid: 6d08a002516a1ed4bbdfb137342e1b5f, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Transform:
+    e00: 1
+    e01: 0
+    e02: 0
+    e03: 0
+    e10: 0
+    e11: 1
+    e12: 0
+    e13: 0
+    e20: 0
+    e21: 0
+    e22: 1
+    e23: 0
+    e30: 0
+    e31: 0
+    e32: 0
+    e33: 1
+  m_InstancedGameObject: {fileID: 7772881292652336423, guid: 79bfc6a1101c7a44997d85ebc8c98494,
+    type: 3}
+  m_Flags: 1
+  m_ColliderType: 0
+  ground: {fileID: 5586053671172209450, guid: b2bd31f28cd978a46a9bb932b796cb38, type: 3}
+  building: {fileID: 225000585385098911, guid: 351b1657808ed1c478862b4aadac714c, type: 3}
+  decoration: {fileID: 0}
+  decorationNoisePosition: {x: 0, y: 0}
+  decorationNoiseRotation: {x: 0, y: 0}
+  decorationNoiseScale: {x: 1, y: 1}
+  neighbourUpdate: 1
+  buildingUpdate: 1
+  isTerrain: 0
+  optionalMaterial: {fileID: 0}
+  optionalSprite: {fileID: 0}
+  helperText: Passage in fences for animals and hmans

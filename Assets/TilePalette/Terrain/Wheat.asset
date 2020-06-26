@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8e5ff727f98500438bd0d275b3281a9, type: 3}
+  m_Name: Wheat
+  m_EditorClassIdentifier: 
+  m_Sprite: {fileID: 21300000, guid: 35a0e12e12268714ba805c879ae7a40a, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Transform:
+    e00: 1
+    e01: 0
+    e02: 0
+    e03: 0
+    e10: 0
+    e11: 1
+    e12: 0
+    e13: 0
+    e20: 0
+    e21: 0
+    e22: 1
+    e23: 0
+    e30: 0
+    e31: 0
+    e32: 0
+    e33: 1
+  m_InstancedGameObject: {fileID: 0}
+  m_Flags: 1
+  m_ColliderType: 0
+  ground: {fileID: 5586053671172209450, guid: b2bd31f28cd978a46a9bb932b796cb38, type: 3}
+  building: {fileID: 0}
+  decoration: {fileID: 5105674684001610595, guid: bc7ef4b4b93ad6a44b3953692b65f7b4,
+    type: 3}
+  decorationNoisePosition: {x: 0, y: 0}
+  decorationNoiseRotation: {x: 0, y: 0}
+  decorationNoiseScale: {x: 1, y: 1}
+  neighbourUpdate: 1
+  buildingUpdate: 0
+  isTerrain: 1
+  optionalMaterial: {fileID: 0}
+  optionalSprite: {fileID: 21300000, guid: 44fd4d7c6789e6740801a987f5f438d7, type: 3}
+  helperText: Wheat crop fields

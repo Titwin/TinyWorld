@@ -25,7 +25,10 @@ public class WeaponItem : MonoBehaviour
         Claymore,
         Spear,
 
-        Sickle
+        Sickle,
+
+        CavalryLanceA, CavalryLanceB, CavalryLanceC,
+        CavalrySpear
     };
     public Type type = Type.None;
     public string toolFamily = "None";
@@ -33,6 +36,7 @@ public class WeaponItem : MonoBehaviour
     public bool forbidShield = false;
     public int animationCode = 1;
     public float load = 0f;
+    public float dammage = 0f;
     
     // special
     public void Clear()
@@ -43,6 +47,7 @@ public class WeaponItem : MonoBehaviour
         forbidShield = false;
         animationCode = 0;
         load = 0f;
+        dammage = 0f;
     }
     public static void Copy(WeaponItem source, WeaponItem destination)
     {
@@ -52,17 +57,6 @@ public class WeaponItem : MonoBehaviour
         destination.forbidShield = source.forbidShield;
         destination.animationCode = source.animationCode;
         destination.load = source.load;
+        destination.dammage = source.dammage;
     }
-
-    // helper for interaction system
-    /*static public bool isAxe(Type type)
-    {
-        Type[] axeList = { Type.AxeA, Type.AxeB, Type.AxeC, Type.AxeD, Type.AxeE, Type.BigAxeA, Type.BigAxeB };
-        foreach(Type axe in axeList)
-        {
-            if (axe == type)
-                return true;
-        }
-        return false;
-    }*/
 }

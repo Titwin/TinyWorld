@@ -1,0 +1,379 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8260557424555890532
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8260557424555890531}
+  - component: {fileID: 8260557424555890530}
+  m_Layer: 0
+  m_Name: Gold
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8260557424555890531
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8260557424555890532}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 8260557426037359535}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8260557424555890530
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8260557424555890532}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8dd905be30a69e545b57b98fcd575c82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  resourceName: Gold
+  icon: {fileID: 21300000, guid: 8ef5cb5e6b12d734b8cc741969c18c30, type: 3}
+  gainColor: {r: 1, g: 0.90588236, b: 0.2784314, a: 1}
+  collectionSound:
+  - {fileID: 8300000, guid: 3a851cf5c109f124296e9b20258eef6d, type: 3}
+  - {fileID: 8300000, guid: e9be0cfe377e23c42a8b83ef2f778aa4, type: 3}
+  - {fileID: 8300000, guid: 440737a9faa68c84ebf9b0f541ba895c, type: 3}
+  - {fileID: 8300000, guid: f0ced281186a54942a2911510b31e48d, type: 3}
+  material: {fileID: 2100000, guid: e1ba9032a4c4c634d9eb984a854c5b14, type: 2}
+  collectionTools:
+  - Pickaxe
+  - Container
+--- !u!1 &8260557424670281638
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8260557424670281637}
+  - component: {fileID: 8260557424670281636}
+  m_Layer: 0
+  m_Name: Crystal
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8260557424670281637
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8260557424670281638}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 8260557426037359535}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8260557424670281636
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8260557424670281638}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8dd905be30a69e545b57b98fcd575c82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  resourceName: Crystal
+  icon: {fileID: 21300000, guid: 3b65c8220b57abd468d4e575c4029d8c, type: 3}
+  gainColor: {r: 0, g: 0.8862745, b: 0.8, a: 1}
+  collectionSound:
+  - {fileID: 8300000, guid: e9be0cfe377e23c42a8b83ef2f778aa4, type: 3}
+  - {fileID: 8300000, guid: 440737a9faa68c84ebf9b0f541ba895c, type: 3}
+  - {fileID: 8300000, guid: f0ced281186a54942a2911510b31e48d, type: 3}
+  material: {fileID: 2100000, guid: baa538561ad7cf84fb7a22d8fe6cab80, type: 2}
+  collectionTools:
+  - Pickaxe
+  - Container
+--- !u!1 &8260557424767491202
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8260557424767491201}
+  - component: {fileID: 8260557424767491200}
+  m_Layer: 0
+  m_Name: Wheat
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8260557424767491201
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8260557424767491202}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 8260557426037359535}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8260557424767491200
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8260557424767491202}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8dd905be30a69e545b57b98fcd575c82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  resourceName: Wheat
+  icon: {fileID: 21300000, guid: b949c4b2119e71647bbce01735ce0e3c, type: 3}
+  gainColor: {r: 1, g: 0.91893977, b: 0.5613208, a: 1}
+  collectionSound:
+  - {fileID: 8300000, guid: 6f6bd79b1ae844343bd436e0b8ce7a5a, type: 3}
+  - {fileID: 8300000, guid: 2eaf68480d9b9534895713258679e2f9, type: 3}
+  - {fileID: 8300000, guid: 52be369d5e8d24446bd00ec86b0ee142, type: 3}
+  material: {fileID: 2100000, guid: f76acdf8558dac3448d004d2d06697a2, type: 2}
+  collectionTools:
+  - Sickle
+  - Container
+--- !u!1 &8260557425249900087
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8260557425249900086}
+  - component: {fileID: 8260557425249900085}
+  m_Layer: 0
+  m_Name: Iron
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8260557425249900086
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8260557425249900087}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 8260557426037359535}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8260557425249900085
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8260557425249900087}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8dd905be30a69e545b57b98fcd575c82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  resourceName: Iron
+  icon: {fileID: 21300000, guid: 3009f72e96b635443ac2048ba0ca8d45, type: 3}
+  gainColor: {r: 1, g: 0.7019608, b: 0.31764707, a: 1}
+  collectionSound:
+  - {fileID: 8300000, guid: 3a851cf5c109f124296e9b20258eef6d, type: 3}
+  - {fileID: 8300000, guid: e9be0cfe377e23c42a8b83ef2f778aa4, type: 3}
+  - {fileID: 8300000, guid: 440737a9faa68c84ebf9b0f541ba895c, type: 3}
+  - {fileID: 8300000, guid: f0ced281186a54942a2911510b31e48d, type: 3}
+  material: {fileID: 2100000, guid: b91ff3ba01afc474fb13706e77bbd526, type: 2}
+  collectionTools:
+  - Pickaxe
+  - Container
+--- !u!1 &8260557425428767694
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8260557425428767693}
+  - component: {fileID: 8260557425428767692}
+  m_Layer: 0
+  m_Name: Wood
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8260557425428767693
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8260557425428767694}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 8260557426037359535}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8260557425428767692
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8260557425428767694}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8dd905be30a69e545b57b98fcd575c82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  resourceName: Wood
+  icon: {fileID: 21300000, guid: 82324f3f354dd784c9ce1da961817825, type: 3}
+  gainColor: {r: 0.41568628, g: 0.19607843, b: 0, a: 1}
+  collectionSound:
+  - {fileID: 8300000, guid: 92981c3821c5da8419661058f4e25395, type: 3}
+  material: {fileID: 2100000, guid: cb4786e2a7156bf4a992d1dba404c240, type: 2}
+  collectionTools:
+  - Axe
+  - Container
+--- !u!1 &8260557425778550479
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8260557425778550478}
+  - component: {fileID: 8260557425778550477}
+  m_Layer: 0
+  m_Name: Stone
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8260557425778550478
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8260557425778550479}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 8260557426037359535}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8260557425778550477
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8260557425778550479}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8dd905be30a69e545b57b98fcd575c82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  resourceName: Stone
+  icon: {fileID: 21300000, guid: cdbd4d9986728e14785848bc62f2e063, type: 3}
+  gainColor: {r: 0.7647059, g: 0.7647059, b: 0.7647059, a: 1}
+  collectionSound:
+  - {fileID: 8300000, guid: 3a851cf5c109f124296e9b20258eef6d, type: 3}
+  - {fileID: 8300000, guid: e9be0cfe377e23c42a8b83ef2f778aa4, type: 3}
+  - {fileID: 8300000, guid: 440737a9faa68c84ebf9b0f541ba895c, type: 3}
+  - {fileID: 8300000, guid: f0ced281186a54942a2911510b31e48d, type: 3}
+  - {fileID: 8300000, guid: 3a851cf5c109f124296e9b20258eef6d, type: 3}
+  - {fileID: 8300000, guid: 3a851cf5c109f124296e9b20258eef6d, type: 3}
+  material: {fileID: 2100000, guid: be93189f65603cc459f70b67fe254e83, type: 2}
+  collectionTools:
+  - Pickaxe
+  - Container
+--- !u!1 &8260557426037359520
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8260557426037359535}
+  - component: {fileID: 8260557426037359534}
+  m_Layer: 0
+  m_Name: ResourceDictionary
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8260557426037359535
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8260557426037359520}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 8260557425778550478}
+  - {fileID: 8260557425428767693}
+  - {fileID: 8260557425249900086}
+  - {fileID: 8260557424555890531}
+  - {fileID: 8260557424670281637}
+  - {fileID: 8260557424767491201}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8260557426037359534
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8260557426037359520}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0b9682f9c2bad64d9779f0be2ae77f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultName: Stone

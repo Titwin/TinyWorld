@@ -1,0 +1,50 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8e5ff727f98500438bd0d275b3281a9, type: 3}
+  m_Name: AppleTree
+  m_EditorClassIdentifier: 
+  m_Sprite: {fileID: 21300000, guid: 7f99852e92976f941a25f23709a96377, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Transform:
+    e00: 1
+    e01: 0
+    e02: 0
+    e03: 0
+    e10: 0
+    e11: 1
+    e12: 0
+    e13: 0
+    e20: 0
+    e21: 0
+    e22: 1
+    e23: 0
+    e30: 0
+    e31: 0
+    e32: 0
+    e33: 1
+  m_InstancedGameObject: {fileID: 2465718573166935883, guid: 8d68d5b5f9febc049b6349450478770e,
+    type: 3}
+  m_Flags: 1
+  m_ColliderType: 0
+  ground: {fileID: 2129560255247852762, guid: 9a40fd7eecd489d47b21aed590702d02, type: 3}
+  building: {fileID: 0}
+  decoration: {fileID: 6301596015179004592, guid: 74542ca84b9044741b38192208ce4005,
+    type: 3}
+  decorationNoisePosition: {x: -0.5, y: 0.5}
+  decorationNoiseRotation: {x: -180, y: 180}
+  decorationNoiseScale: {x: 1, y: 1.6}
+  neighbourUpdate: 0
+  buildingUpdate: 0
+  isTerrain: 1
+  optionalMaterial: {fileID: 0}
+  optionalSprite: {fileID: 21300000, guid: f0d0da4554ea0fa44a4ff98e45502c74, type: 3}
+  helperText: Apple tree

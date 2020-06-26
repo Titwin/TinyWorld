@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class StoreHouseViewer : MonoBehaviour
 {
-    public bool visible = true;
+    public bool visible;
     public float verticalSpacing;
     public float horizontalSpacing;
     public int column;
     public InventoryLineTemplate template;
     public GameObject pivot;
     public Transform list;
-    public RessourceContainer container;
+    public ResourceContainer container;
     public TextMesh loadSum;
     public Transform background;
     private int prevLoad;
@@ -19,6 +19,7 @@ public class StoreHouseViewer : MonoBehaviour
     void Start()
     {
         prevLoad = -1;
+        visible = false;
     }
 
     void Update()

@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af830b438a6152a40beb25475e805516, type: 3}
+  m_Name: MageTower
+  m_EditorClassIdentifier: 
+  layer: 0
+  icon: {fileID: 21300000, guid: 49075edae9c602344a6728378695981f, type: 3}
+  optionalIcon: {fileID: 0}
+  description: Mage tower
+  tileSize: {x: 2, y: 2}
+  incrementSpeed: 0.02
+  constructionSteps:
+  - {fileID: 4300000, guid: 23f5e8bfeddc6454da643b5f31d0ff9a, type: 3}
+  - {fileID: 4300000, guid: f1d267045620d8f40a446655a93df223, type: 3}
+  preview: {fileID: 4300000, guid: fc4ed9ef41f9dc944af60388921a8746, type: 3}
+  step0Resources:
+  - Stone 4
+  - Wood 3
+  step1Resources:
+  - Wood 1
+  - Gold 1
+  - Crystal 1
+  tile: {fileID: 0}
+  prefab: {fileID: 2027079886383706176, guid: 027074d67fab5124a92c54418ed1c4f1, type: 3}
+  placementEulerOffset: {x: 0, y: 0, z: 180}
+  previewEulerOffset: {x: -90, y: 0, z: 0}

@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af830b438a6152a40beb25475e805516, type: 3}
+  m_Name: Temple
+  m_EditorClassIdentifier: 
+  layer: 0
+  icon: {fileID: 21300000, guid: d0d00f28bc077f44aa243f47009bb4d3, type: 3}
+  optionalIcon: {fileID: 0}
+  description: Temple
+  tileSize: {x: 2, y: 2}
+  incrementSpeed: 0.02
+  constructionSteps:
+  - {fileID: 4300000, guid: 2c19f74705f3b6b44af06171a67178a1, type: 3}
+  - {fileID: 4300000, guid: b40bcd86f471a554696e16e6e41c7e0b, type: 3}
+  preview: {fileID: 4300002, guid: 9bf280570cf5dce45a29b84470a52c7e, type: 3}
+  step0Resources:
+  - Stone 4
+  - Wood 3
+  step1Resources:
+  - Wood 2
+  - Iron 1
+  tile: {fileID: 0}
+  prefab: {fileID: 1970513481641005341, guid: 67ac4fca9b0b0424a95cc3209e655ae0, type: 3}
+  placementEulerOffset: {x: 0, y: 0, z: 180}
+  previewEulerOffset: {x: -90, y: 0, z: 0}

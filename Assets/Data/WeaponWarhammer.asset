@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44b3add20a2921c4eadc1666d617154d, type: 3}
+  m_Name: WeaponWarhammer
+  m_EditorClassIdentifier: 
+  mesh: {fileID: 4300486, guid: 714fac36dcf2d5f49b8baca0fe9dea9b, type: 3}
+  animationCode: 1
+  type: 27
+  handness: 0
+  damage: 1
+  range: 2
+  cooldown: 1
+  damageType: 0
+  load: 0
+  forbidSecond: 0
+  forbidShield: 0

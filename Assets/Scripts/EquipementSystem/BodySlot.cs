@@ -6,16 +6,15 @@ public class BodySlot : MonoBehaviour
 {
     public BodyItem equipedItem;
     public SkinnedMeshRenderer equipedMesh;
-    public Transform[] debugBones = new Transform[1];
 
-    public bool Equip(BodyItem.Type type, bool forceUpdate = false)
+    public bool Equip(BodyItem.Type type, bool mounted, bool forceUpdate = false)
     {
         if (type == equipedItem.type && !forceUpdate)
             return true;
 
         if (type != BodyItem.Type.None)
         {
-            BodyItem newItem = Arsenal.Instance.Get(type);
+            BodyItem newItem = Arsenal.Instance.Get(type, mounted);
             if (newItem)
             {
                 SkinnedMeshRenderer smr = newItem.GetComponent<SkinnedMeshRenderer>();

@@ -1,0 +1,13 @@
+# Blender MTL File: 'None'
+# Material Count: 1
+
+newmtl TT_RTS_Buildings_mat
+Ns 17.999914
+Ka 1.000000 1.000000 1.000000
+Kd 0.588235 0.588235 0.588235
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 1
+map_Kd C:\\Users\\Thibault\\Documents\\GitHub\\TinyWorld\\Assets\\Packages\\ToonyTinyPeople\\ToonyTinyPeople\\TT_RTS\\TT_RTS_Standard\\models\\materials\\TT_RTS_Buildings_texture.psd

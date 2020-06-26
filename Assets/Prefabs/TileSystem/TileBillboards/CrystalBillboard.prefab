@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7331916234873474307}
   - component: {fileID: 7331916234873474316}
-  - component: {fileID: 7331916234873474317}
   m_Layer: 0
   m_Name: CrystalBillboard
   m_TagString: Untagged
@@ -82,15 +81,3 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &7331916234873474317
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7331916234873474318}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2e7036de3c1f28f4ab510c1641d7ea1e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

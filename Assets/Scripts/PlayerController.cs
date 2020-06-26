@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
+
+
 public class PlayerController : MonoBehaviour
 {
     [Header("Movement and machine states")]
@@ -16,8 +19,10 @@ public class PlayerController : MonoBehaviour
 
     private float grounded = 0f;
     private float attackDelay = 0f;
-    
+    private float offensiveSpearWeight = 0f;
+
     [Header("Equipement")]
+    public HorseSlot horse;
     public WeaponSlot weapon;
     public SecondSlot secondHand;
     public ShieldSlot shield;
@@ -32,12 +37,13 @@ public class PlayerController : MonoBehaviour
     public InteractionType.Type interactionType;
     public GameObject currentInteractor = null;
     public InteractionJuicer interactionJuicer;
-    public RessourceContainer ressourceContainer;
+    public ResourceContainer ressourceContainer;
     public InventoryViewer inventoryViewer;
+    public EquipementViewer equipementViewer;
     public InteractionHelper interactionHelper;
 
-    private bool needEquipementAnimaionUpdate = false;
-    private float interactionDelay = 0f;
+    private bool needEquipementAnimationUpdate = false;
+    public  float interactionDelay = 0f;
     public float interactionConfirmedDelay = 0f;
     private RaycastHit[] scanResults = new RaycastHit[20];
     private int scanLength;
@@ -56,18 +62,27 @@ public class PlayerController : MonoBehaviour
 
     private CharacterController controller;
     private Animator animator;
-    private AnimatorOverrideController animatorOverrideController;
+    public AnimatorOverrideController animatorOverrideController;
     private AnimationClipOverrides clipOverrides;
     private ParticleSystem particles;
     private Vector3 direction = Vector3.zero;
     private Vector3 target;
     private ParticleSystem.EmitParams emitParams;
 
+    public static PlayerController MainInstance { get; set; } = null;
+    private void Awake()
+    {
+        if (MainInstance == null)
+        {
+            MainInstance = this;
+        }
+    }
+
+
     void Start()
     {
         controller = GetComponent<CharacterController>();
         animator = GetComponent<Animator>();
-        animatorOverrideController = new AnimatorOverrideController(animator.runtimeAnimatorController);
         animator.runtimeAnimatorController = animatorOverrideController;
         clipOverrides = new AnimationClipOverrides(animatorOverrideController.overridesCount);
         animatorOverrideController.GetOverrides(clipOverrides);
@@ -78,40 +93,81 @@ public class PlayerController : MonoBehaviour
         emitParams = new ParticleSystem.EmitParams();
         audiosource = GetComponent<AudioSource>();
 
+        if(horse)
+            horse.Equip(horse.equipedItem.type, true);
         weapon.Equip(weapon.equipedItem.type, true);
         secondHand.Equip(secondHand.equipedItem.type, true);
         head.Equip(head.equipedItem.type, true);
         shield.Equip(shield.equipedItem.type, true);
-        body.Equip(body.equipedItem.type, true);
+
+        bool mounted = horse ? horse.equipedItem.type != HorseItem.Type.None : false;
+        body.Equip(body.equipedItem.type, mounted, true);
         backpack.Equip(backpack.equipedItem.type, true);
 
         AnimationParameterRefresh();
 
-        ressourceContainer.AddItem("Gold", 10);
-        ressourceContainer.AddItem("Iron", 10);
-        ressourceContainer.AddItem("Stone", 10);
-        ressourceContainer.AddItem("Wood", 10);
-        ressourceContainer.AddItem("Wheat", 10);
+        ressourceContainer.AddItem("Stone", 8);
+        ressourceContainer.AddItem("Wood", 3);
+        ressourceContainer.AddItem("Iron", 1);
+
+        /*ressourceContainer.AddItem("Gold", 100);
+        ressourceContainer.AddItem("Iron", 100);
+        ressourceContainer.AddItem("Stone", 300);
+        ressourceContainer.AddItem("Wood", 300);
+        ressourceContainer.AddItem("Wheat", 100);
+        ressourceContainer.AddItem("Crystal", 10);*/
         if (inventoryViewer.visible)
             inventoryViewer.UpdateContent(ressourceContainer.inventory);
         inventoryViewer.transform.parent = null;
+        equipementViewer.transform.parent = null;
     }
     
+    Vector3 GetInputDirection()
+    {
+        Vector3 direction = Vector3.zero;
+        if (Input.GetKey(KeyCode.Z) || Input.GetKey(KeyCode.UpArrow))
+            direction.z = 1;
+        else if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
+            direction.z = -1;
+        if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
+            direction.x = 1;
+        else if (Input.GetKey(KeyCode.Q) || Input.GetKey(KeyCode.LeftArrow))
+            direction.x = -1;
+        direction.Normalize();
+        return direction;
+    }
     void Update()
     {
+        // begin
+        if (ConstructionSystem.instance.activated)
+            return;
+
         float speedFactor = Input.GetKey(KeyCode.LeftShift) && loadFactor > 0.75f ? 2 : 1;
         direction = Vector3.zero;
 
+        // offensive posture on horse
+        bool mounted = horse ? horse.equipedItem.type != HorseItem.Type.None : false;
+        bool attack = mounted ? Input.GetMouseButtonUp(0) : Input.GetMouseButtonDown(0);
+        bool allowOffensivePosture = mounted && weapon.equipedItem.type != WeaponItem.Type.None && weapon.equipedItem.animationCode == 5;
+
+        if (allowOffensivePosture && Input.GetMouseButton(0))
+            offensiveSpearWeight = Mathf.Clamp(offensiveSpearWeight + 3 * Time.deltaTime, 0f, 1f);
+        else if (allowOffensivePosture)
+            offensiveSpearWeight = Mathf.Clamp(offensiveSpearWeight - 3 * Time.deltaTime, 0f, 1f);
+        else offensiveSpearWeight = 0f;
+        if(animator.GetLayerIndex("OffensivePosture") >= 0)
+            animator.SetLayerWeight(animator.GetLayerIndex("OffensivePosture"), offensiveSpearWeight);
+        
         // action or attack
-        if (Input.GetMouseButtonDown(0) && attackDelay <= 0)
+        if (attack && attackDelay <= 0)
         {
-            // not click on UI
+            // if not click on UI
             RaycastHit hit;
             if (!Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 50f, 1 << LayerMask.NameToLayer("PlayerUI")))
             {
                 animator.SetTrigger("attack");
                 attackDelay = attackCooldown;
-                attacking = true;
+                attacking = !mounted;
                 audiosource.clip = effortSound;
                 audiosource.Play();
                 target = hit.point;
@@ -127,8 +183,12 @@ public class PlayerController : MonoBehaviour
             {
                 Interact(interaction.type, go);
             }
-            if (needEquipementAnimaionUpdate)
-                AnimationParameterRefresh();
+        }
+        else if(Input.GetKeyDown(KeyCode.Space) && scanLength == 0 && weapon.equipedItem.toolFamily == "Hammer" && !interacting)
+        {
+            interactionType = InteractionType.Type.constructionMode;
+            currentInteractor = ConstructionSystem.instance.gameObject;
+            interactionConfirmedDelay = 0.001f;
         }
         interacting = currentInteractor && (interactionDelay > 0f || interactionConfirmedDelay > 0f);
         animator.SetBool("interaction", interacting);
@@ -150,15 +210,7 @@ public class PlayerController : MonoBehaviour
         if ((controller.isGrounded || grounded < 0.2f) && !attacking && !interacting)
         {
             // compute direction
-            if (Input.GetKey(KeyCode.Z))
-                direction = new Vector3(0, 0, 1);
-            else if (Input.GetKey(KeyCode.S))
-                direction = new Vector3(0, 0, -1);
-            if (Input.GetKey(KeyCode.D))
-                direction += new Vector3(1, 0, 0);
-            else if (Input.GetKey(KeyCode.Q))
-                direction += new Vector3(-1, 0, 0);
-            direction.Normalize();
+            direction = GetInputDirection();
 
             // compute animation parameters
             if (direction.x == 0f && direction.z == 0f)
@@ -175,7 +227,7 @@ public class PlayerController : MonoBehaviour
         else grounded += Time.deltaTime;
 
         // move 
-        direction.y = -gravity * Time.deltaTime;
+        direction.y = -gravity;
         controller.Move(direction * Time.deltaTime);
 
         // aiming
@@ -199,10 +251,13 @@ public class PlayerController : MonoBehaviour
         }
 
         // update timers
-        if (attackDelay > 0)
+        if (attackDelay > 0f)
             attackDelay -= Time.deltaTime;
-        if (interactionDelay > 0 && !Input.GetKey(KeyCode.Space))
+        if (interactionDelay > 0f && !Input.GetKey(KeyCode.Space))
             interactionDelay -= Time.deltaTime;
+        
+        if (needEquipementAnimationUpdate)
+            AnimationParameterRefresh();
     }
     private void LateUpdate()
     {
@@ -210,11 +265,11 @@ public class PlayerController : MonoBehaviour
         Vector3 position = transform.TransformPoint(controller.center);
         scanLength = Physics.BoxCastNonAlloc(position, size, Vector3.forward, scanResults, Quaternion.identity, 1f, 1 << LayerMask.NameToLayer("Interaction"));
 
-        if (scanLength > 0)
+        if (scanLength > 0 && !ConstructionSystem.instance.activated)
             interactionJuicer.hovered = scanResults[0].collider.gameObject;
         else interactionJuicer.hovered = null;
-        if (interactionJuicer.hovered != null && interactionJuicer.hovered.GetComponent<RessourceContainer>() != null)
-            inventoryViewer.storage = interactionJuicer.hovered.GetComponent<RessourceContainer>();
+        if (interactionJuicer.hovered != null && interactionJuicer.hovered.GetComponent<ResourceContainer>() != null)
+            inventoryViewer.storage = interactionJuicer.hovered.GetComponent<ResourceContainer>();
         else inventoryViewer.storage = null;
 
         interactionBox.position = position;
@@ -234,6 +289,7 @@ public class PlayerController : MonoBehaviour
             case InteractionType.Type.pickableSecond:
             case InteractionType.Type.pickableShield:
             case InteractionType.Type.pickableWeapon:
+            case InteractionType.Type.pickableHorse:
                 interactionType = type;
                 currentInteractor = interactor;
                 success = true;
@@ -264,9 +320,11 @@ public class PlayerController : MonoBehaviour
             case InteractionType.Type.collectCrystal:
             case InteractionType.Type.collectWood:
             case InteractionType.Type.collectWheet:
-                success = collectRessourceInteraction(type, interactor);
+            case InteractionType.Type.construction:
+            case InteractionType.Type.destroyBuilding:
+                success = InitiateInteractionTick(type, interactor);
                 break;
-
+                
             // error
             default:
                 Debug.LogWarning("no interaction defined for this type " + type.ToString());
@@ -286,6 +344,7 @@ public class PlayerController : MonoBehaviour
             case InteractionType.Type.pickableSecond:
             case InteractionType.Type.pickableShield:
             case InteractionType.Type.pickableWeapon:
+            case InteractionType.Type.pickableHorse:
                 pickableInteraction(interactionType, currentInteractor);
                 break;
 
@@ -300,6 +359,10 @@ public class PlayerController : MonoBehaviour
             // store all ressources
             case InteractionType.Type.storeRessources:
                 storeAllInteraction(interactionType, currentInteractor);
+                break;
+
+            case InteractionType.Type.constructionMode:
+                ConstructionSystem.instance.SetActive(true);
                 break;
 
             // error
@@ -322,29 +385,24 @@ public class PlayerController : MonoBehaviour
         animator.SetBool("shield", shield.equipedItem.type != ShieldItem.Type.None);
 
         // compute load
-        float f = body.equipedItem.load + weapon.equipedItem.load + secondHand.equipedItem.load + shield.equipedItem.load + head.equipedItem.load + backpack.equipedItem.load;
-        loadFactor = loadCurve.Evaluate(0.1f * f);
-        animator.SetFloat("loadFactor", loadFactor);
+        RecomputeLoadFactor();
 
-        // load clips
-        AnimationClip[] clips = Arsenal.Instance.GetAnimationClip(ref weapon.equipedItem, ref secondHand.equipedItem, ref shield.equipedItem, 
-                                                                  ref body.equipedItem, ref head.equipedItem, ref backpack.equipedItem);
+        // load animation clips
+        AnimationClip[] clips;
+        if(horse && horse.equipedItem.type != HorseItem.Type.None)
+            clips = Arsenal.Instance.GetMountedAnimationClip(ref weapon.equipedItem, ref secondHand.equipedItem, ref shield.equipedItem, ref body.equipedItem, ref head.equipedItem, ref backpack.equipedItem);
+        else
+            clips = Arsenal.Instance.GetAnimationClip(ref weapon.equipedItem, ref secondHand.equipedItem, ref shield.equipedItem, ref body.equipedItem, ref head.equipedItem, ref backpack.equipedItem);
+        
         clipOverrides["idle"] = clips[0];
         clipOverrides["walk"] = clips[1];
         clipOverrides["run"] = clips[2];
         clipOverrides["attack"] = clips[3];
         animatorOverrideController.ApplyOverrides(clipOverrides);
 
-        needEquipementAnimaionUpdate = false;
+        needEquipementAnimationUpdate = false;
     }
-    private void InitiateRessourceInteraction(InteractionType.Type type, GameObject interactor)
-    {
-        interactionDelay = collectCooldown;
-        animator.SetTrigger("interact");
-        currentInteractor = interactor;
-        interactionType = type;
-    }
-    private bool collectRessourceInteraction(InteractionType.Type type, GameObject interactor)
+    private bool InitiateInteractionTick(InteractionType.Type type, GameObject interactor)
     {
         bool success = true;
         ComputeInteractionConditions(type);
@@ -360,7 +418,12 @@ public class PlayerController : MonoBehaviour
         if(!success)
             interactionHelper.UpdateContent(interactionConditionList);
         else
-            InitiateRessourceInteraction(type, interactor);
+        {
+            interactionDelay = collectCooldown;
+            animator.SetTrigger("interact");
+            currentInteractor = interactor;
+            interactionType = type;
+        }
         return success;
     }
     private bool pickableInteraction(InteractionType.Type type, GameObject interactor)
@@ -376,7 +439,7 @@ public class PlayerController : MonoBehaviour
                 if (item.forbidShield)
                     shield.Equip(ShieldItem.Type.None);
                 success = true;
-                needEquipementAnimaionUpdate = true;
+                needEquipementAnimationUpdate = true;
 
                 if(ToolDictionary.Instance.toolTypes.ContainsKey(weapon.equipedItem.toolFamily))
                 {
@@ -391,7 +454,8 @@ public class PlayerController : MonoBehaviour
             BackpackItem item = interactor.GetComponent<BackpackItem>();
             if (item && backpack.Equip(item.type))
                 success = true;
-            needEquipementAnimaionUpdate = true;
+            needEquipementAnimationUpdate = true;
+            ressourceContainer.Clear();
 
             if (ToolDictionary.Instance.toolTypes.ContainsKey(backpack.equipedItem.toolFamily))
             {
@@ -406,7 +470,7 @@ public class PlayerController : MonoBehaviour
             if (item && head.Equip(item.type))
             {
                 success = true;
-                needEquipementAnimaionUpdate = true;
+                needEquipementAnimationUpdate = true;
                 int index = Mathf.Clamp((int)HeadItem.getCategory(head.equipedItem.type), 0, wearHead.Count - 1);
                 audiosource.clip = wearHead[index];
                 audiosource.Play();
@@ -422,7 +486,7 @@ public class PlayerController : MonoBehaviour
                 if (item.forbidShield)
                     shield.Equip(ShieldItem.Type.None);
                 success = true;
-                needEquipementAnimaionUpdate = true;
+                needEquipementAnimationUpdate = true;
             }
         }
         else if (type == InteractionType.Type.pickableShield)
@@ -435,46 +499,96 @@ public class PlayerController : MonoBehaviour
                 if (secondHand.equipedItem.forbidShield)
                     secondHand.Equip(SecondItem.Type.None);
                 success = true;
-                needEquipementAnimaionUpdate = true;
+                needEquipementAnimationUpdate = true;
             }
         }
         else if (type == InteractionType.Type.pickableBody)
         {
             BodyItem item = interactor.GetComponent<BodyItem>();
-            if (item && body.Equip(item.type))
+            bool mounted = horse ? horse.equipedItem.type != HorseItem.Type.None : false;
+            if (item && body.Equip(item.type, mounted))
             {
                 success = true;
-                needEquipementAnimaionUpdate = true;
+                needEquipementAnimationUpdate = true;
                 int index = Mathf.Clamp((int)BodyItem.getCategory(body.equipedItem.type), 0, wearBody.Count - 1);
                 audiosource.clip = wearBody[index];
                 audiosource.Play();
             }
         }
+        else if (type == InteractionType.Type.pickableHorse)
+        {
+            HorseItem item = interactor.GetComponent<HorseItem>();
+            if((horse && item.type == HorseItem.Type.None) ||(!horse && item.type != HorseItem.Type.None))
+            {
+                // change player template
+                PlayerController destination;
+                if (item.type == HorseItem.Type.None)
+                    destination = Instantiate(Arsenal.Instance.playerTemplate.gameObject).GetComponent<PlayerController>();
+                else destination = Instantiate(Arsenal.Instance.mountedPlayerTemplate.gameObject).GetComponent<PlayerController>();
+                PlayerController.Copy(this, destination);
+                PlayerController.MainInstance = destination;
+                MapStreaming.instance.focusAgent = destination.transform;
+
+                Destroy(gameObject);
+                Destroy(inventoryViewer.gameObject);
+                Destroy(equipementViewer.gameObject);
+
+                destination.pickableInteraction(type, interactor);
+                //constructionCamera.gameObject.GetComponent<TPSCameraController>().target = destination.transform.Find("CameraTarget");
+            }
+            else
+            {
+                if (horse && item && horse.Equip(item.type))
+                {
+                    success = true;
+                    needEquipementAnimationUpdate = true;
+                    /*int index = Mathf.Clamp((int)BodyItem.getCategory(body.equipedItem.type), 0, wearBody.Count - 1);
+                    audiosource.clip = wearBody[index];
+                    audiosource.Play();*/
+
+                    bool mounted = horse ? horse.equipedItem.type != HorseItem.Type.None : false;
+                    body.Equip(body.equipedItem.type, mounted, true);
+                }
+            }
+        }
+
+        if (success)
+            equipementViewer.UpdateContent();
 
         return success;
     }
     private bool storeAllInteraction(InteractionType.Type type, GameObject interactor)
     {
-        RessourceContainer storehouse = interactor.GetComponent<RessourceContainer>();
+        ResourceContainer storehouse = interactor.GetComponent<ResourceContainer>();
         if(storehouse)
         {
-            List<string> emptySlots = new List<string>();
+            Dictionary<string, int> transfers = new Dictionary<string, int>();
+            Dictionary<string, int> accepted = storehouse.GetAcceptance();
             foreach (KeyValuePair<string, int> entry in ressourceContainer.inventory)
             {
-                if(storehouse.acceptedResources.Contains(entry.Key) || storehouse.acceptedResources.Count == 0)
+                if (accepted.Count == 0 || accepted.ContainsKey(entry.Key))
                 {
-                    storehouse.AddItem(ResourceDictionary.Instance.Get(entry.Key).name, entry.Value);
-                    emptySlots.Add(entry.Key);
+                    int currentCount = storehouse.inventory.ContainsKey(entry.Key) ? storehouse.inventory[entry.Key] : 0;
+                    int maxCount = (accepted.ContainsKey(entry.Key) && accepted[entry.Key] > 0) ? accepted[entry.Key] : storehouse.capacity;
+                    
+                    if (storehouse.HasSpace() && maxCount != currentCount)
+                    {
+                        int maximumTransfert = Mathf.Min(entry.Value, maxCount - currentCount);
+                        storehouse.AddItem(ResourceDictionary.Instance.Get(entry.Key).name, maximumTransfert);
+                        transfers.Add(entry.Key, maximumTransfert);
+                    }
                 }
             }
 
-            if (emptySlots.Count != 0)
+            if (transfers.Count != 0)
             {
-                foreach (string slot in emptySlots)
-                    ressourceContainer.inventory.Remove(slot);
+                foreach(KeyValuePair<string, int> entry in transfers)
+                    ressourceContainer.RemoveItem(entry.Key, entry.Value, false);
                 ressourceContainer.UpdateContent();
                 if (inventoryViewer.visible)
+                {
                     inventoryViewer.UpdateContent(inventoryViewer.GetFusionInventory());
+                }
                 RecomputeLoadFactor();
                 audiosource.clip = backpackClear;
                 audiosource.Play();
@@ -489,7 +603,15 @@ public class PlayerController : MonoBehaviour
                 {
                     interactionConditionList.Clear();
                     foreach (string acceptance in storehouse.acceptedResources)
-                        interactionConditionList.Add(acceptance, "nor");
+                    {
+                        string accName = acceptance;
+                        if(acceptance.Contains(" "))
+                        {
+                            char[] separator = { ' ' };
+                            accName = acceptance.Split(separator)[0];
+                        }
+                        interactionConditionList.Add(accName, "nor");
+                    }
                     interactionHelper.UpdateContent(interactionConditionList);
                 }
             }
@@ -505,18 +627,60 @@ public class PlayerController : MonoBehaviour
     public void InteractionTick()
     {
         interactionDelay = collectCooldown;
-        if(currentInteractor && interactionType == InteractionType.Type.collectWood)
+        if (currentInteractor && interactionType == InteractionType.Type.collectWood)
         {
             CommonRessourceCollectionResolve();
             interactionJuicer.treeInteractor = currentInteractor;
         }
-        else if(InteractionType.isCollectingMinerals(interactionType))
+        else if (InteractionType.isCollectingMinerals(interactionType))
         {
             CommonRessourceCollectionResolve();
         }
         else if (currentInteractor && interactionType == InteractionType.Type.collectWheet)
         {
             CommonRessourceCollectionResolve();
+        }
+        else if (currentInteractor && interactionType == InteractionType.Type.construction)
+        {
+            // hammer on stone is close to pickake on stone for Iron collection
+            List<AudioClip> sounds = ResourceDictionary.Instance.Get(ResourceDictionary.Instance.GetNameFromType(InteractionType.Type.collectIron)).collectionSound;
+            AudioClip soundFx = sounds[Random.Range(0, sounds.Count)];
+            audiosource.clip = soundFx;
+            if (soundFx)
+                audiosource.Play();
+
+            // increment progress bar
+            ConstructionController construction = currentInteractor.GetComponent<ConstructionController>();
+            if (construction && construction.Increment())
+            {
+                interactionDelay = 0f;
+                currentInteractor = null;
+            }
+        }
+        else if (currentInteractor && interactionType == InteractionType.Type.destroyBuilding)
+        {
+            // hammer on stone is close to pickake on stone for Iron collection
+            List<AudioClip> sounds = ResourceDictionary.Instance.Get(ResourceDictionary.Instance.GetNameFromType(InteractionType.Type.collectIron)).collectionSound;
+            AudioClip soundFx = sounds[Random.Range(0, sounds.Count)];
+            audiosource.clip = soundFx;
+            if (soundFx)
+                audiosource.Play();
+
+            // increment progress bar
+            DestructionTemplate destruction = currentInteractor.GetComponent<DestructionTemplate>();
+            if (destruction.Increment())
+            {
+                interactionDelay = 0f;
+                currentInteractor = null;
+            }
+        }
+        else
+        {
+            interacting = false;
+            currentInteractor = null;
+            interactionDelay = 0f;
+            animator.SetBool("interaction", false);
+            Debug.LogWarning("no interaction tick for this type implemented");
         }
     }
     private void CommonRessourceCollectionResolve()
@@ -525,18 +689,20 @@ public class PlayerController : MonoBehaviour
         List<AudioClip> sounds = ResourceDictionary.Instance.Get(ResourceDictionary.Instance.GetNameFromType(interactionType)).collectionSound;
         AudioClip soundFx = sounds[Random.Range(0, sounds.Count)];
         audiosource.clip = soundFx;
-        if(soundFx)
+        if (soundFx)
             audiosource.Play();
         int gain = Random.Range(1, 4);
         interactionJuicer.treeInteractor = currentInteractor;
         interactionJuicer.LaunchGainAnim("+" + gain.ToString(), interactionType);
-        
+
         // update inventory and compute load
         ressourceContainer.AddItem(ResourceDictionary.Instance.Get(ResourceDictionary.Instance.GetNameFromType(interactionType)).name, gain);
         RecomputeLoadFactor();
         if (inventoryViewer.visible)
+        { 
             inventoryViewer.UpdateContent(ressourceContainer.inventory);
-        
+        }
+
         // decrement interactor ressource count
         CollectData data = currentInteractor.GetComponent<CollectData>();
         data.ressourceCount--;
@@ -554,37 +720,69 @@ public class PlayerController : MonoBehaviour
             ComputeInteractionConditions(interactionType);
             interactionHelper.UpdateContent(interactionConditionList);
             interactionDelay = 0;
+            interacting = false;
             animator.SetBool("interaction", false);
         }
     }
     private void ComputeInteractionConditions(InteractionType.Type type)
     {
         interactionConditionList.Clear();
-        string[] equiped = { backpack.equipedItem.toolFamily , weapon.equipedItem.toolFamily };
-        ResourceType resource = ResourceDictionary.Instance.Get(ResourceDictionary.Instance.GetNameFromType(type));
-        foreach (string tool in resource.collectionTools)
+        if(type == InteractionType.Type.construction || type == InteractionType.Type.forge || type == InteractionType.Type.destroyBuilding)
         {
-            string status = "nok";
-            foreach (string s in equiped)
-            {
-                if(s == tool)
-                {
-                    if (tool == "Container")
-                        status = ressourceContainer.HasSpace() ? "ok" : "full";
-                    else status = "ok";
-                }
-            }
-            interactionConditionList.Add(tool, status);
+            interactionConditionList.Add("Hammer", weapon.equipedItem.toolFamily == "Hammer" ? "ok" : "nok");
         }
+        else // try whith standart ressource collection
+        {
+            string[] equiped = { backpack.equipedItem.toolFamily , weapon.equipedItem.toolFamily };
+            ResourceType resource = ResourceDictionary.Instance.Get(ResourceDictionary.Instance.GetNameFromType(type));
+            foreach (string tool in resource.collectionTools)
+            {
+                string status = "nok";
+                foreach (string s in equiped)
+                {
+                    if(s == tool)
+                    {
+                        if (tool == "Container")
+                            status = ressourceContainer.HasSpace() ? "ok" : "full";
+                        else status = "ok";
+                    }
+                }
+                interactionConditionList.Add(tool, status);
+            }
+        }
+
     }
 
     // helper
     public void RecomputeLoadFactor()
     {
-        backpack.equipedItem.load = 0.3f + 0.3f * ressourceContainer.RecomputeLoad();
+        bool mounted = horse ? horse.equipedItem.type != HorseItem.Type.None : false;
+        float horseFactor = mounted ? 0.3f : 1f;
+        if(backpack.equipedItem.type == BackpackItem.Type.RessourceContainer)
+            backpack.equipedItem.load = 1f + 0.3f * ressourceContainer.RecomputeLoad();
         float f = body.equipedItem.load + weapon.equipedItem.load + secondHand.equipedItem.load + shield.equipedItem.load + head.equipedItem.load + backpack.equipedItem.load;
-        loadFactor = loadCurve.Evaluate(0.1f * f);
+        loadFactor = loadCurve.Evaluate(0.07f * horseFactor * f);
         animator.SetFloat("loadFactor", loadFactor);
+        equipementViewer.UpdateContent();
+    }
+    public static void Copy(PlayerController source, PlayerController destination)
+    {
+        // Equipement
+        if(source.horse && destination.horse)
+            destination.horse.Equip(source.horse.equipedItem.type, true);
+        destination.weapon.Equip(source.weapon.equipedItem.type, true);
+        destination.secondHand.Equip(source.secondHand.equipedItem.type, true);
+        destination.shield.Equip(source.shield.equipedItem.type, true);
+        destination.head.Equip(source.head.equipedItem.type, true);
+        destination.body.Equip(source.body.equipedItem.type, true);
+        destination.backpack.Equip(source.backpack.equipedItem.type, true);
+        ResourceContainer.Copy(source.ressourceContainer, destination.ressourceContainer);
+
+        // other
+        destination.transform.parent = source.transform.parent;
+        destination.transform.position = source.transform.position;
+        destination.transform.localScale = source.transform.localScale;
+        destination.transform.rotation = source.transform.rotation;
     }
 }
 

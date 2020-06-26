@@ -8,6 +8,10 @@ public class Arsenal : MonoBehaviour
     public bool shopOnStart = false;
     public SpecialPickableShopArsenal pickablePrefab;
 
+    [Header("Player templates")]
+    public PlayerController playerTemplate;
+    public PlayerController mountedPlayerTemplate;
+
     [Header("Backpack items")]
     public List<BackpackItem> backpackObjectList;
     public Dictionary<BackpackItem.Type, BackpackItem> backpackDictionary;
@@ -31,16 +35,29 @@ public class Arsenal : MonoBehaviour
     [Header("Bodies items")]
     public List<BodyItem> bodyObjectList;
     public Dictionary<BodyItem.Type, BodyItem> bodyDictionary;
+    public List<BodyItem> mountedBodyObjectList;
+    public Dictionary<BodyItem.Type, BodyItem> mountedBodyDictionary;
+
+    [Header("Horses items")]
+    public List<HorseItem> horseObjectList;
+    public Dictionary<HorseItem.Type, HorseItem> horseDictionary;
 
     [Header("Animations clips")]
     public AnimationClip[] archeryConfiguration = new AnimationClip[4];
-    public AnimationClip[] crossbowConfiguration;
-    public AnimationClip[] staffConfiguration;
-    public AnimationClip[] spearConfiguration;
-    public AnimationClip[] twoHandedConfiguration;
-    public AnimationClip[] polearmConfiguration;
-    public AnimationClip[] shieldedConfiguration;
-    public AnimationClip[] defaultConfiguration;
+    public AnimationClip[] crossbowConfiguration = new AnimationClip[4];
+    public AnimationClip[] staffConfiguration = new AnimationClip[4];
+    public AnimationClip[] spearConfiguration = new AnimationClip[4];
+    public AnimationClip[] twoHandedConfiguration = new AnimationClip[4];
+    public AnimationClip[] polearmConfiguration = new AnimationClip[4];
+    public AnimationClip[] shieldedConfiguration = new AnimationClip[4];
+    public AnimationClip[] defaultConfiguration = new AnimationClip[4];
+
+    [Header("Mounted animations clips")]
+    public AnimationClip[] mountedArcheryConfiguration;
+    public AnimationClip[] mountedCrossbowConfiguration;
+    public AnimationClip[] mountedSpearConfiguration;
+    public AnimationClip[] mountedSpearOffensiveConfiguration;
+    public AnimationClip[] mountedDefaultConfiguration;
 
     // Singleton struct
     private static Arsenal _instance = null;
@@ -103,10 +120,25 @@ public class Arsenal : MonoBehaviour
         Debug.LogError("Arsenal : shield dictionary doesn't contain item " + type.ToString());
         return null;
     }
-    public BodyItem Get(BodyItem.Type type)
+    public BodyItem Get(BodyItem.Type type, bool mounted)
     {
-        if (bodyDictionary.ContainsKey(type))
-            return bodyDictionary[type];
+        if(mounted)
+        {
+            if (mountedBodyDictionary.ContainsKey(type))
+                return mountedBodyDictionary[type];
+        }
+        else
+        {
+            if (bodyDictionary.ContainsKey(type))
+                return bodyDictionary[type];
+        }
+        Debug.LogError("Arsenal : body dictionary doesn't contain item " + type.ToString());
+        return null;
+    }
+    public HorseItem Get(HorseItem.Type type)
+    {
+        if (horseDictionary.ContainsKey(type))
+            return horseDictionary[type];
         Debug.LogError("Arsenal : body dictionary doesn't contain item " + type.ToString());
         return null;
     }
@@ -122,6 +154,14 @@ public class Arsenal : MonoBehaviour
         else if (weapon.type != WeaponItem.Type.None && second.animationCode == 6) return staffConfiguration;
         else if (weapon.type != WeaponItem.Type.None && weapon.animationCode == 7) return polearmConfiguration;
         else return defaultConfiguration;
+    }
+
+    public AnimationClip[] GetMountedAnimationClip(ref WeaponItem weapon, ref SecondItem second, ref ShieldItem shield, ref BodyItem body, ref HeadItem head, ref BackpackItem backpack)
+    {
+        if (weapon.type != WeaponItem.Type.None && weapon.animationCode == 5) return mountedSpearConfiguration;
+        else if (second.type != SecondItem.Type.None && second.animationCode == 2) return mountedArcheryConfiguration;
+        else if (weapon.type != WeaponItem.Type.None && weapon.animationCode == 3) return mountedCrossbowConfiguration;
+        else return mountedDefaultConfiguration;
     }
 
     // Initialization
@@ -192,6 +232,26 @@ public class Arsenal : MonoBehaviour
             }
             else Debug.LogError("In Arsenal : The body dictionary already contain an item of this type, see gameObject " + b.gameObject);
         }
+        mountedBodyDictionary = new Dictionary<BodyItem.Type, BodyItem>();
+        foreach (BodyItem b in mountedBodyObjectList)
+        {
+            if (!mountedBodyDictionary.ContainsKey(b.type))
+            {
+                mountedBodyDictionary[b.type] = b;
+            }
+            else Debug.LogError("In Arsenal : The body dictionary already contain an item of this type, see gameObject " + b.gameObject);
+        }
+
+        // create horses association table
+        horseDictionary = new Dictionary<HorseItem.Type, HorseItem>();
+        foreach (HorseItem s in horseObjectList)
+        {
+            if (!horseDictionary.ContainsKey(s.type))
+            {
+                horseDictionary[s.type] = s;
+            }
+            else Debug.LogError("In Arsenal : The horse dictionary already contain an item of this type, see gameObject " + s.gameObject);
+        }
     }
 
     // Instanciate the shop
@@ -208,6 +268,22 @@ public class Arsenal : MonoBehaviour
 
         // backpack
         Vector3 position = Vector3.zero;
+        {
+            GameObject go = Instantiate(pickablePrefab.gameObject);
+            go.name = BackpackItem.Type.None.ToString();
+            go.transform.parent = shopContainer.transform;
+            go.transform.localRotation = Quaternion.identity;
+            go.transform.localScale = Vector3.one;
+            go.transform.localPosition = new Vector3(-2*gap, position.y, position.z);
+            go.AddComponent<InteractionType>().type = InteractionType.Type.pickableBackpack;
+            go.AddComponent<BackpackItem>();
+            go.SetActive(true);
+            SpecialPickableShopArsenal pickable = go.GetComponent<SpecialPickableShopArsenal>();
+            pickable.textmesh.text = go.name;
+            if (go.name.Length >= 8)
+                pickable.textmesh.characterSize *= 0.5f;
+            pickable.body.gameObject.SetActive(false);
+        }
         foreach (KeyValuePair<BackpackItem.Type, BackpackItem> item in backpackDictionary)
         {
             GameObject go = Instantiate(pickablePrefab.gameObject);
@@ -234,6 +310,22 @@ public class Arsenal : MonoBehaviour
 
         // shields
         position.x = 0; position.z -= gap;
+        {
+            GameObject go = Instantiate(pickablePrefab.gameObject);
+            go.name = ShieldItem.Type.None.ToString();
+            go.transform.parent = shopContainer.transform;
+            go.transform.localRotation = Quaternion.identity;
+            go.transform.localScale = Vector3.one;
+            go.transform.localPosition = new Vector3(-2 * gap, position.y, position.z);
+            go.AddComponent<InteractionType>().type = InteractionType.Type.pickableShield;
+            go.AddComponent<ShieldItem>();
+            go.SetActive(true);
+            SpecialPickableShopArsenal pickable = go.GetComponent<SpecialPickableShopArsenal>();
+            pickable.textmesh.text = go.name;
+            if (go.name.Length >= 8)
+                pickable.textmesh.characterSize *= 0.5f;
+            pickable.body.gameObject.SetActive(false);
+        }
         foreach (KeyValuePair<ShieldItem.Type, ShieldItem> item in shieldDictionary)
         {
             GameObject go = Instantiate(pickablePrefab.gameObject);
@@ -260,6 +352,22 @@ public class Arsenal : MonoBehaviour
 
         // second hand
         position.x = 0; position.z -= gap;
+        {
+            GameObject go = Instantiate(pickablePrefab.gameObject);
+            go.name = SecondItem.Type.None.ToString();
+            go.transform.parent = shopContainer.transform;
+            go.transform.localRotation = Quaternion.identity;
+            go.transform.localScale = Vector3.one;
+            go.transform.localPosition = new Vector3(-2 * gap, position.y, position.z);
+            go.AddComponent<InteractionType>().type = InteractionType.Type.pickableSecond;
+            go.AddComponent<SecondItem>();
+            go.SetActive(true);
+            SpecialPickableShopArsenal pickable = go.GetComponent<SpecialPickableShopArsenal>();
+            pickable.textmesh.text = go.name;
+            if (go.name.Length >= 8)
+                pickable.textmesh.characterSize *= 0.5f;
+            pickable.body.gameObject.SetActive(false);
+        }
         foreach (KeyValuePair<SecondItem.Type, SecondItem> item in secondDictionary)
         {
             GameObject go = Instantiate(pickablePrefab.gameObject);
@@ -286,6 +394,22 @@ public class Arsenal : MonoBehaviour
 
         // weapons
         position.x = 0; position.z -= gap;
+        {
+            GameObject go = Instantiate(pickablePrefab.gameObject);
+            go.name = WeaponItem.Type.None.ToString();
+            go.transform.parent = shopContainer.transform;
+            go.transform.localRotation = Quaternion.identity;
+            go.transform.localScale = Vector3.one;
+            go.transform.localPosition = new Vector3(-2 * gap, position.y, position.z);
+            go.AddComponent<InteractionType>().type = InteractionType.Type.pickableWeapon;
+            go.AddComponent<WeaponItem>();
+            go.SetActive(true);
+            SpecialPickableShopArsenal pickable = go.GetComponent<SpecialPickableShopArsenal>();
+            pickable.textmesh.text = go.name;
+            if (go.name.Length >= 8)
+                pickable.textmesh.characterSize *= 0.5f;
+            pickable.body.gameObject.SetActive(false);
+        }
         foreach (KeyValuePair<WeaponItem.Type, WeaponItem> item in weaponDictionary)
         {
             GameObject go = Instantiate(pickablePrefab.gameObject);
@@ -359,6 +483,51 @@ public class Arsenal : MonoBehaviour
 
             if (skin) BodySlot.CopySkinnedMesh(skin, pickable.body);
             else pickable.body.gameObject.SetActive(false);
+
+            position.x += gap;
+        }
+
+        // horses
+        position.x = 0; position.z -= 2 * gap;
+        {
+            GameObject go = Instantiate(pickablePrefab.gameObject);
+            go.name = HorseItem.Type.None.ToString();
+            go.transform.parent = shopContainer.transform;
+            go.transform.localRotation = Quaternion.identity;
+            go.transform.localScale = Vector3.one;
+            go.transform.localPosition = new Vector3(-2 * gap, position.y, position.z);
+            go.AddComponent<InteractionType>().type = InteractionType.Type.pickableHorse;
+            go.AddComponent<HorseItem>();
+            go.SetActive(true);
+            SpecialPickableShopArsenal pickable = go.GetComponent<SpecialPickableShopArsenal>();
+            pickable.textmesh.text = go.name;
+            if (go.name.Length >= 8)
+                pickable.textmesh.characterSize *= 0.5f;
+            pickable.body.gameObject.SetActive(false);
+        }
+        foreach (KeyValuePair<HorseItem.Type, HorseItem> item in horseDictionary)
+        {
+            GameObject go = Instantiate(pickablePrefab.gameObject);
+            go.name = item.Key.ToString();
+            go.transform.parent = shopContainer.transform;
+            go.transform.localRotation = Quaternion.identity;
+            go.transform.localScale = Vector3.one;
+            go.transform.localPosition = position;
+            go.AddComponent<InteractionType>().type = InteractionType.Type.pickableHorse;
+            HorseItem.Copy(item.Value, go.AddComponent<HorseItem>());
+            go.SetActive(true);
+
+            SkinnedMeshRenderer skin = item.Value.gameObject.GetComponent<SkinnedMeshRenderer>();
+            SpecialPickableShopArsenal pickable = go.GetComponent<SpecialPickableShopArsenal>();
+            pickable.textmesh.text = go.name;
+            if (go.name.Length >= 8)
+                pickable.textmesh.characterSize *= 0.5f;
+            pickable.itemMesh.gameObject.SetActive(false);
+
+            if (skin) BodySlot.CopySkinnedMesh(skin, pickable.horse);
+            else pickable.horse.gameObject.SetActive(false);
+            pickable.horse.gameObject.SetActive(true);
+            pickable.body.gameObject.SetActive(false);
 
             position.x += gap;
         }

@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af830b438a6152a40beb25475e805516, type: 3}
+  m_Name: WoodGate
+  m_EditorClassIdentifier: 
+  layer: 0
+  icon: {fileID: 21300000, guid: 850c385dae9a6304c8f30db0ee383e47, type: 3}
+  optionalIcon: {fileID: 0}
+  description: Wood gate
+  tileSize: {x: 1, y: 1}
+  incrementSpeed: 0.05
+  constructionSteps:
+  - {fileID: 4300000, guid: 5e5b7457c68ebd447b8a03dd55c4f660, type: 3}
+  - {fileID: 4300000, guid: caa0b36c4f60f7b47a461c12cd9fe8cd, type: 3}
+  preview: {fileID: 4300006, guid: 7ae56a8428b94f24b854dac395c7c925, type: 3}
+  step0Resources:
+  - Wood 4
+  step1Resources:
+  - Wood 3
+  tile: {fileID: 11400000, guid: 98dff97e71357d54c87121099b0b23f2, type: 2}
+  prefab: {fileID: 0}
+  placementEulerOffset: {x: 0, y: 0, z: 90}
+  previewEulerOffset: {x: -90, y: 0, z: 0}

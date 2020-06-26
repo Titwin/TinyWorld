@@ -15,6 +15,7 @@ public class SecondItem : MonoBehaviour
     public bool forbidShield = false;
     public int animationCode = 1;
     public float load = 0f;
+    public float dammage = 0f;
 
     public void Clear()
     {
@@ -23,6 +24,7 @@ public class SecondItem : MonoBehaviour
         forbidShield = false;
         animationCode = 0;
         load = 0f;
+        dammage = 0f;
     }
     public static void Copy(SecondItem source, SecondItem destination)
     {
@@ -31,5 +33,6 @@ public class SecondItem : MonoBehaviour
         destination.forbidShield = source.forbidShield;
         destination.animationCode = source.animationCode;
         destination.load = source.load;
+        destination.dammage = source.dammage;
     }
 }

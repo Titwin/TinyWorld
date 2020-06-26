@@ -1,6 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class InteractionType : MonoBehaviour
 {
@@ -18,13 +17,19 @@ public class InteractionType : MonoBehaviour
         collectIron,
         collectGold,
         collectCrystal,
-
         collectWheet,
 
         storeRessources,
-        forge
+        forge,
+
+        construction,
+        destroyBuilding,
+
+        constructionMode, // launch construction mode from hammer on empty space
+        pickableHorse
     };
     public Type type;
+    //public EventTrigger.TriggerEvent callback;
 
     static public bool isCollectingMinerals(InteractionType.Type type)
     {
