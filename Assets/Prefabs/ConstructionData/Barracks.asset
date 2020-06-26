@@ -31,3 +31,5 @@ MonoBehaviour:
   - Iron 2
   tile: {fileID: 0}
   prefab: {fileID: 1554657036930048183, guid: ef8623b8c5f379a49b5c39453d9d7c90, type: 3}
+  placementEulerOffset: {x: 0, y: 0, z: 180}
+  previewEulerOffset: {x: -90, y: 0, z: 0}

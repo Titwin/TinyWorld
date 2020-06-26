@@ -8,7 +8,7 @@ public class ConstructionSystem : MonoBehaviour
 {
     [Header("Configuration")]
     public bool instantConstruct = false;
-    public int maximumMultiplacement = 50;
+    public bool enableMultiConstruction = true;
 
     [Header("Current state")]
     public bool activated = false;
@@ -29,11 +29,15 @@ public class ConstructionSystem : MonoBehaviour
     public MapGrid grid;
     private EventSystem eventsystem;
     public ConstructionController constructionInteractor;
+    public GameObject constructionTilePrefab;
+    public GameObject resourcePilePrefab;
     public KeyCode keyMode;
     public KeyCode rotationLeft;
     public KeyCode rotationRight;
+    public List<ConstructionData> buildingList = new List<ConstructionData>();
+    private Dictionary<string, ConstructionData> knownBuildings = new Dictionary<string, ConstructionData>();
 
-    [Header("Apperance")]
+    [Header("Simple preview")]
     public Material previewMaterial;
     public Color previewOk;
     public Color previewInvalid;
@@ -43,9 +47,12 @@ public class ConstructionSystem : MonoBehaviour
     private Material currentPreviewMaterial;
     public Mesh deletionMesh;
 
-    /*private Transform previewsContainer;
-    private List<Transform> previews;
-    private List<Transform> previewsMeshes;*/
+    [Header("Multi placement")]
+    public int maximumMultiplacement = 80;
+    public Transform multiPreviewContainer;
+    public GameObject multiPreviewPrefab;
+    private List<MeshFilter> multiPreviewFilters = new List<MeshFilter>();
+    private List<MeshRenderer> multiPreviewRenderers = new List<MeshRenderer>();
 
 
     #region Singleton
@@ -73,6 +80,29 @@ public class ConstructionSystem : MonoBehaviour
         MeshRenderer mr = preview.AddComponent<MeshRenderer>();
         mr.sharedMaterial = previewMaterial;
         currentPreviewMaterial = mr.material;
+
+        multiPreviewPrefab.SetActive(false);
+        multiPreviewFilters.Add(multiPreviewPrefab.GetComponent<MeshFilter>());
+        mr = multiPreviewPrefab.GetComponent<MeshRenderer>();
+        mr.sharedMaterial = previewMaterial;
+        multiPreviewRenderers.Add(mr);
+
+        for (int i=0; i<maximumMultiplacement - 1; i++)
+        {
+            GameObject go = Instantiate(multiPreviewPrefab);
+            go.name = multiPreviewPrefab.name;
+            go.transform.parent = multiPreviewContainer;
+            go.transform.localPosition = Vector3.zero;
+            go.SetActive(false);
+
+            multiPreviewFilters.Add(go.GetComponent<MeshFilter>());
+            mr = go.GetComponent<MeshRenderer>();
+            mr.sharedMaterial = previewMaterial;
+            multiPreviewRenderers.Add(mr);
+        }
+
+        foreach (ConstructionData cd in buildingList)
+            knownBuildings.Add(cd.name, cd);
 
         ResetState();
     }
@@ -167,7 +197,7 @@ public class ConstructionSystem : MonoBehaviour
                 {
                     if (lastPointedTile != null && lastPointedTile.terrain)
                         lastPointedTile.terrain.SetActive(true);
-                    if (pointedTile.terrain)
+                    if (pointedTile != null && pointedTile.terrain)
                         pointedTile.terrain.SetActive(false);
                 }
             }
@@ -178,6 +208,7 @@ public class ConstructionSystem : MonoBehaviour
         // if ponter is valid (we are on something with a brush)
         if (lastPointedTile != null)
         {
+            // simple preview stuff
             preview.transform.position = pointing + new Vector3(2f * (brush.data.tileSize.x - 1), 0, 2f * (brush.data.tileSize.y - 1));
             if (Input.GetKeyDown(rotationLeft))
                 preview.transform.eulerAngles += new Vector3(0, 90, 0);
@@ -192,19 +223,48 @@ public class ConstructionSystem : MonoBehaviour
 
             if (Input.GetMouseButtonDown(0))
                 clickDownTilePointing = tilePointing;
+            if (!enableMultiConstruction)
+                clickDownTilePointing = tilePointing;
 
-            if (Input.GetMouseButtonUp(0) && hovered.Count == 0)
+            // multi placement preview
+            if (Input.GetMouseButton(0) && brush.data.tile != null)
             {
+                int multiplacementCount = 0;
+                for (int i = Mathf.Min(tilePointing.x, clickDownTilePointing.x); i <= Mathf.Max(tilePointing.x, clickDownTilePointing.x) && multiplacementCount < maximumMultiplacement; i++)
+                    for (int j = Mathf.Min(tilePointing.y, clickDownTilePointing.y); j <= Mathf.Max(tilePointing.y, clickDownTilePointing.y) && multiplacementCount < maximumMultiplacement; j++)
+                    {
+                        Vector3Int cell = new Vector3Int(i, j, tilePointing.z);
+                        if (cell == tilePointing)
+                            continue;
+                        
+                        Vector3 p = modifier.GetTileCenter(cell);
+                        bool blocked = HoveringObjects(p);
+
+                        multiPreviewRenderers[multiplacementCount].gameObject.SetActive(true);
+                        multiPreviewRenderers[multiplacementCount].transform.position = p;
+                        multiPreviewRenderers[multiplacementCount].transform.rotation = preview.transform.rotation;
+                        multiPreviewRenderers[multiplacementCount].transform.localScale = preview.transform.localScale;
+                        multiPreviewRenderers[multiplacementCount].material.color = blocked ? previewInvalid : previewOk;
+
+                        multiplacementCount++;
+                    }
+
+                for (int i = multiplacementCount; i < multiPreviewRenderers.Count; i++)
+                    multiPreviewRenderers[i].gameObject.SetActive(false);
+            }
+
+
+            // construction placement
+            if (Input.GetMouseButtonUp(0) && (hovered.Count == 0 || tilePointing != clickDownTilePointing))
+            {
+                // directly place building (free and no timing)
                 if(instantConstruct || brush.data.incrementSpeed >= 1f)
                 {
-                    if(brush.data.tile != null)
+                    if (brush.data.tile != null)
                     {
-                        Matrix4x4 matrix = Matrix4x4.identity;
-
-                        if(brush.name.Contains("House") || brush.name.Contains("Windmill") || brush.name.Contains("Gate"))
-                            matrix = Matrix4x4.TRS(Vector3.zero, Quaternion.Euler(0f, 0f, 90 - preview.transform.eulerAngles.y), Vector3.one);
-                        else matrix = Matrix4x4.TRS(Vector3.zero, Quaternion.Euler(0f, 0f, 180 - preview.transform.eulerAngles.y), Vector3.one);
-
+                        Quaternion finalRotation = Quaternion.Euler(brush.data.placementEulerOffset - new Vector3(0, 0, preview.transform.eulerAngles.y));
+                        Matrix4x4 matrix = Matrix4x4.TRS(Vector3.zero, finalRotation, Vector3.one);
+                        
                         int multiplacementCount = 0;
                         for (int i = Mathf.Min(tilePointing.x, clickDownTilePointing.x); i <= Mathf.Max(tilePointing.x, clickDownTilePointing.x) && multiplacementCount < maximumMultiplacement; i++)
                             for (int j = Mathf.Min(tilePointing.y, clickDownTilePointing.y); j <= Mathf.Max(tilePointing.y, clickDownTilePointing.y) && multiplacementCount < maximumMultiplacement; j++)
@@ -229,27 +289,63 @@ public class ConstructionSystem : MonoBehaviour
                         modifier.OverrideTile(modifier.tileDictionary["Dirt"], Matrix4x4.identity, tilePointing + new Vector3Int(1, 1, 0), true);
                     }
                 }
+
+                // place a construction interaction on the building in order to properly construct it
                 else
                 {
                     if (brush.data.tile != null)
                     {
-                        Debug.Log("Not yet implemented !!");
+                        int multiplacementCount = 0;
+                        for (int i = Mathf.Min(tilePointing.x, clickDownTilePointing.x); i <= Mathf.Max(tilePointing.x, clickDownTilePointing.x) && multiplacementCount < maximumMultiplacement; i++)
+                            for (int j = Mathf.Min(tilePointing.y, clickDownTilePointing.y); j <= Mathf.Max(tilePointing.y, clickDownTilePointing.y) && multiplacementCount < maximumMultiplacement; j++)
+                            {
+                                Vector3Int cell = new Vector3Int(i, j, tilePointing.z);
+                                Vector3 p = modifier.GetTileCenter(cell);
+                                if (HoveringObjects(p))
+                                    continue;
+                                
+                                GameObject prefab = Instantiate(constructionTilePrefab);
+                                prefab.name = brush.data.tile.name + "Construction";
+                                prefab.transform.position = p;
+                                prefab.transform.eulerAngles = new Vector3(0, preview.transform.eulerAngles.y, 0);
+                                prefab.transform.localScale = Vector3.one;
+
+                                modifier.grid.AddGameObject(prefab, brush.data.layer, false, false);
+                                modifier.OverrideTile(modifier.tileDictionary["Dirt"], Matrix4x4.identity, cell, true);
+
+                                // override interactor
+                                Transform previousInteractor = prefab.transform.Find("interactor");
+                                if (previousInteractor != null)
+                                    Destroy(previousInteractor.gameObject);
+
+                                ConstructionController interactor = Instantiate<ConstructionController>(constructionInteractor);
+                                interactor.transform.parent = prefab.transform;
+                                interactor.gameObject.name = "interactor";
+                                interactor.transform.localPosition = Vector3.zero;
+                                interactor.transform.localRotation = Quaternion.identity;
+                                interactor.transform.localScale = Vector3.one;
+                                interactor.orientation = preview.transform.eulerAngles.y;
+
+                                interactor.data = brush.data;
+                                interactor.Initialize();
+
+                                multiplacementCount++;
+                            }
                     }
                     else
                     {
-                        // building object
                         GameObject prefab = Instantiate(brush.data.prefab);
-                        prefab.name = brush.data.prefab.name;
+                        prefab.name = brush.data.prefab.name + "Construction";
                         prefab.transform.position = preview.transform.position;
                         prefab.transform.eulerAngles = new Vector3(0, preview.transform.eulerAngles.y, 0);
                         prefab.transform.localScale = Vector3.one;
-                        modifier.grid.AddGameObject(prefab, brush.data.layer, false, false);
 
+                        modifier.grid.AddGameObject(prefab, brush.data.layer, false, false);
                         modifier.OverrideTile(modifier.tileDictionary["Dirt"], Matrix4x4.identity, tilePointing, true);
                         modifier.OverrideTile(modifier.tileDictionary["Dirt"], Matrix4x4.identity, tilePointing + new Vector3Int(1, 0, 0), true);
                         modifier.OverrideTile(modifier.tileDictionary["Dirt"], Matrix4x4.identity, tilePointing + new Vector3Int(0, 1, 0), true);
                         modifier.OverrideTile(modifier.tileDictionary["Dirt"], Matrix4x4.identity, tilePointing + new Vector3Int(1, 1, 0), true);
-
+                        
                         // override interactor
                         Transform previousInteractor = prefab.transform.Find("interactor");
                         if (previousInteractor != null)
@@ -261,19 +357,50 @@ public class ConstructionSystem : MonoBehaviour
                         interactor.transform.localPosition = Vector3.zero;
                         interactor.transform.localRotation = Quaternion.identity;
                         interactor.transform.localScale = Vector3.one;
+                        interactor.orientation = preview.transform.eulerAngles.y;
 
                         interactor.data = brush.data;
                         interactor.Initialize();
                     }
                 }
             }
+
+            // clear multi view
+            if (Input.GetMouseButtonUp(0))
+            {
+                foreach (MeshRenderer mr in multiPreviewRenderers)
+                    mr.gameObject.SetActive(false);
+            }
         }
     }
     private void DeleteToolUpdate(Vector3Int tilePointing, Vector3 pointing)
     {
         int searchingLayers = (1 << LayerMask.NameToLayer("Building")) + (1 << LayerMask.NameToLayer("Decoration"));
-        List<GameObject> objects = grid.GetObjectsInBound(pointing, 3.5f * Vector3.one, searchingLayers);
-        preview.transform.position = pointing;
+        List<GameObject> objects;
+        Vector2Int size = new Vector2Int(Mathf.Abs(tilePointing.x - clickDownTilePointing.x) + 1, Mathf.Abs(tilePointing.y - clickDownTilePointing.y) + 1);
+
+        if(Input.GetMouseButtonDown(0))
+        {
+            clickDownTilePointing = tilePointing;
+        }
+
+        if (Input.GetMouseButton(0) || Input.GetMouseButtonUp(0))
+        {
+            Vector3 p = modifier.GetTileCenter(clickDownTilePointing);
+            preview.transform.position = 0.5f * (pointing + p);
+            
+            preview.transform.localScale = new Vector3(size.x, 1f, size.y);
+
+            objects = grid.GetObjectsInBound(preview.transform.position, new Vector3(4f * size.x - 0.5f, 1f, 4f * size.y - 0.5f), searchingLayers);
+        }
+        else
+        {
+            preview.transform.position = pointing;
+            preview.transform.localScale = Vector3.one;
+
+            objects = grid.GetObjectsInBound(pointing, 3.5f * Vector3.one, searchingLayers);
+        }
+
 
         string message = "";
         if (objects.Count == 0)
@@ -282,18 +409,48 @@ public class ConstructionSystem : MonoBehaviour
         }
         else
         {
-            message = "Object under brush :\n";
-            foreach (GameObject go in objects)
-            {
-                message += go.name + ", ";
-            }
+            message = "Object count under brush : " + objects.Count.ToString();
         }
         constructionUI.description.text = message;
 
-        if (Input.GetMouseButtonDown(0) && objects.Count != 0)
+        if (Input.GetMouseButtonUp(0) && objects.Count != 0)
         {
-            modifier.OverrideTile(modifier.tileDictionary["Dirt"], Matrix4x4.identity, tilePointing, true);
-            modifier.NeighbourgRefresh(tilePointing, true);
+            if(!instantConstruct)
+            {
+                List<GameObject> buildings = grid.GetObjectsInBound(preview.transform.position, new Vector3(4f * size.x - 0.5f, 1f, 4f * size.y - 0.5f), 1 << LayerMask.NameToLayer("Building"));
+                foreach(GameObject go in buildings)
+                {
+                    if(knownBuildings.ContainsKey(go.name))
+                    {
+                        GameObject pile = Instantiate(resourcePilePrefab);
+                        pile.name = "ResourcePile";
+                        pile.transform.position = go.transform.position;
+                        pile.transform.rotation = Quaternion.Euler(0, Random.Range(0, 4) * 90f, 0);
+                        pile.transform.localScale = Vector3.one;
+
+                        ResourceContainer pileContainer = pile.transform.Find("interactor").gameObject.GetComponent<ResourceContainer>();
+                        pileContainer.capacity = 0;
+
+                        Dictionary<string, int> resList = knownBuildings[go.name].GetTotalCost();
+                        foreach(KeyValuePair<string, int> entry in resList)
+                            pileContainer.AddItem(entry.Key, Mathf.Max((int)(0.5f * entry.Value), 1));
+                        pileContainer.UpdateContent();
+
+                        modifier.grid.AddGameObject(pile, ConstructionLayer.LayerType.Decoration, false, false);
+                    }
+                }
+            }
+
+            for (int i = Mathf.Min(tilePointing.x, clickDownTilePointing.x); i <= Mathf.Max(tilePointing.x, clickDownTilePointing.x); i++)
+                for (int j = Mathf.Min(tilePointing.y, clickDownTilePointing.y); j <= Mathf.Max(tilePointing.y, clickDownTilePointing.y); j++)
+                {
+                    Vector3Int cell = new Vector3Int(i, j, tilePointing.z);
+                    if (cell == tilePointing)
+                        continue;
+
+                    modifier.OverrideTile(modifier.tileDictionary["Dirt"], Matrix4x4.identity, cell, true);
+                    modifier.NeighbourgRefresh(tilePointing, true);
+                }
 
             foreach (GameObject go in objects)
             {
@@ -344,34 +501,28 @@ public class ConstructionSystem : MonoBehaviour
             brush = icon;
             preview.SetActive(true);
             previewMeshFilter.sharedMesh = brush.data.preview;
+            foreach (MeshFilter mf in multiPreviewFilters)
+                mf.sharedMesh = brush.data.preview;
             previewArrow.transform.localEulerAngles = new Vector3(0, 0, 0);
-
-            // preview rotation
-            if (brush.name.Contains("Fence"))
-                preview.transform.localEulerAngles = new Vector3(0, 0, 0);
-            else if (brush.name.Contains("Tower"))
-            {
-                preview.transform.localEulerAngles = new Vector3(-90, 0, -90);
-                previewArrow.transform.localEulerAngles = new Vector3(0, 0, -90);
-            }
-            else if (brush.name.Contains("Granary") || brush.name.Contains("Windmill"))
-            {
-                preview.transform.localEulerAngles = new Vector3(-90, 0, -90);
-                previewArrow.transform.localEulerAngles = new Vector3(0, 0, -90);
-            }
-            else if (targetLayer.layerType == ConstructionLayer.LayerType.Building)
-                preview.transform.localEulerAngles = new Vector3(-90, 0, 0);
-            else
-                preview.transform.localEulerAngles = new Vector3(0, 0, 0);
-
-            // preview scale
+            
+            // preview
+            preview.transform.localEulerAngles = brush.data.previewEulerOffset;
             if (brush.name.Contains("RegularTree"))
                 preview.transform.localScale = 2f * Vector3.one;
             else
                 preview.transform.localScale = Vector3.one;
 
             // preview arrows
-            if(targetLayer.layerType != ConstructionLayer.LayerType.Building || brush.name.Contains("Fence"))
+            if (brush.name.Contains("Tower"))
+            {
+                previewArrow.transform.localEulerAngles = new Vector3(0, 0, -90);
+            }
+            else if (brush.name.Contains("Granary") || brush.name.Contains("Windmill"))
+            {
+                previewArrow.transform.localEulerAngles = new Vector3(0, 0, -90);
+            }
+
+            if (targetLayer.layerType != ConstructionLayer.LayerType.Building || brush.name.Contains("Fence") || brush.name.Contains("Wall"))
             {
                 previewArrow.SetActive(false);
             }
@@ -435,6 +586,20 @@ public class ConstructionSystem : MonoBehaviour
         {
             return objects;
         }
+    }
+    private bool HoveringObjects(Vector3 pointing)
+    {
+        int searchingLayers = 0;
+        if (targetLayer.layerType == ConstructionLayer.LayerType.Terrain)
+            searchingLayers = (1 << LayerMask.NameToLayer("Building")) + (1 << LayerMask.NameToLayer("Decoration"));
+        else if (targetLayer.layerType == ConstructionLayer.LayerType.Building)
+            searchingLayers = (1 << LayerMask.NameToLayer("Building")) + (1 << LayerMask.NameToLayer("Decoration"));
+        else if (targetLayer.layerType == ConstructionLayer.LayerType.Decoration)
+            searchingLayers = (1 << LayerMask.NameToLayer("Building")) + (1 << LayerMask.NameToLayer("Decoration"));
+        
+        Vector3 size = new Vector3(4f * brush.data.tileSize.x, 8f, 4f * brush.data.tileSize.y) - 0.5f * Vector3.one;
+        List<GameObject> objects = grid.GetObjectsInBound(pointing, size, searchingLayers);
+        return objects.Count != 0;
     }
 
 

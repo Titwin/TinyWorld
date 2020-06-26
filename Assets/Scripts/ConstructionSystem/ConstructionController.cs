@@ -12,7 +12,7 @@ public class ConstructionController : MonoBehaviour
 
     [Header("Configuration")]
     [Range(0f, 3f)] public float extension = 1f;
-    public Quaternion finalRotation;
+    public float orientation;
     static private char[] separator = { ' ' };
 
     [Header("State")]
@@ -74,7 +74,13 @@ public class ConstructionController : MonoBehaviour
                 }
                 else
                 {
-                    Debug.LogWarning("Not yet implemented");
+                    MapModifier.instance.grid.RemoveGameObject(transform.parent.gameObject, false);
+                    Quaternion finalRotation = Quaternion.Euler(data.placementEulerOffset - new Vector3(0, 0, orientation));
+                    Matrix4x4 matrix = Matrix4x4.TRS(Vector3.zero, finalRotation, Vector3.one);
+                    Vector3Int cell = MapModifier.instance.tilemap.WorldToCell(transform.position);
+                    MapModifier.instance.OverrideTile(data.tile, matrix, cell, true);
+
+                    Destroy(transform.parent.gameObject);
                 }
             }
         }

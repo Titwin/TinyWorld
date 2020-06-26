@@ -29,6 +29,7 @@ MonoBehaviour:
   - Stone 3
   - Wood 2
   - Iron 1
-  IsTile: 0
   tile: {fileID: 0}
   prefab: {fileID: 2850307297799481709, guid: 1de97d9ebc9d13341b1312ce7931d8cf, type: 3}
+  placementEulerOffset: {x: 0, y: 0, z: 180}
+  previewEulerOffset: {x: -90, y: 0, z: 0}

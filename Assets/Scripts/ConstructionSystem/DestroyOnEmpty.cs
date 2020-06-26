@@ -4,16 +4,11 @@ using UnityEngine;
 
 public class DestroyOnEmpty : MonoBehaviour
 {
-    private ResourceContainer container;
-
-    void Start()
-    {
-        container = GetComponent<ResourceContainer>();
-    }
+    public ResourceContainer container;
     
     void LateUpdate()
     {
-        if (container.load == 0)
-            Destroy(transform.parent.gameObject);
+        if (container && container.load == 0)
+            Destroy(gameObject);
     }
 }

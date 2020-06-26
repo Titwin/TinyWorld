@@ -24,3 +24,5 @@ MonoBehaviour:
   step1Resources: []
   tile: {fileID: 11400000, guid: efefcefe3804e60499ac0a1e68a81c39, type: 2}
   prefab: {fileID: 0}
+  placementEulerOffset: {x: 0, y: 0, z: 180}
+  previewEulerOffset: {x: 0, y: 0, z: 0}

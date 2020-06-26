@@ -25,6 +25,7 @@ MonoBehaviour:
   step0Resources:
   - Wood 1
   step1Resources: []
-  IsTile: 1
   tile: {fileID: 11400000, guid: 1ceee1d373ec70c469a5f8eae6d398f1, type: 2}
   prefab: {fileID: 0}
+  placementEulerOffset: {x: 0, y: 0, z: 180}
+  previewEulerOffset: {x: 0, y: 0, z: 0}

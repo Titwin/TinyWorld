@@ -31,3 +31,5 @@ MonoBehaviour:
   - Gold 1
   tile: {fileID: 0}
   prefab: {fileID: 4837761079565488270, guid: 6d4f01612b6b63b46857eff82d2b869f, type: 3}
+  placementEulerOffset: {x: 0, y: 0, z: 180}
+  previewEulerOffset: {x: -90, y: 0, z: 0}

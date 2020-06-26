@@ -31,3 +31,5 @@ MonoBehaviour:
   - Crystal 1
   tile: {fileID: 0}
   prefab: {fileID: 2027079886383706176, guid: 027074d67fab5124a92c54418ed1c4f1, type: 3}
+  placementEulerOffset: {x: 0, y: 0, z: 180}
+  previewEulerOffset: {x: -90, y: 0, z: 0}

@@ -29,6 +29,8 @@ public class ConstructionData : ScriptableObject
     [Header("Placement attributes")]
     public ScriptableTile tile;
     public GameObject prefab;
+    public Vector3 placementEulerOffset = new Vector3(0, 0, 180);
+    public Vector3 previewEulerOffset = new Vector3(-90, 0, 0);
 
     static private char[] separator = { ' ' };
 
