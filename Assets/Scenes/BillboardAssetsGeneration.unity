@@ -23,7 +23,7 @@ RenderSettings:
   m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
-  m_AmbientIntensity: 1
+  m_AmbientIntensity: 2.64
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
   m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
@@ -610,6 +610,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: StoneWallBillboard
       objectReference: {fileID: 0}
+    - target: {fileID: 2499218126077606866, guid: 5b31b3f30b5423e4b96337dbb5c7ffaf,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2499218126077606879, guid: 5b31b3f30b5423e4b96337dbb5c7ffaf,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -667,6 +672,75 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5b31b3f30b5423e4b96337dbb5c7ffaf, type: 3}
+--- !u!1001 &1565820953
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1068270541266195796, guid: 332dba0235cf052479bb1f86671118e4,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.000000109740625
+      objectReference: {fileID: 0}
+    - target: {fileID: 1068270541266195796, guid: 332dba0235cf052479bb1f86671118e4,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.3356905
+      objectReference: {fileID: 0}
+    - target: {fileID: 1068270541266195796, guid: 332dba0235cf052479bb1f86671118e4,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -3.4828246
+      objectReference: {fileID: 0}
+    - target: {fileID: 1068270541266195796, guid: 332dba0235cf052479bb1f86671118e4,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.218463
+      objectReference: {fileID: 0}
+    - target: {fileID: 1068270541266195796, guid: 332dba0235cf052479bb1f86671118e4,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.30450195
+      objectReference: {fileID: 0}
+    - target: {fileID: 1068270541266195796, guid: 332dba0235cf052479bb1f86671118e4,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.071968794
+      objectReference: {fileID: 0}
+    - target: {fileID: 1068270541266195796, guid: 332dba0235cf052479bb1f86671118e4,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.924323
+      objectReference: {fileID: 0}
+    - target: {fileID: 1068270541266195796, guid: 332dba0235cf052479bb1f86671118e4,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 1068270541266195796, guid: 332dba0235cf052479bb1f86671118e4,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -21.102001
+      objectReference: {fileID: 0}
+    - target: {fileID: 1068270541266195796, guid: 332dba0235cf052479bb1f86671118e4,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 39.575
+      objectReference: {fileID: 0}
+    - target: {fileID: 1068270541266195796, guid: 332dba0235cf052479bb1f86671118e4,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -16.572
+      objectReference: {fileID: 0}
+    - target: {fileID: 1068270541266195798, guid: 332dba0235cf052479bb1f86671118e4,
+        type: 3}
+      propertyPath: m_Name
+      value: ResourcePile
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 332dba0235cf052479bb1f86671118e4, type: 3}
 --- !u!1001 &1815082027
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -792,7 +866,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.8156863, g: 0.5647059, b: 0.36078432, a: 0}
+  m_BackGroundColor: {r: 0.36078432, g: 0.8156863, b: 0.51120216, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -808,7 +882,7 @@ Camera:
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 36.5
-  orthographic: 1
+  orthographic: 0
   orthographic size: 4.28
   m_Depth: -1
   m_CullingMask:
@@ -1142,6 +1216,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: TowerABillboard
       objectReference: {fileID: 0}
+    - target: {fileID: 1858508203420995301, guid: f25c7b234aaeaa34fa76fa09eb0388b1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1858508203420995303, guid: f25c7b234aaeaa34fa76fa09eb0388b1,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1265,6 +1344,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: TowerCBillboard
+      objectReference: {fileID: 0}
+    - target: {fileID: 3850424007510935878, guid: 6f080bd90e675a94ebe83d7df7306f48,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6f080bd90e675a94ebe83d7df7306f48, type: 3}
@@ -1404,6 +1488,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: StoneGateBillboard
       objectReference: {fileID: 0}
+    - target: {fileID: 7079241488059426873, guid: 4ea49af59cbc32c46b92daa1a87ad0a7,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4ea49af59cbc32c46b92daa1a87ad0a7, type: 3}
 --- !u!1001 &8236896815011670880
@@ -1542,6 +1631,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: WoodGateBillboard
       objectReference: {fileID: 0}
+    - target: {fileID: 8468804265662254381, guid: f2aaf0f9bffa19f448cbb5f08351612d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f2aaf0f9bffa19f448cbb5f08351612d, type: 3}
 --- !u!1001 &8874294131240538864
@@ -1555,6 +1649,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: TowerBBillboard
+      objectReference: {fileID: 0}
+    - target: {fileID: 8874294132848063734, guid: 65d9be797a266824f805b879f4bf3bd4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8874294132848063736, guid: 65d9be797a266824f805b879f4bf3bd4,
         type: 3}

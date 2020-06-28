@@ -35,10 +35,10 @@ public class InteractionHelper : MonoBehaviour
             go.transform.localPosition = position;
             go.gameObject.SetActive(true);
 
-            if (ToolDictionary.Instance.toolTypes.ContainsKey(entry.Key))
-                go.mainIcon.sprite = ToolDictionary.Instance.Get(entry.Key).icon;
-            else if (ResourceDictionary.Instance.resourceTypes.ContainsKey(entry.Key))
-                go.mainIcon.sprite = ResourceDictionary.Instance.Get(entry.Key).icon;
+            if (ToolDictionary.instance.tools.ContainsKey(entry.Key))
+                go.mainIcon.sprite = ToolDictionary.instance.tools[entry.Key].icon;
+            else if (ResourceDictionary.instance.resources.ContainsKey(entry.Key))
+                go.mainIcon.sprite = ResourceDictionary.instance.resources[entry.Key].icon;
             else
                 Debug.Log("no tool icon for this entry : " + entry.Key);
 

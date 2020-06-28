@@ -30,6 +30,8 @@ public class InteractionJuicer : MonoBehaviour
     public GameObject loadingBar;
     public SpriteMask loadingMask;
     
+
+
     private void Update()
     {
         // hovered object identifier
@@ -72,7 +74,8 @@ public class InteractionJuicer : MonoBehaviour
         }
     }
 
-    public void LaunchGainAnim(string text, InteractionType.Type type)
+
+    public void LaunchGainAnim(string text, InteractionType.Type type, float delay = 0f)
     {
         textMesh.text = text;
         if (type == InteractionType.Type.collectWood)
@@ -80,12 +83,18 @@ public class InteractionJuicer : MonoBehaviour
             treeCoroutine = WoodCuttingAnimation();
             StartCoroutine(treeCoroutine);
         }
-        textMesh.color = ResourceDictionary.Instance.Get(ResourceDictionary.Instance.GetNameFromType(type)).gainColor;
-        gainCoroutine = RessourceGainAnimation();
+
+        textMesh.color = ResourceDictionary.instance.resourcesFromType[type].color;
+        gainCoroutine = RessourceGainAnimation(delay);
         StartCoroutine(gainCoroutine);
     }
-    private IEnumerator RessourceGainAnimation()
+
+    
+    private IEnumerator RessourceGainAnimation(float delay)
     {
+        if(delay > 0f)
+            yield return new WaitForSeconds(delay);
+
         pivot.gameObject.SetActive(true);
         for (int i = 0; i < duration; i++)
         {
@@ -97,7 +106,8 @@ public class InteractionJuicer : MonoBehaviour
     }
     private IEnumerator WoodCuttingAnimation()
     {
-        Transform tree = treeInteractor.transform.parent.Find("Armature");
+        //MapModifier.instance.grid.MakeObjectInteractable(treeInteractor.transform.parent.gameObject);
+        Transform tree = FindChildContains(treeInteractor.transform.parent, "Tree");
         Quaternion initial = tree.rotation;
         Vector3 v = (tree.position - transform.position).normalized;
         Quaternion q = Quaternion.AngleAxis(-15f, Vector3.Cross(v, Vector3.up).normalized) * initial;
@@ -119,5 +129,14 @@ public class InteractionJuicer : MonoBehaviour
         q.z = (1f - t) * a.z + t * b.z;
         q.w = (1f - t) * a.w + t * b.w;
         return q.normalized;
+    }
+    private Transform FindChildContains(Transform parent, string childSubName)
+    {
+        foreach(Transform child in parent)
+        {
+            if (child.name.Contains(childSubName))
+                return child;
+        }
+        return null;
     }
 }

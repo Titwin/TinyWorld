@@ -46,9 +46,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 6
-  callback:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!136 &1001253605600670235
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -121,7 +118,7 @@ GameObject:
   - component: {fileID: 4300283747251858484}
   - component: {fileID: 641304096622019580}
   m_Layer: 16
-  m_Name: tree
+  m_Name: Tree
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

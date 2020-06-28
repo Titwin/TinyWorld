@@ -163,14 +163,16 @@
     <Compile Include="Assets\Scripts\InteractionSystem\AppleTree.cs" />
     <Compile Include="Assets\Scripts\InteractionSystem\CollectData.cs" />
     <Compile Include="Assets\Scripts\InteractionSystem\InteractionConditionTemplate.cs" />
+    <Compile Include="Assets\Scripts\InteractionSystem\InteractionController.cs" />
     <Compile Include="Assets\Scripts\InteractionSystem\InteractionHelper.cs" />
     <Compile Include="Assets\Scripts\InteractionSystem\InteractionJuicer.cs" />
     <Compile Include="Assets\Scripts\InteractionSystem\InteractionType.cs" />
+    <Compile Include="Assets\Scripts\InteractionSystem\InteractionUI.cs" />
     <Compile Include="Assets\Scripts\InteractionSystem\ResourceData.cs" />
     <Compile Include="Assets\Scripts\InteractionSystem\ResourceDictionary.cs" />
-    <Compile Include="Assets\Scripts\InteractionSystem\ResourceType.cs" />
     <Compile Include="Assets\Scripts\InteractionSystem\SpecialPickableShopArsenal.cs" />
     <Compile Include="Assets\Scripts\InteractionSystem\StoreHouseViewer.cs" />
+    <Compile Include="Assets\Scripts\InteractionSystem\ToolData.cs" />
     <Compile Include="Assets\Scripts\InteractionSystem\ToolDictionary.cs" />
     <Compile Include="Assets\Scripts\InteractionSystem\ToolType.cs" />
     <Compile Include="Assets\Scripts\Map\MapChunk.cs" />

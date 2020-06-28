@@ -56,7 +56,8 @@ public class StoreHouseViewer : MonoBehaviour
                     go.gameObject.SetActive(true);
 
                     go.count.text = entry.Value.ToString();
-                    go.icon.sprite = ResourceDictionary.Instance.Get(entry.Key).icon;
+                    //go.icon.sprite = ResourceDictionary.Instance.Get(entry.Key).icon;
+                    go.icon.sprite = ResourceDictionary.instance.resources[entry.Key].icon;
 
                     index++;
                     if(index >= column)

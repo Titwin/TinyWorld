@@ -12,5 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f54c55b5b1b6393499694b78496c8f81, type: 3}
   m_Name: Iron
   m_EditorClassIdentifier: 
+  interactionType: 8
   icon: {fileID: 21300000, guid: 3009f72e96b635443ac2048ba0ca8d45, type: 3}
+  tools:
+  - Container
+  - Pickaxe
+  color: {r: 1, g: 0.7019608, b: 0.31764707, a: 1}
   material: {fileID: 2100000, guid: b91ff3ba01afc474fb13706e77bbd526, type: 2}
+  collectingSound:
+  - {fileID: 8300000, guid: 3a851cf5c109f124296e9b20258eef6d, type: 3}
+  - {fileID: 8300000, guid: e9be0cfe377e23c42a8b83ef2f778aa4, type: 3}
+  - {fileID: 8300000, guid: 440737a9faa68c84ebf9b0f541ba895c, type: 3}
+  - {fileID: 8300000, guid: f0ced281186a54942a2911510b31e48d, type: 3}

@@ -232,8 +232,7 @@ public class MapChunk : MonoBehaviour
             SetBatchVisible(true);
         }
     }
-
-
+    
     public void SetBatchVisible(bool visible)
     {
         batchContainer.gameObject.SetActive(visible);
@@ -243,6 +242,18 @@ public class MapChunk : MonoBehaviour
             {
                 mr.enabled = !visible;
             }
+        }
+    }
+    public void RemoveFromBatching(GameObject obj)
+    {
+        if(childRendering.ContainsKey(obj))
+        {
+            foreach (MeshRenderer mr in childRendering[obj].meshRenderers)
+                mr.enabled = true;
+            HashSet<Material> materials = childRendering[obj].meshMaterials;
+            childRendering.Remove(obj);
+            foreach (Material m in materials)
+                Rebake(m);
         }
     }
     public bool IsEmpty()

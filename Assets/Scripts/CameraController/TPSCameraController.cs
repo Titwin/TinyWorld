@@ -11,7 +11,6 @@ public class TPSCameraController : MonoBehaviour
     private bool lastActivated;
 
     [Header("Control parameters")]
-    //public bool targetMainPlayer;
     public Transform target;
     public float rotationSpeed = 1f;
     public float zoomSpeed = 1f;
@@ -25,9 +24,6 @@ public class TPSCameraController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        /*if (targetMainPlayer && target == null)
-            target = PlayerController.MainInstance.transform;*/
-
         if (target)
         { 
             direction = (transform.position - target.position).normalized;

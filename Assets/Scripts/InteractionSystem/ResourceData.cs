@@ -6,7 +6,13 @@ using UnityEngine;
 [System.Serializable]
 public class ResourceData : ScriptableObject
 {
-    [Header("UI")]
+    [Header("UI and other")]
+    public InteractionType.Type interactionType;
     public Sprite icon;
+    public List<string> tools;
+
+    [Header("Juice")]
+    public Color color;
     public Material material;
+    public List<AudioClip> collectingSound;
 }

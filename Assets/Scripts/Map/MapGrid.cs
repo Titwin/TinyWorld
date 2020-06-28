@@ -181,7 +181,15 @@ public class MapGrid : MonoBehaviour
             grid[cell].gameObject.SetActive(visible);
         }
     }
-    
+    public void MakeObjectInteractable(GameObject obj)
+    {
+        Vector2Int cell = MapChunk.WorldToCell(obj.transform.position);
+        if (grid.ContainsKey(cell))
+        {
+            grid[cell].RemoveFromBatching(obj);
+        }
+    }
+
 
     public enum JobType
     {

@@ -12,5 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f54c55b5b1b6393499694b78496c8f81, type: 3}
   m_Name: Wood
   m_EditorClassIdentifier: 
+  interactionType: 6
   icon: {fileID: 21300000, guid: 82324f3f354dd784c9ce1da961817825, type: 3}
+  tools:
+  - Container
+  - Axe
+  color: {r: 0.41568628, g: 0.19607843, b: 0, a: 1}
   material: {fileID: 2100000, guid: 02f3be6ce37a81d4fa25f793418d4385, type: 2}
+  collectingSound:
+  - {fileID: 8300000, guid: 92981c3821c5da8419661058f4e25395, type: 3}

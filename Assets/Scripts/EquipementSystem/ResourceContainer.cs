@@ -88,7 +88,8 @@ public class ResourceContainer : MonoBehaviour
                 {
                     if (useResourceMaterial)
                     {
-                        itemMeshes[i].sharedMaterial = ResourceDictionary.Instance.Get(names[groupSize * i]).material;
+                        //itemMeshes[i].sharedMaterial = ResourceDictionary.Instance.Get(names[groupSize * i]).material;
+                        itemMeshes[i].sharedMaterial = ResourceDictionary.instance.resources[names[groupSize * i]].material;
                         itemMeshes[i].enabled = true;
                     }
                     else

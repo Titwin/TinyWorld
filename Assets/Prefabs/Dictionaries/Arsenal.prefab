@@ -30568,7 +30568,7 @@ MonoBehaviour:
   pickablePrefab: {fileID: 9082372438455274285}
   playerTemplate: {fileID: 274576174245912502, guid: 2a7956e97e3788244962de36794e6cee,
     type: 3}
-  mountedPlayerTemplate: {fileID: 3553807094508805091, guid: bd5385689cdac2b469a63eff8642dfa1,
+  mountedPlayerTemplate: {fileID: 8701042372526833363, guid: bd5385689cdac2b469a63eff8642dfa1,
     type: 3}
   backpackObjectList:
   - {fileID: 7388010046170874243}

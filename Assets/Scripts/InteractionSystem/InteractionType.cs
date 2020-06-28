@@ -17,7 +17,7 @@ public class InteractionType : MonoBehaviour
         collectIron,
         collectGold,
         collectCrystal,
-        collectWheet,
+        collectWheat,
 
         storeRessources,
         forge,

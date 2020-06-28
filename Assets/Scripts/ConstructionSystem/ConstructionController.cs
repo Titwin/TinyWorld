@@ -113,9 +113,10 @@ public class ConstructionController : MonoBehaviour
     }
     private bool CompareStorage()
     {
-        bool ready = true;
+        bool ready = false;
         if (progress == 0f)
         {
+            ready = true;
             Dictionary<string, int> conditions = data.GetStepResources(0);
             foreach (KeyValuePair<string, int> condition in conditions)
             {
@@ -123,8 +124,9 @@ public class ConstructionController : MonoBehaviour
                     ready = false;
             }
         }
-        else
+        else if(data.constructionSteps.Length > 1)
         {
+            ready = true;
             Dictionary<string, int> conditions = data.GetStepResources(1);
             foreach (KeyValuePair<string, int> condition in conditions)
             {
@@ -138,9 +140,12 @@ public class ConstructionController : MonoBehaviour
     {
         if (progress != 0f && progress != 0.5f)
             progress += data.incrementSpeed;
-
-        if (progress >= 0.5f && lastProgress < 0.5f)
+        
+        if (progress >= 0.5f && lastProgress < 0.5f && data.constructionSteps.Length > 1)
+        {
+            progress = 0.5f;
             return true;
+        }
         else return progress >= 1f;
     }
 }
