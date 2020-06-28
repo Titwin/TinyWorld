@@ -341,7 +341,7 @@ public class InteractionController : MonoBehaviour
             hoveredInteractor = null;
             interactionTime = 0f;
             animator.SetBool("interaction", false);
-            Debug.LogWarning("no interaction tick for this type implemented");
+            Debug.LogWarning("no interaction tick for this type implemented : " + lastInteraction.ToString());
         }
     }
 

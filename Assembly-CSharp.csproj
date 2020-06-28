@@ -160,11 +160,9 @@
     <Compile Include="Assets\Scripts\Helper\Billboard.cs" />
     <Compile Include="Assets\Scripts\Helper\Follower.cs" />
     <Compile Include="Assets\Scripts\Helper\WindAnimation.cs" />
-    <Compile Include="Assets\Scripts\InteractionSystem\AppleTree.cs" />
     <Compile Include="Assets\Scripts\InteractionSystem\CollectData.cs" />
     <Compile Include="Assets\Scripts\InteractionSystem\InteractionConditionTemplate.cs" />
     <Compile Include="Assets\Scripts\InteractionSystem\InteractionController.cs" />
-    <Compile Include="Assets\Scripts\InteractionSystem\InteractionHelper.cs" />
     <Compile Include="Assets\Scripts\InteractionSystem\InteractionJuicer.cs" />
     <Compile Include="Assets\Scripts\InteractionSystem\InteractionType.cs" />
     <Compile Include="Assets\Scripts\InteractionSystem\InteractionUI.cs" />
