@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WeaponItem : MonoBehaviour
+public class WeaponItem : Item
 {
     public enum Type
     {
@@ -30,12 +30,13 @@ public class WeaponItem : MonoBehaviour
         CavalryLanceA, CavalryLanceB, CavalryLanceC,
         CavalrySpear
     };
+
+    [Header("Weapon Item")]
     public Type type = Type.None;
     public string toolFamily = "None";
     public bool forbidSecond = false;
     public bool forbidShield = false;
     public int animationCode = 1;
-    public float load = 0f;
     public float dammage = 0f;
     
     // special
@@ -51,6 +52,7 @@ public class WeaponItem : MonoBehaviour
     }
     public static void Copy(WeaponItem source, WeaponItem destination)
     {
+        Item.Copy(source, destination);
         destination.type = source.type;
         destination.toolFamily = source.toolFamily;
         destination.forbidSecond = source.forbidSecond;

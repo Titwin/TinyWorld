@@ -121,6 +121,37 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &21799728
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 21799729}
+  m_Layer: 0
+  m_Name: CameraPivot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &21799729
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 21799728}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 4.57, z: -12.94}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1835812233}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &174668574
 GameObject:
   m_ObjectHideFlags: 0
@@ -739,8 +770,92 @@ PrefabInstance:
       propertyPath: m_Name
       value: ResourcePile
       objectReference: {fileID: 0}
+    - target: {fileID: 1068270541266195798, guid: 332dba0235cf052479bb1f86671118e4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 332dba0235cf052479bb1f86671118e4, type: 3}
+--- !u!1001 &1791585813
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 7388010046170877056, guid: 62ba87b6c5e83aa4c8aa812d99a5b08c,
+        type: 3}
+      propertyPath: m_Name
+      value: Arsenal
+      objectReference: {fileID: 0}
+    - target: {fileID: 7388010046170877057, guid: 62ba87b6c5e83aa4c8aa812d99a5b08c,
+        type: 3}
+      propertyPath: cameraPivot
+      value: 
+      objectReference: {fileID: 21799729}
+    - target: {fileID: 7388010046170877057, guid: 62ba87b6c5e83aa4c8aa812d99a5b08c,
+        type: 3}
+      propertyPath: camera
+      value: 
+      objectReference: {fileID: 1835812232}
+    - target: {fileID: 7388010046171369696, guid: 62ba87b6c5e83aa4c8aa812d99a5b08c,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7388010046171369696, guid: 62ba87b6c5e83aa4c8aa812d99a5b08c,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7388010046171369696, guid: 62ba87b6c5e83aa4c8aa812d99a5b08c,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7388010046171369696, guid: 62ba87b6c5e83aa4c8aa812d99a5b08c,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7388010046171369696, guid: 62ba87b6c5e83aa4c8aa812d99a5b08c,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7388010046171369696, guid: 62ba87b6c5e83aa4c8aa812d99a5b08c,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7388010046171369696, guid: 62ba87b6c5e83aa4c8aa812d99a5b08c,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7388010046171369696, guid: 62ba87b6c5e83aa4c8aa812d99a5b08c,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 21
+      objectReference: {fileID: 0}
+    - target: {fileID: 7388010046171369696, guid: 62ba87b6c5e83aa4c8aa812d99a5b08c,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7388010046171369696, guid: 62ba87b6c5e83aa4c8aa812d99a5b08c,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7388010046171369696, guid: 62ba87b6c5e83aa4c8aa812d99a5b08c,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 62ba87b6c5e83aa4c8aa812d99a5b08c, type: 3}
 --- !u!1001 &1815082027
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -906,13 +1021,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1835812230}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 4.57, z: -12.94}
+  m_LocalRotation: {x: 0.014601409, y: 0.96066165, z: -0.13066348, w: 0.24462843}
+  m_LocalPosition: {x: -2.0100002, y: 0.6499996, z: 0.31999993}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 21799729}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 14.963, y: 151.14801, z: -2.128}
 --- !u!1001 &1865049499
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1202,6 +1317,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: OpenFencesBillboard
       objectReference: {fileID: 0}
+    - target: {fileID: 7772881292652336423, guid: 79bfc6a1101c7a44997d85ebc8c98494,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 79bfc6a1101c7a44997d85ebc8c98494, type: 3}
 --- !u!1001 &1858508203985257520
@@ -1364,6 +1484,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: TempleBillboard
       objectReference: {fileID: 0}
+    - target: {fileID: 5372409775914346868, guid: fdb2250bfdab0b54ba8b0f50886db603,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5372409775914346873, guid: fdb2250bfdab0b54ba8b0f50886db603,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1506,6 +1631,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: OpenFences
+      objectReference: {fileID: 0}
+    - target: {fileID: 225000585385098911, guid: 351b1657808ed1c478862b4aadac714c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3838198348464311436, guid: 351b1657808ed1c478862b4aadac714c,
         type: 3}

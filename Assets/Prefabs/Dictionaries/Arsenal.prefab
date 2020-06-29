@@ -92,6 +92,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbfc9c88ca93fb247a789b76aaf23b3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 0
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 42
   toolFamily: Sickle
   forbidSecond: 0
@@ -344,6 +348,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbfc9c88ca93fb247a789b76aaf23b3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 0
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 43
   toolFamily: None
   forbidSecond: 0
@@ -1570,6 +1578,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbfc9c88ca93fb247a789b76aaf23b3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 0
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 44
   toolFamily: None
   forbidSecond: 0
@@ -1670,6 +1682,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbfc9c88ca93fb247a789b76aaf23b3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 0
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 46
   toolFamily: None
   forbidSecond: 0
@@ -1924,6 +1940,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbfc9c88ca93fb247a789b76aaf23b3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 0
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 45
   toolFamily: None
   forbidSecond: 0
@@ -2405,6 +2425,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e57ee26feb9b8934398ba63058093cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 0
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 12
   load: 0
   armor: 0
@@ -2517,6 +2541,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e57ee26feb9b8934398ba63058093cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 0
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 11
   load: 0
   armor: 0
@@ -2629,6 +2657,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e57ee26feb9b8934398ba63058093cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 0
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 10
   load: 0
   armor: 0
@@ -2741,6 +2773,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e57ee26feb9b8934398ba63058093cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 0
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 43
   load: 0
   armor: 0
@@ -2853,6 +2889,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e57ee26feb9b8934398ba63058093cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 0
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 15
   load: 0
   armor: 0
@@ -2965,6 +3005,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e57ee26feb9b8934398ba63058093cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 0
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 14
   load: 0
   armor: 0
@@ -3077,6 +3121,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e57ee26feb9b8934398ba63058093cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 0
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 13
   load: 0
   armor: 0
@@ -3189,6 +3237,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e57ee26feb9b8934398ba63058093cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 0
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 18
   load: 2
   armor: 2
@@ -3301,6 +3353,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e57ee26feb9b8934398ba63058093cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 0
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 17
   load: 1
   armor: 1
@@ -3413,6 +3469,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e57ee26feb9b8934398ba63058093cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 0
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 16
   load: 1
   armor: 1
@@ -3525,6 +3585,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e57ee26feb9b8934398ba63058093cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 0
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 44
   load: 0
   armor: 0
@@ -3637,6 +3701,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e57ee26feb9b8934398ba63058093cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 0
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 22
   load: 2
   armor: 2
@@ -3749,6 +3817,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e57ee26feb9b8934398ba63058093cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 0
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 21
   load: 2
   armor: 2
@@ -3861,6 +3933,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e57ee26feb9b8934398ba63058093cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 0
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 20
   load: 2
   armor: 2
@@ -3973,6 +4049,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e57ee26feb9b8934398ba63058093cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 0
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 19
   load: 2
   armor: 2
@@ -4085,6 +4165,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e57ee26feb9b8934398ba63058093cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 0
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 26
   load: 3
   armor: 3
@@ -4197,6 +4281,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e57ee26feb9b8934398ba63058093cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 0
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 25
   load: 2
   armor: 2
@@ -4309,6 +4397,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e57ee26feb9b8934398ba63058093cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 0
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 24
   load: 2
   armor: 2
@@ -4421,6 +4513,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e57ee26feb9b8934398ba63058093cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 0
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 23
   load: 2
   armor: 2
@@ -4533,6 +4629,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e57ee26feb9b8934398ba63058093cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 0
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 45
   load: 3
   armor: 3
@@ -4645,6 +4745,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e57ee26feb9b8934398ba63058093cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 0
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 29
   load: 3
   armor: 3
@@ -4757,6 +4861,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e57ee26feb9b8934398ba63058093cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 0
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 28
   load: 3
   armor: 3
@@ -4869,6 +4977,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e57ee26feb9b8934398ba63058093cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 0
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 27
   load: 3
   armor: 3
@@ -4981,6 +5093,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e57ee26feb9b8934398ba63058093cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 0
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 33
   load: 3
   armor: 3
@@ -5093,6 +5209,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e57ee26feb9b8934398ba63058093cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 0
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 32
   load: 3
   armor: 3
@@ -5205,6 +5325,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e57ee26feb9b8934398ba63058093cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 0
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 31
   load: 3
   armor: 3
@@ -5317,6 +5441,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e57ee26feb9b8934398ba63058093cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 0
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 30
   load: 3
   armor: 3
@@ -5684,6 +5812,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e57ee26feb9b8934398ba63058093cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 0
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 39
   load: 5
   armor: 5
@@ -5796,6 +5928,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e57ee26feb9b8934398ba63058093cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 0
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 9
   load: 0
   armor: 0
@@ -6001,6 +6137,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e57ee26feb9b8934398ba63058093cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 0
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 8
   load: 1
   armor: 1
@@ -6113,6 +6253,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e57ee26feb9b8934398ba63058093cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 0
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 4
   load: 1
   armor: 1
@@ -6402,6 +6546,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e57ee26feb9b8934398ba63058093cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 0
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 37
   load: 5
   armor: 5
@@ -6514,6 +6662,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e57ee26feb9b8934398ba63058093cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 0
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 36
   load: 5
   armor: 5
@@ -6626,6 +6778,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e57ee26feb9b8934398ba63058093cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 0
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 35
   load: 5
   armor: 5
@@ -6738,6 +6894,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e57ee26feb9b8934398ba63058093cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 0
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 34
   load: 5
   armor: 5
@@ -6850,6 +7010,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e57ee26feb9b8934398ba63058093cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 0
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 42
   load: 5
   armor: 5
@@ -6962,6 +7126,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e57ee26feb9b8934398ba63058093cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 0
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 41
   load: 5
   armor: 5
@@ -7074,6 +7242,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e57ee26feb9b8934398ba63058093cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 0
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 40
   load: 5
   armor: 5
@@ -7186,6 +7358,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e57ee26feb9b8934398ba63058093cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 0
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 38
   load: 5
   armor: 5
@@ -7298,6 +7474,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e57ee26feb9b8934398ba63058093cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 0
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 1
   load: 0
   armor: 0
@@ -7410,6 +7590,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e57ee26feb9b8934398ba63058093cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 0
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 7
   load: 1
   armor: 1
@@ -7522,6 +7706,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e57ee26feb9b8934398ba63058093cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 0
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 6
   load: 1
   armor: 1
@@ -7634,6 +7822,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e57ee26feb9b8934398ba63058093cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 0
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 5
   load: 1
   armor: 1
@@ -7746,6 +7938,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e57ee26feb9b8934398ba63058093cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 0
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 3
   load: 0
   armor: 0
@@ -7858,6 +8054,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e57ee26feb9b8934398ba63058093cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 0
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 2
   load: 0
   armor: 0
@@ -9466,6 +9666,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f023f9bb730946946ad8e8271292384e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 0
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 2
   load: 0
   armor: 0
@@ -9586,6 +9790,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f023f9bb730946946ad8e8271292384e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 0
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 1
   load: 0
   armor: 0
@@ -9706,6 +9914,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f023f9bb730946946ad8e8271292384e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 0
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 6
   load: 0
   armor: 0
@@ -9826,6 +10038,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f023f9bb730946946ad8e8271292384e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 0
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 5
   load: 0
   armor: 0
@@ -9946,6 +10162,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f023f9bb730946946ad8e8271292384e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 0
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 4
   load: 0
   armor: 0
@@ -10066,6 +10286,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f023f9bb730946946ad8e8271292384e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 0
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 3
   load: 0
   armor: 0
@@ -10186,6 +10410,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f023f9bb730946946ad8e8271292384e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 0
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 8
   load: 0
   armor: 0
@@ -10306,6 +10534,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f023f9bb730946946ad8e8271292384e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 0
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 7
   load: 0
   armor: 0
@@ -10402,6 +10634,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbfc9c88ca93fb247a789b76aaf23b3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 0
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 45
   toolFamily: None
   forbidSecond: 0
@@ -10502,6 +10738,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbfc9c88ca93fb247a789b76aaf23b3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 0
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 44
   toolFamily: None
   forbidSecond: 0
@@ -10602,6 +10842,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbfc9c88ca93fb247a789b76aaf23b3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 0
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 43
   toolFamily: None
   forbidSecond: 0
@@ -10702,6 +10946,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbfc9c88ca93fb247a789b76aaf23b3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 0
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 46
   toolFamily: None
   forbidSecond: 0
@@ -11229,6 +11477,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f023f9bb730946946ad8e8271292384e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 0
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 1
   load: 0
   armor: 0
@@ -11816,6 +12068,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ac1ad13787433442953ba582a0097b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 4
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 62
   load: 0
   armor: 0
@@ -11911,6 +12167,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ac1ad13787433442953ba582a0097b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 4
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 61
   load: 0
   armor: 0
@@ -12006,6 +12266,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ac1ad13787433442953ba582a0097b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 4
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 60
   load: 0
   armor: 0
@@ -12102,6 +12366,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ac1ad13787433442953ba582a0097b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 4
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 41
   load: 5
   armor: 5
@@ -12197,6 +12465,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ac1ad13787433442953ba582a0097b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 4
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 66
   load: 1
   armor: 1
@@ -12292,6 +12564,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ac1ad13787433442953ba582a0097b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 4
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 65
   load: 1
   armor: 1
@@ -12387,6 +12663,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ac1ad13787433442953ba582a0097b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 4
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 64
   load: 0
   armor: 0
@@ -12482,6 +12762,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ac1ad13787433442953ba582a0097b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 4
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 63
   load: 0
   armor: 0
@@ -12594,6 +12878,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e57ee26feb9b8934398ba63058093cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 3
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 7
   load: 1
   armor: 1
@@ -12690,6 +12978,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ac1ad13787433442953ba582a0097b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 4
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 69
   load: 5
   armor: 6
@@ -12786,6 +13078,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ac1ad13787433442953ba582a0097b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 4
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 68
   load: 2
   armor: 3
@@ -12882,6 +13178,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ac1ad13787433442953ba582a0097b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 4
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 67
   load: 2
   armor: 3
@@ -12994,6 +13294,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e57ee26feb9b8934398ba63058093cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 3
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 8
   load: 1
   armor: 1
@@ -13090,6 +13394,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ac1ad13787433442953ba582a0097b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 4
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 32
   load: 2
   armor: 2
@@ -13186,6 +13494,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ac1ad13787433442953ba582a0097b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 4
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 31
   load: 2
   armor: 2
@@ -13282,6 +13594,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ac1ad13787433442953ba582a0097b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 4
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 30
   load: 2
   armor: 2
@@ -13378,6 +13694,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ac1ad13787433442953ba582a0097b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 4
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 29
   load: 2
   armor: 2
@@ -13474,6 +13794,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ac1ad13787433442953ba582a0097b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 4
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 44
   load: 2
   armor: 2
@@ -13570,6 +13894,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ac1ad13787433442953ba582a0097b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 4
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 43
   load: 3
   armor: 3
@@ -13666,6 +13994,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ac1ad13787433442953ba582a0097b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 4
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 42
   load: 3
   armor: 3
@@ -13762,6 +14094,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ac1ad13787433442953ba582a0097b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 4
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 33
   load: 2
   armor: 2
@@ -13858,6 +14194,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ac1ad13787433442953ba582a0097b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 4
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 46
   load: 3
   armor: 3
@@ -13954,6 +14294,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ac1ad13787433442953ba582a0097b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 4
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 45
   load: 3
   armor: 3
@@ -14050,6 +14394,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ac1ad13787433442953ba582a0097b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 4
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 35
   load: 0
   armor: 0
@@ -14146,6 +14494,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ac1ad13787433442953ba582a0097b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 4
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 34
   load: 0
   armor: 0
@@ -14242,6 +14594,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ac1ad13787433442953ba582a0097b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 4
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 51
   load: 5
   armor: 5
@@ -14338,6 +14694,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ac1ad13787433442953ba582a0097b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 4
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 36
   load: 5
   armor: 5
@@ -14434,6 +14794,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ac1ad13787433442953ba582a0097b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 4
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 50
   load: 5
   armor: 5
@@ -14530,6 +14894,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ac1ad13787433442953ba582a0097b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 4
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 47
   load: 3
   armor: 3
@@ -14626,6 +14994,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ac1ad13787433442953ba582a0097b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 4
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 37
   load: 5
   armor: 5
@@ -14722,6 +15094,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ac1ad13787433442953ba582a0097b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 4
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 54
   load: 5
   armor: 5
@@ -14818,6 +15194,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ac1ad13787433442953ba582a0097b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 4
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 53
   load: 5
   armor: 5
@@ -14914,6 +15294,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ac1ad13787433442953ba582a0097b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 4
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 52
   load: 5
   armor: 5
@@ -15010,6 +15394,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ac1ad13787433442953ba582a0097b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 4
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 48
   load: 4
   armor: 4
@@ -15106,6 +15494,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ac1ad13787433442953ba582a0097b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 4
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 38
   load: 5
   armor: 5
@@ -15202,6 +15594,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ac1ad13787433442953ba582a0097b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 4
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 56
   load: 5
   armor: 5
@@ -15298,6 +15694,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ac1ad13787433442953ba582a0097b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 4
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 55
   load: 5
   armor: 5
@@ -15394,6 +15794,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ac1ad13787433442953ba582a0097b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 4
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 57
   load: 0
   armor: 0
@@ -15490,6 +15894,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ac1ad13787433442953ba582a0097b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 4
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 71
   load: 5
   armor: 5
@@ -15586,6 +15994,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ac1ad13787433442953ba582a0097b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 4
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 70
   load: 5
   armor: 5
@@ -15682,6 +16094,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ac1ad13787433442953ba582a0097b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 4
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 49
   load: 4
   armor: 4
@@ -15778,6 +16194,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ac1ad13787433442953ba582a0097b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 4
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 40
   load: 5
   armor: 5
@@ -15874,6 +16294,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ac1ad13787433442953ba582a0097b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 4
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 59
   load: 5
   armor: 5
@@ -15970,6 +16394,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ac1ad13787433442953ba582a0097b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 4
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 58
   load: 5
   armor: 5
@@ -16066,6 +16494,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ac1ad13787433442953ba582a0097b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 4
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 39
   load: 5
   armor: 5
@@ -16162,6 +16594,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8845f78c74a18734e9fa6e78005128ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 1
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 2
   toolFamily: None
   load: 1
@@ -16258,6 +16694,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8845f78c74a18734e9fa6e78005128ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 1
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 1
   toolFamily: None
   load: 1
@@ -16353,6 +16793,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbfc9c88ca93fb247a789b76aaf23b3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 0
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 29
   toolFamily: None
   forbidSecond: 1
@@ -16453,6 +16897,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbfc9c88ca93fb247a789b76aaf23b3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 0
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 16
   toolFamily: None
   forbidSecond: 1
@@ -16552,6 +17000,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ac1ad13787433442953ba582a0097b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 4
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 4
   load: 0
   armor: 0
@@ -16647,6 +17099,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ac1ad13787433442953ba582a0097b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 4
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 3
   load: 0
   armor: 0
@@ -16742,6 +17198,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ac1ad13787433442953ba582a0097b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 4
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 2
   load: 0
   armor: 0
@@ -16837,6 +17297,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ac1ad13787433442953ba582a0097b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 4
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 1
   load: 0
   armor: 0
@@ -16932,6 +17396,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ac1ad13787433442953ba582a0097b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 4
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 8
   load: 0
   armor: 0
@@ -17027,6 +17495,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ac1ad13787433442953ba582a0097b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 4
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 7
   load: 0
   armor: 0
@@ -17122,6 +17594,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ac1ad13787433442953ba582a0097b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 4
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 6
   load: 0
   armor: 0
@@ -17217,6 +17693,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ac1ad13787433442953ba582a0097b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 4
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 5
   load: 0
   armor: 0
@@ -17312,6 +17792,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ac1ad13787433442953ba582a0097b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 4
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 12
   load: 0
   armor: 0
@@ -17407,6 +17891,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ac1ad13787433442953ba582a0097b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 4
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 11
   load: 0
   armor: 0
@@ -17502,6 +17990,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ac1ad13787433442953ba582a0097b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 4
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 10
   load: 0
   armor: 0
@@ -17597,6 +18089,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ac1ad13787433442953ba582a0097b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 4
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 9
   load: 0
   armor: 0
@@ -17692,6 +18188,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ac1ad13787433442953ba582a0097b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 4
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 16
   load: 0
   armor: 0
@@ -17787,6 +18287,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ac1ad13787433442953ba582a0097b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 4
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 15
   load: 0
   armor: 0
@@ -17882,6 +18386,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ac1ad13787433442953ba582a0097b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 4
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 14
   load: 0
   armor: 0
@@ -17977,6 +18485,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ac1ad13787433442953ba582a0097b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 4
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 13
   load: 0
   armor: 0
@@ -18072,6 +18584,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ac1ad13787433442953ba582a0097b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 4
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 20
   load: 1
   armor: 1
@@ -18167,6 +18683,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ac1ad13787433442953ba582a0097b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 4
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 19
   load: 1
   armor: 1
@@ -18262,6 +18782,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ac1ad13787433442953ba582a0097b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 4
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 18
   load: 1
   armor: 1
@@ -18357,6 +18881,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ac1ad13787433442953ba582a0097b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 4
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 17
   load: 1
   armor: 1
@@ -18453,6 +18981,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ac1ad13787433442953ba582a0097b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 4
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 24
   load: 1
   armor: 1
@@ -18549,6 +19081,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ac1ad13787433442953ba582a0097b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 4
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 23
   load: 1
   armor: 1
@@ -18644,6 +19180,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ac1ad13787433442953ba582a0097b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 4
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 22
   load: 1
   armor: 1
@@ -18739,6 +19279,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ac1ad13787433442953ba582a0097b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 4
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 21
   load: 1
   armor: 1
@@ -18835,6 +19379,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ac1ad13787433442953ba582a0097b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 4
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 28
   load: 2
   armor: 2
@@ -18931,6 +19479,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ac1ad13787433442953ba582a0097b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 4
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 27
   load: 2
   armor: 2
@@ -19027,6 +19579,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ac1ad13787433442953ba582a0097b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 4
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 26
   load: 2
   armor: 2
@@ -19123,6 +19679,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ac1ad13787433442953ba582a0097b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 4
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 25
   load: 1
   armor: 1
@@ -19235,6 +19795,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e57ee26feb9b8934398ba63058093cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 3
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 41
   load: 5
   armor: 5
@@ -19347,6 +19911,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e57ee26feb9b8934398ba63058093cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 3
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 40
   load: 5
   armor: 5
@@ -19459,6 +20027,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e57ee26feb9b8934398ba63058093cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 3
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 39
   load: 5
   armor: 5
@@ -19571,6 +20143,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e57ee26feb9b8934398ba63058093cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 3
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 38
   load: 5
   armor: 5
@@ -19683,6 +20259,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e57ee26feb9b8934398ba63058093cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 3
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 5
   load: 1
   armor: 1
@@ -19795,6 +20375,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e57ee26feb9b8934398ba63058093cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 3
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 4
   load: 1
   armor: 1
@@ -19907,6 +20491,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e57ee26feb9b8934398ba63058093cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 3
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 42
   load: 5
   armor: 5
@@ -20019,6 +20607,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e57ee26feb9b8934398ba63058093cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 3
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 2
   load: 0
   armor: 0
@@ -20131,6 +20723,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e57ee26feb9b8934398ba63058093cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 3
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 1
   load: 0
   armor: 0
@@ -20243,6 +20839,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e57ee26feb9b8934398ba63058093cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 3
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 6
   load: 1
   armor: 1
@@ -20339,6 +20939,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b37de993f0655c84ea1506ea89f36233, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 2
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 8
   load: 3
   armor: 6
@@ -20435,6 +21039,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b37de993f0655c84ea1506ea89f36233, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 2
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 7
   load: 3
   armor: 5
@@ -20531,6 +21139,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b37de993f0655c84ea1506ea89f36233, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 2
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 6
   load: 3
   armor: 5
@@ -20643,6 +21255,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e57ee26feb9b8934398ba63058093cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 3
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 3
   load: 0
   armor: 0
@@ -20739,6 +21355,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b37de993f0655c84ea1506ea89f36233, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 2
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 22
   load: 3
   armor: 6
@@ -20835,6 +21455,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b37de993f0655c84ea1506ea89f36233, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 2
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 21
   load: 3
   armor: 6
@@ -20931,6 +21555,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b37de993f0655c84ea1506ea89f36233, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 2
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 9
   load: 3
   armor: 6
@@ -21027,6 +21655,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b37de993f0655c84ea1506ea89f36233, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 2
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 20
   load: 3
   armor: 6
@@ -21123,6 +21755,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbfc9c88ca93fb247a789b76aaf23b3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 0
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 10
   toolFamily: None
   forbidSecond: 0
@@ -21222,6 +21858,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbfc9c88ca93fb247a789b76aaf23b3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 0
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 5
   toolFamily: Axe
   forbidSecond: 0
@@ -21322,6 +21962,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b37de993f0655c84ea1506ea89f36233, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 2
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 12
   load: 4
   armor: 8
@@ -21418,6 +22062,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b37de993f0655c84ea1506ea89f36233, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 2
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 23
   load: 3
   armor: 6
@@ -21513,6 +22161,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbfc9c88ca93fb247a789b76aaf23b3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 0
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 33
   toolFamily: None
   forbidSecond: 0
@@ -21612,6 +22264,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbfc9c88ca93fb247a789b76aaf23b3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 0
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 31
   toolFamily: None
   forbidSecond: 0
@@ -21712,6 +22368,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbfc9c88ca93fb247a789b76aaf23b3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 0
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 23
   toolFamily: None
   forbidSecond: 0
@@ -21812,6 +22472,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbfc9c88ca93fb247a789b76aaf23b3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 0
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 20
   toolFamily: None
   forbidSecond: 1
@@ -21911,6 +22575,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbfc9c88ca93fb247a789b76aaf23b3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 0
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 35
   toolFamily: None
   forbidSecond: 1
@@ -22011,6 +22679,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbfc9c88ca93fb247a789b76aaf23b3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 0
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 14
   toolFamily: None
   forbidSecond: 0
@@ -22111,6 +22783,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d505a26795b92854e98a623cc5d6a90c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 5
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 7
   forbidWeapon: 1
   forbidShield: 1
@@ -22210,6 +22886,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbfc9c88ca93fb247a789b76aaf23b3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 0
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 12
   toolFamily: None
   forbidSecond: 0
@@ -22326,6 +23006,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e57ee26feb9b8934398ba63058093cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 3
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 43
   load: 0
   armor: 0
@@ -22438,6 +23122,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e57ee26feb9b8934398ba63058093cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 3
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 18
   load: 2
   armor: 2
@@ -22550,6 +23238,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e57ee26feb9b8934398ba63058093cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 3
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 17
   load: 1
   armor: 1
@@ -22662,6 +23354,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e57ee26feb9b8934398ba63058093cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 3
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 16
   load: 1
   armor: 1
@@ -22774,6 +23470,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e57ee26feb9b8934398ba63058093cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 3
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 44
   load: 0
   armor: 0
@@ -22886,6 +23586,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e57ee26feb9b8934398ba63058093cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 3
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 22
   load: 2
   armor: 2
@@ -22998,6 +23702,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e57ee26feb9b8934398ba63058093cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 3
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 21
   load: 2
   armor: 2
@@ -23110,6 +23818,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e57ee26feb9b8934398ba63058093cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 3
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 20
   load: 2
   armor: 2
@@ -23222,6 +23934,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e57ee26feb9b8934398ba63058093cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 3
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 19
   load: 2
   armor: 2
@@ -23334,6 +24050,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e57ee26feb9b8934398ba63058093cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 3
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 26
   load: 3
   armor: 3
@@ -23446,6 +24166,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e57ee26feb9b8934398ba63058093cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 3
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 25
   load: 2
   armor: 2
@@ -23558,6 +24282,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e57ee26feb9b8934398ba63058093cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 3
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 24
   load: 2
   armor: 2
@@ -23670,6 +24398,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e57ee26feb9b8934398ba63058093cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 3
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 23
   load: 2
   armor: 2
@@ -23782,6 +24514,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e57ee26feb9b8934398ba63058093cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 3
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 45
   load: 3
   armor: 3
@@ -23894,6 +24630,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e57ee26feb9b8934398ba63058093cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 3
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 29
   load: 3
   armor: 3
@@ -24006,6 +24746,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e57ee26feb9b8934398ba63058093cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 3
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 28
   load: 3
   armor: 3
@@ -24118,6 +24862,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e57ee26feb9b8934398ba63058093cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 3
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 27
   load: 3
   armor: 3
@@ -24230,6 +24978,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e57ee26feb9b8934398ba63058093cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 3
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 33
   load: 3
   armor: 3
@@ -24342,6 +25094,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e57ee26feb9b8934398ba63058093cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 3
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 32
   load: 3
   armor: 3
@@ -24454,6 +25210,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e57ee26feb9b8934398ba63058093cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 3
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 31
   load: 3
   armor: 3
@@ -24566,6 +25326,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e57ee26feb9b8934398ba63058093cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 3
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 30
   load: 3
   armor: 3
@@ -24678,6 +25442,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e57ee26feb9b8934398ba63058093cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 3
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 37
   load: 5
   armor: 5
@@ -24790,6 +25558,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e57ee26feb9b8934398ba63058093cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 3
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 36
   load: 5
   armor: 5
@@ -24902,6 +25674,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e57ee26feb9b8934398ba63058093cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 3
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 35
   load: 5
   armor: 5
@@ -25014,6 +25790,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e57ee26feb9b8934398ba63058093cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 3
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 34
   load: 5
   armor: 5
@@ -25126,6 +25906,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e57ee26feb9b8934398ba63058093cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 3
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 12
   load: 0
   armor: 0
@@ -25238,6 +26022,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e57ee26feb9b8934398ba63058093cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 3
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 11
   load: 0
   armor: 0
@@ -25350,6 +26138,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e57ee26feb9b8934398ba63058093cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 3
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 10
   load: 0
   armor: 0
@@ -25462,6 +26254,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e57ee26feb9b8934398ba63058093cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 3
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 9
   load: 0
   armor: 0
@@ -25574,6 +26370,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e57ee26feb9b8934398ba63058093cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 3
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 15
   load: 0
   armor: 0
@@ -25686,6 +26486,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e57ee26feb9b8934398ba63058093cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 3
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 14
   load: 0
   armor: 0
@@ -25798,6 +26602,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e57ee26feb9b8934398ba63058093cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 3
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 13
   load: 0
   armor: 0
@@ -25894,6 +26702,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbfc9c88ca93fb247a789b76aaf23b3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 0
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 13
   toolFamily: None
   forbidSecond: 0
@@ -25994,6 +26806,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d505a26795b92854e98a623cc5d6a90c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 5
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 6
   forbidWeapon: 1
   forbidShield: 1
@@ -26093,6 +26909,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d505a26795b92854e98a623cc5d6a90c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 5
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 5
   forbidWeapon: 1
   forbidShield: 1
@@ -26192,6 +27012,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d505a26795b92854e98a623cc5d6a90c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 5
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 4
   forbidWeapon: 1
   forbidShield: 1
@@ -26291,6 +27115,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbfc9c88ca93fb247a789b76aaf23b3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 0
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 18
   toolFamily: None
   forbidSecond: 1
@@ -26391,6 +27219,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbfc9c88ca93fb247a789b76aaf23b3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 0
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 40
   toolFamily: None
   forbidSecond: 1
@@ -26491,6 +27323,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbfc9c88ca93fb247a789b76aaf23b3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 0
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 7
   toolFamily: None
   forbidSecond: 1
@@ -26591,6 +27427,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbfc9c88ca93fb247a789b76aaf23b3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 0
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 6
   toolFamily: None
   forbidSecond: 1
@@ -26690,6 +27530,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbfc9c88ca93fb247a789b76aaf23b3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 0
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 27
   toolFamily: None
   forbidSecond: 0
@@ -26789,6 +27633,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbfc9c88ca93fb247a789b76aaf23b3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 0
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 28
   toolFamily: None
   forbidSecond: 1
@@ -26889,6 +27737,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbfc9c88ca93fb247a789b76aaf23b3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 0
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 15
   toolFamily: None
   forbidSecond: 1
@@ -26988,6 +27840,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbfc9c88ca93fb247a789b76aaf23b3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 0
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 34
   toolFamily: None
   forbidSecond: 1
@@ -27088,6 +27944,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b37de993f0655c84ea1506ea89f36233, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 2
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 17
   load: 2
   armor: 3
@@ -27184,6 +28044,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b37de993f0655c84ea1506ea89f36233, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 2
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 16
   load: 2
   armor: 3
@@ -27280,6 +28144,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b37de993f0655c84ea1506ea89f36233, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 2
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 15
   load: 2
   armor: 3
@@ -27376,6 +28244,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b37de993f0655c84ea1506ea89f36233, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 2
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 14
   load: 2
   armor: 3
@@ -27472,6 +28344,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b37de993f0655c84ea1506ea89f36233, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 2
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 18
   load: 3
   armor: 5
@@ -27568,6 +28444,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b37de993f0655c84ea1506ea89f36233, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 2
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 10
   load: 3
   armor: 5
@@ -27664,6 +28544,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b37de993f0655c84ea1506ea89f36233, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 2
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 4
   load: 3
   armor: 5
@@ -27760,6 +28644,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b37de993f0655c84ea1506ea89f36233, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 2
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 3
   load: 3
   armor: 5
@@ -27855,6 +28743,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbfc9c88ca93fb247a789b76aaf23b3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 0
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 1
   toolFamily: Axe
   forbidSecond: 0
@@ -27955,6 +28847,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b37de993f0655c84ea1506ea89f36233, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 2
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 11
   load: 4
   armor: 6
@@ -28051,6 +28947,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b37de993f0655c84ea1506ea89f36233, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 2
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 19
   load: 4
   armor: 6
@@ -28147,6 +29047,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b37de993f0655c84ea1506ea89f36233, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 2
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 5
   load: 3
   armor: 5
@@ -28242,6 +29146,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbfc9c88ca93fb247a789b76aaf23b3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 0
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 8
   toolFamily: None
   forbidSecond: 1
@@ -28341,6 +29249,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbfc9c88ca93fb247a789b76aaf23b3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 0
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 4
   toolFamily: Axe
   forbidSecond: 0
@@ -28440,6 +29352,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbfc9c88ca93fb247a789b76aaf23b3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 0
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 3
   toolFamily: Axe
   forbidSecond: 0
@@ -28539,6 +29455,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbfc9c88ca93fb247a789b76aaf23b3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 0
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 2
   toolFamily: Axe
   forbidSecond: 0
@@ -28639,6 +29559,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbfc9c88ca93fb247a789b76aaf23b3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 0
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 22
   toolFamily: None
   forbidSecond: 0
@@ -28739,6 +29663,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbfc9c88ca93fb247a789b76aaf23b3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 0
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 21
   toolFamily: None
   forbidSecond: 0
@@ -28839,6 +29767,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbfc9c88ca93fb247a789b76aaf23b3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 0
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 19
   toolFamily: None
   forbidSecond: 1
@@ -28939,6 +29871,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbfc9c88ca93fb247a789b76aaf23b3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 0
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 9
   toolFamily: None
   forbidSecond: 0
@@ -29039,6 +29975,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d505a26795b92854e98a623cc5d6a90c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 5
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 1
   forbidWeapon: 1
   forbidShield: 1
@@ -29137,6 +30077,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbfc9c88ca93fb247a789b76aaf23b3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 0
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 25
   toolFamily: None
   forbidSecond: 1
@@ -29236,6 +30180,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbfc9c88ca93fb247a789b76aaf23b3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 0
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 24
   toolFamily: None
   forbidSecond: 1
@@ -29336,6 +30284,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d505a26795b92854e98a623cc5d6a90c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 5
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 2
   forbidWeapon: 1
   forbidShield: 1
@@ -29434,6 +30386,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbfc9c88ca93fb247a789b76aaf23b3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 0
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 38
   toolFamily: None
   forbidSecond: 1
@@ -29533,6 +30489,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbfc9c88ca93fb247a789b76aaf23b3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 0
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 36
   toolFamily: None
   forbidSecond: 0
@@ -29632,6 +30592,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbfc9c88ca93fb247a789b76aaf23b3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 0
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 30
   toolFamily: None
   forbidSecond: 0
@@ -29732,6 +30696,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbfc9c88ca93fb247a789b76aaf23b3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 0
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 41
   toolFamily: None
   forbidSecond: 1
@@ -29832,6 +30800,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbfc9c88ca93fb247a789b76aaf23b3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 0
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 11
   toolFamily: None
   forbidSecond: 0
@@ -29932,6 +30904,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d505a26795b92854e98a623cc5d6a90c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 5
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 3
   forbidWeapon: 1
   forbidShield: 1
@@ -30030,6 +31006,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbfc9c88ca93fb247a789b76aaf23b3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 0
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 39
   toolFamily: None
   forbidSecond: 0
@@ -30130,6 +31110,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b37de993f0655c84ea1506ea89f36233, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 2
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 13
   load: 2
   armor: 3
@@ -30226,6 +31210,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b37de993f0655c84ea1506ea89f36233, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 2
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 2
   load: 2
   armor: 3
@@ -30322,6 +31310,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b37de993f0655c84ea1506ea89f36233, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 2
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 1
   load: 1
   armor: 2
@@ -30565,7 +31557,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shopOnStart: 0
+  createIcons: 0
   pickablePrefab: {fileID: 9082372438455274285}
+  cameraPivot: {fileID: 0}
+  camera: {fileID: 0}
+  iconFolderPath: C:/Users/Thibault/Documents/GitHub/TinyWorld/Assets/Resources/Icons
+  iconSize: {x: 200, y: 200}
   playerTemplate: {fileID: 274576174245912502, guid: 2a7956e97e3788244962de36794e6cee,
     type: 3}
   mountedPlayerTemplate: {fileID: 8701042372526833363, guid: bd5385689cdac2b469a63eff8642dfa1,
@@ -30891,6 +31888,7 @@ MonoBehaviour:
   - {fileID: 7400000, guid: eb7de86d67ebbf549b7e492e517acbac, type: 3}
   - {fileID: 7400000, guid: f94457a22f3ae4544b4a2ef90a18a7e6, type: 3}
   - {fileID: 7400000, guid: 63322e7d283549c4a9df1da1007a04a0, type: 3}
+  gapY: 5
 --- !u!1 &7388010046170877058
 GameObject:
   m_ObjectHideFlags: 0
@@ -31194,6 +32192,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbfc9c88ca93fb247a789b76aaf23b3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 0
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 17
   toolFamily: None
   forbidSecond: 0
@@ -31293,6 +32295,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbfc9c88ca93fb247a789b76aaf23b3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 0
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 26
   toolFamily: Hammer
   forbidSecond: 0
@@ -31392,6 +32398,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbfc9c88ca93fb247a789b76aaf23b3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 0
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 32
   toolFamily: None
   forbidSecond: 0
@@ -31491,6 +32501,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbfc9c88ca93fb247a789b76aaf23b3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 0
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 37
   toolFamily: Pickaxe
   forbidSecond: 0
@@ -32628,6 +33642,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8845f78c74a18734e9fa6e78005128ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 1
+  itemIcon: {fileID: 0}
+  itemName: 
+  description: 
   type: 3
   toolFamily: Container
   load: 1

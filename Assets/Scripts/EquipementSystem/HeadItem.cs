@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HeadItem : MonoBehaviour
+public class HeadItem : Item
 {
     public enum Type
     {
@@ -26,8 +26,9 @@ public class HeadItem : MonoBehaviour
     {
         Cloth, Light, Medium, Heavy
     };
+
+    [Header("Head Item")]
     public Type type = Type.None;
-    public float load = 0f;
     public float armor = 0f;
 
 
@@ -39,6 +40,7 @@ public class HeadItem : MonoBehaviour
     }
     public static void Copy(HeadItem source, HeadItem destination)
     {
+        Item.Copy(source, destination);
         destination.type = source.type;
         destination.load = source.load;
         destination.armor = source.armor;

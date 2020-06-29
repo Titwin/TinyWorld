@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class BackpackItem : MonoBehaviour
+public class BackpackItem : Item
 {
     public enum Type
     {
@@ -12,9 +12,12 @@ public class BackpackItem : MonoBehaviour
         QuiverB,
         RessourceContainer
     };
+
+    [Header("Backpack Item")]
     public Type type = Type.None;
     public string toolFamily = "None";
-    public float load = 0f;
+
+    
 
     public void Clear()
     {
@@ -24,6 +27,7 @@ public class BackpackItem : MonoBehaviour
     }
     public static void Copy(BackpackItem source, BackpackItem destination)
     {
+        Item.Copy(source, destination);
         destination.type = source.type;
         destination.load = source.load;
         destination.toolFamily = source.toolFamily;

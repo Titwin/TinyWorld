@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SecondItem : MonoBehaviour
+public class SecondItem : Item
 {
     public enum Type
     {
@@ -10,11 +10,12 @@ public class SecondItem : MonoBehaviour
         LongBow, RecurveBow, ShortBow, 
         StaffA, StaffB, StaffC, StaffD
     };
+
+    [Header("Second hand Item")]
     public Type type = Type.None;
     public bool forbidWeapon = false;
     public bool forbidShield = false;
     public int animationCode = 1;
-    public float load = 0f;
     public float dammage = 0f;
 
     public void Clear()
@@ -28,6 +29,7 @@ public class SecondItem : MonoBehaviour
     }
     public static void Copy(SecondItem source, SecondItem destination)
     {
+        Item.Copy(source, destination);
         destination.type = source.type;
         destination.forbidWeapon = source.forbidWeapon;
         destination.forbidShield = source.forbidShield;

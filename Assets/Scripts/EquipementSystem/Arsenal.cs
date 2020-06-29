@@ -6,7 +6,12 @@ public class Arsenal : MonoBehaviour
 {
     [Header("Shop related")]
     public bool shopOnStart = false;
+    public bool createIcons = false;
     public SpecialPickableShopArsenal pickablePrefab;
+    public Transform cameraPivot;
+    public new Camera camera;
+    public string iconFolderPath = "";
+    public Vector2Int iconSize;
 
     [Header("Player templates")]
     public PlayerController playerTemplate;
@@ -80,7 +85,7 @@ public class Arsenal : MonoBehaviour
     void Start()
     {
         // special debug feature
-        if (shopOnStart)
+        if (shopOnStart || createIcons)
             InstanciateShop();
     }
 
@@ -174,9 +179,15 @@ public class Arsenal : MonoBehaviour
             if (!backpackDictionary.ContainsKey(b.type))
             {
                 backpackDictionary[b.type] = b;
+                b.gameObject.name = b.type.ToString();
+                if (!b.SearchIcon("Icons/Backpacks/" + b.type.ToString()))
+                    Debug.LogWarning("Cannot found icon for item " + b.type.ToString());
+                if(b.itemName.Length == 0)
+                    b.itemName = GetFormatedName(b.type.ToString());
             }
             else Debug.LogError("In Arsenal : The backpack dictionary already contain an item of this type, see gameObject " + b.gameObject);
         }
+
 
         // create weapons association table
         weaponDictionary = new Dictionary<WeaponItem.Type, WeaponItem>();
@@ -185,6 +196,11 @@ public class Arsenal : MonoBehaviour
             if (!weaponDictionary.ContainsKey(w.type))
             {
                 weaponDictionary[w.type] = w;
+                w.gameObject.name = w.type.ToString();
+                if (!w.SearchIcon("Icons/Weapons/" + w.type.ToString()))
+                    Debug.LogWarning("Cannot found icon for item " + w.type.ToString());
+                if (w.itemName.Length == 0)
+                    w.itemName = GetFormatedName(w.type.ToString());
             }
             else Debug.LogError("In Arsenal : The weapon dictionary already contain an item of this type, see gameObject " + w.gameObject);
         }
@@ -196,6 +212,11 @@ public class Arsenal : MonoBehaviour
             if (!headDictionary.ContainsKey(h.type))
             {
                 headDictionary[h.type] = h;
+                h.gameObject.name = h.type.ToString();
+                if (!h.SearchIcon("Icons/Heads/" + h.type.ToString()))
+                    Debug.LogWarning("Cannot found icon for item " + h.type.ToString());
+                if (h.itemName.Length == 0)
+                    h.itemName = GetFormatedName(h.type.ToString());
             }
             else Debug.LogError("In Arsenal : The head dictionary already contain an item of this type, see gameObject " + h.gameObject);
         }
@@ -207,6 +228,11 @@ public class Arsenal : MonoBehaviour
             if (!secondDictionary.ContainsKey(s.type))
             {
                 secondDictionary[s.type] = s;
+                s.gameObject.name = s.type.ToString();
+                if (!s.SearchIcon("Icons/SecondHands/" + s.type.ToString()))
+                    Debug.LogWarning("Cannot found icon for item " + s.type.ToString());
+                if (s.itemName.Length == 0)
+                    s.itemName = GetFormatedName(s.type.ToString());
             }
             else Debug.LogError("In Arsenal : The second hand dictionary already contain an item of this type, see gameObject " + s.gameObject);
         }
@@ -218,6 +244,11 @@ public class Arsenal : MonoBehaviour
             if (!shieldDictionary.ContainsKey(s.type))
             {
                 shieldDictionary[s.type] = s;
+                s.gameObject.name = s.type.ToString();
+                if (!s.SearchIcon("Icons/Shields/" + s.type.ToString()))
+                    Debug.LogWarning("Cannot found icon for item " + s.type.ToString());
+                if (s.itemName.Length == 0)
+                    s.itemName = GetFormatedName(s.type.ToString());
             }
             else Debug.LogError("In Arsenal : The shield dictionary already contain an item of this type, see gameObject " + s.gameObject);
         }
@@ -229,6 +260,11 @@ public class Arsenal : MonoBehaviour
             if (!bodyDictionary.ContainsKey(b.type))
             {
                 bodyDictionary[b.type] = b;
+                b.gameObject.name = b.type.ToString();
+                if (!b.SearchIcon("Icons/Bodies/" + b.type.ToString()))
+                    Debug.LogWarning("Cannot found icon for item " + b.type.ToString());
+                if (b.itemName.Length == 0)
+                    b.itemName = GetFormatedName(b.type.ToString());
             }
             else Debug.LogError("In Arsenal : The body dictionary already contain an item of this type, see gameObject " + b.gameObject);
         }
@@ -238,23 +274,34 @@ public class Arsenal : MonoBehaviour
             if (!mountedBodyDictionary.ContainsKey(b.type))
             {
                 mountedBodyDictionary[b.type] = b;
+                b.gameObject.name = b.type.ToString();
+                if (!b.SearchIcon("Icons/Bodies/" + b.type.ToString()))
+                    Debug.LogWarning("Cannot found icon for item " + b.type.ToString());
+                if (b.itemName.Length == 0)
+                    b.itemName = GetFormatedName(b.type.ToString());
             }
-            else Debug.LogError("In Arsenal : The body dictionary already contain an item of this type, see gameObject " + b.gameObject);
+            else Debug.LogError("In Arsenal : The mounted body dictionary already contain an item of this type, see gameObject " + b.gameObject);
         }
 
         // create horses association table
         horseDictionary = new Dictionary<HorseItem.Type, HorseItem>();
-        foreach (HorseItem s in horseObjectList)
+        foreach (HorseItem h in horseObjectList)
         {
-            if (!horseDictionary.ContainsKey(s.type))
+            if (!horseDictionary.ContainsKey(h.type))
             {
-                horseDictionary[s.type] = s;
+                horseDictionary[h.type] = h;
+                h.gameObject.name = h.type.ToString();
+                if (!h.SearchIcon("Icons/Horses/" + h.type.ToString()))
+                    Debug.LogWarning("Cannot found icon for item " + h.type.ToString());
+                if (h.itemName.Length == 0)
+                    h.itemName = GetFormatedName(h.type.ToString());
             }
-            else Debug.LogError("In Arsenal : The horse dictionary already contain an item of this type, see gameObject " + s.gameObject);
+            else Debug.LogError("In Arsenal : The horse dictionary already contain an item of this type, see gameObject " + h.gameObject);
         }
     }
 
     // Instanciate the shop
+    public float gapY = 5f;
     private void InstanciateShop()
     {
         GameObject shopContainer = new GameObject("shopContainer");
@@ -305,11 +352,17 @@ public class Arsenal : MonoBehaviour
             else pickable.itemMesh.gameObject.SetActive(false);
             pickable.body.gameObject.SetActive(false);
 
+            if (createIcons)
+            {
+                pickable.textmesh.gameObject.SetActive(false);
+                cameraPivot.position = go.transform.position + new Vector3(0, 1, 3f);
+                CreateIcon(iconFolderPath + "/Backpacks/" + go.name + ".png");
+            }
             position.x += gap;
         }
 
         // shields
-        position.x = 0; position.z -= gap;
+        position.x = 0; position.z -= gap; position.y += gapY;
         {
             GameObject go = Instantiate(pickablePrefab.gameObject);
             go.name = ShieldItem.Type.None.ToString();
@@ -347,11 +400,17 @@ public class Arsenal : MonoBehaviour
             else pickable.itemMesh.gameObject.SetActive(false);
             pickable.body.gameObject.SetActive(false);
 
+            if (createIcons)
+            {
+                pickable.textmesh.gameObject.SetActive(false);
+                cameraPivot.position = go.transform.position + new Vector3(0, 1, 3f);
+                CreateIcon(iconFolderPath + "/Shields/" + go.name + ".png");
+            }
             position.x += gap;
         }
 
         // second hand
-        position.x = 0; position.z -= gap;
+        position.x = 0; position.z -= gap; position.y += gapY;
         {
             GameObject go = Instantiate(pickablePrefab.gameObject);
             go.name = SecondItem.Type.None.ToString();
@@ -367,6 +426,7 @@ public class Arsenal : MonoBehaviour
             if (go.name.Length >= 8)
                 pickable.textmesh.characterSize *= 0.5f;
             pickable.body.gameObject.SetActive(false);
+
         }
         foreach (KeyValuePair<SecondItem.Type, SecondItem> item in secondDictionary)
         {
@@ -389,11 +449,17 @@ public class Arsenal : MonoBehaviour
             else pickable.itemMesh.gameObject.SetActive(false);
             pickable.body.gameObject.SetActive(false);
 
+            if (createIcons)
+            {
+                pickable.textmesh.gameObject.SetActive(false);
+                cameraPivot.position = go.transform.position + new Vector3(0, 1, 3f);
+                CreateIcon(iconFolderPath + "/SecondHands/" + go.name + ".png");
+            }
             position.x += gap;
         }
 
         // weapons
-        position.x = 0; position.z -= gap;
+        position.x = 0; position.z -= gap; position.y += gapY;
         {
             GameObject go = Instantiate(pickablePrefab.gameObject);
             go.name = WeaponItem.Type.None.ToString();
@@ -431,11 +497,17 @@ public class Arsenal : MonoBehaviour
             else pickable.itemMesh.gameObject.SetActive(false);
             pickable.body.gameObject.SetActive(false);
 
+            if (createIcons)
+            {
+                pickable.textmesh.gameObject.SetActive(false);
+                cameraPivot.position = go.transform.position + new Vector3(0, 1, 3f);
+                CreateIcon(iconFolderPath + "/Weapons/" + go.name + ".png");
+            }
             position.x += gap;
         }
 
         // heads
-        position.x = 0; position.z -= gap;
+        position.x = 0; position.z -= gap; position.y += gapY;
         foreach (KeyValuePair<HeadItem.Type, HeadItem> item in headDictionary)
         {
             GameObject go = Instantiate(pickablePrefab.gameObject);
@@ -457,11 +529,17 @@ public class Arsenal : MonoBehaviour
             else pickable.itemMesh.gameObject.SetActive(false);
             pickable.body.gameObject.SetActive(false);
 
+            if (createIcons)
+            {
+                pickable.textmesh.gameObject.SetActive(false);
+                cameraPivot.position = go.transform.position + new Vector3(0, 1, 3f);
+                CreateIcon(iconFolderPath + "/Heads/" + go.name + ".png");
+            }
             position.x += gap;
         }
 
         // bodies
-        position.x = 0; position.z -= gap;
+        position.x = 0; position.z -= gap; position.y += gapY;
         foreach (KeyValuePair<BodyItem.Type, BodyItem> item in bodyDictionary)
         {
             GameObject go = Instantiate(pickablePrefab.gameObject);
@@ -484,11 +562,17 @@ public class Arsenal : MonoBehaviour
             if (skin) BodySlot.CopySkinnedMesh(skin, pickable.body);
             else pickable.body.gameObject.SetActive(false);
 
+            if (createIcons)
+            {
+                pickable.textmesh.gameObject.SetActive(false);
+                cameraPivot.position = go.transform.position + new Vector3(0, 1, 3f);
+                CreateIcon(iconFolderPath + "/Bodies/" + go.name + ".png");
+            }
             position.x += gap;
         }
 
         // horses
-        position.x = 0; position.z -= 2 * gap;
+        position.x = 0; position.z -= 2 * gap; position.y += gapY;
         {
             GameObject go = Instantiate(pickablePrefab.gameObject);
             go.name = HorseItem.Type.None.ToString();
@@ -529,7 +613,46 @@ public class Arsenal : MonoBehaviour
             pickable.horse.gameObject.SetActive(true);
             pickable.body.gameObject.SetActive(false);
 
+            if (createIcons)
+            {
+                pickable.textmesh.gameObject.SetActive(false);
+                cameraPivot.position = go.transform.position + new Vector3(0, 1, 3f);
+                CreateIcon(iconFolderPath + "/Horses/" + go.name + ".png");
+            }
             position.x += gap;
         }
+    }
+
+    private void CreateIcon(string fileName)
+    {
+        if(createIcons)
+        {
+            RenderTexture rt = new RenderTexture(iconSize.x, iconSize.y, 24);
+            camera.targetTexture = rt;
+            Texture2D screenShot = new Texture2D(iconSize.x, iconSize.y, TextureFormat.RGBA32, false);
+            camera.Render();
+            RenderTexture.active = rt;
+            screenShot.ReadPixels(new Rect(0, 0, iconSize.x, iconSize.y), 0, 0);
+            camera.targetTexture = null;
+            RenderTexture.active = null; // JC: added to avoid errors
+            Destroy(rt);
+            byte[] bytes = screenShot.EncodeToPNG();
+            System.IO.File.WriteAllBytes(fileName, bytes);
+        }
+    }
+    private string GetFormatedName(string inputName)
+    {
+        string result = "";
+        for (int i = 0; i < inputName.Length; i++)
+        {
+            char c = inputName[i];
+            if (i == 0)
+                result += c;
+            else if (c >= 'a' && c <= 'z')
+                result += c;
+            else if (c >= 'A' && c <= 'Z' && i != inputName.Length - 1)
+                result += " " + (char)(c + 32); // add space and switch to lower case
+        }
+        return result;
     }
 }

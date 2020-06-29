@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HorseItem : MonoBehaviour
+public class HorseItem : Item
 {
     public enum Type
     {
@@ -10,8 +10,8 @@ public class HorseItem : MonoBehaviour
         HorseA, HorseB, HorseC, HorseD, HorseE, HorseF, HorseG, HorseH
     };
 
+    [Header("Horse Item")]
     public Type type = Type.None;
-    public float load = 0f;
     public float armor = 0f;
 
     public void Clear()

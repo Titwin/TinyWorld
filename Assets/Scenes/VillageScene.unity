@@ -312,6 +312,27 @@ MonoBehaviour:
   axis: {x: 1, y: 0, z: 0}
   amplitude: 1
   speed: 360
+--- !u!1 &342348984 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6192619722522151283, guid: 2a7956e97e3788244962de36794e6cee,
+    type: 3}
+  m_PrefabInstance: {fileID: 274576173976662414}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &342348986
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 342348984}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99ee6fdd52db2c1428f5d35740c6134a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  capacity: 0
+  load: 0
+  start: []
 --- !u!1 &360270419
 GameObject:
   m_ObjectHideFlags: 0
@@ -460,11 +481,354 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 875864300, guid: b7b88e225fd5b704dba6c629cc2426cd, type: 3}
+      propertyPath: itemType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 875864300, guid: b7b88e225fd5b704dba6c629cc2426cd, type: 3}
+      propertyPath: itemIcon
+      value: 
+      objectReference: {fileID: 21300000, guid: 5baabf59aceb658409c476799c39d081,
+        type: 3}
+    - target: {fileID: 875864300, guid: b7b88e225fd5b704dba6c629cc2426cd, type: 3}
+      propertyPath: itemName
+      value: Resource container
+      objectReference: {fileID: 0}
+    - target: {fileID: 875864300, guid: b7b88e225fd5b704dba6c629cc2426cd, type: 3}
+      propertyPath: description
+      value: Resource container
+      objectReference: {fileID: 0}
+    - target: {fileID: 875864300, guid: b7b88e225fd5b704dba6c629cc2426cd, type: 3}
+      propertyPath: load
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 957976867, guid: b7b88e225fd5b704dba6c629cc2426cd, type: 3}
+      propertyPath: itemType
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 957976867, guid: b7b88e225fd5b704dba6c629cc2426cd, type: 3}
+      propertyPath: itemIcon
+      value: 
+      objectReference: {fileID: 21300000, guid: 428007143d94e654a941a02dc66a0c30,
+        type: 3}
+    - target: {fileID: 957976867, guid: b7b88e225fd5b704dba6c629cc2426cd, type: 3}
+      propertyPath: itemName
+      value: Horse
+      objectReference: {fileID: 0}
+    - target: {fileID: 957976867, guid: b7b88e225fd5b704dba6c629cc2426cd, type: 3}
+      propertyPath: description
+      value: Horse
+      objectReference: {fileID: 0}
+    - target: {fileID: 1070269093, guid: b7b88e225fd5b704dba6c629cc2426cd, type: 3}
+      propertyPath: itemIcon
+      value: 
+      objectReference: {fileID: 21300000, guid: b758f38ab7a3f154bbd43366cf82b68e,
+        type: 3}
+    - target: {fileID: 1070269093, guid: b7b88e225fd5b704dba6c629cc2426cd, type: 3}
+      propertyPath: itemName
+      value: Hammer
+      objectReference: {fileID: 0}
+    - target: {fileID: 1070269093, guid: b7b88e225fd5b704dba6c629cc2426cd, type: 3}
+      propertyPath: description
+      value: Hammer
+      objectReference: {fileID: 0}
+    - target: {fileID: 1070269093, guid: b7b88e225fd5b704dba6c629cc2426cd, type: 3}
+      propertyPath: load
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1070269093, guid: b7b88e225fd5b704dba6c629cc2426cd, type: 3}
+      propertyPath: toolFamily
+      value: hammer
+      objectReference: {fileID: 0}
+    - target: {fileID: 1119229549, guid: b7b88e225fd5b704dba6c629cc2426cd, type: 3}
+      propertyPath: itemIcon
+      value: 
+      objectReference: {fileID: 21300000, guid: a2da7c7036b869d46992e79cf505594a,
+        type: 3}
+    - target: {fileID: 1119229549, guid: b7b88e225fd5b704dba6c629cc2426cd, type: 3}
+      propertyPath: itemName
+      value: Pickaxe
+      objectReference: {fileID: 0}
+    - target: {fileID: 1119229549, guid: b7b88e225fd5b704dba6c629cc2426cd, type: 3}
+      propertyPath: description
+      value: Pickaxe
+      objectReference: {fileID: 0}
+    - target: {fileID: 1119229549, guid: b7b88e225fd5b704dba6c629cc2426cd, type: 3}
+      propertyPath: load
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1119229549, guid: b7b88e225fd5b704dba6c629cc2426cd, type: 3}
+      propertyPath: toolFamily
+      value: pickaxe
+      objectReference: {fileID: 0}
+    - target: {fileID: 1433619837, guid: b7b88e225fd5b704dba6c629cc2426cd, type: 3}
+      propertyPath: itemIcon
+      value: 
+      objectReference: {fileID: 21300000, guid: a2da7c7036b869d46992e79cf505594a,
+        type: 3}
+    - target: {fileID: 1433619837, guid: b7b88e225fd5b704dba6c629cc2426cd, type: 3}
+      propertyPath: itemName
+      value: Pickaxe
+      objectReference: {fileID: 0}
+    - target: {fileID: 1433619837, guid: b7b88e225fd5b704dba6c629cc2426cd, type: 3}
+      propertyPath: description
+      value: Pickaxe
+      objectReference: {fileID: 0}
+    - target: {fileID: 1433619837, guid: b7b88e225fd5b704dba6c629cc2426cd, type: 3}
+      propertyPath: load
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1433619837, guid: b7b88e225fd5b704dba6c629cc2426cd, type: 3}
+      propertyPath: toolFamily
+      value: pickaxe
+      objectReference: {fileID: 0}
+    - target: {fileID: 1466203058, guid: b7b88e225fd5b704dba6c629cc2426cd, type: 3}
+      propertyPath: itemType
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1466203058, guid: b7b88e225fd5b704dba6c629cc2426cd, type: 3}
+      propertyPath: itemIcon
+      value: 
+      objectReference: {fileID: 21300000, guid: 428007143d94e654a941a02dc66a0c30,
+        type: 3}
+    - target: {fileID: 1466203058, guid: b7b88e225fd5b704dba6c629cc2426cd, type: 3}
+      propertyPath: itemName
+      value: Horse
+      objectReference: {fileID: 0}
+    - target: {fileID: 1466203058, guid: b7b88e225fd5b704dba6c629cc2426cd, type: 3}
+      propertyPath: description
+      value: Horse
+      objectReference: {fileID: 0}
+    - target: {fileID: 1484971212, guid: b7b88e225fd5b704dba6c629cc2426cd, type: 3}
+      propertyPath: itemType
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1484971212, guid: b7b88e225fd5b704dba6c629cc2426cd, type: 3}
+      propertyPath: itemName
+      value: On foot
+      objectReference: {fileID: 0}
+    - target: {fileID: 1484971212, guid: b7b88e225fd5b704dba6c629cc2426cd, type: 3}
+      propertyPath: description
+      value: On foot
+      objectReference: {fileID: 0}
+    - target: {fileID: 1526644560, guid: b7b88e225fd5b704dba6c629cc2426cd, type: 3}
+      propertyPath: itemType
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1526644560, guid: b7b88e225fd5b704dba6c629cc2426cd, type: 3}
+      propertyPath: itemName
+      value: On foot
+      objectReference: {fileID: 0}
+    - target: {fileID: 1526644560, guid: b7b88e225fd5b704dba6c629cc2426cd, type: 3}
+      propertyPath: description
+      value: On foot
+      objectReference: {fileID: 0}
+    - target: {fileID: 1562851324, guid: b7b88e225fd5b704dba6c629cc2426cd, type: 3}
+      propertyPath: itemIcon
+      value: 
+      objectReference: {fileID: 21300000, guid: fe8a4ca06c65dff45afca9163ea87ef2,
+        type: 3}
+    - target: {fileID: 1562851324, guid: b7b88e225fd5b704dba6c629cc2426cd, type: 3}
+      propertyPath: itemName
+      value: Axe
+      objectReference: {fileID: 0}
+    - target: {fileID: 1562851324, guid: b7b88e225fd5b704dba6c629cc2426cd, type: 3}
+      propertyPath: description
+      value: Axe
+      objectReference: {fileID: 0}
+    - target: {fileID: 1562851324, guid: b7b88e225fd5b704dba6c629cc2426cd, type: 3}
+      propertyPath: load
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1679183439, guid: b7b88e225fd5b704dba6c629cc2426cd, type: 3}
+      propertyPath: itemIcon
+      value: 
+      objectReference: {fileID: 21300000, guid: 641d1cfba47d2b04398e89afab1f3214,
+        type: 3}
+    - target: {fileID: 1679183439, guid: b7b88e225fd5b704dba6c629cc2426cd, type: 3}
+      propertyPath: itemName
+      value: Sickle
+      objectReference: {fileID: 0}
+    - target: {fileID: 1679183439, guid: b7b88e225fd5b704dba6c629cc2426cd, type: 3}
+      propertyPath: description
+      value: Sickle
+      objectReference: {fileID: 0}
+    - target: {fileID: 1679183439, guid: b7b88e225fd5b704dba6c629cc2426cd, type: 3}
+      propertyPath: load
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1679183439, guid: b7b88e225fd5b704dba6c629cc2426cd, type: 3}
+      propertyPath: toolFamily
+      value: sickle
+      objectReference: {fileID: 0}
+    - target: {fileID: 1696596121, guid: b7b88e225fd5b704dba6c629cc2426cd, type: 3}
+      propertyPath: itemType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1696596121, guid: b7b88e225fd5b704dba6c629cc2426cd, type: 3}
+      propertyPath: itemIcon
+      value: 
+      objectReference: {fileID: 21300000, guid: 5baabf59aceb658409c476799c39d081,
+        type: 3}
+    - target: {fileID: 1696596121, guid: b7b88e225fd5b704dba6c629cc2426cd, type: 3}
+      propertyPath: itemName
+      value: Resource container
+      objectReference: {fileID: 0}
+    - target: {fileID: 1696596121, guid: b7b88e225fd5b704dba6c629cc2426cd, type: 3}
+      propertyPath: description
+      value: Resource container
+      objectReference: {fileID: 0}
+    - target: {fileID: 1696596121, guid: b7b88e225fd5b704dba6c629cc2426cd, type: 3}
+      propertyPath: load
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1851093951, guid: b7b88e225fd5b704dba6c629cc2426cd, type: 3}
+      propertyPath: itemIcon
+      value: 
+      objectReference: {fileID: 21300000, guid: fe8a4ca06c65dff45afca9163ea87ef2,
+        type: 3}
+    - target: {fileID: 1851093951, guid: b7b88e225fd5b704dba6c629cc2426cd, type: 3}
+      propertyPath: itemName
+      value: Axe
+      objectReference: {fileID: 0}
+    - target: {fileID: 1851093951, guid: b7b88e225fd5b704dba6c629cc2426cd, type: 3}
+      propertyPath: description
+      value: Axe
+      objectReference: {fileID: 0}
+    - target: {fileID: 1851093951, guid: b7b88e225fd5b704dba6c629cc2426cd, type: 3}
+      propertyPath: load
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1137484937387565492, guid: b7b88e225fd5b704dba6c629cc2426cd,
+        type: 3}
+      propertyPath: itemIcon
+      value: 
+      objectReference: {fileID: 21300000, guid: b758f38ab7a3f154bbd43366cf82b68e,
+        type: 3}
+    - target: {fileID: 1137484937387565492, guid: b7b88e225fd5b704dba6c629cc2426cd,
+        type: 3}
+      propertyPath: itemName
+      value: Hammer
+      objectReference: {fileID: 0}
+    - target: {fileID: 1137484937387565492, guid: b7b88e225fd5b704dba6c629cc2426cd,
+        type: 3}
+      propertyPath: description
+      value: Hammer
+      objectReference: {fileID: 0}
+    - target: {fileID: 1137484937387565492, guid: b7b88e225fd5b704dba6c629cc2426cd,
+        type: 3}
+      propertyPath: load
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1137484937387565492, guid: b7b88e225fd5b704dba6c629cc2426cd,
+        type: 3}
+      propertyPath: toolFamily
+      value: hammer
+      objectReference: {fileID: 0}
+    - target: {fileID: 2647851851828260796, guid: b7b88e225fd5b704dba6c629cc2426cd,
+        type: 3}
+      propertyPath: itemType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2647851851828260796, guid: b7b88e225fd5b704dba6c629cc2426cd,
+        type: 3}
+      propertyPath: itemIcon
+      value: 
+      objectReference: {fileID: 21300000, guid: 5baabf59aceb658409c476799c39d081,
+        type: 3}
+    - target: {fileID: 2647851851828260796, guid: b7b88e225fd5b704dba6c629cc2426cd,
+        type: 3}
+      propertyPath: itemName
+      value: Resource container
+      objectReference: {fileID: 0}
+    - target: {fileID: 2647851851828260796, guid: b7b88e225fd5b704dba6c629cc2426cd,
+        type: 3}
+      propertyPath: description
+      value: Resource container
+      objectReference: {fileID: 0}
+    - target: {fileID: 2647851851828260796, guid: b7b88e225fd5b704dba6c629cc2426cd,
+        type: 3}
+      propertyPath: load
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3462427326419741398, guid: b7b88e225fd5b704dba6c629cc2426cd,
         type: 3}
       propertyPath: focusAgent
       value: 
       objectReference: {fileID: 274576173976662415}
+    - target: {fileID: 4212737622803592187, guid: b7b88e225fd5b704dba6c629cc2426cd,
+        type: 3}
+      propertyPath: itemIcon
+      value: 
+      objectReference: {fileID: 21300000, guid: a2da7c7036b869d46992e79cf505594a,
+        type: 3}
+    - target: {fileID: 4212737622803592187, guid: b7b88e225fd5b704dba6c629cc2426cd,
+        type: 3}
+      propertyPath: itemName
+      value: Pickaxe
+      objectReference: {fileID: 0}
+    - target: {fileID: 4212737622803592187, guid: b7b88e225fd5b704dba6c629cc2426cd,
+        type: 3}
+      propertyPath: description
+      value: Pickaxe
+      objectReference: {fileID: 0}
+    - target: {fileID: 4212737622803592187, guid: b7b88e225fd5b704dba6c629cc2426cd,
+        type: 3}
+      propertyPath: load
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4212737622803592187, guid: b7b88e225fd5b704dba6c629cc2426cd,
+        type: 3}
+      propertyPath: toolFamily
+      value: pickaxe
+      objectReference: {fileID: 0}
+    - target: {fileID: 6267983292437061018, guid: b7b88e225fd5b704dba6c629cc2426cd,
+        type: 3}
+      propertyPath: itemIcon
+      value: 
+      objectReference: {fileID: 21300000, guid: 641d1cfba47d2b04398e89afab1f3214,
+        type: 3}
+    - target: {fileID: 6267983292437061018, guid: b7b88e225fd5b704dba6c629cc2426cd,
+        type: 3}
+      propertyPath: itemName
+      value: Sickle
+      objectReference: {fileID: 0}
+    - target: {fileID: 6267983292437061018, guid: b7b88e225fd5b704dba6c629cc2426cd,
+        type: 3}
+      propertyPath: description
+      value: Sickle
+      objectReference: {fileID: 0}
+    - target: {fileID: 6267983292437061018, guid: b7b88e225fd5b704dba6c629cc2426cd,
+        type: 3}
+      propertyPath: load
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6267983292437061018, guid: b7b88e225fd5b704dba6c629cc2426cd,
+        type: 3}
+      propertyPath: toolFamily
+      value: sickle
+      objectReference: {fileID: 0}
+    - target: {fileID: 6429621278016649030, guid: b7b88e225fd5b704dba6c629cc2426cd,
+        type: 3}
+      propertyPath: itemIcon
+      value: 
+      objectReference: {fileID: 21300000, guid: fe8a4ca06c65dff45afca9163ea87ef2,
+        type: 3}
+    - target: {fileID: 6429621278016649030, guid: b7b88e225fd5b704dba6c629cc2426cd,
+        type: 3}
+      propertyPath: itemName
+      value: Axe
+      objectReference: {fileID: 0}
+    - target: {fileID: 6429621278016649030, guid: b7b88e225fd5b704dba6c629cc2426cd,
+        type: 3}
+      propertyPath: description
+      value: Axe
+      objectReference: {fileID: 0}
+    - target: {fileID: 6429621278016649030, guid: b7b88e225fd5b704dba6c629cc2426cd,
+        type: 3}
+      propertyPath: load
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7900350191113553080, guid: b7b88e225fd5b704dba6c629cc2426cd,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1462,6 +1826,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3845904426776391662, guid: 2a7956e97e3788244962de36794e6cee,
+        type: 3}
+      propertyPath: inventory
+      value: 
+      objectReference: {fileID: 342348986}
     - target: {fileID: 5249210446158254621, guid: 2a7956e97e3788244962de36794e6cee,
         type: 3}
       propertyPath: start.Array.size
@@ -1482,7 +1851,8 @@ PrefabInstance:
       propertyPath: start.Array.data[2]
       value: Iron 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5249210446158254621, guid: 2a7956e97e3788244962de36794e6cee, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 2a7956e97e3788244962de36794e6cee, type: 3}
 --- !u!4 &274576173976662415 stripped
 Transform:

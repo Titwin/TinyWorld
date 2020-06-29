@@ -7,7 +7,7 @@ public class InteractionController : MonoBehaviour
     [Header("Linking")]
     public CharacterController characterController;
     public PlayerController playerController;
-    public ResourceContainer resourceContainer;
+    public Inventory inventory;
     public InteractionJuicer interactionJuicer;
     public AudioSource audiosource;
     public Animator animator;
@@ -44,8 +44,8 @@ public class InteractionController : MonoBehaviour
     public List<AudioClip> movementHeavy;
 
     // debug
-    private Vector3 scanPosition = Vector3.zero;
-    private Vector3 scanSize = Vector3.one;
+    private Vector3 scanPosition;
+    private Vector3 scanSize;
 
     
     void Start()
@@ -60,7 +60,13 @@ public class InteractionController : MonoBehaviour
         interactionTime = 0;
         StopTimer();
     }
-    
+
+    private void OnValidate()
+    {
+        scanPosition = transform.position + 0.85f * Vector3.up;
+        scanSize = new Vector3(0.38f, 0.8f, 0.38f);
+    }
+
     void Update()
     {
         interacting = (hoveredInteractor != null) && (delayedInteractionTime > 0f || interactionTime > 0f);
@@ -123,7 +129,7 @@ public class InteractionController : MonoBehaviour
                 break;
 
             case InteractionType.Type.storeRessources:
-                if (resourceContainer.load != 0)
+                if (inventory.load != 0)
                 {
                     lastInteraction = type;
                     success = true;
@@ -367,7 +373,7 @@ public class InteractionController : MonoBehaviour
                     if (s == tool)
                     {
                         if (tool == "Container")
-                            status = resourceContainer.HasSpace() ? "ok" : "full";
+                            status = inventory.HasSpace() ? "ok" : "full";
                         else status = "ok";
                     }
                 }
@@ -376,6 +382,15 @@ public class InteractionController : MonoBehaviour
         }
     }
     private bool PickableInteraction(InteractionType.Type type, GameObject interactor)
+    {
+        Item pickedItem = interactor.GetComponent<Item>();
+        inventory.AddItem(pickedItem, 1);
+
+        Debug.Log("Picked : " + pickedItem.itemType.ToString());
+
+        return true;        
+    }
+    private bool EquipInteraction(InteractionType.Type type, GameObject interactor)
     {
         bool success = false;
         if (type == InteractionType.Type.pickableWeapon)
@@ -404,7 +419,6 @@ public class InteractionController : MonoBehaviour
             if (item && playerController.backpack.Equip(item.type))
                 success = true;
             playerController.needEquipementAnimationUpdate = true;
-            resourceContainer.Clear();
 
             if (ToolDictionary.instance.tools.ContainsKey(playerController.backpack.equipedItem.toolFamily))
             {
@@ -511,18 +525,22 @@ public class InteractionController : MonoBehaviour
         {
             Dictionary<string, int> transfers = new Dictionary<string, int>();
             Dictionary<string, int> accepted = storehouse.GetAcceptance();
-            foreach (KeyValuePair<string, int> entry in resourceContainer.inventory)
+            foreach (KeyValuePair<Item, int> entry in inventory.inventory)
             {
-                if (accepted.Count == 0 || accepted.ContainsKey(entry.Key))
+                if (entry.Key.itemType == Item.ItemType.Resource)
                 {
-                    int currentCount = storehouse.inventory.ContainsKey(entry.Key) ? storehouse.inventory[entry.Key] : 0;
-                    int maxCount = (accepted.ContainsKey(entry.Key) && accepted[entry.Key] > 0) ? accepted[entry.Key] : storehouse.capacity;
+                    string resource = (entry.Key as ResourceItem).resource.name;
+                    if (accepted.Count == 0 || accepted.ContainsKey(resource))
+                        continue;
+                    
+                    int currentCount = storehouse.inventory.ContainsKey(resource) ? storehouse.inventory[resource] : 0;
+                    int maxCount = (accepted.ContainsKey(resource) && accepted[resource] > 0) ? accepted[resource] : storehouse.capacity;
 
                     if (storehouse.HasSpace() && maxCount != currentCount)
                     {
                         int maximumTransfert = Mathf.Min(entry.Value, maxCount - currentCount);
-                        storehouse.AddItem(entry.Key, maximumTransfert);
-                        transfers.Add(entry.Key, maximumTransfert);
+                        storehouse.AddItem(resource, maximumTransfert);
+                        transfers.Add(resource, maximumTransfert);
                     }
                 }
             }
@@ -530,15 +548,15 @@ public class InteractionController : MonoBehaviour
             if (transfers.Count != 0)
             {
                 foreach (KeyValuePair<string, int> entry in transfers)
-                    resourceContainer.RemoveItem(entry.Key, entry.Value, false);
-                resourceContainer.UpdateContent();
+                    inventory.RemoveItem(ResourceItem.FromResourceName(entry.Key), entry.Value, false);
+                inventory.UpdateContent();
                 playerController.RecomputeLoadFactor();
                 audiosource.clip = backpackClear;
                 audiosource.Play();
             }
             else
             {
-                if (resourceContainer.inventory.Count == 0)
+                if (inventory.inventory.Count == 0)
                 {
                     Debug.LogWarning("Impossible to be here, pb in container load computing");
                 }
@@ -573,7 +591,7 @@ public class InteractionController : MonoBehaviour
             audiosource.Play();
         int gain = Random.Range(1, 4);
         interactionJuicer.LaunchGainAnim("+" + gain.ToString(), lastInteraction);
-        resourceContainer.AddItem(resData.name, gain);
+        inventory.AddItem(ResourceItem.FromResourceData(resData), gain);
         playerController.RecomputeLoadFactor();
 
         // decrement interactor ressource count
@@ -588,7 +606,7 @@ public class InteractionController : MonoBehaviour
         }
 
         // stop interaction loop if needed
-        if (!resourceContainer.HasSpace())
+        if (!inventory.HasSpace())
         {
             ComputeInteractionConditions(lastInteraction);
             UpdateHelp();
@@ -603,7 +621,6 @@ public class InteractionController : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.white;
-        //Gizmos.matrix = Matrix4x4.TRS(transform.position, transform.rotation, transform.lossyScale);
         Gizmos.DrawWireCube(scanPosition, 2 * scanSize);
     }
 
