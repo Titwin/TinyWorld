@@ -148,8 +148,8 @@
     <Compile Include="Assets\Scripts\EquipementSystem\HorseItem.cs" />
     <Compile Include="Assets\Scripts\EquipementSystem\HorseSlot.cs" />
     <Compile Include="Assets\Scripts\EquipementSystem\Inventory.cs" />
-    <Compile Include="Assets\Scripts\EquipementSystem\InventoryLineTemplate.cs" />
-    <Compile Include="Assets\Scripts\EquipementSystem\InventoryViewer.cs" />
+    <Compile Include="Assets\Scripts\EquipementSystem\InventoryIcon.cs" />
+    <Compile Include="Assets\Scripts\EquipementSystem\InventoryUI.cs" />
     <Compile Include="Assets\Scripts\EquipementSystem\Item.cs" />
     <Compile Include="Assets\Scripts\EquipementSystem\ResourceContainer.cs" />
     <Compile Include="Assets\Scripts\EquipementSystem\ResourceItem.cs" />

@@ -8,7 +8,7 @@ public class StoreHouseViewer : MonoBehaviour
     public float verticalSpacing;
     public float horizontalSpacing;
     public int column;
-    public InventoryLineTemplate template;
+    //public InventoryLineTemplate template;
     public GameObject pivot;
     public Transform list;
     public ResourceContainer container;
@@ -51,13 +51,13 @@ public class StoreHouseViewer : MonoBehaviour
                 int index = 0;
                 foreach (KeyValuePair<string, int> entry in container.inventory)
                 {
-                    InventoryLineTemplate go = Instantiate(template, list);
+                    /*InventoryLineTemplate go = Instantiate(template, list);
                     go.transform.localPosition = position;
                     go.gameObject.SetActive(true);
 
                     go.count.text = entry.Value.ToString();
                     //go.icon.sprite = ResourceDictionary.Instance.Get(entry.Key).icon;
-                    go.icon.sprite = ResourceDictionary.instance.resources[entry.Key].icon;
+                    go.icon.sprite = ResourceDictionary.instance.resources[entry.Key].icon;*/
 
                     index++;
                     if(index >= column)

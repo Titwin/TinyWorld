@@ -203,7 +203,8 @@ MonoBehaviour:
   image: {fileID: 4778611797824932070}
   nok: {fileID: 4778611797446906914}
   option: {fileID: 4778611798252344696}
-  helper: 
+  description: 
+  data: {fileID: 0}
 --- !u!1 &4778611798110831524
 GameObject:
   m_ObjectHideFlags: 0

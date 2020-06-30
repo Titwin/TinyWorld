@@ -618,7 +618,7 @@ public class InteractionController : MonoBehaviour
 
 
 
-    private void OnDrawGizmos()
+    private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.white;
         Gizmos.DrawWireCube(scanPosition, 2 * scanSize);

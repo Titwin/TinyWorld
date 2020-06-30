@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.Events;
 
 
 public class Inventory : MonoBehaviour
@@ -11,14 +11,14 @@ public class Inventory : MonoBehaviour
     
     public List<string> start = new List<string>();
     public Dictionary<Item, int> inventory = new Dictionary<Item, int>();
-
+    public UnityEvent onUpdateContent;
 
     private void Start()
     {
         foreach (string s in start)
         {
             string[] array = s.Split(' ');
-            //AddItem(array[0], int.Parse(array[1]));
+            AddItem(ResourceItem.FromResourceName(array[0]), int.Parse(array[1]));
         }
     }
 
@@ -56,6 +56,7 @@ public class Inventory : MonoBehaviour
     public void UpdateContent()
     {
         RecomputeLoad();
+        onUpdateContent.Invoke();
     }
 
 

@@ -33,9 +33,9 @@ public class PlayerController : MonoBehaviour
     public AnimatorOverrideController animatorOverrideController;
 
     [Header("Interaction and juice")]
-    public KeyCode interactKey;
+    public KeyCode interactKey = KeyCode.Space;
     public InteractionController interactionController;
-    public ResourceContainer ressourceContainer;
+    public Inventory inventory;
     public AudioClip effortSound;
     public AudioSource audiosource;
     public ParticleSystem particles;
@@ -103,7 +103,10 @@ public class PlayerController : MonoBehaviour
     {
         // begin
         if (ConstructionSystem.instance.activated)
+        {
+            InventoryUI.instance.gameObject.SetActive(false);
             return;
+        }
 
         float speedFactor = Input.GetKey(KeyCode.LeftShift) && loadFactor > 0.75f ? 2 : 1;
         direction = Vector3.zero;
@@ -245,7 +248,7 @@ public class PlayerController : MonoBehaviour
         bool mounted = horse ? horse.equipedItem.type != HorseItem.Type.None : false;
         float horseFactor = mounted ? 0.3f : 1f;
         if(backpack.equipedItem.type == BackpackItem.Type.RessourceContainer)
-            backpack.equipedItem.load = 1f + 0.3f * ressourceContainer.RecomputeLoad();
+            backpack.equipedItem.load = 1f + 0.3f * inventory.RecomputeLoad();
         float f = body.equipedItem.load + weapon.equipedItem.load + secondHand.equipedItem.load + shield.equipedItem.load + head.equipedItem.load + backpack.equipedItem.load;
         loadFactor = loadCurve.Evaluate(0.07f * horseFactor * f);
         animator.SetFloat("loadFactor", loadFactor);
@@ -261,7 +264,6 @@ public class PlayerController : MonoBehaviour
         destination.head.Equip(source.head.equipedItem.type, true);
         destination.body.Equip(source.body.equipedItem.type, true);
         destination.backpack.Equip(source.backpack.equipedItem.type, true);
-        ResourceContainer.Copy(source.ressourceContainer, destination.ressourceContainer);
 
         // other
         destination.transform.parent = source.transform.parent;
