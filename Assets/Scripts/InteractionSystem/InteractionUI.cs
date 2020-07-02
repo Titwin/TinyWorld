@@ -7,6 +7,7 @@ public class InteractionUI : MonoBehaviour
 {
     [Header("Linking")]
     public InteractionJuicer juicer;
+    public InventoryUI inventoryUI;
     public List<ResourceData> resourcesData;
     private Dictionary<string, ResourceData> sortedResourcesData;
 
@@ -14,6 +15,7 @@ public class InteractionUI : MonoBehaviour
     public GameObject containerViewer;
     public List<ResourceIcon> containersIcons;
     public Text containerLoad;
+    public Text containerName;
 
     [Header("Construction progress")]
     public Color progressColor;
@@ -42,6 +44,7 @@ public class InteractionUI : MonoBehaviour
         sortedResourcesData = new Dictionary<string, ResourceData>();
         foreach (ResourceData res in resourcesData)
             sortedResourcesData.Add(res.name, res);
+        inventoryUI = GetComponent<InventoryUI>();
     }
 
     void Update()
@@ -50,11 +53,11 @@ public class InteractionUI : MonoBehaviour
         {
             // Construction progress
             ConstructionController constructionController = juicer.hovered.GetComponent<ConstructionController>();
-            if (constructionController != null)
+            if (constructionController != null && !inventoryUI.activated)
                 UpdateConstructionProgress(constructionController);
             else ResetConstructionProgress();
 
-            // Construction progress
+            // local resource container
             ResourceContainer resourceContainer = juicer.hovered.GetComponent<ResourceContainer>();
             if (resourceContainer != null && constructionController == null)
                 UpdateContainerViewer(resourceContainer);
@@ -149,6 +152,7 @@ public class InteractionUI : MonoBehaviour
     {
         containerViewer.SetActive(true);
         containerLoad.text = container.load.ToString() + "/" + container.capacity.ToString();
+        containerName.text = container.transform.parent.gameObject.name + ":";
 
         if (container.inventory.Count > containersIcons.Count)
         {

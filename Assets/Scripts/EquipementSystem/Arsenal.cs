@@ -148,6 +148,211 @@ public class Arsenal : MonoBehaviour
         return null;
     }
 
+    // Get pickable item 
+    public GameObject GetPickable(BackpackItem.Type type, bool showName = false, bool destroyOnPick = true)
+    {
+        BackpackItem item = Get(type);
+        if (!item)
+            return null;
+
+        GameObject go = Instantiate(pickablePrefab.gameObject);
+        go.name = type.ToString();
+        go.transform.parent = null;
+        go.transform.position = Vector3.zero;
+        go.transform.localRotation = Quaternion.identity;
+        go.transform.localScale = Vector3.one;
+        go.AddComponent<InteractionType>().type = InteractionType.Type.pickableBackpack;
+        BackpackItem.Copy(item, go.AddComponent<BackpackItem>());
+        go.SetActive(true);
+
+        MeshFilter mf = item.gameObject.GetComponent<MeshFilter>();
+        SpecialPickableShopArsenal pickable = go.GetComponent<SpecialPickableShopArsenal>();
+        pickable.textmesh.text = go.name;
+        if (go.name.Length >= 8)
+            pickable.textmesh.characterSize *= 0.5f;
+        if (mf) pickable.itemMesh.mesh = mf.mesh;
+        else pickable.itemMesh.gameObject.SetActive(false);
+        pickable.body.gameObject.SetActive(false);
+        pickable.textmesh.gameObject.SetActive(showName);
+        go.GetComponent<Item>().destroyOnPick = destroyOnPick;
+
+        return go;
+    }
+    public GameObject GetPickable(WeaponItem.Type type, bool showName = false, bool destroyOnPick = true)
+    {
+        WeaponItem item = Get(type);
+        if (!item)
+            return null;
+
+        GameObject go = Instantiate(pickablePrefab.gameObject);
+        go.name = type.ToString();
+        go.transform.parent = null;
+        go.transform.position = Vector3.zero;
+        go.transform.localRotation = Quaternion.identity;
+        go.transform.localScale = Vector3.one;
+        go.AddComponent<InteractionType>().type = InteractionType.Type.pickableWeapon;
+        WeaponItem.Copy(item, go.AddComponent<WeaponItem>());
+        go.SetActive(true);
+
+        MeshFilter mf = item.gameObject.GetComponent<MeshFilter>();
+        SpecialPickableShopArsenal pickable = go.GetComponent<SpecialPickableShopArsenal>();
+        pickable.textmesh.text = go.name;
+        if (go.name.Length >= 8)
+            pickable.textmesh.characterSize *= 0.5f;
+        if (mf) pickable.itemMesh.mesh = mf.mesh;
+        else pickable.itemMesh.gameObject.SetActive(false);
+        pickable.body.gameObject.SetActive(false);
+        pickable.textmesh.gameObject.SetActive(showName);
+        go.GetComponent<Item>().destroyOnPick = destroyOnPick;
+
+        return go;
+    }
+    public GameObject GetPickable(HeadItem.Type type, bool showName = false, bool destroyOnPick = true)
+    {
+        HeadItem item = Get(type);
+        if (!item)
+            return null;
+
+        GameObject go = Instantiate(pickablePrefab.gameObject);
+        go.name = type.ToString();
+        go.transform.parent = null;
+        go.transform.position = Vector3.zero;
+        go.transform.localRotation = Quaternion.identity;
+        go.transform.localScale = Vector3.one;
+        go.AddComponent<InteractionType>().type = InteractionType.Type.pickableHead;
+        HeadItem.Copy(item, go.AddComponent<HeadItem>());
+        go.SetActive(true);
+
+        MeshFilter mf = item.gameObject.GetComponent<MeshFilter>();
+        SpecialPickableShopArsenal pickable = go.GetComponent<SpecialPickableShopArsenal>();
+        pickable.textmesh.text = go.name;
+        if (go.name.Length >= 8)
+            pickable.textmesh.characterSize *= 0.5f;
+        if (mf) pickable.itemMesh.mesh = mf.mesh;
+        else pickable.itemMesh.gameObject.SetActive(false);
+        pickable.body.gameObject.SetActive(false);
+        pickable.textmesh.gameObject.SetActive(showName);
+        go.GetComponent<Item>().destroyOnPick = destroyOnPick;
+
+        return go;
+    }
+    public GameObject GetPickable(SecondItem.Type type, bool showName = false, bool destroyOnPick = true)
+    {
+        SecondItem item = Get(type);
+        if (!item)
+            return null;
+
+        GameObject go = Instantiate(pickablePrefab.gameObject);
+        go.name = type.ToString();
+        go.transform.parent = null;
+        go.transform.position = Vector3.zero;
+        go.transform.localRotation = Quaternion.identity;
+        go.transform.localScale = Vector3.one;
+        go.AddComponent<InteractionType>().type = InteractionType.Type.pickableSecond;
+        SecondItem.Copy(item, go.AddComponent<SecondItem>());
+        go.SetActive(true);
+
+        MeshFilter mf = item.gameObject.GetComponent<MeshFilter>();
+        SpecialPickableShopArsenal pickable = go.GetComponent<SpecialPickableShopArsenal>();
+        pickable.textmesh.text = go.name;
+        if (go.name.Length >= 8)
+            pickable.textmesh.characterSize *= 0.5f;
+        if (mf) pickable.itemMesh.mesh = mf.mesh;
+        else pickable.itemMesh.gameObject.SetActive(false);
+        pickable.body.gameObject.SetActive(false);
+        pickable.textmesh.gameObject.SetActive(showName);
+        go.GetComponent<Item>().destroyOnPick = destroyOnPick;
+
+        return go;
+    }
+    public GameObject GetPickable(ShieldItem.Type type, bool showName = false, bool destroyOnPick = true)
+    {
+        ShieldItem item = Get(type);
+        if (!item)
+            return null;
+
+        GameObject go = Instantiate(pickablePrefab.gameObject);
+        go.name = type.ToString();
+        go.transform.parent = null;
+        go.transform.position = Vector3.zero;
+        go.transform.localRotation = Quaternion.identity;
+        go.transform.localScale = Vector3.one;
+        go.AddComponent<InteractionType>().type = InteractionType.Type.pickableShield;
+        ShieldItem.Copy(item, go.AddComponent<ShieldItem>());
+        go.SetActive(true);
+
+        MeshFilter mf = item.gameObject.GetComponent<MeshFilter>();
+        SpecialPickableShopArsenal pickable = go.GetComponent<SpecialPickableShopArsenal>();
+        pickable.textmesh.text = go.name;
+        if (go.name.Length >= 8)
+            pickable.textmesh.characterSize *= 0.5f;
+        if (mf) pickable.itemMesh.mesh = mf.mesh;
+        else pickable.itemMesh.gameObject.SetActive(false);
+        pickable.body.gameObject.SetActive(false);
+        pickable.textmesh.gameObject.SetActive(showName);
+        go.GetComponent<Item>().destroyOnPick = destroyOnPick;
+
+        return go;
+    }
+    public GameObject GetPickable(BodyItem.Type type, bool showName = false, bool destroyOnPick = true)
+    {
+        BodyItem weaponItem = Get(type, false);
+        if (!weaponItem)
+            return null;
+
+        GameObject go = Instantiate(pickablePrefab.gameObject);
+        go.name = type.ToString();
+        go.transform.parent = null;
+        go.transform.position = Vector3.zero;
+        go.transform.localRotation = Quaternion.identity;
+        go.transform.localScale = Vector3.one;
+        go.AddComponent<InteractionType>().type = InteractionType.Type.pickableBody;
+        BodyItem.Copy(weaponItem, go.AddComponent<BodyItem>());
+        go.SetActive(true);
+
+        MeshFilter mf = weaponItem.gameObject.GetComponent<MeshFilter>();
+        SpecialPickableShopArsenal pickable = go.GetComponent<SpecialPickableShopArsenal>();
+        pickable.textmesh.text = go.name;
+        if (go.name.Length >= 8)
+            pickable.textmesh.characterSize *= 0.5f;
+        if (mf) pickable.itemMesh.mesh = mf.mesh;
+        else pickable.itemMesh.gameObject.SetActive(false);
+        pickable.body.gameObject.SetActive(false);
+        pickable.textmesh.gameObject.SetActive(showName);
+        go.GetComponent<Item>().destroyOnPick = destroyOnPick;
+
+        return go;
+    }
+    public GameObject GetPickable(HorseItem.Type type, bool showName = false, bool destroyOnPick = true)
+    {
+        HorseItem item = Get(type);
+        if (!item)
+            return null;
+
+        GameObject go = Instantiate(pickablePrefab.gameObject);
+        go.name = type.ToString();
+        go.transform.parent = null;
+        go.transform.position = Vector3.zero;
+        go.transform.localRotation = Quaternion.identity;
+        go.transform.localScale = Vector3.one;
+        go.AddComponent<InteractionType>().type = InteractionType.Type.pickableHorse;
+        HorseItem.Copy(item, go.AddComponent<HorseItem>());
+        go.SetActive(true);
+
+        MeshFilter mf = item.gameObject.GetComponent<MeshFilter>();
+        SpecialPickableShopArsenal pickable = go.GetComponent<SpecialPickableShopArsenal>();
+        pickable.textmesh.text = go.name;
+        if (go.name.Length >= 8)
+            pickable.textmesh.characterSize *= 0.5f;
+        if (mf) pickable.itemMesh.mesh = mf.mesh;
+        else pickable.itemMesh.gameObject.SetActive(false);
+        pickable.body.gameObject.SetActive(false);
+        pickable.textmesh.gameObject.SetActive(showName);
+        go.GetComponent<Item>().destroyOnPick = destroyOnPick;
+
+        return go;
+    }
+
     // Get animation configuration regarding of the equipement
     public AnimationClip[] GetAnimationClip(ref WeaponItem weapon, ref SecondItem second, ref ShieldItem shield, ref BodyItem body, ref HeadItem head, ref BackpackItem backpack)
     {

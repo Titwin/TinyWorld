@@ -26,7 +26,9 @@ public class InteractionType : MonoBehaviour
         destroyBuilding,
 
         constructionMode, // launch construction mode from hammer on empty space
-        pickableHorse
+        pickableHorse,
+
+        none              // for error code
     };
     public Type type;
     //public EventTrigger.TriggerEvent callback;

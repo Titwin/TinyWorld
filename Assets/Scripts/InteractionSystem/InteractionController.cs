@@ -384,10 +384,28 @@ public class InteractionController : MonoBehaviour
     private bool PickableInteraction(InteractionType.Type type, GameObject interactor)
     {
         Item pickedItem = interactor.GetComponent<Item>();
-        inventory.AddItem(pickedItem, 1);
-
-        Debug.Log("Picked : " + pickedItem.itemType.ToString());
-
+        if (pickedItem.itemType == Item.ItemType.Horse)
+        {
+            EquipInteraction(InteractionType.Type.pickableHorse, interactor);
+            if (pickedItem.destroyOnPick)
+                Destroy(interactor);
+        }
+        else
+        {
+            if (inventory.HasSpace())
+            {
+                inventory.AddItem(pickedItem, 1);
+                if (pickedItem.destroyOnPick)
+                    Destroy(interactor);
+            }
+            else
+            {
+                interactionConditionList.Clear();
+                interactionConditionList.Add("Container", "full");
+                UpdateHelp();
+                return false;
+            }
+        }            
         return true;        
     }
     private bool EquipInteraction(InteractionType.Type type, GameObject interactor)

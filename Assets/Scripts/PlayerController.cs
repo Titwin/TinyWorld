@@ -1,9 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-
-
+using UnityEngine.EventSystems;
 
 public class PlayerController : MonoBehaviour
 {
@@ -16,6 +14,7 @@ public class PlayerController : MonoBehaviour
     public bool attacking;
     public float loadFactor = 0f;
     public AnimationCurve loadCurve;
+    private EventSystem eventsystem;
 
     private float grounded = 0f;
     private float attackDelay = 0f;
@@ -62,6 +61,7 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
+        eventsystem = (EventSystem)FindObjectOfType(typeof(EventSystem));
         controller = GetComponent<CharacterController>();
         animator = GetComponent<Animator>();
         animator.runtimeAnimatorController = animatorOverrideController;
@@ -104,7 +104,7 @@ public class PlayerController : MonoBehaviour
         // begin
         if (ConstructionSystem.instance.activated)
         {
-            InventoryUI.instance.gameObject.SetActive(false);
+            InventoryUI.instance.Activate(false);
             return;
         }
 
@@ -114,6 +114,7 @@ public class PlayerController : MonoBehaviour
         // offensive posture on horse
         bool mounted = horse ? horse.equipedItem.type != HorseItem.Type.None : false;
         bool attack = mounted ? Input.GetMouseButtonUp(0) : Input.GetMouseButtonDown(0);
+        attack &= !eventsystem.IsPointerOverGameObject();
         bool allowOffensivePosture = mounted && weapon.equipedItem.type != WeaponItem.Type.None && weapon.equipedItem.animationCode == 5;
 
         if (allowOffensivePosture && Input.GetMouseButton(0))
@@ -177,7 +178,7 @@ public class PlayerController : MonoBehaviour
         {
             direction = (target - transform.position).normalized;
         }
-        else if(interactionController.interacting)
+        else if(interactionController.interacting && interactionController.hoveredInteractor != null)
         {
             direction = (interactionController.hoveredInteractor.transform.position - transform.position).normalized;
         }

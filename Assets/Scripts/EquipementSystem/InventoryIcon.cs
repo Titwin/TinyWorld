@@ -4,13 +4,22 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class InventoryIcon : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler
+public class InventoryIcon : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler, IDragHandler, IEndDragHandler
 {
     public Image icon;
     public Image border;
     public Text text;
     public Item item;
 
+    public void OnDrag(PointerEventData eventData)
+    {
+        InventoryUI.instance.OnIconDrag(this);
+    }
+
+    public void OnEndDrag(PointerEventData eventData)
+    {
+        InventoryUI.instance.OnIconEndDrag(this);
+    }
 
     public void OnPointerClick(PointerEventData eventData)
     {

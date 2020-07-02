@@ -58,7 +58,6 @@ public class WeaponItem : Item
         destination.forbidSecond = source.forbidSecond;
         destination.forbidShield = source.forbidShield;
         destination.animationCode = source.animationCode;
-        destination.load = source.load;
         destination.dammage = source.dammage;
     }
 }

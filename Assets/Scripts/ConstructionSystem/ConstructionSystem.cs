@@ -57,7 +57,6 @@ public class ConstructionSystem : MonoBehaviour
 
     #region Singleton
     public static ConstructionSystem instance;
-
     private void Awake()
     {
         instance = this;
