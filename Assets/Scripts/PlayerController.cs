@@ -272,6 +272,19 @@ public class PlayerController : MonoBehaviour
         destination.transform.localScale = source.transform.localScale;
         destination.transform.rotation = source.transform.rotation;
     }
+
+    public float GetLoad()
+    {
+        return loadFactor;
+    }
+    public float GetDammage()
+    {
+        return weapon.equipedItem.dammage + secondHand.equipedItem.dammage;
+    }
+    public float GetArmor()
+    {
+        return head.equipedItem.armor + body.equipedItem.armor + shield.equipedItem.armor + (horse ? horse.equipedItem.armor : 0);
+    }
 }
 
 

@@ -9,7 +9,7 @@ public class InventoryIcon : MonoBehaviour, IPointerClickHandler, IPointerEnterH
     public Image icon;
     public Image border;
     public Text text;
-    public Item item;
+    public SummarizedItem item;
 
     public void OnDrag(PointerEventData eventData)
     {

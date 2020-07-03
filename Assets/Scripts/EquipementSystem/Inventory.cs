@@ -10,7 +10,7 @@ public class Inventory : MonoBehaviour
     public float load = 0;
     
     public List<string> start = new List<string>();
-    public Dictionary<Item, int> inventory = new Dictionary<Item, int>();
+    public Dictionary<SummarizedItem, int> inventory = new Dictionary<SummarizedItem, int>();
     public UnityEvent onUpdateContent;
 
     private void Start()
@@ -18,7 +18,7 @@ public class Inventory : MonoBehaviour
         foreach (string s in start)
         {
             string[] array = s.Split(' ');
-            AddItem(ResourceItem.FromResourceName(array[0]), int.Parse(array[1]));
+            AddItem(ResourceDictionary.instance.GetResourceItem(array[0]), int.Parse(array[1]));
         }
     }
 
@@ -27,24 +27,36 @@ public class Inventory : MonoBehaviour
     {
         return load < capacity;
     }
-    public void AddItem(Item item, int count)
+    public void AddItem(SummarizedItem si, int count)
     {
-        if (!inventory.ContainsKey(item))
-            inventory.Add(item, count);
+        if (!inventory.ContainsKey(si))
+            inventory.Add(si, count);
         else
-            inventory[item] += count;
+            inventory[si] += count;
         UpdateContent();
     }
-    public void RemoveItem(Item item, int ressourceCount, bool forceUpdate = true)
+    public void AddItem(Item item, int count)
     {
-        if (inventory.ContainsKey(item))
+        if (!item) return;
+
+        SummarizedItem si = item.Summarize();
+        AddItem(si, count);
+    }
+    public void RemoveItem(SummarizedItem si, int resourceCount, bool forceUpdate = true)
+    {
+        if (inventory.ContainsKey(si))
         {
-            inventory[item] = Mathf.Max(0, inventory[item] - ressourceCount);
-            if (inventory[item] <= 0)
-                inventory.Remove(item);
+            inventory[si] = Mathf.Max(0, inventory[si] - resourceCount);
+            if (inventory[si] <= 0)
+                inventory.Remove(si);
         }
         if (forceUpdate)
             UpdateContent();
+    }
+    public void RemoveItem(Item item, int resourceCount, bool forceUpdate = true)
+    {
+        SummarizedItem si = item.Summarize();
+        RemoveItem(si, resourceCount, forceUpdate);
     }
     public void Clear()
     {
@@ -63,16 +75,16 @@ public class Inventory : MonoBehaviour
     public float RecomputeLoad()
     {
         load = 0;
-        foreach (KeyValuePair<Item, int> entry in inventory)
+        foreach (KeyValuePair<SummarizedItem, int> entry in inventory)
         {
             load += entry.Value * entry.Key.load;
         }
         return load;
     }
 
-    public void CopyInventory(Dictionary<Item, int> destination)
+    public void CopyInventory(Dictionary<SummarizedItem, int> destination)
     {
-        foreach (KeyValuePair<Item, int> entry in inventory)
+        foreach (KeyValuePair<SummarizedItem, int> entry in inventory)
         {
             if (!destination.ContainsKey(entry.Key))
                 destination.Add(entry.Key, entry.Value);

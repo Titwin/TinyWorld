@@ -38,6 +38,14 @@ public class HeadItem : Item
         load = 0f;
         armor = 0f;
     }
+    public override SummarizedItem Summarize()
+    {
+        SummarizedItem sumItem = base.Summarize();
+        sumItem.derivatedType = (int)type;
+        return sumItem;
+    }
+
+
     public static void Copy(HeadItem source, HeadItem destination)
     {
         Item.Copy(source, destination);

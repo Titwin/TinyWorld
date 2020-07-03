@@ -90,42 +90,47 @@ public class Arsenal : MonoBehaviour
     }
 
     // Get item from type
-    public BackpackItem Get(BackpackItem.Type type)
+    public BackpackItem Get(BackpackItem.Type type, bool verbose = true)
     {
         if (backpackDictionary.ContainsKey(type))
             return backpackDictionary[type];
-        Debug.LogError("Arsenal : backpack dictionary doesn't contain item " + type.ToString());
+        if (verbose)
+            Debug.LogError("Arsenal : backpack dictionary doesn't contain item " + type.ToString());
         return null;
     }
-    public WeaponItem Get(WeaponItem.Type type)
+    public WeaponItem Get(WeaponItem.Type type, bool verbose = true)
     {
         if (weaponDictionary.ContainsKey(type))
             return weaponDictionary[type];
-        Debug.LogError("Arsenal : weapon dictionary doesn't contain item " + type.ToString());
+        if (verbose)
+            Debug.LogError("Arsenal : weapon dictionary doesn't contain item " + type.ToString());
         return null;
     }
-    public HeadItem Get(HeadItem.Type type)
+    public HeadItem Get(HeadItem.Type type, bool verbose = true)
     {
         if (headDictionary.ContainsKey(type))
             return headDictionary[type];
-        Debug.LogError("Arsenal : head dictionary doesn't contain item " + type.ToString());
+        if (verbose)
+            Debug.LogError("Arsenal : head dictionary doesn't contain item " + type.ToString());
         return null;
     }
-    public SecondItem Get(SecondItem.Type type)
+    public SecondItem Get(SecondItem.Type type, bool verbose = true)
     {
         if (secondDictionary.ContainsKey(type))
             return secondDictionary[type];
-        Debug.LogError("Arsenal : second hand dictionary doesn't contain item " + type.ToString());
+        if (verbose)
+            Debug.LogError("Arsenal : second hand dictionary doesn't contain item " + type.ToString());
         return null;
     }
-    public ShieldItem Get(ShieldItem.Type type)
+    public ShieldItem Get(ShieldItem.Type type, bool verbose = true)
     {
         if (shieldDictionary.ContainsKey(type))
             return shieldDictionary[type];
-        Debug.LogError("Arsenal : shield dictionary doesn't contain item " + type.ToString());
+        if (verbose)
+            Debug.LogError("Arsenal : shield dictionary doesn't contain item " + type.ToString());
         return null;
     }
-    public BodyItem Get(BodyItem.Type type, bool mounted)
+    public BodyItem Get(BodyItem.Type type, bool mounted, bool verbose = true)
     {
         if(mounted)
         {
@@ -137,14 +142,16 @@ public class Arsenal : MonoBehaviour
             if (bodyDictionary.ContainsKey(type))
                 return bodyDictionary[type];
         }
-        Debug.LogError("Arsenal : body dictionary doesn't contain item " + type.ToString());
+        if (verbose)
+            Debug.LogError("Arsenal : body dictionary doesn't contain item " + type.ToString());
         return null;
     }
-    public HorseItem Get(HorseItem.Type type)
+    public HorseItem Get(HorseItem.Type type, bool verbose = true)
     {
         if (horseDictionary.ContainsKey(type))
             return horseDictionary[type];
-        Debug.LogError("Arsenal : body dictionary doesn't contain item " + type.ToString());
+        if (verbose)
+            Debug.LogError("Arsenal : body dictionary doesn't contain item " + type.ToString());
         return null;
     }
 
@@ -365,7 +372,6 @@ public class Arsenal : MonoBehaviour
         else if (weapon.type != WeaponItem.Type.None && weapon.animationCode == 7) return polearmConfiguration;
         else return defaultConfiguration;
     }
-
     public AnimationClip[] GetMountedAnimationClip(ref WeaponItem weapon, ref SecondItem second, ref ShieldItem shield, ref BodyItem body, ref HeadItem head, ref BackpackItem backpack)
     {
         if (weapon.type != WeaponItem.Type.None && weapon.animationCode == 5) return mountedSpearConfiguration;

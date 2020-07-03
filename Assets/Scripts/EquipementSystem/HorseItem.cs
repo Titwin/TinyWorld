@@ -20,6 +20,14 @@ public class HorseItem : Item
         load = 0f;
         armor = 0f;
     }
+    public override SummarizedItem Summarize()
+    {
+        SummarizedItem sumItem = base.Summarize();
+        sumItem.derivatedType = (int)type;
+        return sumItem;
+    }
+
+
     public static void Copy(HorseItem source, HorseItem destination)
     {
         destination.type = source.type;

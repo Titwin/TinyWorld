@@ -94,14 +94,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 0
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Sickle
+  description: Sickle, used to harvest crops
+  destroyOnPick: 0
+  load: 1
+  usable: 0
+  equipable: 1
   type: 42
   toolFamily: Sickle
   forbidSecond: 0
   forbidShield: 0
   animationCode: 1
-  load: 1
   dammage: 2
 --- !u!1 &44329112108966528
 GameObject:
@@ -352,12 +355,15 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
+  destroyOnPick: 0
+  load: 3
+  usable: 0
+  equipable: 1
   type: 43
   toolFamily: None
   forbidSecond: 0
   forbidShield: 0
   animationCode: 5
-  load: 3
   dammage: 7
 --- !u!1 &655040245438755446
 GameObject:
@@ -1582,12 +1588,15 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
+  destroyOnPick: 0
+  load: 5
+  usable: 0
+  equipable: 1
   type: 44
   toolFamily: None
   forbidSecond: 0
   forbidShield: 0
   animationCode: 5
-  load: 5
   dammage: 10
 --- !u!1 &1313382024486267822
 GameObject:
@@ -1686,12 +1695,15 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
+  destroyOnPick: 0
+  load: 2
+  usable: 0
+  equipable: 1
   type: 46
   toolFamily: None
   forbidSecond: 0
   forbidShield: 0
   animationCode: 5
-  load: 2
   dammage: 5
 --- !u!1 &1331490803179562775
 GameObject:
@@ -1944,12 +1956,15 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
+  destroyOnPick: 0
+  load: 5
+  usable: 0
+  equipable: 1
   type: 45
   toolFamily: None
   forbidSecond: 0
   forbidShield: 0
   animationCode: 5
-  load: 5
   dammage: 10
 --- !u!1 &1807844602068412751
 GameObject:
@@ -2429,8 +2444,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 12
+  destroyOnPick: 0
   load: 0
+  usable: 0
+  equipable: 1
+  type: 12
   armor: 0
 --- !u!1 &3139077239890974219
 GameObject:
@@ -2545,8 +2563,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 11
+  destroyOnPick: 0
   load: 0
+  usable: 0
+  equipable: 1
+  type: 11
   armor: 0
 --- !u!1 &3139077239890974221
 GameObject:
@@ -2661,8 +2682,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 10
+  destroyOnPick: 0
   load: 0
+  usable: 0
+  equipable: 1
+  type: 10
   armor: 0
 --- !u!1 &3139077239890974225
 GameObject:
@@ -2777,8 +2801,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 43
+  destroyOnPick: 0
   load: 0
+  usable: 0
+  equipable: 1
+  type: 43
   armor: 0
 --- !u!1 &3139077239890974227
 GameObject:
@@ -2893,8 +2920,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 15
+  destroyOnPick: 0
   load: 0
+  usable: 0
+  equipable: 1
+  type: 15
   armor: 0
 --- !u!1 &3139077239890974229
 GameObject:
@@ -3009,8 +3039,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 14
+  destroyOnPick: 0
   load: 0
+  usable: 0
+  equipable: 1
+  type: 14
   armor: 0
 --- !u!1 &3139077239890974231
 GameObject:
@@ -3125,8 +3158,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 13
+  destroyOnPick: 0
   load: 0
+  usable: 0
+  equipable: 1
+  type: 13
   armor: 0
 --- !u!1 &3139077239890974233
 GameObject:
@@ -3241,8 +3277,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 18
+  destroyOnPick: 0
   load: 2
+  usable: 0
+  equipable: 1
+  type: 18
   armor: 2
 --- !u!1 &3139077239890974235
 GameObject:
@@ -3357,8 +3396,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 17
+  destroyOnPick: 0
   load: 1
+  usable: 0
+  equipable: 1
+  type: 17
   armor: 1
 --- !u!1 &3139077239890974237
 GameObject:
@@ -3473,8 +3515,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 16
+  destroyOnPick: 0
   load: 1
+  usable: 0
+  equipable: 1
+  type: 16
   armor: 1
 --- !u!1 &3139077239890974239
 GameObject:
@@ -3589,8 +3634,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 44
+  destroyOnPick: 0
   load: 0
+  usable: 0
+  equipable: 1
+  type: 44
   armor: 0
 --- !u!1 &3139077239890974241
 GameObject:
@@ -3705,8 +3753,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 22
+  destroyOnPick: 0
   load: 2
+  usable: 0
+  equipable: 1
+  type: 22
   armor: 2
 --- !u!1 &3139077239890974243
 GameObject:
@@ -3821,8 +3872,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 21
+  destroyOnPick: 0
   load: 2
+  usable: 0
+  equipable: 1
+  type: 21
   armor: 2
 --- !u!1 &3139077239890974245
 GameObject:
@@ -3937,8 +3991,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 20
+  destroyOnPick: 0
   load: 2
+  usable: 0
+  equipable: 1
+  type: 20
   armor: 2
 --- !u!1 &3139077239890974247
 GameObject:
@@ -4053,8 +4110,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 19
+  destroyOnPick: 0
   load: 2
+  usable: 0
+  equipable: 1
+  type: 19
   armor: 2
 --- !u!1 &3139077239890974249
 GameObject:
@@ -4169,8 +4229,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 26
+  destroyOnPick: 0
   load: 3
+  usable: 0
+  equipable: 1
+  type: 26
   armor: 3
 --- !u!1 &3139077239890974251
 GameObject:
@@ -4285,8 +4348,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 25
+  destroyOnPick: 0
   load: 2
+  usable: 0
+  equipable: 1
+  type: 25
   armor: 2
 --- !u!1 &3139077239890974253
 GameObject:
@@ -4401,8 +4467,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 24
+  destroyOnPick: 0
   load: 2
+  usable: 0
+  equipable: 1
+  type: 24
   armor: 2
 --- !u!1 &3139077239890974255
 GameObject:
@@ -4517,8 +4586,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 23
+  destroyOnPick: 0
   load: 2
+  usable: 0
+  equipable: 1
+  type: 23
   armor: 2
 --- !u!1 &3139077239890974257
 GameObject:
@@ -4633,8 +4705,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 45
+  destroyOnPick: 0
   load: 3
+  usable: 0
+  equipable: 1
+  type: 45
   armor: 3
 --- !u!1 &3139077239890974259
 GameObject:
@@ -4749,8 +4824,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 29
+  destroyOnPick: 0
   load: 3
+  usable: 0
+  equipable: 1
+  type: 29
   armor: 3
 --- !u!1 &3139077239890974261
 GameObject:
@@ -4865,8 +4943,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 28
+  destroyOnPick: 0
   load: 3
+  usable: 0
+  equipable: 1
+  type: 28
   armor: 3
 --- !u!1 &3139077239890974263
 GameObject:
@@ -4981,8 +5062,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 27
+  destroyOnPick: 0
   load: 3
+  usable: 0
+  equipable: 1
+  type: 27
   armor: 3
 --- !u!1 &3139077239890974265
 GameObject:
@@ -5097,8 +5181,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 33
+  destroyOnPick: 0
   load: 3
+  usable: 0
+  equipable: 1
+  type: 33
   armor: 3
 --- !u!1 &3139077239890974267
 GameObject:
@@ -5213,8 +5300,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 32
+  destroyOnPick: 0
   load: 3
+  usable: 0
+  equipable: 1
+  type: 32
   armor: 3
 --- !u!1 &3139077239890974269
 GameObject:
@@ -5329,8 +5419,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 31
+  destroyOnPick: 0
   load: 3
+  usable: 0
+  equipable: 1
+  type: 31
   armor: 3
 --- !u!1 &3139077239890974271
 GameObject:
@@ -5445,8 +5538,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 30
+  destroyOnPick: 0
   load: 3
+  usable: 0
+  equipable: 1
+  type: 30
   armor: 3
 --- !u!1 &3139077239890974273
 GameObject:
@@ -5816,8 +5912,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 39
+  destroyOnPick: 0
   load: 5
+  usable: 0
+  equipable: 1
+  type: 39
   armor: 5
 --- !u!1 &3139077239890974291
 GameObject:
@@ -5932,8 +6031,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 9
+  destroyOnPick: 0
   load: 0
+  usable: 0
+  equipable: 1
+  type: 9
   armor: 0
 --- !u!1 &3139077239890974293
 GameObject:
@@ -6141,8 +6243,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 8
+  destroyOnPick: 0
   load: 1
+  usable: 0
+  equipable: 1
+  type: 8
   armor: 1
 --- !u!1 &3139077239890974303
 GameObject:
@@ -6257,8 +6362,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 4
+  destroyOnPick: 0
   load: 1
+  usable: 0
+  equipable: 1
+  type: 4
   armor: 1
 --- !u!1 &3139077239890974305
 GameObject:
@@ -6550,8 +6658,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 37
+  destroyOnPick: 0
   load: 5
+  usable: 0
+  equipable: 1
+  type: 37
   armor: 5
 --- !u!1 &3139077239890974403
 GameObject:
@@ -6666,8 +6777,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 36
+  destroyOnPick: 0
   load: 5
+  usable: 0
+  equipable: 1
+  type: 36
   armor: 5
 --- !u!1 &3139077239890974405
 GameObject:
@@ -6782,8 +6896,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 35
+  destroyOnPick: 0
   load: 5
+  usable: 0
+  equipable: 1
+  type: 35
   armor: 5
 --- !u!1 &3139077239890974407
 GameObject:
@@ -6898,8 +7015,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 34
+  destroyOnPick: 0
   load: 5
+  usable: 0
+  equipable: 1
+  type: 34
   armor: 5
 --- !u!1 &3139077239890974409
 GameObject:
@@ -7014,8 +7134,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 42
+  destroyOnPick: 0
   load: 5
+  usable: 0
+  equipable: 1
+  type: 42
   armor: 5
 --- !u!1 &3139077239890974411
 GameObject:
@@ -7130,8 +7253,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 41
+  destroyOnPick: 0
   load: 5
+  usable: 0
+  equipable: 1
+  type: 41
   armor: 5
 --- !u!1 &3139077239890974413
 GameObject:
@@ -7246,8 +7372,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 40
+  destroyOnPick: 0
   load: 5
+  usable: 0
+  equipable: 1
+  type: 40
   armor: 5
 --- !u!1 &3139077239890974415
 GameObject:
@@ -7362,8 +7491,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 38
+  destroyOnPick: 0
   load: 5
+  usable: 0
+  equipable: 1
+  type: 38
   armor: 5
 --- !u!1 &3139077239890974417
 GameObject:
@@ -7478,8 +7610,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 1
+  destroyOnPick: 0
   load: 0
+  usable: 0
+  equipable: 1
+  type: 1
   armor: 0
 --- !u!1 &3139077239890974419
 GameObject:
@@ -7594,8 +7729,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 7
+  destroyOnPick: 0
   load: 1
+  usable: 0
+  equipable: 1
+  type: 7
   armor: 1
 --- !u!1 &3139077239890974421
 GameObject:
@@ -7710,8 +7848,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 6
+  destroyOnPick: 0
   load: 1
+  usable: 0
+  equipable: 1
+  type: 6
   armor: 1
 --- !u!1 &3139077239890974423
 GameObject:
@@ -7826,8 +7967,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 5
+  destroyOnPick: 0
   load: 1
+  usable: 0
+  equipable: 1
+  type: 5
   armor: 1
 --- !u!1 &3139077239890974429
 GameObject:
@@ -7942,8 +8086,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 3
+  destroyOnPick: 0
   load: 0
+  usable: 0
+  equipable: 1
+  type: 3
   armor: 0
 --- !u!1 &3139077239890974431
 GameObject:
@@ -8058,8 +8205,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 2
+  destroyOnPick: 0
   load: 0
+  usable: 0
+  equipable: 1
+  type: 2
   armor: 0
 --- !u!1 &3139077239890974593
 GameObject:
@@ -9670,8 +9820,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 2
+  destroyOnPick: 0
   load: 0
+  usable: 0
+  equipable: 1
+  type: 2
   armor: 0
 --- !u!1 &3139077239890974987
 GameObject:
@@ -9794,8 +9947,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 1
+  destroyOnPick: 0
   load: 0
+  usable: 0
+  equipable: 1
+  type: 1
   armor: 0
 --- !u!1 &3139077239890974993
 GameObject:
@@ -9918,8 +10074,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 6
+  destroyOnPick: 0
   load: 0
+  usable: 0
+  equipable: 1
+  type: 6
   armor: 0
 --- !u!1 &3139077239890974995
 GameObject:
@@ -10042,8 +10201,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 5
+  destroyOnPick: 0
   load: 0
+  usable: 0
+  equipable: 1
+  type: 5
   armor: 0
 --- !u!1 &3139077239890974997
 GameObject:
@@ -10166,8 +10328,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 4
+  destroyOnPick: 0
   load: 0
+  usable: 0
+  equipable: 1
+  type: 4
   armor: 0
 --- !u!1 &3139077239890974999
 GameObject:
@@ -10290,8 +10455,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 3
+  destroyOnPick: 0
   load: 0
+  usable: 0
+  equipable: 1
+  type: 3
   armor: 0
 --- !u!1 &3139077239890975005
 GameObject:
@@ -10414,8 +10582,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 8
+  destroyOnPick: 0
   load: 0
+  usable: 0
+  equipable: 1
+  type: 8
   armor: 0
 --- !u!1 &3139077239890975007
 GameObject:
@@ -10538,8 +10709,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 7
+  destroyOnPick: 0
   load: 0
+  usable: 0
+  equipable: 1
+  type: 7
   armor: 0
 --- !u!1 &3139077239890975017
 GameObject:
@@ -10638,12 +10812,15 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
+  destroyOnPick: 0
+  load: 5
+  usable: 0
+  equipable: 1
   type: 45
   toolFamily: None
   forbidSecond: 0
   forbidShield: 0
   animationCode: 5
-  load: 5
   dammage: 10
 --- !u!1 &3139077239890975019
 GameObject:
@@ -10742,12 +10919,15 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
+  destroyOnPick: 0
+  load: 5
+  usable: 0
+  equipable: 1
   type: 44
   toolFamily: None
   forbidSecond: 0
   forbidShield: 0
   animationCode: 5
-  load: 5
   dammage: 10
 --- !u!1 &3139077239890975021
 GameObject:
@@ -10846,12 +11026,15 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
+  destroyOnPick: 0
+  load: 3
+  usable: 0
+  equipable: 1
   type: 43
   toolFamily: None
   forbidSecond: 0
   forbidShield: 0
   animationCode: 5
-  load: 3
   dammage: 7
 --- !u!1 &3139077239890975031
 GameObject:
@@ -10950,12 +11133,15 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
+  destroyOnPick: 0
+  load: 2
+  usable: 0
+  equipable: 1
   type: 46
   toolFamily: None
   forbidSecond: 0
   forbidShield: 0
   animationCode: 5
-  load: 2
   dammage: 5
 --- !u!1 &3159413799077392358
 GameObject:
@@ -11481,8 +11667,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 1
+  destroyOnPick: 0
   load: 0
+  usable: 0
+  equipable: 1
+  type: 1
   armor: 0
 --- !u!1 &4980950284656521331
 GameObject:
@@ -12072,8 +12261,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 62
+  destroyOnPick: 0
   load: 0
+  usable: 0
+  equipable: 1
+  type: 62
   armor: 0
 --- !u!1 &7388010046170874114
 GameObject:
@@ -12171,8 +12363,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 61
+  destroyOnPick: 0
   load: 0
+  usable: 0
+  equipable: 1
+  type: 61
   armor: 0
 --- !u!1 &7388010046170874116
 GameObject:
@@ -12270,8 +12465,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 60
+  destroyOnPick: 0
   load: 0
+  usable: 0
+  equipable: 1
+  type: 60
   armor: 0
 --- !u!1 &7388010046170874118
 GameObject:
@@ -12370,8 +12568,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 41
+  destroyOnPick: 0
   load: 5
+  usable: 0
+  equipable: 1
+  type: 41
   armor: 5
 --- !u!1 &7388010046170874120
 GameObject:
@@ -12469,8 +12670,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 66
+  destroyOnPick: 0
   load: 1
+  usable: 0
+  equipable: 1
+  type: 66
   armor: 1
 --- !u!1 &7388010046170874122
 GameObject:
@@ -12568,8 +12772,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 65
+  destroyOnPick: 0
   load: 1
+  usable: 0
+  equipable: 1
+  type: 65
   armor: 1
 --- !u!1 &7388010046170874124
 GameObject:
@@ -12667,8 +12874,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 64
+  destroyOnPick: 0
   load: 0
+  usable: 0
+  equipable: 1
+  type: 64
   armor: 0
 --- !u!1 &7388010046170874126
 GameObject:
@@ -12766,8 +12976,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 63
+  destroyOnPick: 0
   load: 0
+  usable: 0
+  equipable: 1
+  type: 63
   armor: 0
 --- !u!1 &7388010046170874128
 GameObject:
@@ -12882,8 +13095,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 7
+  destroyOnPick: 0
   load: 1
+  usable: 0
+  equipable: 1
+  type: 7
   armor: 1
 --- !u!1 &7388010046170874130
 GameObject:
@@ -12982,8 +13198,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 69
+  destroyOnPick: 0
   load: 5
+  usable: 0
+  equipable: 1
+  type: 69
   armor: 6
 --- !u!1 &7388010046170874132
 GameObject:
@@ -13082,8 +13301,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 68
+  destroyOnPick: 0
   load: 2
+  usable: 0
+  equipable: 1
+  type: 68
   armor: 3
 --- !u!1 &7388010046170874134
 GameObject:
@@ -13182,8 +13404,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 67
+  destroyOnPick: 0
   load: 2
+  usable: 0
+  equipable: 1
+  type: 67
   armor: 3
 --- !u!1 &7388010046170874142
 GameObject:
@@ -13298,8 +13523,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 8
+  destroyOnPick: 0
   load: 1
+  usable: 0
+  equipable: 1
+  type: 8
   armor: 1
 --- !u!1 &7388010046170874176
 GameObject:
@@ -13398,8 +13626,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 32
+  destroyOnPick: 0
   load: 2
+  usable: 0
+  equipable: 1
+  type: 32
   armor: 2
 --- !u!1 &7388010046170874178
 GameObject:
@@ -13498,8 +13729,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 31
+  destroyOnPick: 0
   load: 2
+  usable: 0
+  equipable: 1
+  type: 31
   armor: 2
 --- !u!1 &7388010046170874180
 GameObject:
@@ -13598,8 +13832,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 30
+  destroyOnPick: 0
   load: 2
+  usable: 0
+  equipable: 1
+  type: 30
   armor: 2
 --- !u!1 &7388010046170874182
 GameObject:
@@ -13698,8 +13935,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 29
+  destroyOnPick: 0
   load: 2
+  usable: 0
+  equipable: 1
+  type: 29
   armor: 2
 --- !u!1 &7388010046170874184
 GameObject:
@@ -13798,8 +14038,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 44
+  destroyOnPick: 0
   load: 2
+  usable: 0
+  equipable: 1
+  type: 44
   armor: 2
 --- !u!1 &7388010046170874186
 GameObject:
@@ -13898,8 +14141,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 43
+  destroyOnPick: 0
   load: 3
+  usable: 0
+  equipable: 1
+  type: 43
   armor: 3
 --- !u!1 &7388010046170874188
 GameObject:
@@ -13998,8 +14244,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 42
+  destroyOnPick: 0
   load: 3
+  usable: 0
+  equipable: 1
+  type: 42
   armor: 3
 --- !u!1 &7388010046170874190
 GameObject:
@@ -14098,8 +14347,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 33
+  destroyOnPick: 0
   load: 2
+  usable: 0
+  equipable: 1
+  type: 33
   armor: 2
 --- !u!1 &7388010046170874192
 GameObject:
@@ -14198,8 +14450,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 46
+  destroyOnPick: 0
   load: 3
+  usable: 0
+  equipable: 1
+  type: 46
   armor: 3
 --- !u!1 &7388010046170874194
 GameObject:
@@ -14298,8 +14553,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 45
+  destroyOnPick: 0
   load: 3
+  usable: 0
+  equipable: 1
+  type: 45
   armor: 3
 --- !u!1 &7388010046170874196
 GameObject:
@@ -14398,8 +14656,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 35
+  destroyOnPick: 0
   load: 0
+  usable: 0
+  equipable: 1
+  type: 35
   armor: 0
 --- !u!1 &7388010046170874198
 GameObject:
@@ -14498,8 +14759,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 34
+  destroyOnPick: 0
   load: 0
+  usable: 0
+  equipable: 1
+  type: 34
   armor: 0
 --- !u!1 &7388010046170874200
 GameObject:
@@ -14598,8 +14862,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 51
+  destroyOnPick: 0
   load: 5
+  usable: 0
+  equipable: 1
+  type: 51
   armor: 5
 --- !u!1 &7388010046170874202
 GameObject:
@@ -14698,8 +14965,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 36
+  destroyOnPick: 0
   load: 5
+  usable: 0
+  equipable: 1
+  type: 36
   armor: 5
 --- !u!1 &7388010046170874204
 GameObject:
@@ -14798,8 +15068,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 50
+  destroyOnPick: 0
   load: 5
+  usable: 0
+  equipable: 1
+  type: 50
   armor: 5
 --- !u!1 &7388010046170874206
 GameObject:
@@ -14898,8 +15171,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 47
+  destroyOnPick: 0
   load: 3
+  usable: 0
+  equipable: 1
+  type: 47
   armor: 3
 --- !u!1 &7388010046170874208
 GameObject:
@@ -14998,8 +15274,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 37
+  destroyOnPick: 0
   load: 5
+  usable: 0
+  equipable: 1
+  type: 37
   armor: 5
 --- !u!1 &7388010046170874210
 GameObject:
@@ -15098,8 +15377,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 54
+  destroyOnPick: 0
   load: 5
+  usable: 0
+  equipable: 1
+  type: 54
   armor: 5
 --- !u!1 &7388010046170874212
 GameObject:
@@ -15198,8 +15480,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 53
+  destroyOnPick: 0
   load: 5
+  usable: 0
+  equipable: 1
+  type: 53
   armor: 5
 --- !u!1 &7388010046170874214
 GameObject:
@@ -15298,8 +15583,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 52
+  destroyOnPick: 0
   load: 5
+  usable: 0
+  equipable: 1
+  type: 52
   armor: 5
 --- !u!1 &7388010046170874216
 GameObject:
@@ -15398,8 +15686,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 48
+  destroyOnPick: 0
   load: 4
+  usable: 0
+  equipable: 1
+  type: 48
   armor: 4
 --- !u!1 &7388010046170874218
 GameObject:
@@ -15498,8 +15789,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 38
+  destroyOnPick: 0
   load: 5
+  usable: 0
+  equipable: 1
+  type: 38
   armor: 5
 --- !u!1 &7388010046170874220
 GameObject:
@@ -15598,8 +15892,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 56
+  destroyOnPick: 0
   load: 5
+  usable: 0
+  equipable: 1
+  type: 56
   armor: 5
 --- !u!1 &7388010046170874222
 GameObject:
@@ -15698,8 +15995,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 55
+  destroyOnPick: 0
   load: 5
+  usable: 0
+  equipable: 1
+  type: 55
   armor: 5
 --- !u!1 &7388010046170874224
 GameObject:
@@ -15798,8 +16098,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 57
+  destroyOnPick: 0
   load: 0
+  usable: 0
+  equipable: 1
+  type: 57
   armor: 0
 --- !u!1 &7388010046170874226
 GameObject:
@@ -15898,8 +16201,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 71
+  destroyOnPick: 0
   load: 5
+  usable: 0
+  equipable: 1
+  type: 71
   armor: 5
 --- !u!1 &7388010046170874228
 GameObject:
@@ -15998,8 +16304,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 70
+  destroyOnPick: 0
   load: 5
+  usable: 0
+  equipable: 1
+  type: 70
   armor: 5
 --- !u!1 &7388010046170874230
 GameObject:
@@ -16098,8 +16407,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 49
+  destroyOnPick: 0
   load: 4
+  usable: 0
+  equipable: 1
+  type: 49
   armor: 4
 --- !u!1 &7388010046170874232
 GameObject:
@@ -16198,8 +16510,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 40
+  destroyOnPick: 0
   load: 5
+  usable: 0
+  equipable: 1
+  type: 40
   armor: 5
 --- !u!1 &7388010046170874234
 GameObject:
@@ -16298,8 +16613,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 59
+  destroyOnPick: 0
   load: 5
+  usable: 0
+  equipable: 1
+  type: 59
   armor: 5
 --- !u!1 &7388010046170874236
 GameObject:
@@ -16398,8 +16716,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 58
+  destroyOnPick: 0
   load: 5
+  usable: 0
+  equipable: 1
+  type: 58
   armor: 5
 --- !u!1 &7388010046170874238
 GameObject:
@@ -16498,8 +16819,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 39
+  destroyOnPick: 0
   load: 5
+  usable: 0
+  equipable: 1
+  type: 39
   armor: 5
 --- !u!1 &7388010046170874240
 GameObject:
@@ -16598,9 +16922,13 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
+  destroyOnPick: 0
+  load: 1
+  usable: 0
+  equipable: 1
   type: 2
   toolFamily: None
-  load: 1
+  capacity: 0
 --- !u!1 &7388010046170874242
 GameObject:
   m_ObjectHideFlags: 0
@@ -16698,9 +17026,13 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
+  destroyOnPick: 0
+  load: 1
+  usable: 0
+  equipable: 1
   type: 1
   toolFamily: None
-  load: 1
+  capacity: 0
 --- !u!1 &7388010046170874244
 GameObject:
   m_ObjectHideFlags: 0
@@ -16797,12 +17129,15 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
+  destroyOnPick: 0
+  load: 5
+  usable: 0
+  equipable: 1
   type: 29
   toolFamily: None
   forbidSecond: 1
   forbidShield: 1
   animationCode: 4
-  load: 5
   dammage: 10
 --- !u!1 &7388010046170874246
 GameObject:
@@ -16901,12 +17236,15 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
+  destroyOnPick: 0
+  load: 5
+  usable: 0
+  equipable: 1
   type: 16
   toolFamily: None
   forbidSecond: 1
   forbidShield: 1
   animationCode: 4
-  load: 5
   dammage: 10
 --- !u!1 &7388010046170874248
 GameObject:
@@ -17004,8 +17342,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 4
+  destroyOnPick: 0
   load: 0
+  usable: 0
+  equipable: 1
+  type: 4
   armor: 0
 --- !u!1 &7388010046170874250
 GameObject:
@@ -17103,8 +17444,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 3
+  destroyOnPick: 0
   load: 0
+  usable: 0
+  equipable: 1
+  type: 3
   armor: 0
 --- !u!1 &7388010046170874252
 GameObject:
@@ -17202,8 +17546,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 2
+  destroyOnPick: 0
   load: 0
+  usable: 0
+  equipable: 1
+  type: 2
   armor: 0
 --- !u!1 &7388010046170874254
 GameObject:
@@ -17301,8 +17648,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 1
+  destroyOnPick: 0
   load: 0
+  usable: 0
+  equipable: 1
+  type: 1
   armor: 0
 --- !u!1 &7388010046170874256
 GameObject:
@@ -17400,8 +17750,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 8
+  destroyOnPick: 0
   load: 0
+  usable: 0
+  equipable: 1
+  type: 8
   armor: 0
 --- !u!1 &7388010046170874258
 GameObject:
@@ -17499,8 +17852,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 7
+  destroyOnPick: 0
   load: 0
+  usable: 0
+  equipable: 1
+  type: 7
   armor: 0
 --- !u!1 &7388010046170874260
 GameObject:
@@ -17598,8 +17954,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 6
+  destroyOnPick: 0
   load: 0
+  usable: 0
+  equipable: 1
+  type: 6
   armor: 0
 --- !u!1 &7388010046170874262
 GameObject:
@@ -17697,8 +18056,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 5
+  destroyOnPick: 0
   load: 0
+  usable: 0
+  equipable: 1
+  type: 5
   armor: 0
 --- !u!1 &7388010046170874264
 GameObject:
@@ -17796,8 +18158,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 12
+  destroyOnPick: 0
   load: 0
+  usable: 0
+  equipable: 1
+  type: 12
   armor: 0
 --- !u!1 &7388010046170874266
 GameObject:
@@ -17895,8 +18260,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 11
+  destroyOnPick: 0
   load: 0
+  usable: 0
+  equipable: 1
+  type: 11
   armor: 0
 --- !u!1 &7388010046170874268
 GameObject:
@@ -17994,8 +18362,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 10
+  destroyOnPick: 0
   load: 0
+  usable: 0
+  equipable: 1
+  type: 10
   armor: 0
 --- !u!1 &7388010046170874270
 GameObject:
@@ -18093,8 +18464,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 9
+  destroyOnPick: 0
   load: 0
+  usable: 0
+  equipable: 1
+  type: 9
   armor: 0
 --- !u!1 &7388010046170874272
 GameObject:
@@ -18192,8 +18566,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 16
+  destroyOnPick: 0
   load: 0
+  usable: 0
+  equipable: 1
+  type: 16
   armor: 0
 --- !u!1 &7388010046170874274
 GameObject:
@@ -18291,8 +18668,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 15
+  destroyOnPick: 0
   load: 0
+  usable: 0
+  equipable: 1
+  type: 15
   armor: 0
 --- !u!1 &7388010046170874276
 GameObject:
@@ -18390,8 +18770,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 14
+  destroyOnPick: 0
   load: 0
+  usable: 0
+  equipable: 1
+  type: 14
   armor: 0
 --- !u!1 &7388010046170874278
 GameObject:
@@ -18489,8 +18872,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 13
+  destroyOnPick: 0
   load: 0
+  usable: 0
+  equipable: 1
+  type: 13
   armor: 0
 --- !u!1 &7388010046170874280
 GameObject:
@@ -18588,8 +18974,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 20
+  destroyOnPick: 0
   load: 1
+  usable: 0
+  equipable: 1
+  type: 20
   armor: 1
 --- !u!1 &7388010046170874282
 GameObject:
@@ -18687,8 +19076,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 19
+  destroyOnPick: 0
   load: 1
+  usable: 0
+  equipable: 1
+  type: 19
   armor: 1
 --- !u!1 &7388010046170874284
 GameObject:
@@ -18786,8 +19178,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 18
+  destroyOnPick: 0
   load: 1
+  usable: 0
+  equipable: 1
+  type: 18
   armor: 1
 --- !u!1 &7388010046170874286
 GameObject:
@@ -18885,8 +19280,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 17
+  destroyOnPick: 0
   load: 1
+  usable: 0
+  equipable: 1
+  type: 17
   armor: 1
 --- !u!1 &7388010046170874288
 GameObject:
@@ -18985,8 +19383,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 24
+  destroyOnPick: 0
   load: 1
+  usable: 0
+  equipable: 1
+  type: 24
   armor: 1
 --- !u!1 &7388010046170874290
 GameObject:
@@ -19085,8 +19486,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 23
+  destroyOnPick: 0
   load: 1
+  usable: 0
+  equipable: 1
+  type: 23
   armor: 1
 --- !u!1 &7388010046170874292
 GameObject:
@@ -19184,8 +19588,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 22
+  destroyOnPick: 0
   load: 1
+  usable: 0
+  equipable: 1
+  type: 22
   armor: 1
 --- !u!1 &7388010046170874294
 GameObject:
@@ -19283,8 +19690,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 21
+  destroyOnPick: 0
   load: 1
+  usable: 0
+  equipable: 1
+  type: 21
   armor: 1
 --- !u!1 &7388010046170874296
 GameObject:
@@ -19383,8 +19793,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 28
+  destroyOnPick: 0
   load: 2
+  usable: 0
+  equipable: 1
+  type: 28
   armor: 2
 --- !u!1 &7388010046170874298
 GameObject:
@@ -19483,8 +19896,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 27
+  destroyOnPick: 0
   load: 2
+  usable: 0
+  equipable: 1
+  type: 27
   armor: 2
 --- !u!1 &7388010046170874300
 GameObject:
@@ -19583,8 +19999,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 26
+  destroyOnPick: 0
   load: 2
+  usable: 0
+  equipable: 1
+  type: 26
   armor: 2
 --- !u!1 &7388010046170874302
 GameObject:
@@ -19683,8 +20102,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 25
+  destroyOnPick: 0
   load: 1
+  usable: 0
+  equipable: 1
+  type: 25
   armor: 1
 --- !u!1 &7388010046170874304
 GameObject:
@@ -19799,8 +20221,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 41
+  destroyOnPick: 0
   load: 5
+  usable: 0
+  equipable: 1
+  type: 41
   armor: 5
 --- !u!1 &7388010046170874306
 GameObject:
@@ -19915,8 +20340,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 40
+  destroyOnPick: 0
   load: 5
+  usable: 0
+  equipable: 1
+  type: 40
   armor: 5
 --- !u!1 &7388010046170874308
 GameObject:
@@ -20031,8 +20459,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 39
+  destroyOnPick: 0
   load: 5
+  usable: 0
+  equipable: 1
+  type: 39
   armor: 5
 --- !u!1 &7388010046170874310
 GameObject:
@@ -20147,8 +20578,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 38
+  destroyOnPick: 0
   load: 5
+  usable: 0
+  equipable: 1
+  type: 38
   armor: 5
 --- !u!1 &7388010046170874312
 GameObject:
@@ -20263,8 +20697,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 5
+  destroyOnPick: 0
   load: 1
+  usable: 0
+  equipable: 1
+  type: 5
   armor: 1
 --- !u!1 &7388010046170874316
 GameObject:
@@ -20379,8 +20816,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 4
+  destroyOnPick: 0
   load: 1
+  usable: 0
+  equipable: 1
+  type: 4
   armor: 1
 --- !u!1 &7388010046170874318
 GameObject:
@@ -20495,8 +20935,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 42
+  destroyOnPick: 0
   load: 5
+  usable: 0
+  equipable: 1
+  type: 42
   armor: 5
 --- !u!1 &7388010046170874320
 GameObject:
@@ -20611,8 +21054,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 2
+  destroyOnPick: 0
   load: 0
+  usable: 0
+  equipable: 1
+  type: 2
   armor: 0
 --- !u!1 &7388010046170874322
 GameObject:
@@ -20727,8 +21173,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 1
+  destroyOnPick: 0
   load: 0
+  usable: 0
+  equipable: 1
+  type: 1
   armor: 0
 --- !u!1 &7388010046170874324
 GameObject:
@@ -20843,8 +21292,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 6
+  destroyOnPick: 0
   load: 1
+  usable: 0
+  equipable: 1
+  type: 6
   armor: 1
 --- !u!1 &7388010046170874328
 GameObject:
@@ -20943,8 +21395,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 8
+  destroyOnPick: 0
   load: 3
+  usable: 0
+  equipable: 1
+  type: 8
   armor: 6
 --- !u!1 &7388010046170874330
 GameObject:
@@ -21043,8 +21498,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 7
+  destroyOnPick: 0
   load: 3
+  usable: 0
+  equipable: 1
+  type: 7
   armor: 5
 --- !u!1 &7388010046170874332
 GameObject:
@@ -21143,8 +21601,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 6
+  destroyOnPick: 0
   load: 3
+  usable: 0
+  equipable: 1
+  type: 6
   armor: 5
 --- !u!1 &7388010046170874334
 GameObject:
@@ -21259,8 +21720,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 3
+  destroyOnPick: 0
   load: 0
+  usable: 0
+  equipable: 1
+  type: 3
   armor: 0
 --- !u!1 &7388010046170874336
 GameObject:
@@ -21359,8 +21823,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 22
+  destroyOnPick: 0
   load: 3
+  usable: 0
+  equipable: 1
+  type: 22
   armor: 6
 --- !u!1 &7388010046170874338
 GameObject:
@@ -21459,8 +21926,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 21
+  destroyOnPick: 0
   load: 3
+  usable: 0
+  equipable: 1
+  type: 21
   armor: 6
 --- !u!1 &7388010046170874340
 GameObject:
@@ -21559,8 +22029,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 9
+  destroyOnPick: 0
   load: 3
+  usable: 0
+  equipable: 1
+  type: 9
   armor: 6
 --- !u!1 &7388010046170874342
 GameObject:
@@ -21659,8 +22132,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 20
+  destroyOnPick: 0
   load: 3
+  usable: 0
+  equipable: 1
+  type: 20
   armor: 6
 --- !u!1 &7388010046170874344
 GameObject:
@@ -21759,12 +22235,15 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
+  destroyOnPick: 0
+  load: 1
+  usable: 0
+  equipable: 1
   type: 10
   toolFamily: None
   forbidSecond: 0
   forbidShield: 0
   animationCode: 1
-  load: 1
   dammage: 2
 --- !u!1 &7388010046170874346
 GameObject:
@@ -21862,12 +22341,15 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
+  destroyOnPick: 0
+  load: 3
+  usable: 0
+  equipable: 1
   type: 5
   toolFamily: Axe
   forbidSecond: 0
   forbidShield: 0
   animationCode: 1
-  load: 3
   dammage: 5
 --- !u!1 &7388010046170874348
 GameObject:
@@ -21966,8 +22448,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 12
+  destroyOnPick: 0
   load: 4
+  usable: 0
+  equipable: 1
+  type: 12
   armor: 8
 --- !u!1 &7388010046170874350
 GameObject:
@@ -22066,8 +22551,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 23
+  destroyOnPick: 0
   load: 3
+  usable: 0
+  equipable: 1
+  type: 23
   armor: 6
 --- !u!1 &7388010046170874352
 GameObject:
@@ -22165,12 +22653,15 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
+  destroyOnPick: 0
+  load: 2
+  usable: 0
+  equipable: 1
   type: 33
   toolFamily: None
   forbidSecond: 0
   forbidShield: 0
   animationCode: 1
-  load: 2
   dammage: 5
 --- !u!1 &7388010046170874354
 GameObject:
@@ -22268,12 +22759,15 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
+  destroyOnPick: 0
+  load: 2
+  usable: 0
+  equipable: 1
   type: 31
   toolFamily: None
   forbidSecond: 0
   forbidShield: 0
   animationCode: 1
-  load: 2
   dammage: 5
 --- !u!1 &7388010046170874356
 GameObject:
@@ -22372,12 +22866,15 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
+  destroyOnPick: 0
+  load: 1
+  usable: 0
+  equipable: 1
   type: 23
   toolFamily: None
   forbidSecond: 0
   forbidShield: 0
   animationCode: 1
-  load: 1
   dammage: 2
 --- !u!1 &7388010046170874358
 GameObject:
@@ -22476,12 +22973,15 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
+  destroyOnPick: 0
+  load: 3
+  usable: 0
+  equipable: 1
   type: 20
   toolFamily: None
   forbidSecond: 1
   forbidShield: 1
   animationCode: 3
-  load: 3
   dammage: 5
 --- !u!1 &7388010046170874360
 GameObject:
@@ -22579,12 +23079,15 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
+  destroyOnPick: 0
+  load: 5
+  usable: 0
+  equipable: 1
   type: 35
   toolFamily: None
   forbidSecond: 1
   forbidShield: 1
   animationCode: 4
-  load: 5
   dammage: 10
 --- !u!1 &7388010046170874362
 GameObject:
@@ -22683,12 +23186,15 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
+  destroyOnPick: 0
+  load: 3
+  usable: 0
+  equipable: 1
   type: 14
   toolFamily: None
   forbidSecond: 0
   forbidShield: 0
   animationCode: 1
-  load: 3
   dammage: 6
 --- !u!1 &7388010046170874364
 GameObject:
@@ -22787,11 +23293,14 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
+  destroyOnPick: 0
+  load: 2
+  usable: 0
+  equipable: 1
   type: 7
   forbidWeapon: 1
   forbidShield: 1
   animationCode: 6
-  load: 2
   dammage: 3
 --- !u!1 &7388010046170874366
 GameObject:
@@ -22890,12 +23399,15 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
+  destroyOnPick: 0
+  load: 3
+  usable: 0
+  equipable: 1
   type: 12
   toolFamily: None
   forbidSecond: 0
   forbidShield: 0
   animationCode: 1
-  load: 3
   dammage: 5
 --- !u!1 &7388010046170874376
 GameObject:
@@ -23010,8 +23522,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 43
+  destroyOnPick: 0
   load: 0
+  usable: 0
+  equipable: 1
+  type: 43
   armor: 0
 --- !u!1 &7388010046170874384
 GameObject:
@@ -23126,8 +23641,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 18
+  destroyOnPick: 0
   load: 2
+  usable: 0
+  equipable: 1
+  type: 18
   armor: 2
 --- !u!1 &7388010046170874386
 GameObject:
@@ -23242,8 +23760,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 17
+  destroyOnPick: 0
   load: 1
+  usable: 0
+  equipable: 1
+  type: 17
   armor: 1
 --- !u!1 &7388010046170874388
 GameObject:
@@ -23358,8 +23879,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 16
+  destroyOnPick: 0
   load: 1
+  usable: 0
+  equipable: 1
+  type: 16
   armor: 1
 --- !u!1 &7388010046170874390
 GameObject:
@@ -23474,8 +23998,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 44
+  destroyOnPick: 0
   load: 0
+  usable: 0
+  equipable: 1
+  type: 44
   armor: 0
 --- !u!1 &7388010046170874392
 GameObject:
@@ -23590,8 +24117,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 22
+  destroyOnPick: 0
   load: 2
+  usable: 0
+  equipable: 1
+  type: 22
   armor: 2
 --- !u!1 &7388010046170874394
 GameObject:
@@ -23706,8 +24236,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 21
+  destroyOnPick: 0
   load: 2
+  usable: 0
+  equipable: 1
+  type: 21
   armor: 2
 --- !u!1 &7388010046170874396
 GameObject:
@@ -23822,8 +24355,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 20
+  destroyOnPick: 0
   load: 2
+  usable: 0
+  equipable: 1
+  type: 20
   armor: 2
 --- !u!1 &7388010046170874398
 GameObject:
@@ -23938,8 +24474,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 19
+  destroyOnPick: 0
   load: 2
+  usable: 0
+  equipable: 1
+  type: 19
   armor: 2
 --- !u!1 &7388010046170874400
 GameObject:
@@ -24054,8 +24593,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 26
+  destroyOnPick: 0
   load: 3
+  usable: 0
+  equipable: 1
+  type: 26
   armor: 3
 --- !u!1 &7388010046170874402
 GameObject:
@@ -24170,8 +24712,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 25
+  destroyOnPick: 0
   load: 2
+  usable: 0
+  equipable: 1
+  type: 25
   armor: 2
 --- !u!1 &7388010046170874404
 GameObject:
@@ -24286,8 +24831,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 24
+  destroyOnPick: 0
   load: 2
+  usable: 0
+  equipable: 1
+  type: 24
   armor: 2
 --- !u!1 &7388010046170874406
 GameObject:
@@ -24402,8 +24950,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 23
+  destroyOnPick: 0
   load: 2
+  usable: 0
+  equipable: 1
+  type: 23
   armor: 2
 --- !u!1 &7388010046170874408
 GameObject:
@@ -24518,8 +25069,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 45
+  destroyOnPick: 0
   load: 3
+  usable: 0
+  equipable: 1
+  type: 45
   armor: 3
 --- !u!1 &7388010046170874410
 GameObject:
@@ -24634,8 +25188,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 29
+  destroyOnPick: 0
   load: 3
+  usable: 0
+  equipable: 1
+  type: 29
   armor: 3
 --- !u!1 &7388010046170874412
 GameObject:
@@ -24750,8 +25307,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 28
+  destroyOnPick: 0
   load: 3
+  usable: 0
+  equipable: 1
+  type: 28
   armor: 3
 --- !u!1 &7388010046170874414
 GameObject:
@@ -24866,8 +25426,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 27
+  destroyOnPick: 0
   load: 3
+  usable: 0
+  equipable: 1
+  type: 27
   armor: 3
 --- !u!1 &7388010046170874416
 GameObject:
@@ -24982,8 +25545,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 33
+  destroyOnPick: 0
   load: 3
+  usable: 0
+  equipable: 1
+  type: 33
   armor: 3
 --- !u!1 &7388010046170874418
 GameObject:
@@ -25098,8 +25664,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 32
+  destroyOnPick: 0
   load: 3
+  usable: 0
+  equipable: 1
+  type: 32
   armor: 3
 --- !u!1 &7388010046170874420
 GameObject:
@@ -25214,8 +25783,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 31
+  destroyOnPick: 0
   load: 3
+  usable: 0
+  equipable: 1
+  type: 31
   armor: 3
 --- !u!1 &7388010046170874422
 GameObject:
@@ -25330,8 +25902,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 30
+  destroyOnPick: 0
   load: 3
+  usable: 0
+  equipable: 1
+  type: 30
   armor: 3
 --- !u!1 &7388010046170874424
 GameObject:
@@ -25446,8 +26021,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 37
+  destroyOnPick: 0
   load: 5
+  usable: 0
+  equipable: 1
+  type: 37
   armor: 5
 --- !u!1 &7388010046170874426
 GameObject:
@@ -25562,8 +26140,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 36
+  destroyOnPick: 0
   load: 5
+  usable: 0
+  equipable: 1
+  type: 36
   armor: 5
 --- !u!1 &7388010046170874428
 GameObject:
@@ -25678,8 +26259,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 35
+  destroyOnPick: 0
   load: 5
+  usable: 0
+  equipable: 1
+  type: 35
   armor: 5
 --- !u!1 &7388010046170874430
 GameObject:
@@ -25794,8 +26378,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 34
+  destroyOnPick: 0
   load: 5
+  usable: 0
+  equipable: 1
+  type: 34
   armor: 5
 --- !u!1 &7388010046170874472
 GameObject:
@@ -25910,8 +26497,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 12
+  destroyOnPick: 0
   load: 0
+  usable: 0
+  equipable: 1
+  type: 12
   armor: 0
 --- !u!1 &7388010046170874474
 GameObject:
@@ -26026,8 +26616,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 11
+  destroyOnPick: 0
   load: 0
+  usable: 0
+  equipable: 1
+  type: 11
   armor: 0
 --- !u!1 &7388010046170874476
 GameObject:
@@ -26142,8 +26735,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 10
+  destroyOnPick: 0
   load: 0
+  usable: 0
+  equipable: 1
+  type: 10
   armor: 0
 --- !u!1 &7388010046170874478
 GameObject:
@@ -26258,8 +26854,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 9
+  destroyOnPick: 0
   load: 0
+  usable: 0
+  equipable: 1
+  type: 9
   armor: 0
 --- !u!1 &7388010046170874482
 GameObject:
@@ -26374,8 +26973,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 15
+  destroyOnPick: 0
   load: 0
+  usable: 0
+  equipable: 1
+  type: 15
   armor: 0
 --- !u!1 &7388010046170874484
 GameObject:
@@ -26490,8 +27092,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 14
+  destroyOnPick: 0
   load: 0
+  usable: 0
+  equipable: 1
+  type: 14
   armor: 0
 --- !u!1 &7388010046170874486
 GameObject:
@@ -26606,8 +27211,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 13
+  destroyOnPick: 0
   load: 0
+  usable: 0
+  equipable: 1
+  type: 13
   armor: 0
 --- !u!1 &7388010046170874496
 GameObject:
@@ -26706,12 +27314,15 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
+  destroyOnPick: 0
+  load: 3
+  usable: 0
+  equipable: 1
   type: 13
   toolFamily: None
   forbidSecond: 0
   forbidShield: 0
   animationCode: 1
-  load: 3
   dammage: 6
 --- !u!1 &7388010046170874498
 GameObject:
@@ -26810,11 +27421,14 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
+  destroyOnPick: 0
+  load: 2
+  usable: 0
+  equipable: 1
   type: 6
   forbidWeapon: 1
   forbidShield: 1
   animationCode: 6
-  load: 2
   dammage: 3
 --- !u!1 &7388010046170874500
 GameObject:
@@ -26913,11 +27527,14 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
+  destroyOnPick: 0
+  load: 2
+  usable: 0
+  equipable: 1
   type: 5
   forbidWeapon: 1
   forbidShield: 1
   animationCode: 6
-  load: 2
   dammage: 2
 --- !u!1 &7388010046170874502
 GameObject:
@@ -27016,11 +27633,14 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
+  destroyOnPick: 0
+  load: 1
+  usable: 0
+  equipable: 1
   type: 4
   forbidWeapon: 1
   forbidShield: 1
   animationCode: 6
-  load: 1
   dammage: 1
 --- !u!1 &7388010046170874504
 GameObject:
@@ -27119,12 +27739,15 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
+  destroyOnPick: 0
+  load: 4
+  usable: 0
+  equipable: 1
   type: 18
   toolFamily: None
   forbidSecond: 1
   forbidShield: 1
   animationCode: 4
-  load: 4
   dammage: 7
 --- !u!1 &7388010046170874506
 GameObject:
@@ -27223,12 +27846,15 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
+  destroyOnPick: 0
+  load: 5
+  usable: 0
+  equipable: 1
   type: 40
   toolFamily: None
   forbidSecond: 1
   forbidShield: 1
   animationCode: 4
-  load: 5
   dammage: 10
 --- !u!1 &7388010046170874508
 GameObject:
@@ -27327,12 +27953,15 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
+  destroyOnPick: 0
+  load: 5
+  usable: 0
+  equipable: 1
   type: 7
   toolFamily: None
   forbidSecond: 1
   forbidShield: 1
   animationCode: 4
-  load: 5
   dammage: 10
 --- !u!1 &7388010046170874510
 GameObject:
@@ -27431,12 +28060,15 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
+  destroyOnPick: 0
+  load: 5
+  usable: 0
+  equipable: 1
   type: 6
   toolFamily: None
   forbidSecond: 1
   forbidShield: 1
   animationCode: 4
-  load: 5
   dammage: 10
 --- !u!1 &7388010046170874512
 GameObject:
@@ -27534,12 +28166,15 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
+  destroyOnPick: 0
+  load: 3
+  usable: 0
+  equipable: 1
   type: 27
   toolFamily: None
   forbidSecond: 0
   forbidShield: 0
   animationCode: 1
-  load: 3
   dammage: 6
 --- !u!1 &7388010046170874514
 GameObject:
@@ -27637,12 +28272,15 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
+  destroyOnPick: 0
+  load: 5
+  usable: 0
+  equipable: 1
   type: 28
   toolFamily: None
   forbidSecond: 1
   forbidShield: 1
   animationCode: 4
-  load: 5
   dammage: 10
 --- !u!1 &7388010046170874516
 GameObject:
@@ -27741,12 +28379,15 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
+  destroyOnPick: 0
+  load: 5
+  usable: 0
+  equipable: 1
   type: 15
   toolFamily: None
   forbidSecond: 1
   forbidShield: 1
   animationCode: 4
-  load: 5
   dammage: 10
 --- !u!1 &7388010046170874518
 GameObject:
@@ -27844,12 +28485,15 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
+  destroyOnPick: 0
+  load: 5
+  usable: 0
+  equipable: 1
   type: 34
   toolFamily: None
   forbidSecond: 1
   forbidShield: 1
   animationCode: 4
-  load: 5
   dammage: 10
 --- !u!1 &7388010046170874560
 GameObject:
@@ -27948,8 +28592,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 17
+  destroyOnPick: 0
   load: 2
+  usable: 0
+  equipable: 1
+  type: 17
   armor: 3
 --- !u!1 &7388010046170874562
 GameObject:
@@ -28048,8 +28695,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 16
+  destroyOnPick: 0
   load: 2
+  usable: 0
+  equipable: 1
+  type: 16
   armor: 3
 --- !u!1 &7388010046170874564
 GameObject:
@@ -28148,8 +28798,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 15
+  destroyOnPick: 0
   load: 2
+  usable: 0
+  equipable: 1
+  type: 15
   armor: 3
 --- !u!1 &7388010046170874566
 GameObject:
@@ -28248,8 +28901,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 14
+  destroyOnPick: 0
   load: 2
+  usable: 0
+  equipable: 1
+  type: 14
   armor: 3
 --- !u!1 &7388010046170874568
 GameObject:
@@ -28348,8 +29004,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 18
+  destroyOnPick: 0
   load: 3
+  usable: 0
+  equipable: 1
+  type: 18
   armor: 5
 --- !u!1 &7388010046170874570
 GameObject:
@@ -28448,8 +29107,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 10
+  destroyOnPick: 0
   load: 3
+  usable: 0
+  equipable: 1
+  type: 10
   armor: 5
 --- !u!1 &7388010046170874572
 GameObject:
@@ -28548,8 +29210,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 4
+  destroyOnPick: 0
   load: 3
+  usable: 0
+  equipable: 1
+  type: 4
   armor: 5
 --- !u!1 &7388010046170874574
 GameObject:
@@ -28648,8 +29313,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 3
+  destroyOnPick: 0
   load: 3
+  usable: 0
+  equipable: 1
+  type: 3
   armor: 5
 --- !u!1 &7388010046170874576
 GameObject:
@@ -28745,14 +29413,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 0
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Axe
+  description: Simple axe, used to cut trees
+  destroyOnPick: 0
+  load: 1
+  usable: 0
+  equipable: 1
   type: 1
   toolFamily: Axe
   forbidSecond: 0
   forbidShield: 0
   animationCode: 1
-  load: 1
   dammage: 2
 --- !u!1 &7388010046170874578
 GameObject:
@@ -28851,8 +29522,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 11
+  destroyOnPick: 0
   load: 4
+  usable: 0
+  equipable: 1
+  type: 11
   armor: 6
 --- !u!1 &7388010046170874580
 GameObject:
@@ -28951,8 +29625,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 19
+  destroyOnPick: 0
   load: 4
+  usable: 0
+  equipable: 1
+  type: 19
   armor: 6
 --- !u!1 &7388010046170874582
 GameObject:
@@ -29051,8 +29728,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 5
+  destroyOnPick: 0
   load: 3
+  usable: 0
+  equipable: 1
+  type: 5
   armor: 5
 --- !u!1 &7388010046170874584
 GameObject:
@@ -29150,12 +29830,15 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
+  destroyOnPick: 0
+  load: 2
+  usable: 0
+  equipable: 1
   type: 8
   toolFamily: None
   forbidSecond: 1
   forbidShield: 1
   animationCode: 1
-  load: 2
   dammage: 5
 --- !u!1 &7388010046170874586
 GameObject:
@@ -29253,12 +29936,15 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
+  destroyOnPick: 0
+  load: 3
+  usable: 0
+  equipable: 1
   type: 4
   toolFamily: Axe
   forbidSecond: 0
   forbidShield: 0
   animationCode: 1
-  load: 3
   dammage: 5
 --- !u!1 &7388010046170874588
 GameObject:
@@ -29356,12 +30042,15 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
+  destroyOnPick: 0
+  load: 2
+  usable: 0
+  equipable: 1
   type: 3
   toolFamily: Axe
   forbidSecond: 0
   forbidShield: 0
   animationCode: 1
-  load: 2
   dammage: 3
 --- !u!1 &7388010046170874590
 GameObject:
@@ -29459,12 +30148,15 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
+  destroyOnPick: 0
+  load: 2
+  usable: 0
+  equipable: 1
   type: 2
   toolFamily: Axe
   forbidSecond: 0
   forbidShield: 0
   animationCode: 1
-  load: 2
   dammage: 3
 --- !u!1 &7388010046170874592
 GameObject:
@@ -29563,12 +30255,15 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
+  destroyOnPick: 0
+  load: 1
+  usable: 0
+  equipable: 1
   type: 22
   toolFamily: None
   forbidSecond: 0
   forbidShield: 0
   animationCode: 1
-  load: 1
   dammage: 2
 --- !u!1 &7388010046170874594
 GameObject:
@@ -29667,12 +30362,15 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
+  destroyOnPick: 0
+  load: 1
+  usable: 0
+  equipable: 1
   type: 21
   toolFamily: None
   forbidSecond: 0
   forbidShield: 0
   animationCode: 1
-  load: 1
   dammage: 2
 --- !u!1 &7388010046170874596
 GameObject:
@@ -29771,12 +30469,15 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
+  destroyOnPick: 0
+  load: 3
+  usable: 0
+  equipable: 1
   type: 19
   toolFamily: None
   forbidSecond: 1
   forbidShield: 1
   animationCode: 3
-  load: 3
   dammage: 5
 --- !u!1 &7388010046170874598
 GameObject:
@@ -29875,12 +30576,15 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
+  destroyOnPick: 0
+  load: 1
+  usable: 0
+  equipable: 1
   type: 9
   toolFamily: None
   forbidSecond: 0
   forbidShield: 0
   animationCode: 1
-  load: 1
   dammage: 2
 --- !u!1 &7388010046170874602
 GameObject:
@@ -29979,11 +30683,14 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
+  destroyOnPick: 0
+  load: 2
+  usable: 0
+  equipable: 1
   type: 1
   forbidWeapon: 1
   forbidShield: 1
   animationCode: 2
-  load: 2
   dammage: 5
 --- !u!1 &7388010046170874604
 GameObject:
@@ -30081,12 +30788,15 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
+  destroyOnPick: 0
+  load: 2
+  usable: 0
+  equipable: 1
   type: 25
   toolFamily: None
   forbidSecond: 1
   forbidShield: 0
   animationCode: 7
-  load: 2
   dammage: 6
 --- !u!1 &7388010046170874606
 GameObject:
@@ -30184,12 +30894,15 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
+  destroyOnPick: 0
+  load: 2
+  usable: 0
+  equipable: 1
   type: 24
   toolFamily: None
   forbidSecond: 1
   forbidShield: 0
   animationCode: 7
-  load: 2
   dammage: 5
 --- !u!1 &7388010046170874608
 GameObject:
@@ -30288,11 +31001,14 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
+  destroyOnPick: 0
+  load: 1
+  usable: 0
+  equipable: 1
   type: 2
   forbidWeapon: 1
   forbidShield: 1
   animationCode: 2
-  load: 1
   dammage: 4
 --- !u!1 &7388010046170874610
 GameObject:
@@ -30390,12 +31106,15 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
+  destroyOnPick: 0
+  load: 3
+  usable: 0
+  equipable: 1
   type: 38
   toolFamily: None
   forbidSecond: 1
   forbidShield: 0
   animationCode: 5
-  load: 3
   dammage: 7
 --- !u!1 &7388010046170874612
 GameObject:
@@ -30493,12 +31212,15 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
+  destroyOnPick: 0
+  load: 2
+  usable: 0
+  equipable: 1
   type: 36
   toolFamily: None
   forbidSecond: 0
   forbidShield: 0
   animationCode: 1
-  load: 2
   dammage: 5
 --- !u!1 &7388010046170874614
 GameObject:
@@ -30596,12 +31318,15 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
+  destroyOnPick: 0
+  load: 2
+  usable: 0
+  equipable: 1
   type: 30
   toolFamily: None
   forbidSecond: 0
   forbidShield: 0
   animationCode: 1
-  load: 2
   dammage: 5
 --- !u!1 &7388010046170874616
 GameObject:
@@ -30700,12 +31425,15 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
+  destroyOnPick: 0
+  load: 2
+  usable: 0
+  equipable: 1
   type: 41
   toolFamily: None
   forbidSecond: 1
   forbidShield: 0
   animationCode: 5
-  load: 2
   dammage: 5
 --- !u!1 &7388010046170874618
 GameObject:
@@ -30804,12 +31532,15 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
+  destroyOnPick: 0
+  load: 3
+  usable: 0
+  equipable: 1
   type: 11
   toolFamily: None
   forbidSecond: 0
   forbidShield: 0
   animationCode: 1
-  load: 3
   dammage: 5
 --- !u!1 &7388010046170874620
 GameObject:
@@ -30908,11 +31639,14 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
+  destroyOnPick: 0
+  load: 1
+  usable: 0
+  equipable: 1
   type: 3
   forbidWeapon: 1
   forbidShield: 1
   animationCode: 2
-  load: 1
   dammage: 3
 --- !u!1 &7388010046170874622
 GameObject:
@@ -31010,12 +31744,15 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
+  destroyOnPick: 0
+  load: 3
+  usable: 0
+  equipable: 1
   type: 39
   toolFamily: None
   forbidSecond: 0
   forbidShield: 0
   animationCode: 1
-  load: 3
   dammage: 5
 --- !u!1 &7388010046170874680
 GameObject:
@@ -31114,8 +31851,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 13
+  destroyOnPick: 0
   load: 2
+  usable: 0
+  equipable: 1
+  type: 13
   armor: 3
 --- !u!1 &7388010046170874682
 GameObject:
@@ -31214,8 +31954,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 2
+  destroyOnPick: 0
   load: 2
+  usable: 0
+  equipable: 1
+  type: 2
   armor: 3
 --- !u!1 &7388010046170874684
 GameObject:
@@ -31314,8 +32057,11 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
-  type: 1
+  destroyOnPick: 0
   load: 1
+  usable: 0
+  equipable: 1
+  type: 1
   armor: 2
 --- !u!1 &7388010046170874774
 GameObject:
@@ -32196,12 +32942,15 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
+  destroyOnPick: 0
+  load: 1
+  usable: 0
+  equipable: 1
   type: 17
   toolFamily: None
   forbidSecond: 0
   forbidShield: 0
   animationCode: 1
-  load: 1
   dammage: 3
 --- !u!1 &7388010046170877080
 GameObject:
@@ -32297,14 +33046,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 0
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Hammer
+  description: Hammer, used to construct
+  destroyOnPick: 0
+  load: 1
+  usable: 0
+  equipable: 1
   type: 26
   toolFamily: Hammer
   forbidSecond: 0
   forbidShield: 0
   animationCode: 1
-  load: 1
   dammage: 2
 --- !u!1 &7388010046170877096
 GameObject:
@@ -32402,12 +33154,15 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: 
   description: 
+  destroyOnPick: 0
+  load: 2
+  usable: 0
+  equipable: 1
   type: 32
   toolFamily: None
   forbidSecond: 0
   forbidShield: 0
   animationCode: 1
-  load: 2
   dammage: 5
 --- !u!1 &7388010046170877110
 GameObject:
@@ -32503,14 +33258,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 0
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Pickaxe
+  description: Pickaxe, used tu collect minerals
+  destroyOnPick: 0
+  load: 1
+  usable: 0
+  equipable: 1
   type: 37
   toolFamily: Pickaxe
   forbidSecond: 0
   forbidShield: 0
   animationCode: 1
-  load: 1
   dammage: 2
 --- !u!1 &7388010046170877184
 GameObject:
@@ -33644,11 +34402,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 1
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Ressource container
+  description: Ressource container, used to carry resources
+  destroyOnPick: 0
+  load: 1
+  usable: 0
+  equipable: 1
   type: 3
   toolFamily: Container
-  load: 1
+  capacity: 30
 --- !u!1 &8888724434737839364
 GameObject:
   m_ObjectHideFlags: 0

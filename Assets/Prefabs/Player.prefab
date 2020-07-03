@@ -2191,6 +2191,8 @@ MonoBehaviour:
   description: 
   destroyOnPick: 0
   load: 0
+  usable: 0
+  equipable: 1
   type: 0
   armor: 0
 --- !u!1 &2106514538908726449
@@ -7261,6 +7263,8 @@ MonoBehaviour:
   description: 
   destroyOnPick: 0
   load: 0
+  usable: 0
+  equipable: 1
   type: 0
   forbidWeapon: 0
   forbidShield: 0
@@ -7381,6 +7385,8 @@ MonoBehaviour:
   description: 
   destroyOnPick: 0
   load: 0
+  usable: 0
+  equipable: 1
   type: 10
   armor: 0
 --- !u!1 &6192619722522150787
@@ -8559,6 +8565,8 @@ MonoBehaviour:
   description: 
   destroyOnPick: 0
   load: 0
+  usable: 0
+  equipable: 1
   type: 1
   armor: 0
 --- !u!1 &8296172667368213114
@@ -8576,7 +8584,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5006512736631224425
 Transform:
   m_ObjectHideFlags: 0
@@ -8696,6 +8704,8 @@ MonoBehaviour:
   description: 
   destroyOnPick: 0
   load: 0
+  usable: 0
+  equipable: 1
   type: 26
   toolFamily: None
   forbidSecond: 0
@@ -8794,11 +8804,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8845f78c74a18734e9fa6e78005128ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemType: 0
+  itemType: 1
   itemIcon: {fileID: 0}
   itemName: 
   description: 
   destroyOnPick: 0
   load: 0
-  type: 3
+  usable: 0
+  equipable: 1
+  type: 0
   toolFamily: None
+  capacity: 0

@@ -50,6 +50,13 @@ public class WeaponItem : Item
         load = 0f;
         dammage = 0f;
     }
+    public override SummarizedItem Summarize()
+    {
+        SummarizedItem sumItem = base.Summarize();
+        sumItem.derivatedType = (int)type;
+        return sumItem;
+    }
+
     public static void Copy(WeaponItem source, WeaponItem destination)
     {
         Item.Copy(source, destination);

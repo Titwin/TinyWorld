@@ -343,6 +343,58 @@ Transform:
   m_Father: {fileID: 440573928}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &424928475
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 424928476}
+  - component: {fileID: 424928477}
+  m_Layer: 0
+  m_Name: Stone
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &424928476
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 424928475}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2140731928}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &424928477
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 424928475}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc294b115577e5640923a527d43838cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemType: 6
+  itemIcon: {fileID: 21300000, guid: cdbd4d9986728e14785848bc62f2e063, type: 3}
+  itemName: Stone
+  description: Stone block
+  destroyOnPick: 1
+  load: 1
+  usable: 0
+  equipable: 0
+  resource: {fileID: 11400000, guid: ad68daf182956324b83441829afb85a1, type: 2}
 --- !u!1 &440573926
 GameObject:
   m_ObjectHideFlags: 0
@@ -460,424 +512,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 875864300, guid: b7b88e225fd5b704dba6c629cc2426cd, type: 3}
-      propertyPath: itemType
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 875864300, guid: b7b88e225fd5b704dba6c629cc2426cd, type: 3}
-      propertyPath: itemIcon
-      value: 
-      objectReference: {fileID: 21300000, guid: 5baabf59aceb658409c476799c39d081,
-        type: 3}
-    - target: {fileID: 875864300, guid: b7b88e225fd5b704dba6c629cc2426cd, type: 3}
-      propertyPath: itemName
-      value: Resource container
-      objectReference: {fileID: 0}
-    - target: {fileID: 875864300, guid: b7b88e225fd5b704dba6c629cc2426cd, type: 3}
-      propertyPath: description
-      value: Resource container
-      objectReference: {fileID: 0}
-    - target: {fileID: 875864300, guid: b7b88e225fd5b704dba6c629cc2426cd, type: 3}
-      propertyPath: load
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 957976867, guid: b7b88e225fd5b704dba6c629cc2426cd, type: 3}
-      propertyPath: itemType
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 957976867, guid: b7b88e225fd5b704dba6c629cc2426cd, type: 3}
-      propertyPath: itemIcon
-      value: 
-      objectReference: {fileID: 21300000, guid: 428007143d94e654a941a02dc66a0c30,
-        type: 3}
-    - target: {fileID: 957976867, guid: b7b88e225fd5b704dba6c629cc2426cd, type: 3}
-      propertyPath: itemName
-      value: Horse
-      objectReference: {fileID: 0}
-    - target: {fileID: 957976867, guid: b7b88e225fd5b704dba6c629cc2426cd, type: 3}
-      propertyPath: description
-      value: Horse
-      objectReference: {fileID: 0}
-    - target: {fileID: 1070269093, guid: b7b88e225fd5b704dba6c629cc2426cd, type: 3}
-      propertyPath: itemIcon
-      value: 
-      objectReference: {fileID: 21300000, guid: b758f38ab7a3f154bbd43366cf82b68e,
-        type: 3}
-    - target: {fileID: 1070269093, guid: b7b88e225fd5b704dba6c629cc2426cd, type: 3}
-      propertyPath: itemName
-      value: Hammer
-      objectReference: {fileID: 0}
-    - target: {fileID: 1070269093, guid: b7b88e225fd5b704dba6c629cc2426cd, type: 3}
-      propertyPath: description
-      value: Hammer
-      objectReference: {fileID: 0}
-    - target: {fileID: 1070269093, guid: b7b88e225fd5b704dba6c629cc2426cd, type: 3}
-      propertyPath: load
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1070269093, guid: b7b88e225fd5b704dba6c629cc2426cd, type: 3}
-      propertyPath: toolFamily
-      value: hammer
-      objectReference: {fileID: 0}
-    - target: {fileID: 1070269093, guid: b7b88e225fd5b704dba6c629cc2426cd, type: 3}
-      propertyPath: destroyOnPick
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1119229549, guid: b7b88e225fd5b704dba6c629cc2426cd, type: 3}
-      propertyPath: itemIcon
-      value: 
-      objectReference: {fileID: 21300000, guid: a2da7c7036b869d46992e79cf505594a,
-        type: 3}
-    - target: {fileID: 1119229549, guid: b7b88e225fd5b704dba6c629cc2426cd, type: 3}
-      propertyPath: itemName
-      value: Pickaxe
-      objectReference: {fileID: 0}
-    - target: {fileID: 1119229549, guid: b7b88e225fd5b704dba6c629cc2426cd, type: 3}
-      propertyPath: description
-      value: Pickaxe
-      objectReference: {fileID: 0}
-    - target: {fileID: 1119229549, guid: b7b88e225fd5b704dba6c629cc2426cd, type: 3}
-      propertyPath: load
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1119229549, guid: b7b88e225fd5b704dba6c629cc2426cd, type: 3}
-      propertyPath: toolFamily
-      value: pickaxe
-      objectReference: {fileID: 0}
-    - target: {fileID: 1119229549, guid: b7b88e225fd5b704dba6c629cc2426cd, type: 3}
-      propertyPath: destroyOnPick
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1433619837, guid: b7b88e225fd5b704dba6c629cc2426cd, type: 3}
-      propertyPath: itemIcon
-      value: 
-      objectReference: {fileID: 21300000, guid: a2da7c7036b869d46992e79cf505594a,
-        type: 3}
-    - target: {fileID: 1433619837, guid: b7b88e225fd5b704dba6c629cc2426cd, type: 3}
-      propertyPath: itemName
-      value: Pickaxe
-      objectReference: {fileID: 0}
-    - target: {fileID: 1433619837, guid: b7b88e225fd5b704dba6c629cc2426cd, type: 3}
-      propertyPath: description
-      value: Pickaxe
-      objectReference: {fileID: 0}
-    - target: {fileID: 1433619837, guid: b7b88e225fd5b704dba6c629cc2426cd, type: 3}
-      propertyPath: load
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1433619837, guid: b7b88e225fd5b704dba6c629cc2426cd, type: 3}
-      propertyPath: toolFamily
-      value: pickaxe
-      objectReference: {fileID: 0}
-    - target: {fileID: 1433619837, guid: b7b88e225fd5b704dba6c629cc2426cd, type: 3}
-      propertyPath: destroyOnPick
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1466203058, guid: b7b88e225fd5b704dba6c629cc2426cd, type: 3}
-      propertyPath: itemType
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 1466203058, guid: b7b88e225fd5b704dba6c629cc2426cd, type: 3}
-      propertyPath: itemIcon
-      value: 
-      objectReference: {fileID: 21300000, guid: 428007143d94e654a941a02dc66a0c30,
-        type: 3}
-    - target: {fileID: 1466203058, guid: b7b88e225fd5b704dba6c629cc2426cd, type: 3}
-      propertyPath: itemName
-      value: Horse
-      objectReference: {fileID: 0}
-    - target: {fileID: 1466203058, guid: b7b88e225fd5b704dba6c629cc2426cd, type: 3}
-      propertyPath: description
-      value: Horse
-      objectReference: {fileID: 0}
-    - target: {fileID: 1484971212, guid: b7b88e225fd5b704dba6c629cc2426cd, type: 3}
-      propertyPath: itemType
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 1484971212, guid: b7b88e225fd5b704dba6c629cc2426cd, type: 3}
-      propertyPath: itemName
-      value: On foot
-      objectReference: {fileID: 0}
-    - target: {fileID: 1484971212, guid: b7b88e225fd5b704dba6c629cc2426cd, type: 3}
-      propertyPath: description
-      value: On foot
-      objectReference: {fileID: 0}
-    - target: {fileID: 1526644560, guid: b7b88e225fd5b704dba6c629cc2426cd, type: 3}
-      propertyPath: itemType
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 1526644560, guid: b7b88e225fd5b704dba6c629cc2426cd, type: 3}
-      propertyPath: itemName
-      value: On foot
-      objectReference: {fileID: 0}
-    - target: {fileID: 1526644560, guid: b7b88e225fd5b704dba6c629cc2426cd, type: 3}
-      propertyPath: description
-      value: On foot
-      objectReference: {fileID: 0}
-    - target: {fileID: 1562851324, guid: b7b88e225fd5b704dba6c629cc2426cd, type: 3}
-      propertyPath: itemIcon
-      value: 
-      objectReference: {fileID: 21300000, guid: fe8a4ca06c65dff45afca9163ea87ef2,
-        type: 3}
-    - target: {fileID: 1562851324, guid: b7b88e225fd5b704dba6c629cc2426cd, type: 3}
-      propertyPath: itemName
-      value: Axe
-      objectReference: {fileID: 0}
-    - target: {fileID: 1562851324, guid: b7b88e225fd5b704dba6c629cc2426cd, type: 3}
-      propertyPath: description
-      value: Axe
-      objectReference: {fileID: 0}
-    - target: {fileID: 1562851324, guid: b7b88e225fd5b704dba6c629cc2426cd, type: 3}
-      propertyPath: load
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1562851324, guid: b7b88e225fd5b704dba6c629cc2426cd, type: 3}
-      propertyPath: toolFamily
-      value: Axe
-      objectReference: {fileID: 0}
-    - target: {fileID: 1562851324, guid: b7b88e225fd5b704dba6c629cc2426cd, type: 3}
-      propertyPath: dammage
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1562851324, guid: b7b88e225fd5b704dba6c629cc2426cd, type: 3}
-      propertyPath: destroyOnPick
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1679183439, guid: b7b88e225fd5b704dba6c629cc2426cd, type: 3}
-      propertyPath: itemIcon
-      value: 
-      objectReference: {fileID: 21300000, guid: 641d1cfba47d2b04398e89afab1f3214,
-        type: 3}
-    - target: {fileID: 1679183439, guid: b7b88e225fd5b704dba6c629cc2426cd, type: 3}
-      propertyPath: itemName
-      value: Sickle
-      objectReference: {fileID: 0}
-    - target: {fileID: 1679183439, guid: b7b88e225fd5b704dba6c629cc2426cd, type: 3}
-      propertyPath: description
-      value: Sickle
-      objectReference: {fileID: 0}
-    - target: {fileID: 1679183439, guid: b7b88e225fd5b704dba6c629cc2426cd, type: 3}
-      propertyPath: load
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1679183439, guid: b7b88e225fd5b704dba6c629cc2426cd, type: 3}
-      propertyPath: toolFamily
-      value: sickle
-      objectReference: {fileID: 0}
-    - target: {fileID: 1679183439, guid: b7b88e225fd5b704dba6c629cc2426cd, type: 3}
-      propertyPath: destroyOnPick
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1696596121, guid: b7b88e225fd5b704dba6c629cc2426cd, type: 3}
-      propertyPath: itemType
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1696596121, guid: b7b88e225fd5b704dba6c629cc2426cd, type: 3}
-      propertyPath: itemIcon
-      value: 
-      objectReference: {fileID: 21300000, guid: 5baabf59aceb658409c476799c39d081,
-        type: 3}
-    - target: {fileID: 1696596121, guid: b7b88e225fd5b704dba6c629cc2426cd, type: 3}
-      propertyPath: itemName
-      value: Resource container
-      objectReference: {fileID: 0}
-    - target: {fileID: 1696596121, guid: b7b88e225fd5b704dba6c629cc2426cd, type: 3}
-      propertyPath: description
-      value: Resource container
-      objectReference: {fileID: 0}
-    - target: {fileID: 1696596121, guid: b7b88e225fd5b704dba6c629cc2426cd, type: 3}
-      propertyPath: load
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1851093951, guid: b7b88e225fd5b704dba6c629cc2426cd, type: 3}
-      propertyPath: itemIcon
-      value: 
-      objectReference: {fileID: 21300000, guid: fe8a4ca06c65dff45afca9163ea87ef2,
-        type: 3}
-    - target: {fileID: 1851093951, guid: b7b88e225fd5b704dba6c629cc2426cd, type: 3}
-      propertyPath: itemName
-      value: Axe
-      objectReference: {fileID: 0}
-    - target: {fileID: 1851093951, guid: b7b88e225fd5b704dba6c629cc2426cd, type: 3}
-      propertyPath: description
-      value: Axe
-      objectReference: {fileID: 0}
-    - target: {fileID: 1851093951, guid: b7b88e225fd5b704dba6c629cc2426cd, type: 3}
-      propertyPath: load
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1851093951, guid: b7b88e225fd5b704dba6c629cc2426cd, type: 3}
-      propertyPath: toolFamily
-      value: Axe
-      objectReference: {fileID: 0}
-    - target: {fileID: 1851093951, guid: b7b88e225fd5b704dba6c629cc2426cd, type: 3}
-      propertyPath: dammage
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1851093951, guid: b7b88e225fd5b704dba6c629cc2426cd, type: 3}
-      propertyPath: destroyOnPick
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1137484937387565492, guid: b7b88e225fd5b704dba6c629cc2426cd,
-        type: 3}
-      propertyPath: itemIcon
-      value: 
-      objectReference: {fileID: 21300000, guid: b758f38ab7a3f154bbd43366cf82b68e,
-        type: 3}
-    - target: {fileID: 1137484937387565492, guid: b7b88e225fd5b704dba6c629cc2426cd,
-        type: 3}
-      propertyPath: itemName
-      value: Hammer
-      objectReference: {fileID: 0}
-    - target: {fileID: 1137484937387565492, guid: b7b88e225fd5b704dba6c629cc2426cd,
-        type: 3}
-      propertyPath: description
-      value: Hammer
-      objectReference: {fileID: 0}
-    - target: {fileID: 1137484937387565492, guid: b7b88e225fd5b704dba6c629cc2426cd,
-        type: 3}
-      propertyPath: load
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1137484937387565492, guid: b7b88e225fd5b704dba6c629cc2426cd,
-        type: 3}
-      propertyPath: toolFamily
-      value: hammer
-      objectReference: {fileID: 0}
-    - target: {fileID: 1137484937387565492, guid: b7b88e225fd5b704dba6c629cc2426cd,
-        type: 3}
-      propertyPath: destroyOnPick
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2647851851828260796, guid: b7b88e225fd5b704dba6c629cc2426cd,
-        type: 3}
-      propertyPath: itemType
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2647851851828260796, guid: b7b88e225fd5b704dba6c629cc2426cd,
-        type: 3}
-      propertyPath: itemIcon
-      value: 
-      objectReference: {fileID: 21300000, guid: 5baabf59aceb658409c476799c39d081,
-        type: 3}
-    - target: {fileID: 2647851851828260796, guid: b7b88e225fd5b704dba6c629cc2426cd,
-        type: 3}
-      propertyPath: itemName
-      value: Resource container
-      objectReference: {fileID: 0}
-    - target: {fileID: 2647851851828260796, guid: b7b88e225fd5b704dba6c629cc2426cd,
-        type: 3}
-      propertyPath: description
-      value: Resource container
-      objectReference: {fileID: 0}
-    - target: {fileID: 2647851851828260796, guid: b7b88e225fd5b704dba6c629cc2426cd,
-        type: 3}
-      propertyPath: load
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3462427326419741398, guid: b7b88e225fd5b704dba6c629cc2426cd,
         type: 3}
       propertyPath: focusAgent
       value: 
       objectReference: {fileID: 274576173976662415}
-    - target: {fileID: 4212737622803592187, guid: b7b88e225fd5b704dba6c629cc2426cd,
-        type: 3}
-      propertyPath: itemIcon
-      value: 
-      objectReference: {fileID: 21300000, guid: a2da7c7036b869d46992e79cf505594a,
-        type: 3}
-    - target: {fileID: 4212737622803592187, guid: b7b88e225fd5b704dba6c629cc2426cd,
-        type: 3}
-      propertyPath: itemName
-      value: Pickaxe
-      objectReference: {fileID: 0}
-    - target: {fileID: 4212737622803592187, guid: b7b88e225fd5b704dba6c629cc2426cd,
-        type: 3}
-      propertyPath: description
-      value: Pickaxe
-      objectReference: {fileID: 0}
-    - target: {fileID: 4212737622803592187, guid: b7b88e225fd5b704dba6c629cc2426cd,
-        type: 3}
-      propertyPath: load
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4212737622803592187, guid: b7b88e225fd5b704dba6c629cc2426cd,
-        type: 3}
-      propertyPath: toolFamily
-      value: pickaxe
-      objectReference: {fileID: 0}
-    - target: {fileID: 4212737622803592187, guid: b7b88e225fd5b704dba6c629cc2426cd,
-        type: 3}
-      propertyPath: destroyOnPick
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6267983292437061018, guid: b7b88e225fd5b704dba6c629cc2426cd,
-        type: 3}
-      propertyPath: itemIcon
-      value: 
-      objectReference: {fileID: 21300000, guid: 641d1cfba47d2b04398e89afab1f3214,
-        type: 3}
-    - target: {fileID: 6267983292437061018, guid: b7b88e225fd5b704dba6c629cc2426cd,
-        type: 3}
-      propertyPath: itemName
-      value: Sickle
-      objectReference: {fileID: 0}
-    - target: {fileID: 6267983292437061018, guid: b7b88e225fd5b704dba6c629cc2426cd,
-        type: 3}
-      propertyPath: description
-      value: Sickle
-      objectReference: {fileID: 0}
-    - target: {fileID: 6267983292437061018, guid: b7b88e225fd5b704dba6c629cc2426cd,
-        type: 3}
-      propertyPath: load
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6267983292437061018, guid: b7b88e225fd5b704dba6c629cc2426cd,
-        type: 3}
-      propertyPath: toolFamily
-      value: sickle
-      objectReference: {fileID: 0}
-    - target: {fileID: 6267983292437061018, guid: b7b88e225fd5b704dba6c629cc2426cd,
-        type: 3}
-      propertyPath: destroyOnPick
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6429621278016649030, guid: b7b88e225fd5b704dba6c629cc2426cd,
-        type: 3}
-      propertyPath: itemIcon
-      value: 
-      objectReference: {fileID: 21300000, guid: fe8a4ca06c65dff45afca9163ea87ef2,
-        type: 3}
-    - target: {fileID: 6429621278016649030, guid: b7b88e225fd5b704dba6c629cc2426cd,
-        type: 3}
-      propertyPath: itemName
-      value: Axe
-      objectReference: {fileID: 0}
-    - target: {fileID: 6429621278016649030, guid: b7b88e225fd5b704dba6c629cc2426cd,
-        type: 3}
-      propertyPath: description
-      value: Axe
-      objectReference: {fileID: 0}
-    - target: {fileID: 6429621278016649030, guid: b7b88e225fd5b704dba6c629cc2426cd,
-        type: 3}
-      propertyPath: load
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6429621278016649030, guid: b7b88e225fd5b704dba6c629cc2426cd,
-        type: 3}
-      propertyPath: toolFamily
-      value: Axe
-      objectReference: {fileID: 0}
-    - target: {fileID: 6429621278016649030, guid: b7b88e225fd5b704dba6c629cc2426cd,
-        type: 3}
-      propertyPath: dammage
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6429621278016649030, guid: b7b88e225fd5b704dba6c629cc2426cd,
-        type: 3}
-      propertyPath: destroyOnPick
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7900350191113553080, guid: b7b88e225fd5b704dba6c629cc2426cd,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1180,6 +819,110 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6add71f39edb6f349aa36d2183af3525, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1192734689
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1192734690}
+  - component: {fileID: 1192734691}
+  m_Layer: 0
+  m_Name: Gold
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1192734690
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1192734689}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2140731928}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1192734691
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1192734689}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc294b115577e5640923a527d43838cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemType: 6
+  itemIcon: {fileID: 21300000, guid: 8ef5cb5e6b12d734b8cc741969c18c30, type: 3}
+  itemName: Gold
+  description: Gold ore
+  destroyOnPick: 1
+  load: 1
+  usable: 0
+  equipable: 0
+  resource: {fileID: 11400000, guid: 8baa19a425b30c0429db2adf531f2c48, type: 2}
+--- !u!1 &1485080164
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1485080165}
+  - component: {fileID: 1485080166}
+  m_Layer: 0
+  m_Name: Wheat
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1485080165
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1485080164}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2140731928}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1485080166
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1485080164}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc294b115577e5640923a527d43838cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemType: 6
+  itemIcon: {fileID: 21300000, guid: b949c4b2119e71647bbce01735ce0e3c, type: 3}
+  itemName: Wheat
+  description: Wheat seeds
+  destroyOnPick: 1
+  load: 1
+  usable: 1
+  equipable: 0
+  resource: {fileID: 11400000, guid: d4af26c023bb55a459b1db4a842f9c71, type: 2}
 --- !u!1001 &1494949704
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1594,6 +1337,58 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1634669978}
   m_Mesh: {fileID: 0}
+--- !u!1 &1676995603
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1676995604}
+  - component: {fileID: 1676995605}
+  m_Layer: 0
+  m_Name: Crystal
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1676995604
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1676995603}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2140731928}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1676995605
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1676995603}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc294b115577e5640923a527d43838cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemType: 6
+  itemIcon: {fileID: 21300000, guid: 3b65c8220b57abd468d4e575c4029d8c, type: 3}
+  itemName: Crystal
+  description: Crystal gems
+  destroyOnPick: 1
+  load: 1
+  usable: 0
+  equipable: 0
+  resource: {fileID: 11400000, guid: 5430c7978bbe5b241a231d3ad5cdbd0f, type: 2}
 --- !u!4 &1730088577 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7388010046171369696, guid: 62ba87b6c5e83aa4c8aa812d99a5b08c,
@@ -1816,6 +1611,58 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2119611780
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2119611781}
+  - component: {fileID: 2119611782}
+  m_Layer: 0
+  m_Name: Iron
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2119611781
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2119611780}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2140731928}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2119611782
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2119611780}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc294b115577e5640923a527d43838cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemType: 6
+  itemIcon: {fileID: 21300000, guid: 3009f72e96b635443ac2048ba0ca8d45, type: 3}
+  itemName: Iron
+  description: Iron ore
+  destroyOnPick: 1
+  load: 1
+  usable: 0
+  equipable: 0
+  resource: {fileID: 11400000, guid: fef4284cc04351145b123cb846d411c8, type: 2}
 --- !u!1 &2122021054
 GameObject:
   m_ObjectHideFlags: 0
@@ -1847,6 +1694,58 @@ Transform:
   m_Father: {fileID: 1782517016}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2140472351
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2140472352}
+  - component: {fileID: 2140472353}
+  m_Layer: 0
+  m_Name: Wood
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2140472352
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2140472351}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2140731928}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2140472353
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2140472351}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc294b115577e5640923a527d43838cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemType: 6
+  itemIcon: {fileID: 21300000, guid: 82324f3f354dd784c9ce1da961817825, type: 3}
+  itemName: Wood
+  description: Wood log
+  destroyOnPick: 1
+  load: 1
+  usable: 0
+  equipable: 0
+  resource: {fileID: 11400000, guid: 5a9f2fa798267e04eaaa98e17b84fa73, type: 2}
 --- !u!1 &2140731927
 GameObject:
   m_ObjectHideFlags: 0
@@ -1874,7 +1773,13 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 2140472352}
+  - {fileID: 1676995604}
+  - {fileID: 1192734690}
+  - {fileID: 2119611781}
+  - {fileID: 424928476}
+  - {fileID: 1485080165}
   m_Father: {fileID: 2104924699}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1897,6 +1802,13 @@ MonoBehaviour:
   - {fileID: 11400000, guid: ad68daf182956324b83441829afb85a1, type: 2}
   - {fileID: 11400000, guid: d4af26c023bb55a459b1db4a842f9c71, type: 2}
   - {fileID: 11400000, guid: 5a9f2fa798267e04eaaa98e17b84fa73, type: 2}
+  resourceItemList:
+  - {fileID: 2140472353}
+  - {fileID: 1676995605}
+  - {fileID: 1192734691}
+  - {fileID: 2119611782}
+  - {fileID: 424928477}
+  - {fileID: 1485080166}
 --- !u!1 &2143095233
 GameObject:
   m_ObjectHideFlags: 0
@@ -2490,19 +2402,9 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 390eb4f176b3565478948192b34354eb, type: 2}
     - target: {fileID: 9071642676792837776, guid: f55029c8223eb73428517297ea10028b,
         type: 3}
-      propertyPath: treeMaterials.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9071642676792837776, guid: f55029c8223eb73428517297ea10028b,
-        type: 3}
       propertyPath: grid
       value: 
       objectReference: {fileID: 495332764}
-    - target: {fileID: 9071642676792837776, guid: f55029c8223eb73428517297ea10028b,
-        type: 3}
-      propertyPath: treeMaterials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 75cde28193c4bd143be29b4916d1323a, type: 2}
     - target: {fileID: 9071642676792837777, guid: f55029c8223eb73428517297ea10028b,
         type: 3}
       propertyPath: m_Name

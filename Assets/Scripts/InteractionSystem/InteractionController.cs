@@ -247,7 +247,7 @@ public class InteractionController : MonoBehaviour
         foreach (Transform child in helpContainer.transform)
             Destroy(child.gameObject);
 
-        // create items to show and ple them
+        // create items to show and place them
         Vector3 position = new Vector3(-0.5f * helpSpacing * (interactionConditionList.Count - 1), 0, 0);
         foreach (KeyValuePair<string, string> entry in interactionConditionList)
         {
@@ -321,6 +321,7 @@ public class InteractionController : MonoBehaviour
                 {
                     interactionTime = 0f;
                     hoveredInteractor = null;
+                    animator.SetBool("interaction", false);
                 }
             }
             else if (lastInteraction == InteractionType.Type.destroyBuilding)
@@ -337,6 +338,7 @@ public class InteractionController : MonoBehaviour
                 {
                     interactionTime = 0f;
                     hoveredInteractor = null;
+                    animator.SetBool("interaction", false);
                 }
             }
         }
@@ -408,7 +410,7 @@ public class InteractionController : MonoBehaviour
         }            
         return true;        
     }
-    private bool EquipInteraction(InteractionType.Type type, GameObject interactor)
+    public bool EquipInteraction(InteractionType.Type type, GameObject interactor)
     {
         bool success = false;
         if (type == InteractionType.Type.pickableWeapon)
@@ -437,6 +439,11 @@ public class InteractionController : MonoBehaviour
             if (item && playerController.backpack.Equip(item.type))
                 success = true;
             playerController.needEquipementAnimationUpdate = true;
+
+            if(success)
+            {
+                inventory.capacity = item.capacity;
+            }
 
             if (ToolDictionary.instance.tools.ContainsKey(playerController.backpack.equipedItem.toolFamily))
             {
@@ -541,14 +548,16 @@ public class InteractionController : MonoBehaviour
         ResourceContainer storehouse = interactor.GetComponent<ResourceContainer>();
         if (storehouse)
         {
+            int resourceInInventory = 0;
             Dictionary<string, int> transfers = new Dictionary<string, int>();
             Dictionary<string, int> accepted = storehouse.GetAcceptance();
-            foreach (KeyValuePair<Item, int> entry in inventory.inventory)
+            foreach (KeyValuePair<SummarizedItem, int> entry in inventory.inventory)
             {
                 if (entry.Key.itemType == Item.ItemType.Resource)
                 {
-                    string resource = (entry.Key as ResourceItem).resource.name;
-                    if (accepted.Count == 0 || accepted.ContainsKey(resource))
+                    resourceInInventory++;
+                    string resource = ResourceDictionary.instance.GetResourceItem((InteractionType.Type)entry.Key.derivatedType).resource.name;
+                    if (accepted.Count != 0 && !accepted.ContainsKey(resource))
                         continue;
                     
                     int currentCount = storehouse.inventory.ContainsKey(resource) ? storehouse.inventory[resource] : 0;
@@ -566,7 +575,7 @@ public class InteractionController : MonoBehaviour
             if (transfers.Count != 0)
             {
                 foreach (KeyValuePair<string, int> entry in transfers)
-                    inventory.RemoveItem(ResourceItem.FromResourceName(entry.Key), entry.Value, false);
+                    inventory.RemoveItem(ResourceDictionary.instance.GetResourceItem(entry.Key).Summarize(), entry.Value, false);
                 inventory.UpdateContent();
                 playerController.RecomputeLoadFactor();
                 audiosource.clip = backpackClear;
@@ -581,15 +590,22 @@ public class InteractionController : MonoBehaviour
                 else
                 {
                     interactionConditionList.Clear();
-                    foreach (string acceptance in storehouse.acceptedResources)
+                    if (resourceInInventory == 0)
                     {
-                        string accName = acceptance;
-                        if (acceptance.Contains(" "))
+                        interactionConditionList.Add("Container", "empty");
+                    }
+                    else
+                    {
+                        foreach (string acceptance in storehouse.acceptedResources)
                         {
-                            char[] separator = { ' ' };
-                            accName = acceptance.Split(separator)[0];
+                            string accName = acceptance;
+                            if (acceptance.Contains(" "))
+                            {
+                                char[] separator = { ' ' };
+                                accName = acceptance.Split(separator)[0];
+                            }
+                            interactionConditionList.Add(accName, "nor");
                         }
-                        interactionConditionList.Add(accName, "nor");
                     }
                     UpdateHelp();
                 }
@@ -609,7 +625,7 @@ public class InteractionController : MonoBehaviour
             audiosource.Play();
         int gain = Random.Range(1, 4);
         interactionJuicer.LaunchGainAnim("+" + gain.ToString(), lastInteraction);
-        inventory.AddItem(ResourceItem.FromResourceData(resData), gain);
+        inventory.AddItem(ResourceDictionary.instance.GetResourceItem(resData.interactionType).Summarize(), gain);
         playerController.RecomputeLoadFactor();
 
         // decrement interactor ressource count
@@ -618,9 +634,10 @@ public class InteractionController : MonoBehaviour
         if (data.ressourceCount <= 0)
         {
             Destroy(hoveredInteractor.transform.parent.gameObject);
-            interactionTime = 0;
+            interactionTime = 0f;
             interacting = false;
             hoveredInteractor = null;
+            animator.SetBool("interaction", false);
         }
 
         // stop interaction loop if needed
@@ -644,6 +661,7 @@ public class InteractionController : MonoBehaviour
 
     private IEnumerator HelpTimer(float t)
     {
+        audiosource.clip = errorSound;
         audiosource.Play();
         helpContainer.SetActive(true);
         yield return new WaitForSeconds(t);

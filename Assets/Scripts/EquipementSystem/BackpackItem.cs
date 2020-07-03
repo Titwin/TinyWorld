@@ -16,7 +16,7 @@ public class BackpackItem : Item
     [Header("Backpack Item")]
     public Type type = Type.None;
     public string toolFamily = "None";
-
+    public int capacity;
     
 
     public void Clear()
@@ -25,11 +25,20 @@ public class BackpackItem : Item
         toolFamily = "None";
         load = 0f;
     }
+    public override SummarizedItem Summarize()
+    {
+        SummarizedItem sumItem = base.Summarize();
+        sumItem.derivatedType = (int)type;
+        return sumItem;
+    }
+
+
     public static void Copy(BackpackItem source, BackpackItem destination)
     {
         Item.Copy(source, destination);
         destination.type = source.type;
         destination.load = source.load;
         destination.toolFamily = source.toolFamily;
+        destination.capacity = source.capacity;
     }
 }

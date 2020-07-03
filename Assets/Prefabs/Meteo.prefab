@@ -124,11 +124,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 252ba2e0c0c1ccf43b39724f5c73060f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  windBase: {x: 0.8, y: 0, z: 0}
-  alpha1: 0.049
-  alpha2: 0.75
   snow: 0
-  leaves: 1
+  treeMaterials:
+  - {fileID: 2100000, guid: 75cde28193c4bd143be29b4916d1323a, type: 2}
+  grid: {fileID: 0}
 --- !u!114 &1125806269
 MonoBehaviour:
   m_ObjectHideFlags: 0
