@@ -2228,7 +2228,7 @@ Animator:
   m_GameObject: {fileID: 2416522123423375809}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 7d2ee18e23ef99c4dbe6c40764865159, type: 3}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6cea20b3fbc083e45bed42b83239ae70, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
@@ -2440,10 +2440,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e57ee26feb9b8934398ba63058093cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemType: 0
+  itemType: 3
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Cloth
+  description: Cloth
   destroyOnPick: 0
   load: 0
   usable: 0
@@ -2559,10 +2559,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e57ee26feb9b8934398ba63058093cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemType: 0
+  itemType: 3
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Cloth
+  description: Cloth
   destroyOnPick: 0
   load: 0
   usable: 0
@@ -2678,10 +2678,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e57ee26feb9b8934398ba63058093cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemType: 0
+  itemType: 3
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Cloth
+  description: Cloth
   destroyOnPick: 0
   load: 0
   usable: 0
@@ -2797,10 +2797,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e57ee26feb9b8934398ba63058093cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemType: 0
+  itemType: 3
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Cloth
+  description: Cloth
   destroyOnPick: 0
   load: 0
   usable: 0
@@ -2916,10 +2916,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e57ee26feb9b8934398ba63058093cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemType: 0
+  itemType: 3
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Armor
+  description: Light armor
   destroyOnPick: 0
   load: 0
   usable: 0
@@ -3035,10 +3035,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e57ee26feb9b8934398ba63058093cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemType: 0
+  itemType: 3
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Armor
+  description: Light armor
   destroyOnPick: 0
   load: 0
   usable: 0
@@ -3154,10 +3154,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e57ee26feb9b8934398ba63058093cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemType: 0
+  itemType: 3
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Cloth
+  description: Cloth
   destroyOnPick: 0
   load: 0
   usable: 0
@@ -3273,10 +3273,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e57ee26feb9b8934398ba63058093cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemType: 0
+  itemType: 3
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Armor
+  description: Light armor
   destroyOnPick: 0
   load: 2
   usable: 0
@@ -3392,10 +3392,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e57ee26feb9b8934398ba63058093cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemType: 0
+  itemType: 3
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Armor
+  description: Light armor
   destroyOnPick: 0
   load: 1
   usable: 0
@@ -3511,10 +3511,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e57ee26feb9b8934398ba63058093cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemType: 0
+  itemType: 3
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Armor
+  description: Light armor
   destroyOnPick: 0
   load: 1
   usable: 0
@@ -3630,10 +3630,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e57ee26feb9b8934398ba63058093cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemType: 0
+  itemType: 3
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Cloth
+  description: Cloth
   destroyOnPick: 0
   load: 0
   usable: 0
@@ -3749,10 +3749,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e57ee26feb9b8934398ba63058093cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemType: 0
+  itemType: 3
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Armor
+  description: Light armor
   destroyOnPick: 0
   load: 2
   usable: 0
@@ -3868,10 +3868,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e57ee26feb9b8934398ba63058093cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemType: 0
+  itemType: 3
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Armor
+  description: Light armor
   destroyOnPick: 0
   load: 2
   usable: 0
@@ -3987,10 +3987,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e57ee26feb9b8934398ba63058093cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemType: 0
+  itemType: 3
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Armor
+  description: Light armor
   destroyOnPick: 0
   load: 2
   usable: 0
@@ -4106,10 +4106,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e57ee26feb9b8934398ba63058093cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemType: 0
+  itemType: 3
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Armor
+  description: Light armor
   destroyOnPick: 0
   load: 2
   usable: 0
@@ -4225,10 +4225,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e57ee26feb9b8934398ba63058093cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemType: 0
+  itemType: 3
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Armor
+  description: Medium armor
   destroyOnPick: 0
   load: 3
   usable: 0
@@ -4344,10 +4344,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e57ee26feb9b8934398ba63058093cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemType: 0
+  itemType: 3
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Armor
+  description: Light armor
   destroyOnPick: 0
   load: 2
   usable: 0
@@ -4463,10 +4463,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e57ee26feb9b8934398ba63058093cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemType: 0
+  itemType: 3
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Armor
+  description: Light armor
   destroyOnPick: 0
   load: 2
   usable: 0
@@ -4582,10 +4582,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e57ee26feb9b8934398ba63058093cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemType: 0
+  itemType: 3
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Armor
+  description: Light armor
   destroyOnPick: 0
   load: 2
   usable: 0
@@ -4701,10 +4701,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e57ee26feb9b8934398ba63058093cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemType: 0
+  itemType: 3
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Armor
+  description: Medium armor
   destroyOnPick: 0
   load: 3
   usable: 0
@@ -4820,10 +4820,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e57ee26feb9b8934398ba63058093cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemType: 0
+  itemType: 3
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Armor
+  description: Medium armor
   destroyOnPick: 0
   load: 3
   usable: 0
@@ -4939,10 +4939,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e57ee26feb9b8934398ba63058093cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemType: 0
+  itemType: 3
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Armor
+  description: Medium armor
   destroyOnPick: 0
   load: 3
   usable: 0
@@ -5058,10 +5058,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e57ee26feb9b8934398ba63058093cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemType: 0
+  itemType: 3
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Armor
+  description: Medium armor
   destroyOnPick: 0
   load: 3
   usable: 0
@@ -5177,10 +5177,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e57ee26feb9b8934398ba63058093cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemType: 0
+  itemType: 3
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Armor
+  description: Medium armor
   destroyOnPick: 0
   load: 3
   usable: 0
@@ -5296,10 +5296,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e57ee26feb9b8934398ba63058093cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemType: 0
+  itemType: 3
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Armor
+  description: Medium armor
   destroyOnPick: 0
   load: 3
   usable: 0
@@ -5415,10 +5415,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e57ee26feb9b8934398ba63058093cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemType: 0
+  itemType: 3
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Armor
+  description: Medium armor
   destroyOnPick: 0
   load: 3
   usable: 0
@@ -5534,10 +5534,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e57ee26feb9b8934398ba63058093cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemType: 0
+  itemType: 3
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Armor
+  description: Medium armor
   destroyOnPick: 0
   load: 3
   usable: 0
@@ -5908,10 +5908,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e57ee26feb9b8934398ba63058093cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemType: 0
+  itemType: 3
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Armor
+  description: Heavy armor
   destroyOnPick: 0
   load: 5
   usable: 0
@@ -6027,10 +6027,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e57ee26feb9b8934398ba63058093cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemType: 0
+  itemType: 3
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Cloth
+  description: Cloth
   destroyOnPick: 0
   load: 0
   usable: 0
@@ -6239,10 +6239,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e57ee26feb9b8934398ba63058093cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemType: 0
+  itemType: 3
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Cloth
+  description: Cloth
   destroyOnPick: 0
   load: 1
   usable: 0
@@ -6358,10 +6358,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e57ee26feb9b8934398ba63058093cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemType: 0
+  itemType: 3
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Cloth
+  description: Cloth
   destroyOnPick: 0
   load: 1
   usable: 0
@@ -6654,10 +6654,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e57ee26feb9b8934398ba63058093cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemType: 0
+  itemType: 3
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Armor
+  description: Heavy armor
   destroyOnPick: 0
   load: 5
   usable: 0
@@ -6773,10 +6773,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e57ee26feb9b8934398ba63058093cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemType: 0
+  itemType: 3
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Armor
+  description: Heavy armor
   destroyOnPick: 0
   load: 5
   usable: 0
@@ -6892,10 +6892,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e57ee26feb9b8934398ba63058093cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemType: 0
+  itemType: 3
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Armor
+  description: Heavy armor
   destroyOnPick: 0
   load: 5
   usable: 0
@@ -7011,10 +7011,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e57ee26feb9b8934398ba63058093cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemType: 0
+  itemType: 3
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Armor
+  description: Heavy armor
   destroyOnPick: 0
   load: 5
   usable: 0
@@ -7130,10 +7130,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e57ee26feb9b8934398ba63058093cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemType: 0
+  itemType: 3
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Armor
+  description: Heavy armor
   destroyOnPick: 0
   load: 5
   usable: 0
@@ -7249,10 +7249,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e57ee26feb9b8934398ba63058093cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemType: 0
+  itemType: 3
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Armor
+  description: Heavy armor
   destroyOnPick: 0
   load: 5
   usable: 0
@@ -7368,10 +7368,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e57ee26feb9b8934398ba63058093cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemType: 0
+  itemType: 3
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Armor
+  description: Heavy armor
   destroyOnPick: 0
   load: 5
   usable: 0
@@ -7487,10 +7487,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e57ee26feb9b8934398ba63058093cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemType: 0
+  itemType: 3
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Armor
+  description: Heavy armor
   destroyOnPick: 0
   load: 5
   usable: 0
@@ -7606,10 +7606,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e57ee26feb9b8934398ba63058093cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemType: 0
+  itemType: 3
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Cloth
+  description: Default cloth
   destroyOnPick: 0
   load: 0
   usable: 0
@@ -7725,10 +7725,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e57ee26feb9b8934398ba63058093cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemType: 0
+  itemType: 3
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Cloth
+  description: Cloth
   destroyOnPick: 0
   load: 1
   usable: 0
@@ -7844,10 +7844,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e57ee26feb9b8934398ba63058093cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemType: 0
+  itemType: 3
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Cloth
+  description: Cloth
   destroyOnPick: 0
   load: 1
   usable: 0
@@ -7963,10 +7963,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e57ee26feb9b8934398ba63058093cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemType: 0
+  itemType: 3
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Cloth
+  description: Cloth
   destroyOnPick: 0
   load: 1
   usable: 0
@@ -8082,10 +8082,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e57ee26feb9b8934398ba63058093cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemType: 0
+  itemType: 3
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Cloth
+  description: Cloth
   destroyOnPick: 0
   load: 0
   usable: 0
@@ -8201,10 +8201,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e57ee26feb9b8934398ba63058093cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemType: 0
+  itemType: 3
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Cloth
+  description: Cloth
   destroyOnPick: 0
   load: 0
   usable: 0
@@ -9816,10 +9816,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f023f9bb730946946ad8e8271292384e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemType: 0
+  itemType: 7
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Horse
+  description: Horse
   destroyOnPick: 0
   load: 0
   usable: 0
@@ -9943,10 +9943,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f023f9bb730946946ad8e8271292384e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemType: 0
+  itemType: 7
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Horse
+  description: Horse
   destroyOnPick: 0
   load: 0
   usable: 0
@@ -10070,10 +10070,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f023f9bb730946946ad8e8271292384e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemType: 0
+  itemType: 7
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Horse
+  description: Horse
   destroyOnPick: 0
   load: 0
   usable: 0
@@ -10197,10 +10197,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f023f9bb730946946ad8e8271292384e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemType: 0
+  itemType: 7
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Horse
+  description: Horse
   destroyOnPick: 0
   load: 0
   usable: 0
@@ -10324,10 +10324,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f023f9bb730946946ad8e8271292384e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemType: 0
+  itemType: 7
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Horse
+  description: Horse
   destroyOnPick: 0
   load: 0
   usable: 0
@@ -10451,10 +10451,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f023f9bb730946946ad8e8271292384e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemType: 0
+  itemType: 7
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Horse
+  description: Horse
   destroyOnPick: 0
   load: 0
   usable: 0
@@ -10578,10 +10578,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f023f9bb730946946ad8e8271292384e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemType: 0
+  itemType: 7
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Horse
+  description: Horse
   destroyOnPick: 0
   load: 0
   usable: 0
@@ -10705,10 +10705,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f023f9bb730946946ad8e8271292384e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemType: 0
+  itemType: 7
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Horse
+  description: Horse
   destroyOnPick: 0
   load: 0
   usable: 0
@@ -10810,8 +10810,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 0
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Cavalry lance
+  description: Cavalry lance
   destroyOnPick: 0
   load: 5
   usable: 0
@@ -10917,8 +10917,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 0
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Cavalry lance
+  description: Cavalry lance
   destroyOnPick: 0
   load: 5
   usable: 0
@@ -11024,8 +11024,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 0
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Cavalry lance
+  description: Cavalry lance
   destroyOnPick: 0
   load: 3
   usable: 0
@@ -11131,8 +11131,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 0
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Cavalry spear
+  description: Cavalry spear
   destroyOnPick: 0
   load: 2
   usable: 0
@@ -12259,8 +12259,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 4
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Hat
+  description: Hat
   destroyOnPick: 0
   load: 0
   usable: 0
@@ -12361,8 +12361,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 4
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Hat
+  description: Hat
   destroyOnPick: 0
   load: 0
   usable: 0
@@ -12463,8 +12463,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 4
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Hat
+  description: Hat
   destroyOnPick: 0
   load: 0
   usable: 0
@@ -12566,8 +12566,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 4
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Horny helmet
+  description: Horny helmet
   destroyOnPick: 0
   load: 5
   usable: 0
@@ -12668,8 +12668,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 4
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Crown
+  description: Crown
   destroyOnPick: 0
   load: 1
   usable: 0
@@ -12770,8 +12770,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 4
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Crown
+  description: Crown
   destroyOnPick: 0
   load: 1
   usable: 0
@@ -12872,8 +12872,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 4
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Hat
+  description: Hat
   destroyOnPick: 0
   load: 0
   usable: 0
@@ -12974,8 +12974,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 4
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Hat
+  description: Hat
   destroyOnPick: 0
   load: 0
   usable: 0
@@ -13093,8 +13093,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 3
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Cloth
+  description: Cloth
   destroyOnPick: 0
   load: 1
   usable: 0
@@ -13196,8 +13196,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 4
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Crown
+  description: Crown
   destroyOnPick: 0
   load: 5
   usable: 0
@@ -13299,8 +13299,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 4
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Crown
+  description: Crown
   destroyOnPick: 0
   load: 2
   usable: 0
@@ -13402,8 +13402,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 4
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Crown
+  description: Crown
   destroyOnPick: 0
   load: 2
   usable: 0
@@ -13521,8 +13521,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 3
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Cloth
+  description: Cloth
   destroyOnPick: 0
   load: 1
   usable: 0
@@ -13624,8 +13624,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 4
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Sallet
+  description: Sallet
   destroyOnPick: 0
   load: 2
   usable: 0
@@ -13727,8 +13727,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 4
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Sallet
+  description: Sallet
   destroyOnPick: 0
   load: 2
   usable: 0
@@ -13830,8 +13830,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 4
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Sallet
+  description: Sallet
   destroyOnPick: 0
   load: 2
   usable: 0
@@ -13933,8 +13933,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 4
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Sallet
+  description: Sallet
   destroyOnPick: 0
   load: 2
   usable: 0
@@ -14036,8 +14036,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 4
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Sallet
+  description: Sallet
   destroyOnPick: 0
   load: 2
   usable: 0
@@ -14139,8 +14139,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 4
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Sallet
+  description: Sallet
   destroyOnPick: 0
   load: 3
   usable: 0
@@ -14242,8 +14242,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 4
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Sallet
+  description: Sallet
   destroyOnPick: 0
   load: 3
   usable: 0
@@ -14345,8 +14345,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 4
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Horny helmet
+  description: Horny helmet
   destroyOnPick: 0
   load: 2
   usable: 0
@@ -14448,8 +14448,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 4
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Bacinet
+  description: Bacinet
   destroyOnPick: 0
   load: 3
   usable: 0
@@ -14551,8 +14551,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 4
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Bacinet
+  description: Bacinet
   destroyOnPick: 0
   load: 3
   usable: 0
@@ -14654,8 +14654,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 4
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Horny helmet
+  description: Horny helmet
   destroyOnPick: 0
   load: 0
   usable: 0
@@ -14757,8 +14757,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 4
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Horny helmet
+  description: Horny helmet
   destroyOnPick: 0
   load: 0
   usable: 0
@@ -14860,8 +14860,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 4
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Helm
+  description: Helm
   destroyOnPick: 0
   load: 5
   usable: 0
@@ -14963,8 +14963,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 4
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Horny helmet
+  description: Horny helmet
   destroyOnPick: 0
   load: 5
   usable: 0
@@ -15066,8 +15066,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 4
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Helm
+  description: Helm
   destroyOnPick: 0
   load: 5
   usable: 0
@@ -15169,8 +15169,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 4
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Bacinet
+  description: Bacinet
   destroyOnPick: 0
   load: 3
   usable: 0
@@ -15272,8 +15272,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 4
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Horny helmet
+  description: Horny helmet
   destroyOnPick: 0
   load: 5
   usable: 0
@@ -15375,8 +15375,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 4
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Helm
+  description: Helm
   destroyOnPick: 0
   load: 5
   usable: 0
@@ -15478,8 +15478,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 4
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Helm
+  description: Helm
   destroyOnPick: 0
   load: 5
   usable: 0
@@ -15581,8 +15581,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 4
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Helm
+  description: Helm
   destroyOnPick: 0
   load: 5
   usable: 0
@@ -15684,8 +15684,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 4
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Bacinet
+  description: Bacinet
   destroyOnPick: 0
   load: 4
   usable: 0
@@ -15787,8 +15787,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 4
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Horny helmet
+  description: Horny helmet
   destroyOnPick: 0
   load: 5
   usable: 0
@@ -15890,8 +15890,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 4
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Helm
+  description: Helm
   destroyOnPick: 0
   load: 5
   usable: 0
@@ -15993,8 +15993,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 4
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Helm
+  description: Helm
   destroyOnPick: 0
   load: 5
   usable: 0
@@ -16096,8 +16096,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 4
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Helm
+  description: Helm
   destroyOnPick: 0
   load: 0
   usable: 0
@@ -16199,8 +16199,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 4
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Helm
+  description: Helm
   destroyOnPick: 0
   load: 5
   usable: 0
@@ -16302,8 +16302,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 4
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Helm
+  description: Helm
   destroyOnPick: 0
   load: 5
   usable: 0
@@ -16405,8 +16405,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 4
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Bacinet
+  description: Bacinet
   destroyOnPick: 0
   load: 4
   usable: 0
@@ -16508,8 +16508,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 4
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Horny helmet
+  description: Horny helmet
   destroyOnPick: 0
   load: 5
   usable: 0
@@ -16611,8 +16611,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 4
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Helm
+  description: Helm
   destroyOnPick: 0
   load: 5
   usable: 0
@@ -16714,8 +16714,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 4
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Helm
+  description: Helm
   destroyOnPick: 0
   load: 5
   usable: 0
@@ -16817,8 +16817,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 4
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Horny helmet
+  description: Horny helmet
   destroyOnPick: 0
   load: 5
   usable: 0
@@ -16920,15 +16920,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 1
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Quiver
+  description: Quiver
   destroyOnPick: 0
   load: 1
   usable: 0
   equipable: 1
   type: 2
   toolFamily: None
-  capacity: 0
+  capacity: 10
 --- !u!1 &7388010046170874242
 GameObject:
   m_ObjectHideFlags: 0
@@ -17024,15 +17024,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 1
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Quiver
+  description: Quiver
   destroyOnPick: 0
   load: 1
   usable: 0
   equipable: 1
   type: 1
   toolFamily: None
-  capacity: 0
+  capacity: 10
 --- !u!1 &7388010046170874244
 GameObject:
   m_ObjectHideFlags: 0
@@ -17127,8 +17127,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 0
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Great warrhammer
+  description: Great warrhammer
   destroyOnPick: 0
   load: 5
   usable: 0
@@ -17234,8 +17234,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 0
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Great sword
+  description: Great sword
   destroyOnPick: 0
   load: 5
   usable: 0
@@ -17340,8 +17340,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 4
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Head
+  description: Head
   destroyOnPick: 0
   load: 0
   usable: 0
@@ -17442,8 +17442,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 4
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Head
+  description: Head
   destroyOnPick: 0
   load: 0
   usable: 0
@@ -17544,8 +17544,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 4
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Head
+  description: Head
   destroyOnPick: 0
   load: 0
   usable: 0
@@ -17646,8 +17646,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 4
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Head
+  description: Default head
   destroyOnPick: 0
   load: 0
   usable: 0
@@ -17748,8 +17748,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 4
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Headband
+  description: Headband
   destroyOnPick: 0
   load: 0
   usable: 0
@@ -17850,8 +17850,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 4
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Headband
+  description: Headband
   destroyOnPick: 0
   load: 0
   usable: 0
@@ -17952,8 +17952,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 4
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Headband
+  description: Headband
   destroyOnPick: 0
   load: 0
   usable: 0
@@ -18054,8 +18054,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 4
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Head
+  description: Head
   destroyOnPick: 0
   load: 0
   usable: 0
@@ -18156,8 +18156,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 4
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Hood
+  description: Hood
   destroyOnPick: 0
   load: 0
   usable: 0
@@ -18258,8 +18258,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 4
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Headband
+  description: Headband
   destroyOnPick: 0
   load: 0
   usable: 0
@@ -18360,8 +18360,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 4
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Headband
+  description: Headband
   destroyOnPick: 0
   load: 0
   usable: 0
@@ -18462,8 +18462,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 4
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Headband
+  description: Headband
   destroyOnPick: 0
   load: 0
   usable: 0
@@ -18564,8 +18564,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 4
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Hood
+  description: Hood
   destroyOnPick: 0
   load: 0
   usable: 0
@@ -18666,8 +18666,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 4
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Hood
+  description: Hood
   destroyOnPick: 0
   load: 0
   usable: 0
@@ -18768,8 +18768,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 4
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Hood
+  description: Hood
   destroyOnPick: 0
   load: 0
   usable: 0
@@ -18870,8 +18870,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 4
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Hood
+  description: Hood
   destroyOnPick: 0
   load: 0
   usable: 0
@@ -18972,8 +18972,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 4
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Chainmail
+  description: Chainmail
   destroyOnPick: 0
   load: 1
   usable: 0
@@ -19074,8 +19074,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 4
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Chainmail
+  description: Chainmail
   destroyOnPick: 0
   load: 1
   usable: 0
@@ -19176,8 +19176,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 4
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Chainmail
+  description: Chainmail
   destroyOnPick: 0
   load: 1
   usable: 0
@@ -19278,8 +19278,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 4
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Chainmail
+  description: Chainmail
   destroyOnPick: 0
   load: 1
   usable: 0
@@ -19381,8 +19381,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 4
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Spangenhelm
+  description: Spangenhelm
   destroyOnPick: 0
   load: 1
   usable: 0
@@ -19484,8 +19484,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 4
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Spangenhelm
+  description: Spangenhelm
   destroyOnPick: 0
   load: 1
   usable: 0
@@ -19586,8 +19586,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 4
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Chainmail
+  description: Chainmail
   destroyOnPick: 0
   load: 1
   usable: 0
@@ -19688,8 +19688,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 4
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Chainmail
+  description: Chainmail
   destroyOnPick: 0
   load: 1
   usable: 0
@@ -19791,8 +19791,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 4
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Sallet
+  description: Sallet
   destroyOnPick: 0
   load: 2
   usable: 0
@@ -19894,8 +19894,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 4
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Sallet
+  description: Sallet
   destroyOnPick: 0
   load: 2
   usable: 0
@@ -19997,8 +19997,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 4
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Sallet
+  description: Sallet
   destroyOnPick: 0
   load: 2
   usable: 0
@@ -20100,8 +20100,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 4
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Spangenhelm
+  description: Spangenhelm
   destroyOnPick: 0
   load: 1
   usable: 0
@@ -20219,8 +20219,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 3
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Armor
+  description: Heavy armor
   destroyOnPick: 0
   load: 5
   usable: 0
@@ -20338,8 +20338,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 3
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Armor
+  description: Heavy armor
   destroyOnPick: 0
   load: 5
   usable: 0
@@ -20457,8 +20457,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 3
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Armor
+  description: Heavy armor
   destroyOnPick: 0
   load: 5
   usable: 0
@@ -20576,8 +20576,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 3
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Armor
+  description: Heavy armor
   destroyOnPick: 0
   load: 5
   usable: 0
@@ -20695,8 +20695,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 3
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Cloth
+  description: Cloth
   destroyOnPick: 0
   load: 1
   usable: 0
@@ -20814,8 +20814,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 3
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Cloth
+  description: Cloth
   destroyOnPick: 0
   load: 1
   usable: 0
@@ -20933,8 +20933,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 3
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Armor
+  description: Heavy armor
   destroyOnPick: 0
   load: 5
   usable: 0
@@ -21052,8 +21052,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 3
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Cloth
+  description: Cloth
   destroyOnPick: 0
   load: 0
   usable: 0
@@ -21171,8 +21171,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 3
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Cloth
+  description: Default cloth
   destroyOnPick: 0
   load: 0
   usable: 0
@@ -21290,8 +21290,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 3
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Cloth
+  description: Cloth
   destroyOnPick: 0
   load: 1
   usable: 0
@@ -21393,8 +21393,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 2
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Shield
+  description: Shield
   destroyOnPick: 0
   load: 3
   usable: 0
@@ -21496,8 +21496,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 2
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Shield
+  description: Shield
   destroyOnPick: 0
   load: 3
   usable: 0
@@ -21599,8 +21599,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 2
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Shield
+  description: Shield
   destroyOnPick: 0
   load: 3
   usable: 0
@@ -21718,8 +21718,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 3
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Cloth
+  description: Cloth
   destroyOnPick: 0
   load: 0
   usable: 0
@@ -21821,8 +21821,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 2
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Shield
+  description: Shield
   destroyOnPick: 0
   load: 3
   usable: 0
@@ -21924,8 +21924,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 2
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Shield
+  description: Shield
   destroyOnPick: 0
   load: 3
   usable: 0
@@ -22027,8 +22027,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 2
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Shield
+  description: Shield
   destroyOnPick: 0
   load: 3
   usable: 0
@@ -22130,8 +22130,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 2
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Shield
+  description: Shield
   destroyOnPick: 0
   load: 3
   usable: 0
@@ -22233,8 +22233,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 0
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Broad sword
+  description: Broad sword
   destroyOnPick: 0
   load: 1
   usable: 0
@@ -22339,8 +22339,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 0
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Axe
+  description: Axe, can cut trees
   destroyOnPick: 0
   load: 3
   usable: 0
@@ -22446,8 +22446,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 2
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Shield
+  description: Shield
   destroyOnPick: 0
   load: 4
   usable: 0
@@ -22549,8 +22549,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 2
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Shield
+  description: Shield
   destroyOnPick: 0
   load: 3
   usable: 0
@@ -22651,8 +22651,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 0
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Maul
+  description: Maul
   destroyOnPick: 0
   load: 2
   usable: 0
@@ -22757,8 +22757,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 0
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Mace
+  description: Mace
   destroyOnPick: 0
   load: 2
   usable: 0
@@ -22864,8 +22864,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 0
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Dagger
+  description: Dagger
   destroyOnPick: 0
   load: 1
   usable: 0
@@ -22971,8 +22971,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 0
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Crossbow
+  description: Crossbow
   destroyOnPick: 0
   load: 3
   usable: 0
@@ -23077,7 +23077,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 0
   itemIcon: {fileID: 0}
-  itemName: 
+  itemName: Great maul
   description: 
   destroyOnPick: 0
   load: 5
@@ -23184,8 +23184,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 0
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Sword
+  description: Sword
   destroyOnPick: 0
   load: 3
   usable: 0
@@ -23291,8 +23291,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 5
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Staff
+  description: Staff
   destroyOnPick: 0
   load: 2
   usable: 0
@@ -23397,8 +23397,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 0
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Short sword
+  description: Short sword
   destroyOnPick: 0
   load: 3
   usable: 0
@@ -23520,8 +23520,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 3
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Cloth
+  description: Cloth
   destroyOnPick: 0
   load: 0
   usable: 0
@@ -23639,8 +23639,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 3
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Armor
+  description: Light armor
   destroyOnPick: 0
   load: 2
   usable: 0
@@ -23758,8 +23758,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 3
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Armor
+  description: Light armor
   destroyOnPick: 0
   load: 1
   usable: 0
@@ -23877,8 +23877,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 3
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Armor
+  description: Light armor
   destroyOnPick: 0
   load: 1
   usable: 0
@@ -23996,8 +23996,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 3
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Cloth
+  description: Cloth
   destroyOnPick: 0
   load: 0
   usable: 0
@@ -24115,8 +24115,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 3
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Armor
+  description: Light armor
   destroyOnPick: 0
   load: 2
   usable: 0
@@ -24234,8 +24234,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 3
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Armor
+  description: Light armor
   destroyOnPick: 0
   load: 2
   usable: 0
@@ -24353,8 +24353,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 3
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Armor
+  description: Light armor
   destroyOnPick: 0
   load: 2
   usable: 0
@@ -24472,8 +24472,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 3
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Armor
+  description: Light armor
   destroyOnPick: 0
   load: 2
   usable: 0
@@ -24591,8 +24591,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 3
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Armor
+  description: Medium armor
   destroyOnPick: 0
   load: 3
   usable: 0
@@ -24710,8 +24710,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 3
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Armor
+  description: Light armor
   destroyOnPick: 0
   load: 2
   usable: 0
@@ -24829,8 +24829,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 3
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Armor
+  description: Light armor
   destroyOnPick: 0
   load: 2
   usable: 0
@@ -24948,8 +24948,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 3
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Armor
+  description: Light armor
   destroyOnPick: 0
   load: 2
   usable: 0
@@ -25067,8 +25067,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 3
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Armor
+  description: Medium armor
   destroyOnPick: 0
   load: 3
   usable: 0
@@ -25186,8 +25186,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 3
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Armor
+  description: Medium armor
   destroyOnPick: 0
   load: 3
   usable: 0
@@ -25305,8 +25305,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 3
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Armor
+  description: Medium armor
   destroyOnPick: 0
   load: 3
   usable: 0
@@ -25424,8 +25424,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 3
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Armor
+  description: Medium armor
   destroyOnPick: 0
   load: 3
   usable: 0
@@ -25543,8 +25543,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 3
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Armor
+  description: Medium armor
   destroyOnPick: 0
   load: 3
   usable: 0
@@ -25662,8 +25662,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 3
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Armor
+  description: Medium armor
   destroyOnPick: 0
   load: 3
   usable: 0
@@ -25781,8 +25781,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 3
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Armor
+  description: Medium armor
   destroyOnPick: 0
   load: 3
   usable: 0
@@ -25900,8 +25900,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 3
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Armor
+  description: Medium armor
   destroyOnPick: 0
   load: 3
   usable: 0
@@ -26019,8 +26019,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 3
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Armor
+  description: Heavy armor
   destroyOnPick: 0
   load: 5
   usable: 0
@@ -26138,8 +26138,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 3
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Armor
+  description: Heavy armor
   destroyOnPick: 0
   load: 5
   usable: 0
@@ -26257,8 +26257,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 3
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Armor
+  description: Heavy armor
   destroyOnPick: 0
   load: 5
   usable: 0
@@ -26376,8 +26376,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 3
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Armor
+  description: Heavy armor
   destroyOnPick: 0
   load: 5
   usable: 0
@@ -26495,8 +26495,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 3
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Cloth
+  description: Cloth
   destroyOnPick: 0
   load: 0
   usable: 0
@@ -26614,8 +26614,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 3
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Cloth
+  description: Cloth
   destroyOnPick: 0
   load: 0
   usable: 0
@@ -26733,8 +26733,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 3
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Cloth
+  description: Cloth
   destroyOnPick: 0
   load: 0
   usable: 0
@@ -26852,8 +26852,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 3
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Cloth
+  description: Cloth
   destroyOnPick: 0
   load: 0
   usable: 0
@@ -26971,8 +26971,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 3
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Armor
+  description: Light armor
   destroyOnPick: 0
   load: 0
   usable: 0
@@ -27090,8 +27090,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 3
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Armor
+  description: Light armor
   destroyOnPick: 0
   load: 0
   usable: 0
@@ -27209,8 +27209,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 3
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Cloth
+  description: Cloth
   destroyOnPick: 0
   load: 0
   usable: 0
@@ -27312,8 +27312,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 0
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Sword
+  description: Sword
   destroyOnPick: 0
   load: 3
   usable: 0
@@ -27419,8 +27419,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 5
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Staff
+  description: Staff
   destroyOnPick: 0
   load: 2
   usable: 0
@@ -27525,8 +27525,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 5
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Staff
+  description: Staff
   destroyOnPick: 0
   load: 2
   usable: 0
@@ -27631,8 +27631,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 5
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Staff
+  description: Staff
   destroyOnPick: 0
   load: 1
   usable: 0
@@ -27737,8 +27737,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 0
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Great club
+  description: Great club
   destroyOnPick: 0
   load: 4
   usable: 0
@@ -27844,8 +27844,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 0
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Claymore
+  description: Claymore
   destroyOnPick: 0
   load: 5
   usable: 0
@@ -27951,8 +27951,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 0
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Great axe
+  description: Great axe
   destroyOnPick: 0
   load: 5
   usable: 0
@@ -28058,8 +28058,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 0
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Great axe
+  description: Great axe
   destroyOnPick: 0
   load: 5
   usable: 0
@@ -28164,8 +28164,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 0
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Warrhammer
+  description: Warrhammer
   destroyOnPick: 0
   load: 3
   usable: 0
@@ -28270,8 +28270,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 0
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Great warrhammer
+  description: Great warrhammer
   destroyOnPick: 0
   load: 5
   usable: 0
@@ -28377,8 +28377,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 0
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Great sword
+  description: Great sword
   destroyOnPick: 0
   load: 5
   usable: 0
@@ -28483,7 +28483,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 0
   itemIcon: {fileID: 0}
-  itemName: 
+  itemName: Great maul
   description: 
   destroyOnPick: 0
   load: 5
@@ -28590,8 +28590,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 2
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Shield
+  description: Shield
   destroyOnPick: 0
   load: 2
   usable: 0
@@ -28693,8 +28693,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 2
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Shield
+  description: Shield
   destroyOnPick: 0
   load: 2
   usable: 0
@@ -28796,8 +28796,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 2
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Shield
+  description: Shield
   destroyOnPick: 0
   load: 2
   usable: 0
@@ -28899,8 +28899,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 2
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Shield
+  description: Shield
   destroyOnPick: 0
   load: 2
   usable: 0
@@ -29002,8 +29002,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 2
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Shield
+  description: Shield
   destroyOnPick: 0
   load: 3
   usable: 0
@@ -29105,8 +29105,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 2
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Shield
+  description: Shield
   destroyOnPick: 0
   load: 3
   usable: 0
@@ -29208,8 +29208,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 2
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Shield
+  description: Shield
   destroyOnPick: 0
   load: 3
   usable: 0
@@ -29311,8 +29311,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 2
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Shield
+  description: Shield
   destroyOnPick: 0
   load: 3
   usable: 0
@@ -29520,8 +29520,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 2
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Shield
+  description: Shield
   destroyOnPick: 0
   load: 4
   usable: 0
@@ -29623,8 +29623,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 2
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Shield
+  description: Shield
   destroyOnPick: 0
   load: 4
   usable: 0
@@ -29726,8 +29726,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 2
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Shield
+  description: Shield
   destroyOnPick: 0
   load: 3
   usable: 0
@@ -29828,8 +29828,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 0
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Bardiche
+  description: Bardiche
   destroyOnPick: 0
   load: 2
   usable: 0
@@ -29934,8 +29934,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 0
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Axe
+  description: Axe, can cut trees
   destroyOnPick: 0
   load: 3
   usable: 0
@@ -30040,8 +30040,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 0
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Axe
+  description: Axe, can cut trees
   destroyOnPick: 0
   load: 2
   usable: 0
@@ -30146,8 +30146,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 0
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Axe
+  description: Axe, can cut trees
   destroyOnPick: 0
   load: 2
   usable: 0
@@ -30253,8 +30253,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 0
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Dagger
+  description: Dagger
   destroyOnPick: 0
   load: 1
   usable: 0
@@ -30360,8 +30360,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 0
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Dagger
+  description: Dagger
   destroyOnPick: 0
   load: 1
   usable: 0
@@ -30467,8 +30467,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 0
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Crossbow
+  description: Crossbow
   destroyOnPick: 0
   load: 3
   usable: 0
@@ -30574,8 +30574,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 0
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Broad sword
+  description: Broad sword
   destroyOnPick: 0
   load: 1
   usable: 0
@@ -30681,8 +30681,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 5
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Long bow
+  description: Long bow
   destroyOnPick: 0
   load: 2
   usable: 0
@@ -30786,8 +30786,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 0
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Halberd
+  description: Halberd
   destroyOnPick: 0
   load: 2
   usable: 0
@@ -30892,8 +30892,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 0
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Glaive
+  description: Glaive
   destroyOnPick: 0
   load: 2
   usable: 0
@@ -30999,8 +30999,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 5
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Composit bow
+  description: Composit bow
   destroyOnPick: 0
   load: 1
   usable: 0
@@ -31104,8 +31104,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 0
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Pike
+  description: Pike
   destroyOnPick: 0
   load: 3
   usable: 0
@@ -31210,8 +31210,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 0
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Morning star
+  description: Morning star
   destroyOnPick: 0
   load: 2
   usable: 0
@@ -31316,8 +31316,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 0
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Mace
+  description: Mace
   destroyOnPick: 0
   load: 2
   usable: 0
@@ -31423,8 +31423,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 0
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Spear
+  description: Spear
   destroyOnPick: 0
   load: 2
   usable: 0
@@ -31530,8 +31530,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 0
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Short sword
+  description: Short sword
   destroyOnPick: 0
   load: 3
   usable: 0
@@ -31637,8 +31637,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 5
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Short bow
+  description: Short bow
   destroyOnPick: 0
   load: 1
   usable: 0
@@ -31742,8 +31742,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 0
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Sabre
+  description: Sabre
   destroyOnPick: 0
   load: 3
   usable: 0
@@ -31849,8 +31849,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 2
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Shield
+  description: Shield
   destroyOnPick: 0
   load: 2
   usable: 0
@@ -31952,8 +31952,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 2
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Shield
+  description: Shield
   destroyOnPick: 0
   load: 2
   usable: 0
@@ -32055,8 +32055,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 2
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Shield
+  description: Shield
   destroyOnPick: 0
   load: 1
   usable: 0
@@ -32940,8 +32940,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 0
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Club
+  description: Club
   destroyOnPick: 0
   load: 1
   usable: 0
@@ -33152,8 +33152,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 0
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Maul
+  description: Maul
   destroyOnPick: 0
   load: 2
   usable: 0

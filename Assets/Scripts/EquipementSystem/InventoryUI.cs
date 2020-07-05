@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -25,6 +23,7 @@ public class InventoryUI : MonoBehaviour
     public LayerMask dropMask;
 
     [Header("Linking equipement")]
+    public RectTransform equipementRect;
     public InventoryIcon equipedHead;
     public InventoryIcon equipedBody;
     public InventoryIcon equipedWeapon;
@@ -69,6 +68,7 @@ public class InventoryUI : MonoBehaviour
 
     void Update()
     {
+        // inventory
         if (Input.GetKeyDown(inventoryKey))
             viewer.SetActive(!viewer.activeSelf);
         activated = viewer.activeSelf;
@@ -93,6 +93,11 @@ public class InventoryUI : MonoBehaviour
         if (dragging && RectTransformUtility.RectangleContainsScreenPoint(trash.transform as RectTransform, Input.mousePosition)) // destroy item
             trash.border.color = hoveredBorderColor;
         else trash.border.color = trashDefaultColor;
+
+        // equipement
+        armorCount.text = PlayerController.MainInstance.GetArmor().ToString();
+        loadCount.text = PlayerController.MainInstance.GetLoad().ToString();
+        dammageCount.text = PlayerController.MainInstance.GetDammage().ToString();
     }
 
     public void OnEnable()
@@ -124,10 +129,11 @@ public class InventoryUI : MonoBehaviour
         // inventory
         ClearIcons();
         Vector2Int indexes = Vector2Int.zero;
-        foreach(KeyValuePair<SummarizedItem, int> entry in inventory.inventory)
+        Item item = null;
+        foreach (KeyValuePair<SummarizedItem, int> entry in inventory.inventory)
         {
             // assign data
-            Item item = GetItem(entry.Key);
+            item = GetItem(entry.Key);
             InventoryIcon icon = GetIcon();
             icon.transform.localPosition = startPosition + new Vector3(indexes.x * spacing.x, indexes.y * spacing.y, 0);
             icon.icon.sprite = (item.itemIcon == null ? errorIcon : item.itemIcon);
@@ -152,9 +158,31 @@ public class InventoryUI : MonoBehaviour
         loadCapacity.text = inventory.load.ToString() + "/" + inventory.capacity.ToString();
 
         // equipement
-        armorCount.text = PlayerController.MainInstance.GetArmor().ToString();
-        loadCount.text = PlayerController.MainInstance.GetLoad().ToString();
-        dammageCount.text = PlayerController.MainInstance.GetDammage().ToString();
+        PlayerController player = PlayerController.MainInstance;
+        equipedBackpack.item = player.backpack.equipedItem.Summarize();
+        equipedBody.item = player.body.equipedItem.Summarize();
+        equipedHead.item = player.head.equipedItem.Summarize();
+        if (player.horse != null)
+        {
+            equipedHorse.item = player.horse.equipedItem.Summarize();
+        }
+        else
+        {
+            equipedHorse.item.itemType = Item.ItemType.Horse;
+            equipedHorse.item.derivatedType = 0;
+            equipedHorse.item.load = 0f;
+        }
+        equipedSecond.item = player.secondHand.equipedItem.Summarize();
+        equipedWeapon.item = player.weapon.equipedItem.Summarize();
+        equipedShield.item = player.shield.equipedItem.Summarize();
+
+        InitEquiped(equipedBackpack);
+        InitEquiped(equipedBody);
+        InitEquiped(equipedHead);
+        InitEquiped(equipedHorse);
+        InitEquiped(equipedSecond);
+        InitEquiped(equipedWeapon);
+        InitEquiped(equipedShield);
     }
 
     private InventoryIcon GetIcon()
@@ -204,57 +232,147 @@ public class InventoryUI : MonoBehaviour
         {
             Debug.Log("Use item " + icon.name);
             inventory.RemoveItem(icon.item, 1, true);
+            PlayerController.MainInstance.RecomputeLoadFactor();
         }
         else if(item && item.equipable && Input.GetMouseButtonUp(1))
         {
             PlayerController player = PlayerController.MainInstance;
-            if (icon.item.itemType == Item.ItemType.Weapon)
+
+            if (IsEquipementIcon(icon)) // unequip
             {
-                Item old = Arsenal.Instance.Get(player.weapon.equipedItem.type, false);
-                if(old) inventory.AddItem(old.Summarize(), 1);
-                player.interactionController.EquipInteraction(InteractionType.Type.pickableWeapon, item.gameObject);
+                if (icon.item.itemType == Item.ItemType.Weapon)
+                {
+                    if (player.weapon.equipedItem.type != WeaponItem.Type.None)
+                    {
+                        Item old = Arsenal.Instance.Get(player.weapon.equipedItem.type, false);
+                        if (old) inventory.AddItem(old.Summarize(), 1);
+                        if (ToolDictionary.instance.tools.ContainsKey(player.weapon.equipedItem.toolFamily))
+                            FinishedUnequip(player, GetRandom(ToolDictionary.instance.tools[player.weapon.equipedItem.toolFamily].collectionSound));
+                        player.weapon.Equip(WeaponItem.Type.None);
+                    }
+                }
+                else if (icon.item.itemType == Item.ItemType.Backpack)
+                {
+                    if (player.backpack.equipedItem.type != BackpackItem.Type.None)
+                    {
+                        Item old = Arsenal.Instance.Get(player.backpack.equipedItem.type, false);
+                        if (old) inventory.AddItem(old.Summarize(), 1);
+                        if(ToolDictionary.instance.tools.ContainsKey(player.backpack.equipedItem.toolFamily))
+                            FinishedUnequip(player, GetRandom(ToolDictionary.instance.tools[player.backpack.equipedItem.toolFamily].collectionSound));
+                        player.backpack.Equip(BackpackItem.Type.None);
+                    }
+                }
+                else if (icon.item.itemType == Item.ItemType.Body)
+                {
+                    if (!player.body.equipedItem.IsDefault())
+                    {
+                        Item old = Arsenal.Instance.Get(player.body.equipedItem.type, false, false);
+                        if (old) inventory.AddItem(old.Summarize(), 1);
+                        FinishedUnequip(player, player.interactionController.wearBody[Mathf.Clamp((int)BodyItem.getCategory(player.body.equipedItem.type), 0, player.interactionController.wearBody.Count - 1)]);
+                        player.body.Equip(BodyItem.defaultType, player.horse ? player.horse.equipedItem.type != HorseItem.Type.None : false);
+                    }
+                }
+                else if (icon.item.itemType == Item.ItemType.Head)
+                {
+                    if (!player.head.equipedItem.IsDefault())
+                    {
+                        Item old = Arsenal.Instance.Get(player.head.equipedItem.type, false);
+                        if (old) inventory.AddItem(old.Summarize(), 1);
+                        FinishedUnequip(player, player.interactionController.wearHead[Mathf.Clamp((int)HeadItem.getCategory(player.head.equipedItem.type), 0, player.interactionController.wearHead.Count - 1)]);
+                        player.head.Equip(HeadItem.defaultType);
+                    }
+                }
+                else if (icon.item.itemType == Item.ItemType.Horse)
+                {
+                    if (player.horse && player.horse.equipedItem.type != HorseItem.Type.None)
+                    {
+                        Item old = Arsenal.Instance.Get(player.horse.equipedItem.type, false);
+                        if (old)
+                        {
+                            GameObject dropped = InstanciatePickable(icon.item);
+                            dropped.transform.position = player.transform.position + Vector3.right;
+                            MapModifier.instance.grid.AddGameObject(dropped, ConstructionLayer.LayerType.Decoration, false, false);
+                        }
+                        player.interactionController.Unmount();
+                    }
+                }
+                else if (icon.item.itemType == Item.ItemType.Second)
+                {
+                    if (player.secondHand.equipedItem.type != SecondItem.Type.None)
+                    {
+                        Item old = Arsenal.Instance.Get(player.secondHand.equipedItem.type, false);
+                        if (old) inventory.AddItem(old.Summarize(), 1);
+                        FinishedUnequip(player, GetRandom(ToolDictionary.instance.tools["Hammer"].collectionSound));
+                        player.secondHand.Equip(SecondItem.Type.None);
+                    }
+                }
+                else if (icon.item.itemType == Item.ItemType.Shield)
+                {
+                    if (player.shield.equipedItem.type != ShieldItem.Type.None)
+                    {
+                        Item old = Arsenal.Instance.Get(player.shield.equipedItem.type, false);
+                        if (old) inventory.AddItem(old.Summarize(), 1);
+                        FinishedUnequip(player, player.interactionController.wearHead[Mathf.Clamp((int)HeadItem.Category.Medium, 0, player.interactionController.wearHead.Count - 1)]);
+                        player.shield.Equip(ShieldItem.Type.None);
+                    }
+                }
+                else
+                {
+                    Debug.LogWarning("No equip methode for this type of object " + icon.item.itemType.ToString());
+                }
             }
-            else if (icon.item.itemType == Item.ItemType.Backpack)
+            else // equip
             {
-                Item old = Arsenal.Instance.Get(player.backpack.equipedItem.type, false);
-                if (old) inventory.AddItem(old.Summarize(), 1);
-                player.interactionController.EquipInteraction(InteractionType.Type.pickableBackpack, item.gameObject);
+                if (icon.item.itemType == Item.ItemType.Weapon)
+                {
+                    Item old = Arsenal.Instance.Get(player.weapon.equipedItem.type, false);
+                    if (old) inventory.AddItem(old.Summarize(), 1);
+                    player.interactionController.EquipInteraction(InteractionType.Type.pickableWeapon, item.gameObject);
+                }
+                else if (icon.item.itemType == Item.ItemType.Backpack)
+                {
+                    Item old = Arsenal.Instance.Get(player.backpack.equipedItem.type, false);
+                    if (old) inventory.AddItem(old.Summarize(), 1);
+                    player.interactionController.EquipInteraction(InteractionType.Type.pickableBackpack, item.gameObject);
+                }
+                else if (icon.item.itemType == Item.ItemType.Body)
+                {
+                    Item old = Arsenal.Instance.Get(player.body.equipedItem.type, false, false);
+                    if (old && !player.body.equipedItem.IsDefault()) inventory.AddItem(old.Summarize(), 1);
+                    player.interactionController.EquipInteraction(InteractionType.Type.pickableBody, item.gameObject);
+                }
+                else if (icon.item.itemType == Item.ItemType.Head)
+                {
+                    Item old = Arsenal.Instance.Get(player.head.equipedItem.type, false);
+                    if (old && !player.head.equipedItem.IsDefault()) inventory.AddItem(old.Summarize(), 1);
+                    player.interactionController.EquipInteraction(InteractionType.Type.pickableHead, item.gameObject);
+                }
+                else if (icon.item.itemType == Item.ItemType.Horse)
+                {
+                    Item old = Arsenal.Instance.Get(player.horse.equipedItem.type, false);
+                    if (old) inventory.AddItem(old.Summarize(), 1);
+                    player.interactionController.EquipInteraction(InteractionType.Type.pickableHorse, item.gameObject);
+                }
+                else if (icon.item.itemType == Item.ItemType.Second)
+                {
+                    Item old = Arsenal.Instance.Get(player.secondHand.equipedItem.type, false);
+                    if (old) inventory.AddItem(old.Summarize(), 1);
+                    player.interactionController.EquipInteraction(InteractionType.Type.pickableSecond, item.gameObject);
+                }
+                else if (icon.item.itemType == Item.ItemType.Shield)
+                {
+                    Item old = Arsenal.Instance.Get(player.shield.equipedItem.type, false);
+                    if (old) inventory.AddItem(old.Summarize(), 1);
+                    player.interactionController.EquipInteraction(InteractionType.Type.pickableShield, item.gameObject);
+                }
+                else
+                {
+                    Debug.LogWarning("No equip methode for this type of object " + icon.item.itemType.ToString());
+                }
+                inventory.RemoveItem(icon.item, 1, true);
             }
-            else if (icon.item.itemType == Item.ItemType.Body)
-            {
-                Item old = Arsenal.Instance.Get(player.body.equipedItem.type, false, false);
-                if (old) inventory.AddItem(old.Summarize(), 1);
-                player.interactionController.EquipInteraction(InteractionType.Type.pickableBody, item.gameObject);
-            }
-            else if (icon.item.itemType == Item.ItemType.Head)
-            {
-                Item old = Arsenal.Instance.Get(player.head.equipedItem.type, false);
-                if (old) inventory.AddItem(old.Summarize(), 1);
-                player.interactionController.EquipInteraction(InteractionType.Type.pickableHead, item.gameObject);
-            }
-            else if (icon.item.itemType == Item.ItemType.Horse)
-            {
-                Item old = Arsenal.Instance.Get(player.horse.equipedItem.type, false);
-                if (old) inventory.AddItem(old.Summarize(), 1);
-                player.interactionController.EquipInteraction(InteractionType.Type.pickableHorse, item.gameObject);
-            }
-            else if (icon.item.itemType == Item.ItemType.Second)
-            {
-                Item old = Arsenal.Instance.Get(player.secondHand.equipedItem.type, false);
-                if (old) inventory.AddItem(old.Summarize(), 1);
-                player.interactionController.EquipInteraction(InteractionType.Type.pickableSecond, item.gameObject);
-            }
-            else if (icon.item.itemType == Item.ItemType.Shield)
-            {
-                Item old = Arsenal.Instance.Get(player.shield.equipedItem.type, false);
-                if (old) inventory.AddItem(old.Summarize(), 1);
-                player.interactionController.EquipInteraction(InteractionType.Type.pickableShield, item.gameObject);
-            }
-            else
-            {
-                Debug.LogWarning("No equip methode for this type of object " + icon.item.itemType.ToString());
-            }
-            inventory.RemoveItem(icon.item, 1, true);
+
+            player.RecomputeLoadFactor();
         }
     }
     public void OnIconPointerEnter(InventoryIcon icon)
@@ -262,14 +380,23 @@ public class InventoryUI : MonoBehaviour
         if (icon != trash)
         {
             icon.border.color = hoveredBorderColor;
-
             helpPanel.SetActive(true);
 
             Item item = GetItem(icon.item);
-            helpDescription.text = item.description;
-            useHelp.SetActive(item.usable);
-            equipHelp.SetActive(item.equipable);
-            //unequipHelp.SetActive(item.equipable);
+            if (item)
+            {
+                helpDescription.text = item.description;
+                useHelp.SetActive(item.usable);
+                equipHelp.SetActive(item.equipable && !IsEquipementIcon(icon));
+                unequipHelp.SetActive(IsEquipementIcon(icon) && !IsDefault(icon.item));
+            }
+            else
+            {
+                helpDescription.text = "empty slot";
+                useHelp.SetActive(false);
+                equipHelp.SetActive(false);
+                unequipHelp.SetActive(false);
+            }
         }
     }
     public void OnIconPointerExit(InventoryIcon icon)
@@ -279,7 +406,7 @@ public class InventoryUI : MonoBehaviour
     }
     public void OnIconDrag(InventoryIcon icon)
     {
-        if (icon != trash)
+        if (icon != trash && !IsEquipementIcon(icon))
         {
             icon.border.enabled = false;
             icon.text.enabled = false;
@@ -290,7 +417,7 @@ public class InventoryUI : MonoBehaviour
     }
     public void OnIconEndDrag(InventoryIcon icon)
     {
-        if (icon != trash)
+        if (icon != trash && !IsEquipementIcon(icon))
         {
             icon.border.enabled = true;
             icon.text.enabled = true;
@@ -348,24 +475,66 @@ public class InventoryUI : MonoBehaviour
         switch(si.itemType)
         {
             case Item.ItemType.Backpack:
-                return Arsenal.Instance.Get((BackpackItem.Type)si.derivatedType);
+                return Arsenal.Instance.Get((BackpackItem.Type)si.derivatedType, false);
             case Item.ItemType.Body:
-                return Arsenal.Instance.Get((BodyItem.Type)si.derivatedType, false);
+                return Arsenal.Instance.Get((BodyItem.Type)si.derivatedType, false, false);
             case Item.ItemType.Head:
-                return Arsenal.Instance.Get((HeadItem.Type)si.derivatedType);
+                return Arsenal.Instance.Get((HeadItem.Type)si.derivatedType, false);
             case Item.ItemType.Horse:
-                return Arsenal.Instance.Get((HorseItem.Type)si.derivatedType);
+                return Arsenal.Instance.Get((HorseItem.Type)si.derivatedType, false);
             case Item.ItemType.Resource:
                 return ResourceDictionary.instance.GetResourceItem((InteractionType.Type)si.derivatedType);
             case Item.ItemType.Second:
-                return Arsenal.Instance.Get((SecondItem.Type)si.derivatedType);
+                return Arsenal.Instance.Get((SecondItem.Type)si.derivatedType, false);
             case Item.ItemType.Shield:
-                return Arsenal.Instance.Get((ShieldItem.Type)si.derivatedType);
+                return Arsenal.Instance.Get((ShieldItem.Type)si.derivatedType, false);
             case Item.ItemType.Weapon:
-                return Arsenal.Instance.Get((WeaponItem.Type)si.derivatedType);
+                return Arsenal.Instance.Get((WeaponItem.Type)si.derivatedType, false);
             default:
                 Debug.LogError("Unsuported Item type : " + si.itemType.ToString());
                 return null;
+        }
+    }
+    private bool IsEquipementIcon(InventoryIcon icon)
+    {
+        return (icon == equipedBody) || (icon == equipedHead) || (icon == equipedHorse) || (icon == equipedSecond) || (icon == equipedShield) || (icon == equipedWeapon) || (icon == equipedBackpack);
+    }
+    private bool IsDefault(SummarizedItem si)
+    {
+        if (si.itemType == Item.ItemType.Body && si.derivatedType == (int)BodyItem.defaultType) return true;
+        else if (si.itemType == Item.ItemType.Head && si.derivatedType == (int)HeadItem.defaultType) return true;
+        else return false;
+    }
+    private void FinishedUnequip(PlayerController player, AudioClip sfx)
+    {
+        player.needEquipementAnimationUpdate = true;
+        if (sfx)
+        {
+            player.audiosource.clip = sfx;
+            player.audiosource.Play();
+        }
+    }
+    private AudioClip GetRandom(List<AudioClip> sounds)
+    {
+        return sounds[Random.Range(0, sounds.Count)];
+    }
+    private void InitEquiped(InventoryIcon icon)
+    {
+        Item item = GetItem(icon.item);
+        if (item)
+        {
+            icon.icon.enabled = true;
+            icon.icon.sprite = (item.itemIcon == null ? errorIcon : item.itemIcon);
+            icon.icon.color = Color.white;
+            if (icon.text)
+                icon.text.text = "";
+        }
+        else
+        {
+            icon.icon.enabled = false;
+            icon.icon.color = Color.white;
+            if (icon.text)
+                icon.text.text = "";
         }
     }
 }

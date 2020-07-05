@@ -24,6 +24,7 @@ public class BackpackItem : Item
         type = Type.None;
         toolFamily = "None";
         load = 0f;
+        capacity = 10;
     }
     public override SummarizedItem Summarize()
     {

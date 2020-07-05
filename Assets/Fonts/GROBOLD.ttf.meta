@@ -12,7 +12,7 @@ TrueTypeFontImporter:
   fontNames:
   - GROBOLD
   fallbackFontReferences:
-  - {fileID: 12800000, guid: 0cf1c1f643f68554f88038212d6b92e4, type: 3}
+  - {instanceID: 0}
   customCharacters: 
   fontRenderingMode: 0
   ascentCalculationMode: 1

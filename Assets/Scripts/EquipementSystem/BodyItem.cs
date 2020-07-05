@@ -21,6 +21,7 @@ public class BodyItem : Item
     {
         Cloth, Light, Medium, Heavy
     };
+    static public Type defaultType = Type.NeckedA;
 
     [Header("Body Item")]
     public Type type = Type.None;
@@ -38,6 +39,10 @@ public class BodyItem : Item
         SummarizedItem sumItem = base.Summarize();
         sumItem.derivatedType = (int)type;
         return sumItem;
+    }
+    public bool IsDefault()
+    {
+        return type == defaultType;
     }
 
 

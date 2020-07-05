@@ -74,7 +74,7 @@ public class Inventory : MonoBehaviour
 
     public float RecomputeLoad()
     {
-        load = 0;
+        load = 0f;
         foreach (KeyValuePair<SummarizedItem, int> entry in inventory)
         {
             load += entry.Value * entry.Key.load;

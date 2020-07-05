@@ -434,6 +434,8 @@ MonoBehaviour:
   description: 
   destroyOnPick: 0
   load: 0
+  usable: 0
+  equipable: 1
   type: 0
   forbidWeapon: 0
   forbidShield: 0
@@ -727,6 +729,8 @@ MonoBehaviour:
   description: 
   destroyOnPick: 0
   load: 0
+  usable: 0
+  equipable: 1
   type: 0
   armor: 0
 --- !u!1 &5129174679746514465
@@ -2152,6 +2156,8 @@ MonoBehaviour:
   description: 
   destroyOnPick: 0
   load: 0
+  usable: 0
+  equipable: 1
   type: 0
   toolFamily: None
   forbidSecond: 0
@@ -7418,12 +7424,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f023f9bb730946946ad8e8271292384e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemType: 0
+  itemType: 7
   itemIcon: {fileID: 0}
-  itemName: 
-  description: 
+  itemName: Horse
+  description: Horse
   destroyOnPick: 0
   load: 0
+  usable: 0
+  equipable: 1
   type: 1
   armor: 0
 --- !u!1 &8701042372526830038
@@ -7525,8 +7533,11 @@ MonoBehaviour:
   description: 
   destroyOnPick: 0
   load: 0
+  usable: 0
+  equipable: 1
   type: 0
   toolFamily: None
+  capacity: 0
 --- !u!1 &8701042372526833342
 GameObject:
   m_ObjectHideFlags: 0
@@ -7642,6 +7653,8 @@ MonoBehaviour:
   description: 
   destroyOnPick: 0
   load: 0
+  usable: 0
+  equipable: 1
   type: 10
   armor: 0
 --- !u!1 &8701042372526833348
@@ -8214,6 +8227,8 @@ MonoBehaviour:
   description: 
   destroyOnPick: 0
   load: 0
+  usable: 0
+  equipable: 1
   type: 1
   armor: 0
 --- !u!1 &8701042372526833392

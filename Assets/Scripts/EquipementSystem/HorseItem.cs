@@ -30,6 +30,7 @@ public class HorseItem : Item
 
     public static void Copy(HorseItem source, HorseItem destination)
     {
+        Item.Copy(source, destination);
         destination.type = source.type;
         destination.load = source.load;
         destination.armor = source.armor;

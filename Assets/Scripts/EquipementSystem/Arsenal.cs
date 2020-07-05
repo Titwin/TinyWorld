@@ -303,8 +303,8 @@ public class Arsenal : MonoBehaviour
     }
     public GameObject GetPickable(BodyItem.Type type, bool showName = false, bool destroyOnPick = true)
     {
-        BodyItem weaponItem = Get(type, false);
-        if (!weaponItem)
+        BodyItem item = Get(type, false);
+        if (!item)
             return null;
 
         GameObject go = Instantiate(pickablePrefab.gameObject);
@@ -314,17 +314,20 @@ public class Arsenal : MonoBehaviour
         go.transform.localRotation = Quaternion.identity;
         go.transform.localScale = Vector3.one;
         go.AddComponent<InteractionType>().type = InteractionType.Type.pickableBody;
-        BodyItem.Copy(weaponItem, go.AddComponent<BodyItem>());
+        BodyItem.Copy(item, go.AddComponent<BodyItem>());
         go.SetActive(true);
 
-        MeshFilter mf = weaponItem.gameObject.GetComponent<MeshFilter>();
+        SkinnedMeshRenderer skin = item.gameObject.GetComponent<SkinnedMeshRenderer>();
         SpecialPickableShopArsenal pickable = go.GetComponent<SpecialPickableShopArsenal>();
         pickable.textmesh.text = go.name;
         if (go.name.Length >= 8)
             pickable.textmesh.characterSize *= 0.5f;
-        if (mf) pickable.itemMesh.mesh = mf.mesh;
-        else pickable.itemMesh.gameObject.SetActive(false);
-        pickable.body.gameObject.SetActive(false);
+        pickable.itemMesh.gameObject.SetActive(false);
+        pickable.horse.gameObject.SetActive(false);
+
+        pickable.body.gameObject.SetActive(true);
+        if (skin) BodySlot.CopySkinnedMesh(skin, pickable.body);
+        else pickable.body.gameObject.SetActive(false);
         pickable.textmesh.gameObject.SetActive(showName);
         go.GetComponent<Item>().destroyOnPick = destroyOnPick;
 
@@ -345,15 +348,19 @@ public class Arsenal : MonoBehaviour
         go.AddComponent<InteractionType>().type = InteractionType.Type.pickableHorse;
         HorseItem.Copy(item, go.AddComponent<HorseItem>());
         go.SetActive(true);
-
-        MeshFilter mf = item.gameObject.GetComponent<MeshFilter>();
+        
+        SkinnedMeshRenderer skin = item.gameObject.GetComponent<SkinnedMeshRenderer>();
         SpecialPickableShopArsenal pickable = go.GetComponent<SpecialPickableShopArsenal>();
         pickable.textmesh.text = go.name;
         if (go.name.Length >= 8)
             pickable.textmesh.characterSize *= 0.5f;
-        if (mf) pickable.itemMesh.mesh = mf.mesh;
-        else pickable.itemMesh.gameObject.SetActive(false);
+        pickable.itemMesh.gameObject.SetActive(false);
         pickable.body.gameObject.SetActive(false);
+
+        pickable.horse.gameObject.SetActive(true);
+        if (skin) BodySlot.CopySkinnedMesh(skin, pickable.horse);
+        else pickable.horse.gameObject.SetActive(false);
+
         pickable.textmesh.gameObject.SetActive(showName);
         go.GetComponent<Item>().destroyOnPick = destroyOnPick;
 

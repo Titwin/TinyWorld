@@ -199,7 +199,6 @@ public class PlayerController : MonoBehaviour
         if (needEquipementAnimationUpdate)
             AnimationParameterRefresh();
     }
-
     
     private void AnimationParameterRefresh()
     {
@@ -246,13 +245,15 @@ public class PlayerController : MonoBehaviour
     // helper
     public void RecomputeLoadFactor()
     {
+        float backpackFactor = backpack.equipedItem.type == BackpackItem.Type.RessourceContainer ? 0.3f : 1f;
+        float backpackOffset = backpack.equipedItem.type == BackpackItem.Type.None ? 0f : 1f;
+        backpack.equipedItem.load = backpackOffset + backpackFactor * inventory.RecomputeLoad();
+
         bool mounted = horse ? horse.equipedItem.type != HorseItem.Type.None : false;
         float horseFactor = mounted ? 0.3f : 1f;
-        if(backpack.equipedItem.type == BackpackItem.Type.RessourceContainer)
-            backpack.equipedItem.load = 1f + 0.3f * inventory.RecomputeLoad();
-        float f = body.equipedItem.load + weapon.equipedItem.load + secondHand.equipedItem.load + shield.equipedItem.load + head.equipedItem.load + backpack.equipedItem.load;
-        loadFactor = loadCurve.Evaluate(0.07f * horseFactor * f);
-        animator.SetFloat("loadFactor", loadFactor);
+        loadFactor = loadCurve.Evaluate(0.07f * horseFactor * GetLoad());
+        if(animator)
+            animator.SetFloat("loadFactor", loadFactor);
     }
     public static void Copy(PlayerController source, PlayerController destination)
     {
@@ -263,7 +264,7 @@ public class PlayerController : MonoBehaviour
         destination.secondHand.Equip(source.secondHand.equipedItem.type, true);
         destination.shield.Equip(source.shield.equipedItem.type, true);
         destination.head.Equip(source.head.equipedItem.type, true);
-        destination.body.Equip(source.body.equipedItem.type, true);
+        destination.body.Equip(source.body.equipedItem.type, destination.horse && destination.horse.equipedItem.type != HorseItem.Type.None, true);
         destination.backpack.Equip(source.backpack.equipedItem.type, true);
 
         // other
@@ -271,11 +272,17 @@ public class PlayerController : MonoBehaviour
         destination.transform.position = source.transform.position;
         destination.transform.localScale = source.transform.localScale;
         destination.transform.rotation = source.transform.rotation;
+        
+        // inventory
+        foreach (KeyValuePair<SummarizedItem, int> entry in source.inventory.inventory)
+        {
+            destination.inventory.AddItem(entry.Key, entry.Value);
+        }
     }
 
     public float GetLoad()
     {
-        return loadFactor;
+        return body.equipedItem.load + weapon.equipedItem.load + secondHand.equipedItem.load + shield.equipedItem.load + head.equipedItem.load + backpack.equipedItem.load;
     }
     public float GetDammage()
     {

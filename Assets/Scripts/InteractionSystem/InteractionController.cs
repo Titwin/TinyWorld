@@ -60,7 +60,7 @@ public class InteractionController : MonoBehaviour
         interactionTime = 0;
         StopTimer();
     }
-
+    
     private void OnValidate()
     {
         scanPosition = transform.position + 0.85f * Vector3.up;
@@ -399,6 +399,7 @@ public class InteractionController : MonoBehaviour
                 inventory.AddItem(pickedItem, 1);
                 if (pickedItem.destroyOnPick)
                     Destroy(interactor);
+                playerController.RecomputeLoadFactor();
             }
             else
             {
@@ -518,12 +519,13 @@ public class InteractionController : MonoBehaviour
                 destination.gameObject.name = template.gameObject.name;
 
                 // copy
-                PlayerController.Copy(playerController, destination);
                 PlayerController.MainInstance = destination;
+                PlayerController.Copy(playerController, destination);
                 MapStreaming.instance.focusAgent = destination.transform;
                 ConstructionSystem.instance.tpsController.target = destination.transform.Find("CameraTarget");
 
                 destination.interactionController.PickableInteraction(type, interactor);
+                interactionJuicer.OnDelete();
                 Destroy(gameObject);
             }
             else
@@ -541,7 +543,27 @@ public class InteractionController : MonoBehaviour
                 }
             }
         }
+
+        if(success)
+        {
+            playerController.RecomputeLoadFactor();
+        }
         return success;
+    }
+    public void Unmount()
+    {
+        // change player template
+        PlayerController destination = Instantiate<PlayerController>(Arsenal.Instance.playerTemplate);
+        destination.gameObject.name = template.gameObject.name;
+
+        // copy
+        PlayerController.MainInstance = destination;
+        PlayerController.Copy(playerController, destination);
+        MapStreaming.instance.focusAgent = destination.transform;
+        ConstructionSystem.instance.tpsController.target = destination.transform.Find("CameraTarget");
+
+        interactionJuicer.OnDelete();
+        Destroy(gameObject);
     }
     private bool StoreAllInteraction(InteractionType.Type type, GameObject interactor)
     {

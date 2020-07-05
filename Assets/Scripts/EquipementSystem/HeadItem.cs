@@ -26,6 +26,7 @@ public class HeadItem : Item
     {
         Cloth, Light, Medium, Heavy
     };
+    static public Type defaultType = Type.NackedA;
 
     [Header("Head Item")]
     public Type type = Type.None;
@@ -43,6 +44,10 @@ public class HeadItem : Item
         SummarizedItem sumItem = base.Summarize();
         sumItem.derivatedType = (int)type;
         return sumItem;
+    }
+    public bool IsDefault()
+    {
+        return type == defaultType;
     }
 
 

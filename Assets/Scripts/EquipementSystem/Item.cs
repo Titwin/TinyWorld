@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[SerializeField] public struct SummarizedItem
+[System.Serializable]
+public struct SummarizedItem
 {
     public Item.ItemType itemType;
     public int derivatedType;

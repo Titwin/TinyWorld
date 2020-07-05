@@ -31,6 +31,10 @@ public class InteractionJuicer : MonoBehaviour
     public SpriteMask loadingMask;
     
 
+    public void OnDelete()
+    {
+        Destroy(cornerPivot.gameObject);
+    }
 
     private void Update()
     {
