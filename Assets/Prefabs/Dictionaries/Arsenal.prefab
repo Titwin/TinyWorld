@@ -32245,7 +32245,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7388010046171369696}
-  - component: {fileID: 7388010046180376230}
   - component: {fileID: 7388010046170877057}
   m_Layer: 0
   m_Name: Arsenal
@@ -32271,25 +32270,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &7388010046180376230
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7388010046170877056}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 714fac36dcf2d5f49b8baca0fe9dea9b, type: 3}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 1
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 1
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &7388010046170877057
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32634,7 +32614,8 @@ MonoBehaviour:
   - {fileID: 7400000, guid: eb7de86d67ebbf549b7e492e517acbac, type: 3}
   - {fileID: 7400000, guid: f94457a22f3ae4544b4a2ef90a18a7e6, type: 3}
   - {fileID: 7400000, guid: 63322e7d283549c4a9df1da1007a04a0, type: 3}
-  gapY: 5
+  gap: 3
+  gapY: 0
 --- !u!1 &7388010046170877058
 GameObject:
   m_ObjectHideFlags: 0

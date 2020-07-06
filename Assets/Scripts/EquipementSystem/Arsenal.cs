@@ -519,6 +519,7 @@ public class Arsenal : MonoBehaviour
     }
 
     // Instanciate the shop
+    public float gap = 3f;
     public float gapY = 5f;
     private void InstanciateShop()
     {
@@ -528,9 +529,7 @@ public class Arsenal : MonoBehaviour
         shopContainer.transform.localRotation = Quaternion.identity;
         shopContainer.transform.localScale = Vector3.one;
         shopContainer.SetActive(true);
-
-        float gap = 3f;
-
+        
         // backpack
         Vector3 position = Vector3.zero;
         {
@@ -573,7 +572,8 @@ public class Arsenal : MonoBehaviour
             if (createIcons)
             {
                 pickable.textmesh.gameObject.SetActive(false);
-                cameraPivot.position = go.transform.position + new Vector3(0, 1, 3f);
+                pickable.transform.localEulerAngles = new Vector3(0, 15, 0);
+                cameraPivot.position = go.transform.position + new Vector3(-0.13f, 0.6f, 1.1f);
                 CreateIcon(iconFolderPath + "/Backpacks/" + go.name + ".png");
             }
             position.x += gap;
@@ -621,7 +621,8 @@ public class Arsenal : MonoBehaviour
             if (createIcons)
             {
                 pickable.textmesh.gameObject.SetActive(false);
-                cameraPivot.position = go.transform.position + new Vector3(0, 1, 3f);
+                pickable.transform.localEulerAngles = new Vector3(0, 30, 0);
+                cameraPivot.position = go.transform.position + new Vector3(0f, 0.6f, 1.3f);
                 CreateIcon(iconFolderPath + "/Shields/" + go.name + ".png");
             }
             position.x += gap;
@@ -670,7 +671,8 @@ public class Arsenal : MonoBehaviour
             if (createIcons)
             {
                 pickable.textmesh.gameObject.SetActive(false);
-                cameraPivot.position = go.transform.position + new Vector3(0, 1, 3f);
+                pickable.transform.localEulerAngles = new Vector3(0, 0, -42);
+                cameraPivot.position = go.transform.position + new Vector3(0.3f, 0.45f, 1.5f);
                 CreateIcon(iconFolderPath + "/SecondHands/" + go.name + ".png");
             }
             position.x += gap;
@@ -718,7 +720,8 @@ public class Arsenal : MonoBehaviour
             if (createIcons)
             {
                 pickable.textmesh.gameObject.SetActive(false);
-                cameraPivot.position = go.transform.position + new Vector3(0, 1, 3f);
+                pickable.transform.localEulerAngles = new Vector3(0, 0, -42);
+                cameraPivot.position = go.transform.position + new Vector3(0.3f, 0.6f, 1.5f);
                 CreateIcon(iconFolderPath + "/Weapons/" + go.name + ".png");
             }
             position.x += gap;
@@ -750,7 +753,8 @@ public class Arsenal : MonoBehaviour
             if (createIcons)
             {
                 pickable.textmesh.gameObject.SetActive(false);
-                cameraPivot.position = go.transform.position + new Vector3(0, 1, 3f);
+                pickable.transform.localEulerAngles = new Vector3(0, 15, 0);
+                cameraPivot.position = go.transform.position + new Vector3(0, 0.6f, 1f);
                 CreateIcon(iconFolderPath + "/Heads/" + go.name + ".png");
             }
             position.x += gap;
@@ -783,7 +787,8 @@ public class Arsenal : MonoBehaviour
             if (createIcons)
             {
                 pickable.textmesh.gameObject.SetActive(false);
-                cameraPivot.position = go.transform.position + new Vector3(0, 1, 3f);
+                pickable.transform.localEulerAngles = new Vector3(0, 15, 0);
+                cameraPivot.position = go.transform.position + new Vector3(0, 0.5f, 1.5f);
                 CreateIcon(iconFolderPath + "/Bodies/" + go.name + ".png");
             }
             position.x += gap;
@@ -834,6 +839,7 @@ public class Arsenal : MonoBehaviour
             if (createIcons)
             {
                 pickable.textmesh.gameObject.SetActive(false);
+                pickable.transform.localEulerAngles = new Vector3(0, 90, 0);
                 cameraPivot.position = go.transform.position + new Vector3(0, 1, 3f);
                 CreateIcon(iconFolderPath + "/Horses/" + go.name + ".png");
             }

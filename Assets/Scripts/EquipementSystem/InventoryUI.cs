@@ -13,14 +13,24 @@ public class InventoryUI : MonoBehaviour
     public int columnCount = 3;
     public RectTransform container;
     public Transform unusedContainer;
-    public HashSet<InventoryIcon> showedIcons = new HashSet<InventoryIcon>();
-    public Queue<InventoryIcon> instantiatedIcons = new Queue<InventoryIcon>();
+    private HashSet<InventoryIcon> showedIcons = new HashSet<InventoryIcon>();
+    private Queue<InventoryIcon> instantiatedIcons = new Queue<InventoryIcon>();
     public Text loadCapacity;
     public Sprite errorIcon;
     public InventoryIcon trash;
     public RectTransform inventoryRect;
     public GameObject DropPrefab;
     public LayerMask dropMask;
+
+    [Header("Linking description")]
+    public GameObject helpPanel;
+    public Text helpDescription;
+    public GameObject useHelp;
+    public GameObject equipHelp;
+    public GameObject unequipHelp;
+    public Text hoveredArmor;
+    public Text hoveredLoad;
+    public Text hoveredDammage;
 
     [Header("Linking equipement")]
     public RectTransform equipementRect;
@@ -34,22 +44,22 @@ public class InventoryUI : MonoBehaviour
     public Text armorCount;
     public Text loadCount;
     public Text dammageCount;
+    public Image backgroundWeapon;
+    public Image backgroundShield;
+    public Image backgroundSecond;
 
     [Header("State")]
     public bool activated = false;
     [SerializeField] private bool needUpdate = true;
     [SerializeField] private Inventory inventory;
     [SerializeField] private bool dragging;
+    private Color backgroundEquiped;
 
-    [Header("Juice & help")]
+    [Header("Apearance")]
     public Color defaultBorderColor;
     public Color hoveredBorderColor;
     public Color trashDefaultColor;
-    public GameObject helpPanel;
-    public Text helpDescription;
-    public GameObject useHelp;
-    public GameObject equipHelp;
-    public GameObject unequipHelp;
+    public Color forbidenEquipementSlot;
 
     #region Singleton
     public static InventoryUI instance;
@@ -63,6 +73,7 @@ public class InventoryUI : MonoBehaviour
     {
         viewer.SetActive(activated);
         trashDefaultColor = trash.border.color;
+        backgroundEquiped = backgroundWeapon.color;
         ResetState();
     }
 
@@ -183,6 +194,18 @@ public class InventoryUI : MonoBehaviour
         InitEquiped(equipedSecond);
         InitEquiped(equipedWeapon);
         InitEquiped(equipedShield);
+
+        if (player.weapon.equipedItem.forbidSecond)
+            backgroundSecond.color = forbidenEquipementSlot;
+        else backgroundSecond.color = backgroundEquiped;
+        
+        if (player.secondHand.equipedItem.forbidShield || player.weapon.equipedItem.forbidShield)
+            backgroundShield.color = forbidenEquipementSlot;
+        else backgroundShield.color = backgroundEquiped;
+        
+        if (player.secondHand.equipedItem.forbidWeapon)
+            backgroundWeapon.color = forbidenEquipementSlot;
+        else backgroundWeapon.color = backgroundEquiped;
     }
 
     private InventoryIcon GetIcon()
@@ -389,6 +412,29 @@ public class InventoryUI : MonoBehaviour
                 useHelp.SetActive(item.usable);
                 equipHelp.SetActive(item.equipable && !IsEquipementIcon(icon));
                 unequipHelp.SetActive(IsEquipementIcon(icon) && !IsDefault(icon.item));
+                
+                hoveredLoad.transform.parent.gameObject.SetActive(true);
+                hoveredLoad.text = item.load.ToString();
+
+                if(icon.item.itemType == Item.ItemType.Body || icon.item.itemType == Item.ItemType.Head || icon.item.itemType == Item.ItemType.Horse || icon.item.itemType == Item.ItemType.Shield)
+                {
+                    hoveredArmor.transform.parent.gameObject.SetActive(true);
+                    if (icon.item.itemType == Item.ItemType.Body) hoveredArmor.text = (item as BodyItem).armor.ToString();
+                    else if (icon.item.itemType == Item.ItemType.Head) hoveredArmor.text = (item as HeadItem).armor.ToString();
+                    else if (icon.item.itemType == Item.ItemType.Horse) hoveredArmor.text = (item as HorseItem).armor.ToString();
+                    else if (icon.item.itemType == Item.ItemType.Shield) hoveredArmor.text = (item as ShieldItem).armor.ToString();
+                    else hoveredArmor.text = "error";
+                }
+                else hoveredArmor.transform.parent.gameObject.SetActive(false);
+
+                if (icon.item.itemType == Item.ItemType.Weapon || icon.item.itemType == Item.ItemType.Second)
+                {
+                    hoveredDammage.transform.parent.gameObject.SetActive(true);
+                    if (icon.item.itemType == Item.ItemType.Weapon) hoveredDammage.text = (item as WeaponItem).dammage.ToString();
+                    else if (icon.item.itemType == Item.ItemType.Second) hoveredDammage.text = (item as SecondItem).dammage.ToString();
+                    else hoveredDammage.text = "error";
+                }
+                else hoveredDammage.transform.parent.gameObject.SetActive(false);
             }
             else
             {
@@ -396,6 +442,10 @@ public class InventoryUI : MonoBehaviour
                 useHelp.SetActive(false);
                 equipHelp.SetActive(false);
                 unequipHelp.SetActive(false);
+
+                hoveredLoad.transform.parent.gameObject.SetActive(false);
+                hoveredArmor.transform.parent.gameObject.SetActive(false);
+                hoveredDammage.transform.parent.gameObject.SetActive(false);
             }
         }
     }
@@ -429,6 +479,7 @@ public class InventoryUI : MonoBehaviour
             if(RectTransformUtility.RectangleContainsScreenPoint(trashRect, Input.mousePosition)) // destroy item
             {
                 inventory.RemoveItem(icon.item, inventory.inventory[icon.item], true);
+                PlayerController.MainInstance.RecomputeLoadFactor();
             }
             else if(!RectTransformUtility.RectangleContainsScreenPoint(inventoryRect, Input.mousePosition)) // drop item
             {
@@ -443,6 +494,7 @@ public class InventoryUI : MonoBehaviour
                     MapModifier.instance.grid.AddGameObject(dropped, ConstructionLayer.LayerType.Decoration, false, false);
                 }
                 inventory.RemoveItem(icon.item, count, true);
+                PlayerController.MainInstance.RecomputeLoadFactor();
             }
         }
     }

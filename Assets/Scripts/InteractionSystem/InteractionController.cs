@@ -420,9 +420,17 @@ public class InteractionController : MonoBehaviour
             if (item && playerController.weapon.Equip(item.type))
             {
                 if (item.forbidSecond || playerController.secondHand.equipedItem.forbidWeapon)
+                {
+                    if (playerController.secondHand.equipedItem.type != SecondItem.Type.None)
+                        inventory.AddItem(playerController.secondHand.equipedItem.Summarize(), 1);
                     playerController.secondHand.Equip(SecondItem.Type.None);
+                }
                 if (item.forbidShield)
+                {
+                    if (playerController.shield.equipedItem.type != ShieldItem.Type.None)
+                        inventory.AddItem(playerController.shield.equipedItem.Summarize(), 1);
                     playerController.shield.Equip(ShieldItem.Type.None);
+                }
                 success = true;
                 playerController.needEquipementAnimationUpdate = true;
 
@@ -471,9 +479,17 @@ public class InteractionController : MonoBehaviour
             if (item && playerController.secondHand.Equip(item.type))
             {
                 if (item.forbidWeapon || playerController.weapon.equipedItem.forbidSecond)
+                {
+                    if (playerController.weapon.equipedItem.type != WeaponItem.Type.None)
+                        inventory.AddItem(playerController.weapon.equipedItem.Summarize(), 1);
                     playerController.weapon.Equip(WeaponItem.Type.None);
+                }
                 if (item.forbidShield)
+                {
+                    if (playerController.shield.equipedItem.type != ShieldItem.Type.None)
+                        inventory.AddItem(playerController.shield.equipedItem.Summarize(), 1);
                     playerController.shield.Equip(ShieldItem.Type.None);
+                }
                 success = true;
                 playerController.needEquipementAnimationUpdate = true;
             }
@@ -484,9 +500,17 @@ public class InteractionController : MonoBehaviour
             if (item && playerController.shield.Equip(item.type))
             {
                 if (playerController.weapon.equipedItem.forbidShield)
+                {
+                    if(playerController.weapon.equipedItem.type != WeaponItem.Type.None)
+                        inventory.AddItem(playerController.weapon.equipedItem.Summarize(), 1);
                     playerController.weapon.Equip(WeaponItem.Type.None);
+                }
                 if (playerController.secondHand.equipedItem.forbidShield)
+                {
+                    if (playerController.secondHand.equipedItem.type != SecondItem.Type.None)
+                        inventory.AddItem(playerController.secondHand.equipedItem.Summarize(), 1);
                     playerController.secondHand.Equip(SecondItem.Type.None);
+                }
                 success = true;
                 playerController.needEquipementAnimationUpdate = true;
             }
