@@ -2,6 +2,8 @@
 using UnityEngine;
 using UnityEngine.UI;
 
+
+
 public class InventoryUI : MonoBehaviour
 {
     [Header("Linking inventory")]
@@ -104,11 +106,6 @@ public class InventoryUI : MonoBehaviour
         if (dragging && RectTransformUtility.RectangleContainsScreenPoint(trash.transform as RectTransform, Input.mousePosition)) // destroy item
             trash.border.color = hoveredBorderColor;
         else trash.border.color = trashDefaultColor;
-
-        // equipement
-        armorCount.text = PlayerController.MainInstance.GetArmor().ToString();
-        loadCount.text = PlayerController.MainInstance.GetLoad().ToString();
-        dammageCount.text = PlayerController.MainInstance.GetDammage().ToString();
     }
 
     public void OnEnable()
@@ -170,6 +167,10 @@ public class InventoryUI : MonoBehaviour
 
         // equipement
         PlayerController player = PlayerController.MainInstance;
+        armorCount.text = player.GetArmor().ToString();
+        loadCount.text = player.GetLoad().ToString();
+        dammageCount.text = player.GetDammage().ToString();
+
         equipedBackpack.item = player.backpack.equipedItem.Summarize();
         equipedBody.item = player.body.equipedItem.Summarize();
         equipedHead.item = player.head.equipedItem.Summarize();
@@ -408,6 +409,7 @@ public class InventoryUI : MonoBehaviour
             Item item = GetItem(icon.item);
             if (item)
             {
+                //  description panel
                 helpDescription.text = item.description;
                 useHelp.SetActive(item.usable);
                 equipHelp.SetActive(item.equipable && !IsEquipementIcon(icon));
@@ -435,6 +437,34 @@ public class InventoryUI : MonoBehaviour
                     else hoveredDammage.text = "error";
                 }
                 else hoveredDammage.transform.parent.gameObject.SetActive(false);
+
+                // equipement modification overview
+                if(!IsEquipementIcon(icon))
+                {
+                    if(icon.item.itemType != Item.ItemType.Resource)
+                    {
+                        Dictionary<string, float> delta = GetDelta(item);
+                        PlayerController player = PlayerController.MainInstance;
+
+                        armorCount.text = player.GetArmor().ToString();
+                        if (delta["armor"] != 0f)
+                        {
+                            armorCount.text += "<color=" + (delta["armor"] > 0 ? "green>+" : "red>") + delta["armor"].ToString() + "</color>";
+                        }
+
+                        loadCount.text = player.GetLoad().ToString();
+                        if (delta["load"] != 0f && item.itemType != Item.ItemType.Backpack)
+                            loadCount.text += "<color=" + (delta["load"] < 0 ? "green>" : "red>+") + delta["load"].ToString() + "</color>";
+                        if (delta["loadModifier"] != 1f)
+                            loadCount.text += "(<color=" + (delta["loadModifier"] < 1f ? "green>x" : "red>x") + delta["loadModifier"].ToString() + "</color>)";
+
+                        dammageCount.text = player.GetDammage().ToString();
+                        if (delta["dammage"] != 0f)
+                        {
+                            dammageCount.text += "<color=" + (delta["dammage"] > 0 ? "green>+" : "red>") + delta["dammage"].ToString() + "</color>";
+                        }
+                    }
+                }
             }
             else
             {
@@ -453,6 +483,11 @@ public class InventoryUI : MonoBehaviour
     {
         icon.border.color = icon == trash ? trashDefaultColor : defaultBorderColor;
         helpPanel.SetActive(false);
+
+        PlayerController player = PlayerController.MainInstance;
+        armorCount.text = player.GetArmor().ToString();
+        loadCount.text = player.GetLoad().ToString();
+        dammageCount.text = player.GetDammage().ToString();
     }
     public void OnIconDrag(InventoryIcon icon)
     {
@@ -486,11 +521,24 @@ public class InventoryUI : MonoBehaviour
                 Vector3 position = PlayerController.MainInstance.transform.position;
                 int count = inventory.inventory[icon.item];
 
-                for (int i = 0; i < count; i++)
+                if (icon.item.itemType != Item.ItemType.Resource)
                 {
-                    GameObject dropped = InstanciatePickable(icon.item);
-                    Vector3 dispersion = i == 0 ? Vector3.zero : new Vector3(UnityEngine.Random.Range(-1f, 1f), 0f, UnityEngine.Random.Range(-1f, 1f));
-                    dropped.transform.position = position + 0.01f * dispersion;
+                    for (int i = 0; i < count; i++)
+                    {
+                        GameObject dropped = InstanciatePickable(icon.item);
+                        Vector3 dispersion = i == 0 ? Vector3.zero : new Vector3(UnityEngine.Random.Range(-1f, 1f), 0f, UnityEngine.Random.Range(-1f, 1f));
+                        dropped.transform.position = position + 0.01f * dispersion;
+                        MapModifier.instance.grid.AddGameObject(dropped, ConstructionLayer.LayerType.Decoration, false, false);
+                    }
+                }
+                else
+                {
+                    ResourceData data = ResourceDictionary.instance.GetResourceItem((InteractionType.Type)icon.item.derivatedType).resource;
+                    Dictionary<string, int> resList = new Dictionary<string, int>();
+                    resList.Add(data.name, count);
+
+                    GameObject dropped = ConstructionSystem.instance.GetResourcePile(resList);
+                    dropped.transform.position = position;
                     MapModifier.instance.grid.AddGameObject(dropped, ConstructionLayer.LayerType.Decoration, false, false);
                 }
                 inventory.RemoveItem(icon.item, count, true);
@@ -580,6 +628,11 @@ public class InventoryUI : MonoBehaviour
             icon.icon.color = Color.white;
             if (icon.text)
                 icon.text.text = "";
+
+            if(icon.item.itemType == Item.ItemType.Backpack && ((BackpackItem.Type)icon.item.derivatedType == BackpackItem.Type.QuiverA || (BackpackItem.Type)icon.item.derivatedType == BackpackItem.Type.QuiverB))
+            {
+                icon.text.text = "0";
+            }
         }
         else
         {
@@ -588,5 +641,63 @@ public class InventoryUI : MonoBehaviour
             if (icon.text)
                 icon.text.text = "";
         }
+    }
+    private Dictionary<string, float> GetDelta(Item target)
+    {
+        Dictionary<string, float> delta = new Dictionary<string, float>();
+
+        PlayerController player = PlayerController.MainInstance;
+        float currentBackpackModifier = player.backpack.equipedItem.type == BackpackItem.Type.RessourceContainer ? 0.3f : 1f;
+        float currentHorseModifier = (player.horse ? player.horse.equipedItem.type != HorseItem.Type.None : false) ? 0.3f : 1f;
+
+        delta.Add("armor", 0f);
+        delta.Add("dammage", 0f);
+        delta.Add("load", 0f);
+        delta.Add("loadModifier", 1f);
+
+        if (target.itemType == Item.ItemType.Backpack)
+        {
+            float targetModifier = (target as BackpackItem).type == BackpackItem.Type.RessourceContainer ? 0.3f : 1f;
+            delta["load"] = (target.load - currentBackpackModifier * target.load) + (targetModifier * player.backpack.equipedItem.load - player.backpack.equipedItem.load);
+            delta["loadModifier"] = targetModifier / currentBackpackModifier;
+        }
+        else if (target.itemType == Item.ItemType.Body)
+        {
+            delta["load"] = (target.load - currentBackpackModifier * target.load) + (currentBackpackModifier * player.body.equipedItem.load - player.body.equipedItem.load);
+            delta["armor"] = player.GetArmor(target as BodyItem) - player.GetArmor();
+        }
+        else if (target.itemType == Item.ItemType.Head)
+        {
+            delta["load"] = (target.load - currentBackpackModifier * target.load) + (currentBackpackModifier * player.head.equipedItem.load - player.head.equipedItem.load);
+            delta["armor"] = player.GetArmor(target as HeadItem) - player.GetArmor();
+        }
+        else if (target.itemType == Item.ItemType.Horse)
+        {
+            //delta["load"] = target.load - player.horse.equipedItem.load;
+            delta["armor"] = player.GetArmor(target as HorseItem) - player.GetArmor();
+            
+            float targetModifier = (target as HorseItem).type != HorseItem.Type.None ? 0.3f : 1f;
+            delta["loadModifier"] = targetModifier / currentHorseModifier;
+        }
+        else if (target.itemType == Item.ItemType.Second)
+        {
+            delta["load"] = (target.load - currentBackpackModifier * target.load) + (currentBackpackModifier * player.secondHand.equipedItem.load - player.secondHand.equipedItem.load);
+            delta["dammage"] = player.GetDammage(target as SecondItem) - player.GetDammage();
+        }
+        else if (target.itemType == Item.ItemType.Shield)
+        {
+            delta["load"] = (target.load - currentBackpackModifier * target.load) + (currentBackpackModifier * player.shield.equipedItem.load - player.shield.equipedItem.load);
+            delta["armor"] = player.GetArmor(target as ShieldItem) - player.GetArmor();
+        }
+        else if (target.itemType == Item.ItemType.Weapon)
+        {
+            delta["load"] = (target.load - currentBackpackModifier * target.load) + (currentBackpackModifier * player.weapon.equipedItem.load - player.weapon.equipedItem.load);
+            delta["dammage"] = player.GetDammage(target as WeaponItem) - player.GetDammage();
+        }
+        else
+        {
+            Debug.LogWarning("Cannot extract delta from current hovered Item : " + target.itemType.ToString());
+        }
+        return delta;
     }
 }

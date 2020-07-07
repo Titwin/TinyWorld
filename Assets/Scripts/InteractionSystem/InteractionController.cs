@@ -564,6 +564,7 @@ public class InteractionController : MonoBehaviour
 
                     bool mounted = playerController.horse ? playerController.horse.equipedItem.type != HorseItem.Type.None : false;
                     playerController.body.Equip(playerController.body.equipedItem.type, mounted, true);
+                    inventory.onUpdateContent.Invoke();
                 }
             }
         }
@@ -583,6 +584,7 @@ public class InteractionController : MonoBehaviour
         // copy
         PlayerController.MainInstance = destination;
         PlayerController.Copy(playerController, destination);
+        PlayerController.MainInstance.RecomputeLoadFactor();
         MapStreaming.instance.focusAgent = destination.transform;
         ConstructionSystem.instance.tpsController.target = destination.transform.Find("CameraTarget");
 

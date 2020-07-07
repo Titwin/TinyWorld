@@ -421,7 +421,7 @@ public class ConstructionSystem : MonoBehaviour
                 {
                     if(knownBuildings.ContainsKey(go.name))
                     {
-                        GameObject pile = Instantiate(resourcePilePrefab);
+                        /*GameObject pile = Instantiate(resourcePilePrefab);
                         pile.name = "ResourcePile";
                         pile.transform.position = go.transform.position;
                         pile.transform.rotation = Quaternion.Euler(0, Random.Range(0, 4) * 90f, 0);
@@ -432,9 +432,16 @@ public class ConstructionSystem : MonoBehaviour
 
                         Dictionary<string, int> resList = knownBuildings[go.name].GetTotalCost();
                         foreach(KeyValuePair<string, int> entry in resList)
-                            pileContainer.AddItem(entry.Key, Mathf.Max((int)(0.5f * entry.Value), 1));
-                        pileContainer.UpdateContent();
+                            pileContainer.Add(entry.Key, Mathf.Max((int)(0.5f * entry.Value), 1));
+                        pileContainer.UpdateContent();*/
 
+
+                        Dictionary<string, int> resList = new Dictionary<string, int>();
+                        Dictionary<string, int> cost = knownBuildings[go.name].GetTotalCost();
+                        foreach (KeyValuePair<string, int> entry in cost)
+                            resList.Add(entry.Key, Mathf.Max((int)(0.5f * entry.Value), 1));
+                        GameObject pile = GetResourcePile(resList);
+                        pile.transform.position = go.transform.position;
                         modifier.grid.AddGameObject(pile, ConstructionLayer.LayerType.Decoration, false, false);
                     }
                 }
@@ -599,6 +606,21 @@ public class ConstructionSystem : MonoBehaviour
         Vector3 size = new Vector3(4f * brush.data.tileSize.x, 8f, 4f * brush.data.tileSize.y) - 0.5f * Vector3.one;
         List<GameObject> objects = grid.GetObjectsInBound(pointing, size, searchingLayers);
         return objects.Count != 0;
+    }
+    public GameObject GetResourcePile(Dictionary<string, int> ressourcesList)
+    {
+        GameObject pile = Instantiate(resourcePilePrefab);
+        pile.name = "ResourcePile";
+        pile.transform.rotation = Quaternion.Euler(0, Random.Range(0, 4) * 90f, 0);
+        pile.transform.localScale = Vector3.one;
+
+        ResourceContainer pileContainer = pile.transform.Find("interactor").gameObject.GetComponent<ResourceContainer>();
+        pileContainer.capacity = 0;
+        
+        foreach (KeyValuePair<string, int> entry in ressourcesList)
+            pileContainer.AddItem(entry.Key, Mathf.Max((int)(0.5f * entry.Value), 1));
+        pileContainer.UpdateContent();
+        return pile;
     }
 
 

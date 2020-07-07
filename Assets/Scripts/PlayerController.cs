@@ -280,17 +280,46 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+
     public float GetLoad()
     {
         return body.equipedItem.load + weapon.equipedItem.load + secondHand.equipedItem.load + shield.equipedItem.load + head.equipedItem.load + backpack.equipedItem.load;
     }
+
+
     public float GetDammage()
     {
         return weapon.equipedItem.dammage + secondHand.equipedItem.dammage;
     }
+    public float GetDammage(WeaponItem alternative)
+    {
+        return alternative.dammage + secondHand.equipedItem.dammage;
+    }
+    public float GetDammage(SecondItem alternative)
+    {
+        return weapon.equipedItem.dammage + alternative.dammage;
+    }
+
+
     public float GetArmor()
     {
         return head.equipedItem.armor + body.equipedItem.armor + shield.equipedItem.armor + (horse ? horse.equipedItem.armor : 0);
+    }
+    public float GetArmor(HeadItem alternative)
+    {
+        return alternative.armor + body.equipedItem.armor + shield.equipedItem.armor + (horse ? horse.equipedItem.armor : 0);
+    }
+    public float GetArmor(BodyItem alternative)
+    {
+        return head.equipedItem.armor + alternative.armor + shield.equipedItem.armor + (horse ? horse.equipedItem.armor : 0);
+    }
+    public float GetArmor(ShieldItem alternative)
+    {
+        return head.equipedItem.armor + body.equipedItem.armor + alternative.armor + (horse ? horse.equipedItem.armor : 0);
+    }
+    public float GetArmor(HorseItem alternative)
+    {
+        return head.equipedItem.armor + body.equipedItem.armor + shield.equipedItem.armor + alternative.armor;
     }
 }
 
