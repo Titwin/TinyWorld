@@ -25,6 +25,8 @@ public class InteractionController : MonoBehaviour
     private float delayedInteractionTime;
     public float interactionCooldown;
     private float interactionTime;
+    public float interactionTickCooldown = 0.1f;
+    private float interactionTickTime;
 
     [Header("Help")]
     public float helpSpacing;
@@ -86,6 +88,8 @@ public class InteractionController : MonoBehaviour
         if (interactionTime > 0f && !Input.GetKey(interactKey))
             interactionTime -= Time.deltaTime;
         interactionJuicer.loadingRate = delayedInteractionTime / delayedInteractionDuration;
+
+        interactionTickTime = Mathf.Max(interactionTickTime - Time.deltaTime, 0f);
     }
     private void LateUpdate()
     {
@@ -289,12 +293,15 @@ public class InteractionController : MonoBehaviour
     }
     public void InteractionTick()
     {
-        // reset cooldown
+        if (interactionTickTime != 0f)  // because sometimes the functioon is called twice per frame
+            return;
         interactionTime = interactionCooldown;
+        interactionTickTime = interactionTickCooldown;
+        
 
         if(hoveredInteractor)
         {
-            if(lastInteraction == InteractionType.Type.collectWood)
+            if (lastInteraction == InteractionType.Type.collectWood)
             {
                 interactionJuicer.treeInteractor = hoveredInteractor;
                 CommonRessourceCollectionResolve();
@@ -324,7 +331,7 @@ public class InteractionController : MonoBehaviour
                     animator.SetBool("interaction", false);
                 }
             }
-            else if (lastInteraction == InteractionType.Type.destroyBuilding)
+            /*else if (lastInteraction == InteractionType.Type.destroyBuilding)
             {
                 List<AudioClip> sounds = ResourceDictionary.instance.resources["Iron"].collectingSound;
                 AudioClip soundFx = sounds[Random.Range(0, sounds.Count)];
@@ -340,6 +347,15 @@ public class InteractionController : MonoBehaviour
                     hoveredInteractor = null;
                     animator.SetBool("interaction", false);
                 }
+            }*/
+            else
+            {
+                // error
+                interacting = false;
+                hoveredInteractor = null;
+                interactionTime = 0f;
+                animator.SetBool("interaction", false);
+                Debug.LogWarning("no interaction tick for this type implemented : " + lastInteraction.ToString());
             }
         }
         else
@@ -349,7 +365,6 @@ public class InteractionController : MonoBehaviour
             hoveredInteractor = null;
             interactionTime = 0f;
             animator.SetBool("interaction", false);
-            Debug.LogWarning("no interaction tick for this type implemented : " + lastInteraction.ToString());
         }
     }
 
@@ -664,7 +679,8 @@ public class InteractionController : MonoBehaviour
     private void CommonRessourceCollectionResolve()
     {
         ResourceData resData = ResourceDictionary.instance.resourcesFromType[lastInteraction];
-        MapModifier.instance.grid.MakeObjectInteractable(hoveredInteractor.transform.parent.gameObject);
+        GameObject rootGameobject = MapModifier.instance.grid.GetRootOf(hoveredInteractor.transform.parent.gameObject);
+        MapModifier.instance.grid.MakeObjectInteractable(rootGameobject);
 
         // play sound, and juice, and update inventory
         AudioClip soundFx = resData.collectingSound[Random.Range(0, resData.collectingSound.Count)];

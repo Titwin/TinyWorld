@@ -421,21 +421,6 @@ public class ConstructionSystem : MonoBehaviour
                 {
                     if(knownBuildings.ContainsKey(go.name))
                     {
-                        /*GameObject pile = Instantiate(resourcePilePrefab);
-                        pile.name = "ResourcePile";
-                        pile.transform.position = go.transform.position;
-                        pile.transform.rotation = Quaternion.Euler(0, Random.Range(0, 4) * 90f, 0);
-                        pile.transform.localScale = Vector3.one;
-
-                        ResourceContainer pileContainer = pile.transform.Find("interactor").gameObject.GetComponent<ResourceContainer>();
-                        pileContainer.capacity = 0;
-
-                        Dictionary<string, int> resList = knownBuildings[go.name].GetTotalCost();
-                        foreach(KeyValuePair<string, int> entry in resList)
-                            pileContainer.Add(entry.Key, Mathf.Max((int)(0.5f * entry.Value), 1));
-                        pileContainer.UpdateContent();*/
-
-
                         Dictionary<string, int> resList = new Dictionary<string, int>();
                         Dictionary<string, int> cost = knownBuildings[go.name].GetTotalCost();
                         foreach (KeyValuePair<string, int> entry in cost)
@@ -618,7 +603,7 @@ public class ConstructionSystem : MonoBehaviour
         pileContainer.capacity = 0;
         
         foreach (KeyValuePair<string, int> entry in ressourcesList)
-            pileContainer.AddItem(entry.Key, Mathf.Max((int)(0.5f * entry.Value), 1));
+            pileContainer.AddItem(entry.Key, entry.Value);
         pileContainer.UpdateContent();
         return pile;
     }

@@ -154,12 +154,7 @@ public class MapGrid : MonoBehaviour
 
         foreach(Collider collider in overlap)
         {
-            GameObject root = collider.gameObject;
-            while(root && rootObjectLayer != (1 << root.layer))
-            {
-                root = root.transform.parent.gameObject;
-            }
-
+            GameObject root = GetRootOf(collider.gameObject);
             if(root)
             {
                 if(!result.Contains(root))
@@ -183,11 +178,23 @@ public class MapGrid : MonoBehaviour
     }
     public void MakeObjectInteractable(GameObject obj)
     {
-        Vector2Int cell = MapChunk.WorldToCell(obj.transform.position);
-        if (grid.ContainsKey(cell))
+        if (obj)
         {
-            grid[cell].RemoveFromBatching(obj);
+            Vector2Int cell = MapChunk.WorldToCell(obj.transform.position);
+            if (grid.ContainsKey(cell))
+            {
+                grid[cell].RemoveFromBatching(obj);
+            }
         }
+    }
+    public GameObject GetRootOf(GameObject go)
+    {
+        GameObject root = go;
+        while (root && rootObjectLayer != (1 << root.layer))
+        {
+            root = root.transform.parent.gameObject;
+        }
+        return root;
     }
 
 
