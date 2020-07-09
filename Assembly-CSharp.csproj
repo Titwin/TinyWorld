@@ -180,6 +180,7 @@
     <Compile Include="Assets\Scripts\Map\MapGrid.cs" />
     <Compile Include="Assets\Scripts\Map\MapModifier.cs" />
     <Compile Include="Assets\Scripts\Map\MapStreaming.cs" />
+    <Compile Include="Assets\Scripts\Menus\PauseMenu.cs" />
     <Compile Include="Assets\Scripts\Meteo.cs" />
     <Compile Include="Assets\Scripts\NavigationSystem\AgentBase.cs" />
     <Compile Include="Assets\Scripts\NavigationSystem\Navigation.cs" />
@@ -212,8 +213,11 @@
     <Compile Include="Assets\Scripts\Utils\ScriptableObjectUtility.cs" />
     <Compile Include="Assets\Scripts\Utils\SuperChildMerge.cs" />
     <Compile Include="Assets\Scripts\World.cs" />
+    <Compile Include="Assets\SettingsMenu.cs" />
+    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro.cginc" />
     <None Include="Assets\Materials\Specials\Water.shader" />
     <None Include="Assets\PostProcessing\Resources\Shaders\ScreenSpaceReflection.shader" />
+    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Overlay.shader" />
     <None Include="Assets\PostProcessing\Resources\Shaders\GrainGen.shader" />
     <None Include="Assets\Materials\Specials\noise-simplex.shader" />
     <None Include="Assets\PostProcessing\Editor Resources\Monitors\HistogramCompute.compute" />
@@ -222,6 +226,7 @@
     <None Include="Assets\PostProcessing\Utilities\CustomMotionTexture\Shaders\CustomMotionVectorTexture.shader" />
     <None Include="Assets\Materials\Specials\Text3D.shader" />
     <None Include="Assets\PostProcessing\Editor Resources\UI\CurveBackground.shader" />
+    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Bitmap.shader" />
     <None Include="Assets\PostProcessing\Resources\Shaders\BuiltinDebugViews.shader" />
     <None Include="Assets\PostProcessing\Resources\Shaders\EyeAdaptation.cginc" />
     <None Include="Assets\PostProcessing\Resources\Shaders\LutGen.shader" />
@@ -230,23 +235,32 @@
     <None Include="Assets\PostProcessing\Resources\Shaders\TAA.cginc" />
     <None Include="Assets\PostProcessing\Resources\Shaders\AmbientOcclusion.cginc" />
     <None Include="Assets\PostProcessing\Editor Resources\Monitors\VectorscopeCompute.compute" />
+    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />
     <None Include="Assets\PostProcessing\Resources\Shaders\ColorGrading.cginc" />
     <None Include="Assets\PostProcessing\Editor Resources\Monitors\HistogramRender.shader" />
     <None Include="Assets\PostProcessing\Resources\Shaders\UberSecondPass.cginc" />
     <None Include="Assets\Materials\Specials\Grass.shader" />
+    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface.shader" />
+    <None Include="Assets\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
+    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
     <None Include="Assets\PostProcessing\Resources\Bluenoise64\LICENSE.txt" />
     <None Include="Assets\Materials\Specials\Vegetation.shader" />
+    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF.shader" />
     <None Include="Assets\PostProcessing\Resources\Shaders\ACES.cginc" />
     <None Include="Assets\PostProcessing\Resources\Shaders\MotionBlur.cginc" />
+    <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
     <None Include="Assets\PostProcessing\Resources\Shaders\AmbientOcclusion.shader" />
     <None Include="Assets\PostProcessing\Resources\Shaders\FXAA.shader" />
+    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro_Properties.cginc" />
     <None Include="Assets\PostProcessing\Resources\Shaders\ScreenSpaceRaytrace.cginc" />
+    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro_Surface.cginc" />
     <None Include="Assets\PostProcessing\Resources\Shaders\Tonemapping.cginc" />
     <None Include="Assets\PostProcessing\Resources\Shaders\Fog.shader" />
     <None Include="Assets\PostProcessing\Editor Resources\Monitors\ParadeRender.shader" />
     <None Include="Assets\PostProcessing\Resources\Shaders\MotionBlur.shader" />
     <None Include="Assets\Materials\Specials\WindEffect.shader" />
     <None Include="Assets\PostProcessing\Resources\Shaders\DiskKernels.cginc" />
+    <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
     <None Include="Assets\PostProcessing\Resources\Bluenoise64\COPYING.txt" />
     <None Include="Assets\Materials\Specials\VegetationGeometry.cginc" />
     <None Include="Assets\Materials\Specials\noiseSimplex.cginc" />
@@ -260,46 +274,52 @@
     <None Include="Assets\PostProcessing\Resources\Shaders\Bloom.shader" />
     <None Include="Assets\PostProcessing\Resources\Shaders\Uber.shader" />
     <None Include="Assets\PostProcessing\Resources\Shaders\DepthOfField.shader" />
+    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Masking.shader" />
     <None Include="Assets\PostProcessing\Resources\Shaders\TAA.shader" />
     <None Include="Assets\PostProcessing\Resources\Shaders\Blit.shader" />
     <None Include="Assets\PostProcessing\Resources\Shaders\Bloom.cginc" />
     <None Include="Assets\PostProcessing\Editor Resources\Monitors\WaveformCompute.compute" />
     <None Include="Assets\PostProcessing\Resources\Shaders\DepthOfField.cginc" />
+    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF Overlay.shader" />
+    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Bitmap-Mobile.shader" />
+    <None Include="Assets\TextMesh Pro\Fonts\LiberationSans - OFL.txt" />
+    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile.shader" />
+    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Sprite.shader" />
     <Reference Include="Unity.Timeline.Editor">
-      <HintPath>C:/Users/Thibault/Documents/GitHub/TinyWorld/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
+      <HintPath>D:/BOULOT/CODE/GAME_PROJECTS/TinyWorld/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VSCode.Editor">
-      <HintPath>C:/Users/Thibault/Documents/GitHub/TinyWorld/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
+      <HintPath>D:/BOULOT/CODE/GAME_PROJECTS/TinyWorld/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
-      <HintPath>C:/Users/Thibault/Documents/GitHub/TinyWorld/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+      <HintPath>D:/BOULOT/CODE/GAME_PROJECTS/TinyWorld/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UI">
-      <HintPath>C:/Users/Thibault/Documents/GitHub/TinyWorld/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+      <HintPath>D:/BOULOT/CODE/GAME_PROJECTS/TinyWorld/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline">
-      <HintPath>C:/Users/Thibault/Documents/GitHub/TinyWorld/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
+      <HintPath>D:/BOULOT/CODE/GAME_PROJECTS/TinyWorld/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
     </Reference>
     <Reference Include="Unity.CollabProxy.Editor">
-      <HintPath>C:/Users/Thibault/Documents/GitHub/TinyWorld/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
+      <HintPath>D:/BOULOT/CODE/GAME_PROJECTS/TinyWorld/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Rider.Editor">
-      <HintPath>C:/Users/Thibault/Documents/GitHub/TinyWorld/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
+      <HintPath>D:/BOULOT/CODE/GAME_PROJECTS/TinyWorld/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.Sprite.Editor">
-      <HintPath>C:/Users/Thibault/Documents/GitHub/TinyWorld/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
+      <HintPath>D:/BOULOT/CODE/GAME_PROJECTS/TinyWorld/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.Tilemap.Editor">
-      <HintPath>C:/Users/Thibault/Documents/GitHub/TinyWorld/Library/ScriptAssemblies/Unity.2D.Tilemap.Editor.dll</HintPath>
+      <HintPath>D:/BOULOT/CODE/GAME_PROJECTS/TinyWorld/Library/ScriptAssemblies/Unity.2D.Tilemap.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
-      <HintPath>C:/Users/Thibault/Documents/GitHub/TinyWorld/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+      <HintPath>D:/BOULOT/CODE/GAME_PROJECTS/TinyWorld/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.DataPrivacy">
-      <HintPath>C:/Users/Thibault/Documents/GitHub/TinyWorld/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
+      <HintPath>D:/BOULOT/CODE/GAME_PROJECTS/TinyWorld/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.UI">
-      <HintPath>C:/Users/Thibault/Documents/GitHub/TinyWorld/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+      <HintPath>D:/BOULOT/CODE/GAME_PROJECTS/TinyWorld/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.3.0f6/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -479,16 +499,16 @@
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.3.0f6/Editor/Data/Managed/UnityEngine/UnityEngine.XRModule.dll</HintPath>
     </Reference>
     <Reference Include="Pathfinding.Ionic.Zip.Reduced">
-      <HintPath>C:/Users/Thibault/Documents/GitHub/TinyWorld/Assets/Packages/AstarPathfindingProject/Plugins/DotNetZip/Pathfinding.Ionic.Zip.Reduced.dll</HintPath>
+      <HintPath>D:/BOULOT/CODE/GAME_PROJECTS/TinyWorld/Assets/Packages/AstarPathfindingProject/Plugins/DotNetZip/Pathfinding.Ionic.Zip.Reduced.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.Editor">
-      <HintPath>C:/Users/Thibault/Documents/GitHub/TinyWorld/Library/PackageCache/com.unity.analytics@3.3.5/Unity.Analytics.Editor.dll</HintPath>
+      <HintPath>D:/BOULOT/CODE/GAME_PROJECTS/TinyWorld/Library/PackageCache/com.unity.analytics@3.3.5/Unity.Analytics.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.Tracker">
-      <HintPath>C:/Users/Thibault/Documents/GitHub/TinyWorld/Library/PackageCache/com.unity.analytics@3.3.5/Unity.Analytics.Tracker.dll</HintPath>
+      <HintPath>D:/BOULOT/CODE/GAME_PROJECTS/TinyWorld/Library/PackageCache/com.unity.analytics@3.3.5/Unity.Analytics.Tracker.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.StandardEvents">
-      <HintPath>C:/Users/Thibault/Documents/GitHub/TinyWorld/Library/PackageCache/com.unity.analytics@3.3.5/AnalyticsStandardEvents/Unity.Analytics.StandardEvents.dll</HintPath>
+      <HintPath>D:/BOULOT/CODE/GAME_PROJECTS/TinyWorld/Library/PackageCache/com.unity.analytics@3.3.5/AnalyticsStandardEvents/Unity.Analytics.StandardEvents.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.3.0f6/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/mscorlib.dll</HintPath>
