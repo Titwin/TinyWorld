@@ -494,7 +494,10 @@ public class InventoryUI : MonoBehaviour
         if (icon != trash && !IsEquipementIcon(icon))
         {
             icon.border.enabled = false;
+            if(icon.text.enabled)
+                icon.text.transform.SetParent(icon.icon.transform.parent);
             icon.text.enabled = false;
+
             icon.icon.transform.SetParent(transform);
             icon.icon.transform.position = Input.mousePosition;
             dragging = true;
@@ -507,7 +510,9 @@ public class InventoryUI : MonoBehaviour
             icon.border.enabled = true;
             icon.text.enabled = true;
             icon.icon.transform.SetParent(icon.text.transform.parent);
+            icon.text.transform.SetParent(icon.icon.transform);
             icon.icon.transform.localPosition = Vector3.zero;
+            icon.text.transform.localPosition = Vector3.zero;
             dragging = false;
 
             RectTransform trashRect = trash.transform as RectTransform;

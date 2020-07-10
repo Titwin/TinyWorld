@@ -18,6 +18,8 @@ public class ConstructionUIJuicer : MonoBehaviour
     public ConstructionIcon layerIcon;
     public ConstructionLayer selectedLayer;
 
+    public Text rotationTip;
+
     public List<ConstructionIcon> icons;
     public RectTransform iconsContainer;
 
@@ -57,7 +59,7 @@ public class ConstructionUIJuicer : MonoBehaviour
             {
                 hoveredIcon.border.color = hoveredColorCache;
             }
-            if (selectedIcon != layerIcon)
+            if (selectedIcon && selectedIcon != layerIcon)
             {
                 selectedIcon.border.color = selectedColorCache;
             }
@@ -228,5 +230,12 @@ public class ConstructionUIJuicer : MonoBehaviour
         selectedLayer = null;
 
         iconsContainer.sizeDelta = new Vector2(iconsContainer.sizeDelta.x, 122);
+    }
+
+    public void UnselectBrush()
+    {
+        if (selectedIcon)
+           selectedIcon.border.color = selectedColorCache;
+        selectedIcon = null;
     }
 }
