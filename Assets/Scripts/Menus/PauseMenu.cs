@@ -14,7 +14,7 @@ public class PauseMenu : MonoBehaviour
     void Update()
     {
         // PAUSE MENU
-        if (Input.GetKeyDown(KeyCode.Escape) && !ConstructionSystem.instance.activated)
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (GameIsPaused) {
                 Resume();
