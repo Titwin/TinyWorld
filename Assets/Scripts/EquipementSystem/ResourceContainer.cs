@@ -26,21 +26,30 @@ public class ResourceContainer : MonoBehaviour
     {
         return load < capacity;
     }
-    public void AddItem(string ressourceName, int ressourceCount)
+    public int TryAddItem(string resourceName, int resourceCount)
     {
-        if (!inventory.ContainsKey(ressourceName))
-            inventory.Add(ressourceName, ressourceCount);
+        int maxTransfert = GetSpaceFor(resourceName);
+        int transfert = Mathf.Min(maxTransfert, resourceCount);
+        
+        if (transfert > 0)
+            AddItem(resourceName, transfert);
+        return transfert > 0 ? transfert : 0;
+    }
+    public void AddItem(string resourceName, int resourceCount)
+    {
+        if (!inventory.ContainsKey(resourceName))
+            inventory.Add(resourceName, resourceCount);
         else
-            inventory[ressourceName] += ressourceCount;
+            inventory[resourceName] += resourceCount;
         UpdateContent();
     }
-    public void RemoveItem(string ressourceName, int ressourceCount, bool forceUpdate = true)
+    public void RemoveItem(string resourceName, int resourceCount, bool forceUpdate = true)
     {
-        if (inventory.ContainsKey(ressourceName))
+        if (inventory.ContainsKey(resourceName))
         {
-            inventory[ressourceName] = Mathf.Max(0, inventory[ressourceName] - ressourceCount);
-            if (inventory[ressourceName] <= 0)
-                inventory.Remove(ressourceName);
+            inventory[resourceName] = Mathf.Max(0, inventory[resourceName] - resourceCount);
+            if (inventory[resourceName] <= 0)
+                inventory.Remove(resourceName);
         }
         if (forceUpdate)
             UpdateContent();
@@ -61,6 +70,25 @@ public class ResourceContainer : MonoBehaviour
         }
 
         return acceptance;
+    }
+    public bool Accept(string resourceName)
+    {
+        Dictionary<string, int> acceptance = GetAcceptance();
+        if (acceptance.Count == 0)
+            return true;
+        else
+            return acceptance.ContainsKey(resourceName);
+    }
+    public int GetSpaceFor(string resource)
+    {
+        Dictionary<string, int> acceptance = GetAcceptance();
+        if (acceptance.Count == 0)
+            return capacity - load;
+        else if (!acceptance.ContainsKey(resource))
+            return 0;
+
+        int current = inventory.ContainsKey(resource) ? inventory[resource] : 0;
+        return (acceptance[resource] > 0 ? acceptance[resource] : capacity) - current;
     }
     public void Clear()
     {

@@ -15,4 +15,7 @@ public class ResourceData : ScriptableObject
     public Color color;
     public Material material;
     public List<AudioClip> collectingSound;
+
+    /*[Header("Gameplay")]
+    public float load;*/
 }
