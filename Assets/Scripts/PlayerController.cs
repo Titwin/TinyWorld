@@ -47,7 +47,8 @@ public class PlayerController : MonoBehaviour
     private Vector3 target;
     private ParticleSystem.EmitParams emitParams;
 
-    #region Singleton
+    #region Singleton+
+    public static bool initialized = false;
     public static PlayerController MainInstance { get; set; } = null;
     private void Awake()
     {
@@ -83,6 +84,19 @@ public class PlayerController : MonoBehaviour
         backpack.Equip(backpack.equipedItem.type, true);
 
         AnimationParameterRefresh();
+
+        // HACK FOR DEBUG
+        if (!initialized)
+        {
+            initialized = true;
+            interactionController.EquipInteraction(InteractionType.Type.pickableBackpack, Arsenal.Instance.Get(BackpackItem.Type.RessourceContainer).gameObject);
+            /*interactionController.inventory.AddItem(ResourceDictionary.instance.GetResourceItem("Wood"), 20);
+            interactionController.inventory.AddItem(ResourceDictionary.instance.GetResourceItem("Stone"), 20);
+            interactionController.inventory.AddItem(ResourceDictionary.instance.GetResourceItem("Iron"), 20);
+            interactionController.inventory.AddItem(ResourceDictionary.instance.GetResourceItem("Gold"), 20);
+            interactionController.inventory.AddItem(ResourceDictionary.instance.GetResourceItem("Crystal"), 20);*/
+            interactionController.inventory.AddItem(ResourceDictionary.instance.GetResourceItem("Wheat"), 100);
+        }
     }
     
     Vector3 GetInputDirection()
@@ -274,6 +288,7 @@ public class PlayerController : MonoBehaviour
         destination.transform.rotation = source.transform.rotation;
         
         // inventory
+        destination.inventory.capacity = source.inventory.capacity;
         foreach (KeyValuePair<SummarizedItem, int> entry in source.inventory.inventory)
         {
             destination.inventory.AddItem(entry.Key, entry.Value);

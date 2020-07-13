@@ -128,6 +128,7 @@
     <Compile Include="Assets\Scripts\ChikenController.cs" />
     <Compile Include="Assets\Scripts\ConstructionSystem\ConstructionController.cs" />
     <Compile Include="Assets\Scripts\ConstructionSystem\ConstructionData.cs" />
+    <Compile Include="Assets\Scripts\ConstructionSystem\ConstructionGidOverlay.cs" />
     <Compile Include="Assets\Scripts\ConstructionSystem\ConstructionIcon.cs" />
     <Compile Include="Assets\Scripts\ConstructionSystem\ConstructionLayer.cs" />
     <Compile Include="Assets\Scripts\ConstructionSystem\ConstructionSystem.cs" />

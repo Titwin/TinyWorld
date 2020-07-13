@@ -27,6 +27,14 @@ public class Inventory : MonoBehaviour
     {
         return load < capacity;
     }
+    public int TryAddItem(SummarizedItem si, int count)
+    {
+        int maxTransfert = (int)((capacity - load)/si.load);
+        int transfert = Mathf.Min(maxTransfert, count);
+        if (transfert > 0)
+            AddItem(si, transfert);
+        return transfert > 0 ? transfert : 0;
+    }
     public void AddItem(SummarizedItem si, int count)
     {
         if (!inventory.ContainsKey(si))

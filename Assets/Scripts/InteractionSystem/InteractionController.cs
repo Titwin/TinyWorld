@@ -243,6 +243,48 @@ public class InteractionController : MonoBehaviour
         // stop timer for confirmation interaction
         delayedInteractionTime = 0f;
     }
+    public void ThrowHelp(string icon, string help)
+    {
+        // initialize
+        if (helpContainer.activeSelf && helpTimerCoroutine != null)
+            StopCoroutine(helpTimerCoroutine);
+        foreach (Transform child in helpContainer.transform)
+            Destroy(child.gameObject);
+
+        InteractionConditionTemplate go = Instantiate(template, helpContainer.transform);
+        go.transform.localPosition = Vector3.zero;
+        go.gameObject.SetActive(true);
+
+        if (ToolDictionary.instance.tools.ContainsKey(icon))
+            go.mainIcon.sprite = ToolDictionary.instance.tools[icon].icon;
+        else if (ResourceDictionary.instance.resources.ContainsKey(icon))
+            go.mainIcon.sprite = ResourceDictionary.instance.resources[icon].icon;
+        else
+            Debug.Log("no tool icon for this entry : " + icon);
+
+        if (help == "ok")
+        {
+            go.validationIcon.sprite = valid;
+            go.specialText.gameObject.SetActive(false);
+            go.validationIcon.gameObject.SetActive(true);
+        }
+        else if (help == "nok")
+        {
+            go.validationIcon.sprite = invalid;
+            go.specialText.gameObject.SetActive(false);
+            go.validationIcon.gameObject.SetActive(true);
+        }
+        else
+        {
+            go.specialText.text = help;
+            go.specialText.gameObject.SetActive(true);
+            go.validationIcon.gameObject.SetActive(false);
+        }
+        
+        // start showing and start a timer for hiding
+        helpTimerCoroutine = HelpTimer(helpDuration);
+        StartCoroutine(helpTimerCoroutine);
+    }
     public void UpdateHelp()
     {
         // initialize
@@ -562,6 +604,7 @@ public class InteractionController : MonoBehaviour
                 PlayerController.Copy(playerController, destination);
                 MapStreaming.instance.focusAgent = destination.transform;
                 ConstructionSystem.instance.tpsController.target = destination.transform.Find("CameraTarget");
+                InteractionUI.instance.juicer = destination.interactionController.interactionJuicer;
 
                 destination.interactionController.PickableInteraction(type, interactor);
                 interactionJuicer.OnDelete();
@@ -602,6 +645,7 @@ public class InteractionController : MonoBehaviour
         PlayerController.MainInstance.RecomputeLoadFactor();
         MapStreaming.instance.focusAgent = destination.transform;
         ConstructionSystem.instance.tpsController.target = destination.transform.Find("CameraTarget");
+        InteractionUI.instance.juicer = destination.interactionController.interactionJuicer;
 
         interactionJuicer.OnDelete();
         Destroy(gameObject);
@@ -623,6 +667,10 @@ public class InteractionController : MonoBehaviour
                     if (accepted.Count != 0 && !accepted.ContainsKey(resource))
                         continue;
                     
+                    int transfertCount = storehouse.TryAddItem(resource, entry.Value);
+                    transfers.Add(resource, transfertCount);
+                    
+                    /*  // LEGACY
                     int currentCount = storehouse.inventory.ContainsKey(resource) ? storehouse.inventory[resource] : 0;
                     int maxCount = (accepted.ContainsKey(resource) && accepted[resource] > 0) ? accepted[resource] : storehouse.capacity;
 
@@ -631,7 +679,7 @@ public class InteractionController : MonoBehaviour
                         int maximumTransfert = Mathf.Min(entry.Value, maxCount - currentCount);
                         storehouse.AddItem(resource, maximumTransfert);
                         transfers.Add(resource, maximumTransfert);
-                    }
+                    }*/
                 }
             }
 

@@ -5,11 +5,23 @@ using UnityEngine.UI;
 
 public class InteractionUI : MonoBehaviour
 {
+    #region Singleton
+    public static InteractionUI instance;
+    private void Awake()
+    {
+        instance = this;
+    }
+    #endregion
+
     [Header("Linking")]
     public InteractionJuicer juicer;
     public InventoryUI inventoryUI;
     public List<ResourceData> resourcesData;
     private Dictionary<string, ResourceData> sortedResourcesData;
+
+    [Header("State")]
+    public ConstructionController constructionController;
+    public ResourceContainer resourceContainer;
 
     [Header("Container viewer")]
     public GameObject containerViewer;
@@ -52,13 +64,13 @@ public class InteractionUI : MonoBehaviour
         if (juicer.hovered)
         {
             // Construction progress
-            ConstructionController constructionController = juicer.hovered.GetComponent<ConstructionController>();
+            constructionController = juicer.hovered.GetComponent<ConstructionController>();
             if (constructionController != null && !inventoryUI.activated)
                 UpdateConstructionProgress(constructionController);
             else ResetConstructionProgress();
 
             // local resource container
-            ResourceContainer resourceContainer = juicer.hovered.GetComponent<ResourceContainer>();
+            resourceContainer = juicer.hovered.GetComponent<ResourceContainer>();
             if (resourceContainer != null && constructionController == null)
                 UpdateContainerViewer(resourceContainer);
             else ResetContainerViewer();
@@ -165,6 +177,7 @@ public class InteractionUI : MonoBehaviour
             if (sortedResourcesData.ContainsKey(entry.Key))
             {
                 containersIcons[index].gameObject.SetActive(true);
+                containersIcons[index].data = sortedResourcesData[entry.Key];
                 containersIcons[index].icon.sprite = sortedResourcesData[entry.Key].icon;
                 containersIcons[index].text.text = entry.Value.ToString();
                 index++;

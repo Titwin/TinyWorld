@@ -31,6 +31,7 @@ public class ConstructionSystem : MonoBehaviour
     public ConstructionController constructionInteractor;
     public GameObject constructionTilePrefab;
     public GameObject resourcePilePrefab;
+    public MeshRenderer gridRenderer;
     public KeyCode keyMode;
     public KeyCode rotationLeft;
     public KeyCode rotationRight;
@@ -155,7 +156,7 @@ public class ConstructionSystem : MonoBehaviour
     private void ModeUpdate()
     {
         // mode update
-        if (activated && (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(keyMode)))
+        if (activated && ((Input.GetKeyDown(KeyCode.Escape) && brush == null) || Input.GetKeyDown(keyMode)))
         {
             activated = false;
         }
@@ -182,7 +183,20 @@ public class ConstructionSystem : MonoBehaviour
             RenderSettings.fog = !activated;
             ResetState();
         }
+
         lastActivated = activated;
+        gridRenderer.enabled = activated;
+        if (activated && Input.GetKeyDown(KeyCode.Escape) && brush != null)
+        {
+            brush = null;
+            targetLayer = null;
+            lastIcon = null;
+            preview.SetActive(false);
+            constructionUI.rotationTip.gameObject.SetActive(false);
+            constructionUI.UnselectBrush();
+
+            Debug.Log("toto");
+        }
     }
     private void BrushToolUpdate(Vector3Int tilePointing, Vector3 pointing)
     {
@@ -476,6 +490,8 @@ public class ConstructionSystem : MonoBehaviour
         preview.SetActive(false);
 
         constructionUI.ResetState();
+        constructionUI.rotationTip.text = "press " + rotationLeft.ToString() + " or " + rotationRight.ToString() + " to rotate";
+        constructionUI.rotationTip.gameObject.SetActive(false);
     }
     private void LoadBrush(ConstructionIcon icon)
     {
@@ -538,6 +554,8 @@ public class ConstructionSystem : MonoBehaviour
             preview.SetActive(false);
             previewArrow.SetActive(false);
         }
+
+        constructionUI.rotationTip.gameObject.SetActive(previewArrow.activeSelf);
     }
     public void SetActive(bool active)
     {
