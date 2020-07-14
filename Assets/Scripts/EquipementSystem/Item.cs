@@ -21,7 +21,8 @@ public class Item : MonoBehaviour
         Head,
         Second,
         Resource,
-        Horse
+        Horse,
+        None
     };
 
     [Header("Generic Item")]

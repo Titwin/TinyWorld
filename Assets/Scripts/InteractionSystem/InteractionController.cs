@@ -591,13 +591,13 @@ public class InteractionController : MonoBehaviour
             if ((playerController.horse && item.type == HorseItem.Type.None) || (!playerController.horse && item.type != HorseItem.Type.None))
             {
                 // change player template
-                PlayerController template;
+                PlayerController playerTemplate;
                 if (item.type == HorseItem.Type.None)
-                    template = Arsenal.Instance.playerTemplate;
+                    playerTemplate = Arsenal.Instance.playerTemplate;
                 else
-                    template = Arsenal.Instance.mountedPlayerTemplate;
-                PlayerController destination = Instantiate<PlayerController>(template);
-                destination.gameObject.name = template.gameObject.name;
+                    playerTemplate = Arsenal.Instance.mountedPlayerTemplate;
+                PlayerController destination = Instantiate<PlayerController>(playerTemplate);
+                destination.gameObject.name = playerTemplate.gameObject.name;
 
                 // copy
                 PlayerController.MainInstance = destination;
@@ -637,7 +637,7 @@ public class InteractionController : MonoBehaviour
     {
         // change player template
         PlayerController destination = Instantiate<PlayerController>(Arsenal.Instance.playerTemplate);
-        destination.gameObject.name = template.gameObject.name;
+        destination.gameObject.name = Arsenal.Instance.playerTemplate.gameObject.name;
 
         // copy
         PlayerController.MainInstance = destination;
