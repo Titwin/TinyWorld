@@ -18,6 +18,10 @@ public class ForgeItem : MonoBehaviour, IPointerClickHandler, IPointerEnterHandl
     public Text loadCount;
     public Text dammageCount;
     public Image background;
+    public Sprite icon;
+    public SummarizedItem summarizedItem;
+    public string description;
+    public Dictionary<SummarizedItem, int> cost = new Dictionary<SummarizedItem, int>();
 
 
     public void OnPointerClick(PointerEventData eventData)

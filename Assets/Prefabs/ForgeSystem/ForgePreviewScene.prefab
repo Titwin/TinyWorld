@@ -1615,7 +1615,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2445958198274186933}
-  m_Mesh: {fileID: 4300020, guid: 7d2ee18e23ef99c4dbe6c40764865159, type: 3}
+  m_Mesh: {fileID: 0}
 --- !u!23 &1869914827903494956
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1675,7 +1675,7 @@ MonoBehaviour:
   load: 0
   usable: 0
   equipable: 1
-  type: 14
+  type: 0
   toolFamily: None
   forbidSecond: 0
   forbidShield: 0

@@ -26,6 +26,7 @@ public class BodyItem : Item
     [Header("Body Item")]
     public Type type = Type.None;
     public float armor = 0f;
+    public List<string> crafting = new List<string>();
 
 
     public void Clear()

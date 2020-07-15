@@ -17,7 +17,8 @@ public class BackpackItem : Item
     public Type type = Type.None;
     public string toolFamily = "None";
     public int capacity;
-    
+    public List<string> crafting;
+
 
     public void Clear()
     {
