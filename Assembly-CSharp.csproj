@@ -118,6 +118,7 @@
     <Compile Include="Assets\Scripts\AISystem\Unit.cs" />
     <Compile Include="Assets\Scripts\AISystem\UnitAI.cs" />
     <Compile Include="Assets\Scripts\AISystem\WeaponData.cs" />
+    <Compile Include="Assets\Scripts\Animation\AnimationBlink.cs" />
     <Compile Include="Assets\Scripts\Animation\AnimationRotation.cs" />
     <Compile Include="Assets\Scripts\Animation\AnimationSinTranslation.cs" />
     <Compile Include="Assets\Scripts\Animation\AnimationStoneGate.cs" />
@@ -136,6 +137,7 @@
     <Compile Include="Assets\Scripts\ConstructionSystem\DestroyOnEmpty.cs" />
     <Compile Include="Assets\Scripts\ConstructionSystem\DestructionTemplate.cs" />
     <Compile Include="Assets\Scripts\ConstructionSystem\ResourceIcon.cs" />
+    <Compile Include="Assets\Scripts\Environement\Meteo.cs" />
     <Compile Include="Assets\Scripts\Environement\Sun.cs" />
     <Compile Include="Assets\Scripts\EquipementSystem\Arsenal.cs" />
     <Compile Include="Assets\Scripts\EquipementSystem\BackpackItem.cs" />
@@ -160,6 +162,13 @@
     <Compile Include="Assets\Scripts\EquipementSystem\ShieldSlot.cs" />
     <Compile Include="Assets\Scripts\EquipementSystem\WeaponItem.cs" />
     <Compile Include="Assets\Scripts\EquipementSystem\WeaponSlot.cs" />
+    <Compile Include="Assets\Scripts\ForgeSystem\ForgeArsenalRect.cs" />
+    <Compile Include="Assets\Scripts\ForgeSystem\ForgeFilter.cs" />
+    <Compile Include="Assets\Scripts\ForgeSystem\ForgeItem.cs" />
+    <Compile Include="Assets\Scripts\ForgeSystem\ForgePreviewAvatar.cs" />
+    <Compile Include="Assets\Scripts\ForgeSystem\ForgePreviewScene.cs" />
+    <Compile Include="Assets\Scripts\ForgeSystem\ForgeSystem.cs" />
+    <Compile Include="Assets\Scripts\ForgeSystem\ForgeUI.cs" />
     <Compile Include="Assets\Scripts\GenerateBillboard.cs" />
     <Compile Include="Assets\Scripts\Helper\Billboard.cs" />
     <Compile Include="Assets\Scripts\Helper\Follower.cs" />
@@ -170,6 +179,7 @@
     <Compile Include="Assets\Scripts\InteractionSystem\InteractionJuicer.cs" />
     <Compile Include="Assets\Scripts\InteractionSystem\InteractionType.cs" />
     <Compile Include="Assets\Scripts\InteractionSystem\InteractionUI.cs" />
+    <Compile Include="Assets\Scripts\InteractionSystem\OreComponent.cs" />
     <Compile Include="Assets\Scripts\InteractionSystem\ResourceData.cs" />
     <Compile Include="Assets\Scripts\InteractionSystem\ResourceDictionary.cs" />
     <Compile Include="Assets\Scripts\InteractionSystem\SpecialPickableShopArsenal.cs" />
@@ -182,7 +192,6 @@
     <Compile Include="Assets\Scripts\Map\MapModifier.cs" />
     <Compile Include="Assets\Scripts\Map\MapStreaming.cs" />
     <Compile Include="Assets\Scripts\Menus\PauseMenu.cs" />
-    <Compile Include="Assets\Scripts\Meteo.cs" />
     <Compile Include="Assets\Scripts\NavigationSystem\AgentBase.cs" />
     <Compile Include="Assets\Scripts\NavigationSystem\Navigation.cs" />
     <Compile Include="Assets\Scripts\NavigationSystem\TerrainBase.cs" />
@@ -190,7 +199,6 @@
     <Compile Include="Assets\Scripts\NavigationSystem\Utils\QuadTreeQuery.cs" />
     <Compile Include="Assets\Scripts\NavigationSystem\Utils\QuadTreeTest.cs" />
     <Compile Include="Assets\Scripts\ObjectPooler.cs" />
-    <Compile Include="Assets\Scripts\OreComponent.cs" />
     <Compile Include="Assets\Scripts\PeasantController.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
     <Compile Include="Assets\Scripts\TileScripts\Bridge.cs" />

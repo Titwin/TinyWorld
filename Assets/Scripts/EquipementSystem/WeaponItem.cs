@@ -38,7 +38,8 @@ public class WeaponItem : Item
     public bool forbidShield = false;
     public int animationCode = 1;
     public float dammage = 0f;
-    
+    public List<string> crafting;
+
     // special
     public void Clear()
     {

@@ -131,6 +131,18 @@ public class InteractionController : MonoBehaviour
                 success = true;
                 StartTimer();
                 break;
+            case InteractionType.Type.forge:
+                if (playerController.weapon.equipedItem.toolFamily == "Hammer")
+                {
+                    lastInteraction = type;
+                    success = true;
+                    StartTimer();
+                }
+                else
+                {
+                    ThrowHelp("Hammer", "nok");
+                }
+                break;
 
             case InteractionType.Type.storeRessources:
                 if (inventory.load != 0)
@@ -188,8 +200,12 @@ public class InteractionController : MonoBehaviour
                 StoreAllInteraction(lastInteraction, hoveredInteractor);
                 break;
 
+            // systems
             case InteractionType.Type.constructionMode:
                 ConstructionSystem.instance.SetActive(true);
+                break;
+            case InteractionType.Type.forge:
+                ForgeSystem.instance.SetActive(true);
                 break;
 
             // standard ressources collection -> no confirmed action (and if we are here it's an error)
@@ -199,7 +215,7 @@ public class InteractionController : MonoBehaviour
             case InteractionType.Type.collectCrystal:
             case InteractionType.Type.collectWood:
                 break;
-
+               
             // error
             default:
                 Debug.LogWarning("no interaction defined for this type " + lastInteraction.ToString());
@@ -591,13 +607,13 @@ public class InteractionController : MonoBehaviour
             if ((playerController.horse && item.type == HorseItem.Type.None) || (!playerController.horse && item.type != HorseItem.Type.None))
             {
                 // change player template
-                PlayerController template;
+                PlayerController playerTemplate;
                 if (item.type == HorseItem.Type.None)
-                    template = Arsenal.Instance.playerTemplate;
+                    playerTemplate = Arsenal.Instance.playerTemplate;
                 else
-                    template = Arsenal.Instance.mountedPlayerTemplate;
-                PlayerController destination = Instantiate<PlayerController>(template);
-                destination.gameObject.name = template.gameObject.name;
+                    playerTemplate = Arsenal.Instance.mountedPlayerTemplate;
+                PlayerController destination = Instantiate<PlayerController>(playerTemplate);
+                destination.gameObject.name = playerTemplate.gameObject.name;
 
                 // copy
                 PlayerController.MainInstance = destination;
@@ -637,7 +653,7 @@ public class InteractionController : MonoBehaviour
     {
         // change player template
         PlayerController destination = Instantiate<PlayerController>(Arsenal.Instance.playerTemplate);
-        destination.gameObject.name = template.gameObject.name;
+        destination.gameObject.name = Arsenal.Instance.playerTemplate.gameObject.name;
 
         // copy
         PlayerController.MainInstance = destination;

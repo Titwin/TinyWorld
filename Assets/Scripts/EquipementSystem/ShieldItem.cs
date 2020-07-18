@@ -16,6 +16,7 @@ public class ShieldItem : Item
     [Header("Shield Item")]
     public Type type = Type.None;
     public float armor = 0f;
+    public List<string> crafting;
 
     public void Clear()
     {

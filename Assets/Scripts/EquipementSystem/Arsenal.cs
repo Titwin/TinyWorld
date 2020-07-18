@@ -12,6 +12,7 @@ public class Arsenal : MonoBehaviour
     public new Camera camera;
     public string iconFolderPath = "";
     public Vector2Int iconSize;
+    public int craftableItemCount;
 
     [Header("Player templates")]
     public PlayerController playerTemplate;
@@ -77,6 +78,7 @@ public class Arsenal : MonoBehaviour
         else
         {
             _instance = this;
+            craftableItemCount = 0;
             InitializeTables();
         }
     }
@@ -405,6 +407,7 @@ public class Arsenal : MonoBehaviour
             }
             else Debug.LogError("In Arsenal : The backpack dictionary already contain an item of this type, see gameObject " + b.gameObject);
         }
+        craftableItemCount += backpackDictionary.Count;
 
 
         // create weapons association table
@@ -422,6 +425,7 @@ public class Arsenal : MonoBehaviour
             }
             else Debug.LogError("In Arsenal : The weapon dictionary already contain an item of this type, see gameObject " + w.gameObject);
         }
+        craftableItemCount += weaponDictionary.Count;
 
         // create weapons association table
         headDictionary = new Dictionary<HeadItem.Type, HeadItem>();
@@ -438,6 +442,7 @@ public class Arsenal : MonoBehaviour
             }
             else Debug.LogError("In Arsenal : The head dictionary already contain an item of this type, see gameObject " + h.gameObject);
         }
+        craftableItemCount += headDictionary.Count;
 
         // create weapons association table
         secondDictionary = new Dictionary<SecondItem.Type, SecondItem>();
@@ -454,6 +459,7 @@ public class Arsenal : MonoBehaviour
             }
             else Debug.LogError("In Arsenal : The second hand dictionary already contain an item of this type, see gameObject " + s.gameObject);
         }
+        craftableItemCount += secondDictionary.Count;
 
         // create weapons association table
         shieldDictionary = new Dictionary<ShieldItem.Type, ShieldItem>();
@@ -470,6 +476,7 @@ public class Arsenal : MonoBehaviour
             }
             else Debug.LogError("In Arsenal : The shield dictionary already contain an item of this type, see gameObject " + s.gameObject);
         }
+        craftableItemCount += shieldDictionary.Count;
 
         // create weapons association table
         bodyDictionary = new Dictionary<BodyItem.Type, BodyItem>();
@@ -500,6 +507,7 @@ public class Arsenal : MonoBehaviour
             }
             else Debug.LogError("In Arsenal : The mounted body dictionary already contain an item of this type, see gameObject " + b.gameObject);
         }
+        craftableItemCount += bodyDictionary.Count;
 
         // create horses association table
         horseDictionary = new Dictionary<HorseItem.Type, HorseItem>();

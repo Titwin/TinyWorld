@@ -21,7 +21,8 @@ public class Item : MonoBehaviour
         Head,
         Second,
         Resource,
-        Horse
+        Horse,
+        None
     };
 
     [Header("Generic Item")]
@@ -62,6 +63,19 @@ public class Item : MonoBehaviour
     public static InteractionType.Type GetPickableInteraction(Item item)
     {
         switch(item.itemType)
+        {
+            case ItemType.Weapon: return InteractionType.Type.pickableWeapon;
+            case ItemType.Backpack: return InteractionType.Type.pickableBackpack;
+            case ItemType.Shield: return InteractionType.Type.pickableShield;
+            case ItemType.Second: return InteractionType.Type.pickableSecond;
+            case ItemType.Head: return InteractionType.Type.pickableHead;
+
+            default: return InteractionType.Type.none;
+        }
+    }
+    public static InteractionType.Type GetPickableInteraction(SummarizedItem item)
+    {
+        switch (item.itemType)
         {
             case ItemType.Weapon: return InteractionType.Type.pickableWeapon;
             case ItemType.Backpack: return InteractionType.Type.pickableBackpack;

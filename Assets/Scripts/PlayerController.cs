@@ -90,12 +90,12 @@ public class PlayerController : MonoBehaviour
         {
             initialized = true;
             interactionController.EquipInteraction(InteractionType.Type.pickableBackpack, Arsenal.Instance.Get(BackpackItem.Type.RessourceContainer).gameObject);
-            /*interactionController.inventory.AddItem(ResourceDictionary.instance.GetResourceItem("Wood"), 20);
-            interactionController.inventory.AddItem(ResourceDictionary.instance.GetResourceItem("Stone"), 20);
-            interactionController.inventory.AddItem(ResourceDictionary.instance.GetResourceItem("Iron"), 20);
-            interactionController.inventory.AddItem(ResourceDictionary.instance.GetResourceItem("Gold"), 20);
-            interactionController.inventory.AddItem(ResourceDictionary.instance.GetResourceItem("Crystal"), 20);*/
-            interactionController.inventory.AddItem(ResourceDictionary.instance.GetResourceItem("Wheat"), 100);
+            interactionController.inventory.AddItem(ResourceDictionary.instance.GetResourceItem("Wood"), 3);
+            //interactionController.inventory.AddItem(ResourceDictionary.instance.GetResourceItem("Stone"), 3);
+            interactionController.inventory.AddItem(ResourceDictionary.instance.GetResourceItem("Iron"), 3);
+            interactionController.inventory.AddItem(ResourceDictionary.instance.GetResourceItem("Gold"), 1);
+            //interactionController.inventory.AddItem(ResourceDictionary.instance.GetResourceItem("Crystal"), 3);
+            interactionController.inventory.AddItem(ResourceDictionary.instance.GetResourceItem("Wheat"), 6);
         }
     }
     
@@ -116,7 +116,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         // begin
-        if (ConstructionSystem.instance.activated)
+        if (ConstructionSystem.instance.activated || ForgeSystem.instance.activated)
         {
             InventoryUI.instance.Activate(false);
             return;

@@ -106,6 +106,8 @@ MonoBehaviour:
   forbidShield: 0
   animationCode: 1
   dammage: 2
+  crafting:
+  - Iron 1
 --- !u!1 &44329112108966528
 GameObject:
   m_ObjectHideFlags: 0
@@ -365,6 +367,7 @@ MonoBehaviour:
   forbidShield: 0
   animationCode: 5
   dammage: 7
+  crafting: []
 --- !u!1 &655040245438755446
 GameObject:
   m_ObjectHideFlags: 0
@@ -1598,6 +1601,7 @@ MonoBehaviour:
   forbidShield: 0
   animationCode: 5
   dammage: 10
+  crafting: []
 --- !u!1 &1313382024486267822
 GameObject:
   m_ObjectHideFlags: 0
@@ -1705,6 +1709,7 @@ MonoBehaviour:
   forbidShield: 0
   animationCode: 5
   dammage: 5
+  crafting: []
 --- !u!1 &1331490803179562775
 GameObject:
   m_ObjectHideFlags: 0
@@ -1966,6 +1971,7 @@ MonoBehaviour:
   forbidShield: 0
   animationCode: 5
   dammage: 10
+  crafting: []
 --- !u!1 &1807844602068412751
 GameObject:
   m_ObjectHideFlags: 0
@@ -2450,6 +2456,7 @@ MonoBehaviour:
   equipable: 1
   type: 12
   armor: 0
+  crafting: []
 --- !u!1 &3139077239890974219
 GameObject:
   m_ObjectHideFlags: 0
@@ -2569,6 +2576,7 @@ MonoBehaviour:
   equipable: 1
   type: 11
   armor: 0
+  crafting: []
 --- !u!1 &3139077239890974221
 GameObject:
   m_ObjectHideFlags: 0
@@ -2688,6 +2696,7 @@ MonoBehaviour:
   equipable: 1
   type: 10
   armor: 0
+  crafting: []
 --- !u!1 &3139077239890974225
 GameObject:
   m_ObjectHideFlags: 0
@@ -2807,6 +2816,7 @@ MonoBehaviour:
   equipable: 1
   type: 43
   armor: 0
+  crafting: []
 --- !u!1 &3139077239890974227
 GameObject:
   m_ObjectHideFlags: 0
@@ -2926,6 +2936,7 @@ MonoBehaviour:
   equipable: 1
   type: 15
   armor: 0
+  crafting: []
 --- !u!1 &3139077239890974229
 GameObject:
   m_ObjectHideFlags: 0
@@ -3045,6 +3056,7 @@ MonoBehaviour:
   equipable: 1
   type: 14
   armor: 0
+  crafting: []
 --- !u!1 &3139077239890974231
 GameObject:
   m_ObjectHideFlags: 0
@@ -3164,6 +3176,7 @@ MonoBehaviour:
   equipable: 1
   type: 13
   armor: 0
+  crafting: []
 --- !u!1 &3139077239890974233
 GameObject:
   m_ObjectHideFlags: 0
@@ -3283,6 +3296,7 @@ MonoBehaviour:
   equipable: 1
   type: 18
   armor: 2
+  crafting: []
 --- !u!1 &3139077239890974235
 GameObject:
   m_ObjectHideFlags: 0
@@ -3402,6 +3416,7 @@ MonoBehaviour:
   equipable: 1
   type: 17
   armor: 1
+  crafting: []
 --- !u!1 &3139077239890974237
 GameObject:
   m_ObjectHideFlags: 0
@@ -3521,6 +3536,7 @@ MonoBehaviour:
   equipable: 1
   type: 16
   armor: 1
+  crafting: []
 --- !u!1 &3139077239890974239
 GameObject:
   m_ObjectHideFlags: 0
@@ -3640,6 +3656,7 @@ MonoBehaviour:
   equipable: 1
   type: 44
   armor: 0
+  crafting: []
 --- !u!1 &3139077239890974241
 GameObject:
   m_ObjectHideFlags: 0
@@ -3759,6 +3776,7 @@ MonoBehaviour:
   equipable: 1
   type: 22
   armor: 2
+  crafting: []
 --- !u!1 &3139077239890974243
 GameObject:
   m_ObjectHideFlags: 0
@@ -3878,6 +3896,7 @@ MonoBehaviour:
   equipable: 1
   type: 21
   armor: 2
+  crafting: []
 --- !u!1 &3139077239890974245
 GameObject:
   m_ObjectHideFlags: 0
@@ -3997,6 +4016,7 @@ MonoBehaviour:
   equipable: 1
   type: 20
   armor: 2
+  crafting: []
 --- !u!1 &3139077239890974247
 GameObject:
   m_ObjectHideFlags: 0
@@ -4116,6 +4136,7 @@ MonoBehaviour:
   equipable: 1
   type: 19
   armor: 2
+  crafting: []
 --- !u!1 &3139077239890974249
 GameObject:
   m_ObjectHideFlags: 0
@@ -4235,6 +4256,7 @@ MonoBehaviour:
   equipable: 1
   type: 26
   armor: 3
+  crafting: []
 --- !u!1 &3139077239890974251
 GameObject:
   m_ObjectHideFlags: 0
@@ -4354,6 +4376,7 @@ MonoBehaviour:
   equipable: 1
   type: 25
   armor: 2
+  crafting: []
 --- !u!1 &3139077239890974253
 GameObject:
   m_ObjectHideFlags: 0
@@ -4473,6 +4496,7 @@ MonoBehaviour:
   equipable: 1
   type: 24
   armor: 2
+  crafting: []
 --- !u!1 &3139077239890974255
 GameObject:
   m_ObjectHideFlags: 0
@@ -4592,6 +4616,7 @@ MonoBehaviour:
   equipable: 1
   type: 23
   armor: 2
+  crafting: []
 --- !u!1 &3139077239890974257
 GameObject:
   m_ObjectHideFlags: 0
@@ -4711,6 +4736,7 @@ MonoBehaviour:
   equipable: 1
   type: 45
   armor: 3
+  crafting: []
 --- !u!1 &3139077239890974259
 GameObject:
   m_ObjectHideFlags: 0
@@ -4830,6 +4856,7 @@ MonoBehaviour:
   equipable: 1
   type: 29
   armor: 3
+  crafting: []
 --- !u!1 &3139077239890974261
 GameObject:
   m_ObjectHideFlags: 0
@@ -4949,6 +4976,7 @@ MonoBehaviour:
   equipable: 1
   type: 28
   armor: 3
+  crafting: []
 --- !u!1 &3139077239890974263
 GameObject:
   m_ObjectHideFlags: 0
@@ -5068,6 +5096,7 @@ MonoBehaviour:
   equipable: 1
   type: 27
   armor: 3
+  crafting: []
 --- !u!1 &3139077239890974265
 GameObject:
   m_ObjectHideFlags: 0
@@ -5187,6 +5216,7 @@ MonoBehaviour:
   equipable: 1
   type: 33
   armor: 3
+  crafting: []
 --- !u!1 &3139077239890974267
 GameObject:
   m_ObjectHideFlags: 0
@@ -5306,6 +5336,7 @@ MonoBehaviour:
   equipable: 1
   type: 32
   armor: 3
+  crafting: []
 --- !u!1 &3139077239890974269
 GameObject:
   m_ObjectHideFlags: 0
@@ -5425,6 +5456,7 @@ MonoBehaviour:
   equipable: 1
   type: 31
   armor: 3
+  crafting: []
 --- !u!1 &3139077239890974271
 GameObject:
   m_ObjectHideFlags: 0
@@ -5544,6 +5576,7 @@ MonoBehaviour:
   equipable: 1
   type: 30
   armor: 3
+  crafting: []
 --- !u!1 &3139077239890974273
 GameObject:
   m_ObjectHideFlags: 0
@@ -5918,6 +5951,7 @@ MonoBehaviour:
   equipable: 1
   type: 39
   armor: 5
+  crafting: []
 --- !u!1 &3139077239890974291
 GameObject:
   m_ObjectHideFlags: 0
@@ -6037,6 +6071,7 @@ MonoBehaviour:
   equipable: 1
   type: 9
   armor: 0
+  crafting: []
 --- !u!1 &3139077239890974293
 GameObject:
   m_ObjectHideFlags: 0
@@ -6249,6 +6284,7 @@ MonoBehaviour:
   equipable: 1
   type: 8
   armor: 1
+  crafting: []
 --- !u!1 &3139077239890974303
 GameObject:
   m_ObjectHideFlags: 0
@@ -6368,6 +6404,7 @@ MonoBehaviour:
   equipable: 1
   type: 4
   armor: 1
+  crafting: []
 --- !u!1 &3139077239890974305
 GameObject:
   m_ObjectHideFlags: 0
@@ -6664,6 +6701,7 @@ MonoBehaviour:
   equipable: 1
   type: 37
   armor: 5
+  crafting: []
 --- !u!1 &3139077239890974403
 GameObject:
   m_ObjectHideFlags: 0
@@ -6783,6 +6821,7 @@ MonoBehaviour:
   equipable: 1
   type: 36
   armor: 5
+  crafting: []
 --- !u!1 &3139077239890974405
 GameObject:
   m_ObjectHideFlags: 0
@@ -6902,6 +6941,7 @@ MonoBehaviour:
   equipable: 1
   type: 35
   armor: 5
+  crafting: []
 --- !u!1 &3139077239890974407
 GameObject:
   m_ObjectHideFlags: 0
@@ -7021,6 +7061,7 @@ MonoBehaviour:
   equipable: 1
   type: 34
   armor: 5
+  crafting: []
 --- !u!1 &3139077239890974409
 GameObject:
   m_ObjectHideFlags: 0
@@ -7140,6 +7181,7 @@ MonoBehaviour:
   equipable: 1
   type: 42
   armor: 5
+  crafting: []
 --- !u!1 &3139077239890974411
 GameObject:
   m_ObjectHideFlags: 0
@@ -7259,6 +7301,7 @@ MonoBehaviour:
   equipable: 1
   type: 41
   armor: 5
+  crafting: []
 --- !u!1 &3139077239890974413
 GameObject:
   m_ObjectHideFlags: 0
@@ -7378,6 +7421,7 @@ MonoBehaviour:
   equipable: 1
   type: 40
   armor: 5
+  crafting: []
 --- !u!1 &3139077239890974415
 GameObject:
   m_ObjectHideFlags: 0
@@ -7497,6 +7541,7 @@ MonoBehaviour:
   equipable: 1
   type: 38
   armor: 5
+  crafting: []
 --- !u!1 &3139077239890974417
 GameObject:
   m_ObjectHideFlags: 0
@@ -7616,6 +7661,7 @@ MonoBehaviour:
   equipable: 1
   type: 1
   armor: 0
+  crafting: []
 --- !u!1 &3139077239890974419
 GameObject:
   m_ObjectHideFlags: 0
@@ -7735,6 +7781,7 @@ MonoBehaviour:
   equipable: 1
   type: 7
   armor: 1
+  crafting: []
 --- !u!1 &3139077239890974421
 GameObject:
   m_ObjectHideFlags: 0
@@ -7854,6 +7901,7 @@ MonoBehaviour:
   equipable: 1
   type: 6
   armor: 1
+  crafting: []
 --- !u!1 &3139077239890974423
 GameObject:
   m_ObjectHideFlags: 0
@@ -7973,6 +8021,7 @@ MonoBehaviour:
   equipable: 1
   type: 5
   armor: 1
+  crafting: []
 --- !u!1 &3139077239890974429
 GameObject:
   m_ObjectHideFlags: 0
@@ -8092,6 +8141,7 @@ MonoBehaviour:
   equipable: 1
   type: 3
   armor: 0
+  crafting: []
 --- !u!1 &3139077239890974431
 GameObject:
   m_ObjectHideFlags: 0
@@ -8211,6 +8261,7 @@ MonoBehaviour:
   equipable: 1
   type: 2
   armor: 0
+  crafting: []
 --- !u!1 &3139077239890974593
 GameObject:
   m_ObjectHideFlags: 0
@@ -10822,6 +10873,9 @@ MonoBehaviour:
   forbidShield: 0
   animationCode: 5
   dammage: 10
+  crafting:
+  - Wood 1
+  - Iron 1
 --- !u!1 &3139077239890975019
 GameObject:
   m_ObjectHideFlags: 0
@@ -10929,6 +10983,9 @@ MonoBehaviour:
   forbidShield: 0
   animationCode: 5
   dammage: 10
+  crafting:
+  - Wood 1
+  - Iron 1
 --- !u!1 &3139077239890975021
 GameObject:
   m_ObjectHideFlags: 0
@@ -11036,6 +11093,9 @@ MonoBehaviour:
   forbidShield: 0
   animationCode: 5
   dammage: 7
+  crafting:
+  - Wood 1
+  - Iron 1
 --- !u!1 &3139077239890975031
 GameObject:
   m_ObjectHideFlags: 0
@@ -11143,6 +11203,9 @@ MonoBehaviour:
   forbidShield: 0
   animationCode: 5
   dammage: 5
+  crafting:
+  - Wood 1
+  - Iron 1
 --- !u!1 &3159413799077392358
 GameObject:
   m_ObjectHideFlags: 0
@@ -12267,6 +12330,8 @@ MonoBehaviour:
   equipable: 1
   type: 62
   armor: 0
+  crafting:
+  - Wheat 1
 --- !u!1 &7388010046170874114
 GameObject:
   m_ObjectHideFlags: 0
@@ -12369,6 +12434,8 @@ MonoBehaviour:
   equipable: 1
   type: 61
   armor: 0
+  crafting:
+  - Wheat 1
 --- !u!1 &7388010046170874116
 GameObject:
   m_ObjectHideFlags: 0
@@ -12471,6 +12538,8 @@ MonoBehaviour:
   equipable: 1
   type: 60
   armor: 0
+  crafting:
+  - Wheat 1
 --- !u!1 &7388010046170874118
 GameObject:
   m_ObjectHideFlags: 0
@@ -12574,6 +12643,9 @@ MonoBehaviour:
   equipable: 1
   type: 41
   armor: 5
+  crafting:
+  - Iron 1
+  - Gold 1
 --- !u!1 &7388010046170874120
 GameObject:
   m_ObjectHideFlags: 0
@@ -12676,6 +12748,8 @@ MonoBehaviour:
   equipable: 1
   type: 66
   armor: 1
+  crafting:
+  - Gold 1
 --- !u!1 &7388010046170874122
 GameObject:
   m_ObjectHideFlags: 0
@@ -12778,6 +12852,8 @@ MonoBehaviour:
   equipable: 1
   type: 65
   armor: 1
+  crafting:
+  - Gold 1
 --- !u!1 &7388010046170874124
 GameObject:
   m_ObjectHideFlags: 0
@@ -12880,6 +12956,8 @@ MonoBehaviour:
   equipable: 1
   type: 64
   armor: 0
+  crafting:
+  - Wheat 1
 --- !u!1 &7388010046170874126
 GameObject:
   m_ObjectHideFlags: 0
@@ -12982,6 +13060,8 @@ MonoBehaviour:
   equipable: 1
   type: 63
   armor: 0
+  crafting:
+  - Wheat 1
 --- !u!1 &7388010046170874128
 GameObject:
   m_ObjectHideFlags: 0
@@ -13101,6 +13181,9 @@ MonoBehaviour:
   equipable: 1
   type: 7
   armor: 1
+  crafting:
+  - Wheat 3
+  - Gold 1
 --- !u!1 &7388010046170874130
 GameObject:
   m_ObjectHideFlags: 0
@@ -13204,6 +13287,9 @@ MonoBehaviour:
   equipable: 1
   type: 69
   armor: 6
+  crafting:
+  - Gold 2
+  - Iron 1
 --- !u!1 &7388010046170874132
 GameObject:
   m_ObjectHideFlags: 0
@@ -13307,6 +13393,9 @@ MonoBehaviour:
   equipable: 1
   type: 68
   armor: 3
+  crafting:
+  - Gold 1
+  - Iron 1
 --- !u!1 &7388010046170874134
 GameObject:
   m_ObjectHideFlags: 0
@@ -13410,6 +13499,9 @@ MonoBehaviour:
   equipable: 1
   type: 67
   armor: 3
+  crafting:
+  - Gold 1
+  - Iron 1
 --- !u!1 &7388010046170874142
 GameObject:
   m_ObjectHideFlags: 0
@@ -13529,6 +13621,9 @@ MonoBehaviour:
   equipable: 1
   type: 8
   armor: 1
+  crafting:
+  - Wheat 3
+  - Gold 1
 --- !u!1 &7388010046170874176
 GameObject:
   m_ObjectHideFlags: 0
@@ -13632,6 +13727,8 @@ MonoBehaviour:
   equipable: 1
   type: 32
   armor: 2
+  crafting:
+  - Iron 1
 --- !u!1 &7388010046170874178
 GameObject:
   m_ObjectHideFlags: 0
@@ -13735,6 +13832,8 @@ MonoBehaviour:
   equipable: 1
   type: 31
   armor: 2
+  crafting:
+  - Iron 1
 --- !u!1 &7388010046170874180
 GameObject:
   m_ObjectHideFlags: 0
@@ -13838,6 +13937,8 @@ MonoBehaviour:
   equipable: 1
   type: 30
   armor: 2
+  crafting:
+  - Iron 1
 --- !u!1 &7388010046170874182
 GameObject:
   m_ObjectHideFlags: 0
@@ -13941,6 +14042,8 @@ MonoBehaviour:
   equipable: 1
   type: 29
   armor: 2
+  crafting:
+  - Iron 1
 --- !u!1 &7388010046170874184
 GameObject:
   m_ObjectHideFlags: 0
@@ -14044,6 +14147,8 @@ MonoBehaviour:
   equipable: 1
   type: 44
   armor: 2
+  crafting:
+  - Iron 1
 --- !u!1 &7388010046170874186
 GameObject:
   m_ObjectHideFlags: 0
@@ -14147,6 +14252,8 @@ MonoBehaviour:
   equipable: 1
   type: 43
   armor: 3
+  crafting:
+  - Iron 1
 --- !u!1 &7388010046170874188
 GameObject:
   m_ObjectHideFlags: 0
@@ -14250,6 +14357,8 @@ MonoBehaviour:
   equipable: 1
   type: 42
   armor: 3
+  crafting:
+  - Iron 1
 --- !u!1 &7388010046170874190
 GameObject:
   m_ObjectHideFlags: 0
@@ -14353,6 +14462,8 @@ MonoBehaviour:
   equipable: 1
   type: 33
   armor: 2
+  crafting:
+  - Iron 1
 --- !u!1 &7388010046170874192
 GameObject:
   m_ObjectHideFlags: 0
@@ -14456,6 +14567,8 @@ MonoBehaviour:
   equipable: 1
   type: 46
   armor: 3
+  crafting:
+  - Iron 1
 --- !u!1 &7388010046170874194
 GameObject:
   m_ObjectHideFlags: 0
@@ -14559,6 +14672,8 @@ MonoBehaviour:
   equipable: 1
   type: 45
   armor: 3
+  crafting:
+  - Iron 1
 --- !u!1 &7388010046170874196
 GameObject:
   m_ObjectHideFlags: 0
@@ -14662,6 +14777,8 @@ MonoBehaviour:
   equipable: 1
   type: 35
   armor: 0
+  crafting:
+  - Iron 1
 --- !u!1 &7388010046170874198
 GameObject:
   m_ObjectHideFlags: 0
@@ -14765,6 +14882,8 @@ MonoBehaviour:
   equipable: 1
   type: 34
   armor: 0
+  crafting:
+  - Iron 1
 --- !u!1 &7388010046170874200
 GameObject:
   m_ObjectHideFlags: 0
@@ -14868,6 +14987,8 @@ MonoBehaviour:
   equipable: 1
   type: 51
   armor: 5
+  crafting:
+  - Iron 2
 --- !u!1 &7388010046170874202
 GameObject:
   m_ObjectHideFlags: 0
@@ -14971,6 +15092,8 @@ MonoBehaviour:
   equipable: 1
   type: 36
   armor: 5
+  crafting:
+  - Iron 2
 --- !u!1 &7388010046170874204
 GameObject:
   m_ObjectHideFlags: 0
@@ -15074,6 +15197,8 @@ MonoBehaviour:
   equipable: 1
   type: 50
   armor: 5
+  crafting:
+  - Iron 2
 --- !u!1 &7388010046170874206
 GameObject:
   m_ObjectHideFlags: 0
@@ -15177,6 +15302,8 @@ MonoBehaviour:
   equipable: 1
   type: 47
   armor: 3
+  crafting:
+  - Iron 2
 --- !u!1 &7388010046170874208
 GameObject:
   m_ObjectHideFlags: 0
@@ -15280,6 +15407,8 @@ MonoBehaviour:
   equipable: 1
   type: 37
   armor: 5
+  crafting:
+  - Iron 2
 --- !u!1 &7388010046170874210
 GameObject:
   m_ObjectHideFlags: 0
@@ -15383,6 +15512,8 @@ MonoBehaviour:
   equipable: 1
   type: 54
   armor: 5
+  crafting:
+  - Iron 2
 --- !u!1 &7388010046170874212
 GameObject:
   m_ObjectHideFlags: 0
@@ -15486,6 +15617,8 @@ MonoBehaviour:
   equipable: 1
   type: 53
   armor: 5
+  crafting:
+  - Iron 2
 --- !u!1 &7388010046170874214
 GameObject:
   m_ObjectHideFlags: 0
@@ -15589,6 +15722,8 @@ MonoBehaviour:
   equipable: 1
   type: 52
   armor: 5
+  crafting:
+  - Iron 2
 --- !u!1 &7388010046170874216
 GameObject:
   m_ObjectHideFlags: 0
@@ -15692,6 +15827,8 @@ MonoBehaviour:
   equipable: 1
   type: 48
   armor: 4
+  crafting:
+  - Iron 2
 --- !u!1 &7388010046170874218
 GameObject:
   m_ObjectHideFlags: 0
@@ -15795,6 +15932,8 @@ MonoBehaviour:
   equipable: 1
   type: 38
   armor: 5
+  crafting:
+  - Iron 2
 --- !u!1 &7388010046170874220
 GameObject:
   m_ObjectHideFlags: 0
@@ -15898,6 +16037,8 @@ MonoBehaviour:
   equipable: 1
   type: 56
   armor: 5
+  crafting:
+  - Iron 2
 --- !u!1 &7388010046170874222
 GameObject:
   m_ObjectHideFlags: 0
@@ -16001,6 +16142,8 @@ MonoBehaviour:
   equipable: 1
   type: 55
   armor: 5
+  crafting:
+  - Iron 2
 --- !u!1 &7388010046170874224
 GameObject:
   m_ObjectHideFlags: 0
@@ -16104,6 +16247,9 @@ MonoBehaviour:
   equipable: 1
   type: 57
   armor: 0
+  crafting:
+  - Iron 1
+  - Gold 1
 --- !u!1 &7388010046170874226
 GameObject:
   m_ObjectHideFlags: 0
@@ -16207,6 +16353,9 @@ MonoBehaviour:
   equipable: 1
   type: 71
   armor: 5
+  crafting:
+  - Iron 1
+  - Gold 1
 --- !u!1 &7388010046170874228
 GameObject:
   m_ObjectHideFlags: 0
@@ -16310,6 +16459,9 @@ MonoBehaviour:
   equipable: 1
   type: 70
   armor: 5
+  crafting:
+  - Iron 1
+  - Gold 1
 --- !u!1 &7388010046170874230
 GameObject:
   m_ObjectHideFlags: 0
@@ -16413,6 +16565,8 @@ MonoBehaviour:
   equipable: 1
   type: 49
   armor: 4
+  crafting:
+  - Iron 2
 --- !u!1 &7388010046170874232
 GameObject:
   m_ObjectHideFlags: 0
@@ -16516,6 +16670,9 @@ MonoBehaviour:
   equipable: 1
   type: 40
   armor: 5
+  crafting:
+  - Iron 1
+  - Gold 1
 --- !u!1 &7388010046170874234
 GameObject:
   m_ObjectHideFlags: 0
@@ -16619,6 +16776,9 @@ MonoBehaviour:
   equipable: 1
   type: 59
   armor: 5
+  crafting:
+  - Iron 1
+  - Gold 1
 --- !u!1 &7388010046170874236
 GameObject:
   m_ObjectHideFlags: 0
@@ -16722,6 +16882,9 @@ MonoBehaviour:
   equipable: 1
   type: 58
   armor: 5
+  crafting:
+  - Iron 1
+  - Gold 1
 --- !u!1 &7388010046170874238
 GameObject:
   m_ObjectHideFlags: 0
@@ -16825,6 +16988,9 @@ MonoBehaviour:
   equipable: 1
   type: 39
   armor: 5
+  crafting:
+  - Iron 1
+  - Gold 1
 --- !u!1 &7388010046170874240
 GameObject:
   m_ObjectHideFlags: 0
@@ -16929,6 +17095,8 @@ MonoBehaviour:
   type: 2
   toolFamily: None
   capacity: 10
+  crafting:
+  - Wheat 1
 --- !u!1 &7388010046170874242
 GameObject:
   m_ObjectHideFlags: 0
@@ -17033,6 +17201,8 @@ MonoBehaviour:
   type: 1
   toolFamily: None
   capacity: 10
+  crafting:
+  - Wheat 1
 --- !u!1 &7388010046170874244
 GameObject:
   m_ObjectHideFlags: 0
@@ -17139,6 +17309,9 @@ MonoBehaviour:
   forbidShield: 1
   animationCode: 4
   dammage: 10
+  crafting:
+  - Wood 1
+  - Gold 2
 --- !u!1 &7388010046170874246
 GameObject:
   m_ObjectHideFlags: 0
@@ -17246,6 +17419,9 @@ MonoBehaviour:
   forbidShield: 1
   animationCode: 4
   dammage: 10
+  crafting:
+  - Iron 2
+  - Gold 1
 --- !u!1 &7388010046170874248
 GameObject:
   m_ObjectHideFlags: 0
@@ -17348,6 +17524,7 @@ MonoBehaviour:
   equipable: 1
   type: 4
   armor: 0
+  crafting: []
 --- !u!1 &7388010046170874250
 GameObject:
   m_ObjectHideFlags: 0
@@ -17450,6 +17627,7 @@ MonoBehaviour:
   equipable: 1
   type: 3
   armor: 0
+  crafting: []
 --- !u!1 &7388010046170874252
 GameObject:
   m_ObjectHideFlags: 0
@@ -17552,6 +17730,7 @@ MonoBehaviour:
   equipable: 1
   type: 2
   armor: 0
+  crafting: []
 --- !u!1 &7388010046170874254
 GameObject:
   m_ObjectHideFlags: 0
@@ -17654,6 +17833,7 @@ MonoBehaviour:
   equipable: 1
   type: 1
   armor: 0
+  crafting: []
 --- !u!1 &7388010046170874256
 GameObject:
   m_ObjectHideFlags: 0
@@ -17756,6 +17936,8 @@ MonoBehaviour:
   equipable: 1
   type: 8
   armor: 0
+  crafting:
+  - Wheat 1
 --- !u!1 &7388010046170874258
 GameObject:
   m_ObjectHideFlags: 0
@@ -17858,6 +18040,8 @@ MonoBehaviour:
   equipable: 1
   type: 7
   armor: 0
+  crafting:
+  - Wheat 1
 --- !u!1 &7388010046170874260
 GameObject:
   m_ObjectHideFlags: 0
@@ -17960,6 +18144,8 @@ MonoBehaviour:
   equipable: 1
   type: 6
   armor: 0
+  crafting:
+  - Wheat 1
 --- !u!1 &7388010046170874262
 GameObject:
   m_ObjectHideFlags: 0
@@ -18062,6 +18248,7 @@ MonoBehaviour:
   equipable: 1
   type: 5
   armor: 0
+  crafting: []
 --- !u!1 &7388010046170874264
 GameObject:
   m_ObjectHideFlags: 0
@@ -18164,6 +18351,8 @@ MonoBehaviour:
   equipable: 1
   type: 12
   armor: 0
+  crafting:
+  - Wheat 1
 --- !u!1 &7388010046170874266
 GameObject:
   m_ObjectHideFlags: 0
@@ -18266,6 +18455,8 @@ MonoBehaviour:
   equipable: 1
   type: 11
   armor: 0
+  crafting:
+  - Wheat 1
 --- !u!1 &7388010046170874268
 GameObject:
   m_ObjectHideFlags: 0
@@ -18368,6 +18559,8 @@ MonoBehaviour:
   equipable: 1
   type: 10
   armor: 0
+  crafting:
+  - Wheat 1
 --- !u!1 &7388010046170874270
 GameObject:
   m_ObjectHideFlags: 0
@@ -18470,6 +18663,8 @@ MonoBehaviour:
   equipable: 1
   type: 9
   armor: 0
+  crafting:
+  - Wheat 1
 --- !u!1 &7388010046170874272
 GameObject:
   m_ObjectHideFlags: 0
@@ -18572,6 +18767,8 @@ MonoBehaviour:
   equipable: 1
   type: 16
   armor: 0
+  crafting:
+  - Wheat 1
 --- !u!1 &7388010046170874274
 GameObject:
   m_ObjectHideFlags: 0
@@ -18674,6 +18871,8 @@ MonoBehaviour:
   equipable: 1
   type: 15
   armor: 0
+  crafting:
+  - Wheat 1
 --- !u!1 &7388010046170874276
 GameObject:
   m_ObjectHideFlags: 0
@@ -18776,6 +18975,8 @@ MonoBehaviour:
   equipable: 1
   type: 14
   armor: 0
+  crafting:
+  - Wheat 1
 --- !u!1 &7388010046170874278
 GameObject:
   m_ObjectHideFlags: 0
@@ -18878,6 +19079,8 @@ MonoBehaviour:
   equipable: 1
   type: 13
   armor: 0
+  crafting:
+  - Wheat 1
 --- !u!1 &7388010046170874280
 GameObject:
   m_ObjectHideFlags: 0
@@ -18980,6 +19183,8 @@ MonoBehaviour:
   equipable: 1
   type: 20
   armor: 1
+  crafting:
+  - Iron 1
 --- !u!1 &7388010046170874282
 GameObject:
   m_ObjectHideFlags: 0
@@ -19082,6 +19287,8 @@ MonoBehaviour:
   equipable: 1
   type: 19
   armor: 1
+  crafting:
+  - Iron 1
 --- !u!1 &7388010046170874284
 GameObject:
   m_ObjectHideFlags: 0
@@ -19184,6 +19391,8 @@ MonoBehaviour:
   equipable: 1
   type: 18
   armor: 1
+  crafting:
+  - Iron 1
 --- !u!1 &7388010046170874286
 GameObject:
   m_ObjectHideFlags: 0
@@ -19286,6 +19495,8 @@ MonoBehaviour:
   equipable: 1
   type: 17
   armor: 1
+  crafting:
+  - Iron 1
 --- !u!1 &7388010046170874288
 GameObject:
   m_ObjectHideFlags: 0
@@ -19389,6 +19600,8 @@ MonoBehaviour:
   equipable: 1
   type: 24
   armor: 1
+  crafting:
+  - Iron 1
 --- !u!1 &7388010046170874290
 GameObject:
   m_ObjectHideFlags: 0
@@ -19492,6 +19705,8 @@ MonoBehaviour:
   equipable: 1
   type: 23
   armor: 1
+  crafting:
+  - Wheat 1
 --- !u!1 &7388010046170874292
 GameObject:
   m_ObjectHideFlags: 0
@@ -19594,6 +19809,8 @@ MonoBehaviour:
   equipable: 1
   type: 22
   armor: 1
+  crafting:
+  - Iron 1
 --- !u!1 &7388010046170874294
 GameObject:
   m_ObjectHideFlags: 0
@@ -19696,6 +19913,8 @@ MonoBehaviour:
   equipable: 1
   type: 21
   armor: 1
+  crafting:
+  - Iron 1
 --- !u!1 &7388010046170874296
 GameObject:
   m_ObjectHideFlags: 0
@@ -19799,6 +20018,8 @@ MonoBehaviour:
   equipable: 1
   type: 28
   armor: 2
+  crafting:
+  - Iron 1
 --- !u!1 &7388010046170874298
 GameObject:
   m_ObjectHideFlags: 0
@@ -19902,6 +20123,8 @@ MonoBehaviour:
   equipable: 1
   type: 27
   armor: 2
+  crafting:
+  - Iron 1
 --- !u!1 &7388010046170874300
 GameObject:
   m_ObjectHideFlags: 0
@@ -20005,6 +20228,8 @@ MonoBehaviour:
   equipable: 1
   type: 26
   armor: 2
+  crafting:
+  - Iron 1
 --- !u!1 &7388010046170874302
 GameObject:
   m_ObjectHideFlags: 0
@@ -20108,6 +20333,8 @@ MonoBehaviour:
   equipable: 1
   type: 25
   armor: 1
+  crafting:
+  - Iron 1
 --- !u!1 &7388010046170874304
 GameObject:
   m_ObjectHideFlags: 0
@@ -20227,6 +20454,8 @@ MonoBehaviour:
   equipable: 1
   type: 41
   armor: 5
+  crafting:
+  - Iron 3
 --- !u!1 &7388010046170874306
 GameObject:
   m_ObjectHideFlags: 0
@@ -20346,6 +20575,8 @@ MonoBehaviour:
   equipable: 1
   type: 40
   armor: 5
+  crafting:
+  - Iron 3
 --- !u!1 &7388010046170874308
 GameObject:
   m_ObjectHideFlags: 0
@@ -20465,6 +20696,9 @@ MonoBehaviour:
   equipable: 1
   type: 39
   armor: 5
+  crafting:
+  - Iron 3
+  - Gold 1
 --- !u!1 &7388010046170874310
 GameObject:
   m_ObjectHideFlags: 0
@@ -20584,6 +20818,9 @@ MonoBehaviour:
   equipable: 1
   type: 38
   armor: 5
+  crafting:
+  - Iron 3
+  - Gold 1
 --- !u!1 &7388010046170874312
 GameObject:
   m_ObjectHideFlags: 0
@@ -20703,6 +20940,9 @@ MonoBehaviour:
   equipable: 1
   type: 5
   armor: 1
+  crafting:
+  - Wheat 3
+  - Gold 1
 --- !u!1 &7388010046170874316
 GameObject:
   m_ObjectHideFlags: 0
@@ -20822,6 +21062,8 @@ MonoBehaviour:
   equipable: 1
   type: 4
   armor: 1
+  crafting:
+  - Wheat 3
 --- !u!1 &7388010046170874318
 GameObject:
   m_ObjectHideFlags: 0
@@ -20941,6 +21183,9 @@ MonoBehaviour:
   equipable: 1
   type: 42
   armor: 5
+  crafting:
+  - Iron 3
+  - Gold 1
 --- !u!1 &7388010046170874320
 GameObject:
   m_ObjectHideFlags: 0
@@ -21060,6 +21305,7 @@ MonoBehaviour:
   equipable: 1
   type: 2
   armor: 0
+  crafting: []
 --- !u!1 &7388010046170874322
 GameObject:
   m_ObjectHideFlags: 0
@@ -21179,6 +21425,7 @@ MonoBehaviour:
   equipable: 1
   type: 1
   armor: 0
+  crafting: []
 --- !u!1 &7388010046170874324
 GameObject:
   m_ObjectHideFlags: 0
@@ -21298,6 +21545,8 @@ MonoBehaviour:
   equipable: 1
   type: 6
   armor: 1
+  crafting:
+  - Wheat 3
 --- !u!1 &7388010046170874328
 GameObject:
   m_ObjectHideFlags: 0
@@ -21401,6 +21650,9 @@ MonoBehaviour:
   equipable: 1
   type: 8
   armor: 6
+  crafting:
+  - Wood 1
+  - Gold 1
 --- !u!1 &7388010046170874330
 GameObject:
   m_ObjectHideFlags: 0
@@ -21504,6 +21756,9 @@ MonoBehaviour:
   equipable: 1
   type: 7
   armor: 5
+  crafting:
+  - Wood 1
+  - Gold 1
 --- !u!1 &7388010046170874332
 GameObject:
   m_ObjectHideFlags: 0
@@ -21607,6 +21862,9 @@ MonoBehaviour:
   equipable: 1
   type: 6
   armor: 5
+  crafting:
+  - Wood 1
+  - Iron 1
 --- !u!1 &7388010046170874334
 GameObject:
   m_ObjectHideFlags: 0
@@ -21726,6 +21984,8 @@ MonoBehaviour:
   equipable: 1
   type: 3
   armor: 0
+  crafting:
+  - Wheat 1
 --- !u!1 &7388010046170874336
 GameObject:
   m_ObjectHideFlags: 0
@@ -21829,6 +22089,9 @@ MonoBehaviour:
   equipable: 1
   type: 22
   armor: 6
+  crafting:
+  - Wood 1
+  - Gold 1
 --- !u!1 &7388010046170874338
 GameObject:
   m_ObjectHideFlags: 0
@@ -21932,6 +22195,9 @@ MonoBehaviour:
   equipable: 1
   type: 21
   armor: 6
+  crafting:
+  - Wood 1
+  - Gold 1
 --- !u!1 &7388010046170874340
 GameObject:
   m_ObjectHideFlags: 0
@@ -22035,6 +22301,9 @@ MonoBehaviour:
   equipable: 1
   type: 9
   armor: 6
+  crafting:
+  - Wood 1
+  - Gold 1
 --- !u!1 &7388010046170874342
 GameObject:
   m_ObjectHideFlags: 0
@@ -22138,6 +22407,9 @@ MonoBehaviour:
   equipable: 1
   type: 20
   armor: 6
+  crafting:
+  - Wood 1
+  - Gold 1
 --- !u!1 &7388010046170874344
 GameObject:
   m_ObjectHideFlags: 0
@@ -22245,6 +22517,8 @@ MonoBehaviour:
   forbidShield: 0
   animationCode: 1
   dammage: 2
+  crafting:
+  - Iron 1
 --- !u!1 &7388010046170874346
 GameObject:
   m_ObjectHideFlags: 0
@@ -22351,6 +22625,9 @@ MonoBehaviour:
   forbidShield: 0
   animationCode: 1
   dammage: 5
+  crafting:
+  - Wood 1
+  - Gold 1
 --- !u!1 &7388010046170874348
 GameObject:
   m_ObjectHideFlags: 0
@@ -22454,6 +22731,9 @@ MonoBehaviour:
   equipable: 1
   type: 12
   armor: 8
+  crafting:
+  - Wood 1
+  - Gold 1
 --- !u!1 &7388010046170874350
 GameObject:
   m_ObjectHideFlags: 0
@@ -22557,6 +22837,9 @@ MonoBehaviour:
   equipable: 1
   type: 23
   armor: 6
+  crafting:
+  - Wood 1
+  - Gold 1
 --- !u!1 &7388010046170874352
 GameObject:
   m_ObjectHideFlags: 0
@@ -22663,6 +22946,10 @@ MonoBehaviour:
   forbidShield: 0
   animationCode: 1
   dammage: 5
+  crafting:
+  - Wood 1
+  - Iron 1
+  - Gold 1
 --- !u!1 &7388010046170874354
 GameObject:
   m_ObjectHideFlags: 0
@@ -22769,6 +23056,10 @@ MonoBehaviour:
   forbidShield: 0
   animationCode: 1
   dammage: 5
+  crafting:
+  - Wood 1
+  - Iron 1
+  - Gold 1
 --- !u!1 &7388010046170874356
 GameObject:
   m_ObjectHideFlags: 0
@@ -22876,6 +23167,9 @@ MonoBehaviour:
   forbidShield: 0
   animationCode: 1
   dammage: 2
+  crafting:
+  - Iron 1
+  - Gold 1
 --- !u!1 &7388010046170874358
 GameObject:
   m_ObjectHideFlags: 0
@@ -22983,6 +23277,9 @@ MonoBehaviour:
   forbidShield: 1
   animationCode: 3
   dammage: 5
+  crafting:
+  - Wood 1
+  - Gold 1
 --- !u!1 &7388010046170874360
 GameObject:
   m_ObjectHideFlags: 0
@@ -23089,6 +23386,10 @@ MonoBehaviour:
   forbidShield: 1
   animationCode: 4
   dammage: 10
+  crafting:
+  - Wood 1
+  - Iron 1
+  - Gold 1
 --- !u!1 &7388010046170874362
 GameObject:
   m_ObjectHideFlags: 0
@@ -23196,6 +23497,9 @@ MonoBehaviour:
   forbidShield: 0
   animationCode: 1
   dammage: 6
+  crafting:
+  - Iron 1
+  - Gold 1
 --- !u!1 &7388010046170874364
 GameObject:
   m_ObjectHideFlags: 0
@@ -23302,6 +23606,9 @@ MonoBehaviour:
   forbidShield: 1
   animationCode: 6
   dammage: 3
+  crafting:
+  - Wood 1
+  - Crystal 1
 --- !u!1 &7388010046170874366
 GameObject:
   m_ObjectHideFlags: 0
@@ -23409,6 +23716,9 @@ MonoBehaviour:
   forbidShield: 0
   animationCode: 1
   dammage: 5
+  crafting:
+  - Iron 1
+  - Gold 1
 --- !u!1 &7388010046170874376
 GameObject:
   m_ObjectHideFlags: 0
@@ -23528,6 +23838,8 @@ MonoBehaviour:
   equipable: 1
   type: 43
   armor: 0
+  crafting:
+  - Wheat 2
 --- !u!1 &7388010046170874384
 GameObject:
   m_ObjectHideFlags: 0
@@ -23647,6 +23959,8 @@ MonoBehaviour:
   equipable: 1
   type: 18
   armor: 2
+  crafting:
+  - Iron 1
 --- !u!1 &7388010046170874386
 GameObject:
   m_ObjectHideFlags: 0
@@ -23766,6 +24080,8 @@ MonoBehaviour:
   equipable: 1
   type: 17
   armor: 1
+  crafting:
+  - Iron 1
 --- !u!1 &7388010046170874388
 GameObject:
   m_ObjectHideFlags: 0
@@ -23885,6 +24201,8 @@ MonoBehaviour:
   equipable: 1
   type: 16
   armor: 1
+  crafting:
+  - Wheat 3
 --- !u!1 &7388010046170874390
 GameObject:
   m_ObjectHideFlags: 0
@@ -24004,6 +24322,8 @@ MonoBehaviour:
   equipable: 1
   type: 44
   armor: 0
+  crafting:
+  - Wheat 2
 --- !u!1 &7388010046170874392
 GameObject:
   m_ObjectHideFlags: 0
@@ -24123,6 +24443,8 @@ MonoBehaviour:
   equipable: 1
   type: 22
   armor: 2
+  crafting:
+  - Iron 1
 --- !u!1 &7388010046170874394
 GameObject:
   m_ObjectHideFlags: 0
@@ -24242,6 +24564,8 @@ MonoBehaviour:
   equipable: 1
   type: 21
   armor: 2
+  crafting:
+  - Iron 1
 --- !u!1 &7388010046170874396
 GameObject:
   m_ObjectHideFlags: 0
@@ -24361,6 +24685,8 @@ MonoBehaviour:
   equipable: 1
   type: 20
   armor: 2
+  crafting:
+  - Gold 1
 --- !u!1 &7388010046170874398
 GameObject:
   m_ObjectHideFlags: 0
@@ -24480,6 +24806,8 @@ MonoBehaviour:
   equipable: 1
   type: 19
   armor: 2
+  crafting:
+  - Gold 1
 --- !u!1 &7388010046170874400
 GameObject:
   m_ObjectHideFlags: 0
@@ -24599,6 +24927,8 @@ MonoBehaviour:
   equipable: 1
   type: 26
   armor: 3
+  crafting:
+  - Iron 2
 --- !u!1 &7388010046170874402
 GameObject:
   m_ObjectHideFlags: 0
@@ -24718,6 +25048,9 @@ MonoBehaviour:
   equipable: 1
   type: 25
   armor: 2
+  crafting:
+  - Iron 1
+  - Gold 1
 --- !u!1 &7388010046170874404
 GameObject:
   m_ObjectHideFlags: 0
@@ -24837,6 +25170,9 @@ MonoBehaviour:
   equipable: 1
   type: 24
   armor: 2
+  crafting:
+  - Iron 1
+  - Gold 1
 --- !u!1 &7388010046170874406
 GameObject:
   m_ObjectHideFlags: 0
@@ -24956,6 +25292,8 @@ MonoBehaviour:
   equipable: 1
   type: 23
   armor: 2
+  crafting:
+  - Iron 1
 --- !u!1 &7388010046170874408
 GameObject:
   m_ObjectHideFlags: 0
@@ -25075,6 +25413,9 @@ MonoBehaviour:
   equipable: 1
   type: 45
   armor: 3
+  crafting:
+  - Iron 2
+  - Wheat 1
 --- !u!1 &7388010046170874410
 GameObject:
   m_ObjectHideFlags: 0
@@ -25194,6 +25535,9 @@ MonoBehaviour:
   equipable: 1
   type: 29
   armor: 3
+  crafting:
+  - Iron 1
+  - Gold 1
 --- !u!1 &7388010046170874412
 GameObject:
   m_ObjectHideFlags: 0
@@ -25313,6 +25657,9 @@ MonoBehaviour:
   equipable: 1
   type: 28
   armor: 3
+  crafting:
+  - Iron 1
+  - Gold 1
 --- !u!1 &7388010046170874414
 GameObject:
   m_ObjectHideFlags: 0
@@ -25432,6 +25779,8 @@ MonoBehaviour:
   equipable: 1
   type: 27
   armor: 3
+  crafting:
+  - Iron 2
 --- !u!1 &7388010046170874416
 GameObject:
   m_ObjectHideFlags: 0
@@ -25551,6 +25900,8 @@ MonoBehaviour:
   equipable: 1
   type: 33
   armor: 3
+  crafting:
+  - Iron 3
 --- !u!1 &7388010046170874418
 GameObject:
   m_ObjectHideFlags: 0
@@ -25670,6 +26021,8 @@ MonoBehaviour:
   equipable: 1
   type: 32
   armor: 3
+  crafting:
+  - Iron 3
 --- !u!1 &7388010046170874420
 GameObject:
   m_ObjectHideFlags: 0
@@ -25789,6 +26142,9 @@ MonoBehaviour:
   equipable: 1
   type: 31
   armor: 3
+  crafting:
+  - Iron 2
+  - Wheat 1
 --- !u!1 &7388010046170874422
 GameObject:
   m_ObjectHideFlags: 0
@@ -25908,6 +26264,9 @@ MonoBehaviour:
   equipable: 1
   type: 30
   armor: 3
+  crafting:
+  - Iron 2
+  - Wheat 1
 --- !u!1 &7388010046170874424
 GameObject:
   m_ObjectHideFlags: 0
@@ -26027,6 +26386,8 @@ MonoBehaviour:
   equipable: 1
   type: 37
   armor: 5
+  crafting:
+  - Iron 3
 --- !u!1 &7388010046170874426
 GameObject:
   m_ObjectHideFlags: 0
@@ -26146,6 +26507,8 @@ MonoBehaviour:
   equipable: 1
   type: 36
   armor: 5
+  crafting:
+  - Iron 3
 --- !u!1 &7388010046170874428
 GameObject:
   m_ObjectHideFlags: 0
@@ -26265,6 +26628,9 @@ MonoBehaviour:
   equipable: 1
   type: 35
   armor: 5
+  crafting:
+  - Iron 3
+  - Gold 1
 --- !u!1 &7388010046170874430
 GameObject:
   m_ObjectHideFlags: 0
@@ -26384,6 +26750,9 @@ MonoBehaviour:
   equipable: 1
   type: 34
   armor: 5
+  crafting:
+  - Iron 2
+  - Gold 1
 --- !u!1 &7388010046170874472
 GameObject:
   m_ObjectHideFlags: 0
@@ -26503,6 +26872,8 @@ MonoBehaviour:
   equipable: 1
   type: 12
   armor: 0
+  crafting:
+  - Wheat 1
 --- !u!1 &7388010046170874474
 GameObject:
   m_ObjectHideFlags: 0
@@ -26622,6 +26993,8 @@ MonoBehaviour:
   equipable: 1
   type: 11
   armor: 0
+  crafting:
+  - Wheat 1
 --- !u!1 &7388010046170874476
 GameObject:
   m_ObjectHideFlags: 0
@@ -26741,6 +27114,8 @@ MonoBehaviour:
   equipable: 1
   type: 10
   armor: 0
+  crafting:
+  - Wheat 1
 --- !u!1 &7388010046170874478
 GameObject:
   m_ObjectHideFlags: 0
@@ -26860,6 +27235,8 @@ MonoBehaviour:
   equipable: 1
   type: 9
   armor: 0
+  crafting:
+  - Wheat 1
 --- !u!1 &7388010046170874482
 GameObject:
   m_ObjectHideFlags: 0
@@ -26979,6 +27356,8 @@ MonoBehaviour:
   equipable: 1
   type: 15
   armor: 0
+  crafting:
+  - Wheat 2
 --- !u!1 &7388010046170874484
 GameObject:
   m_ObjectHideFlags: 0
@@ -27098,6 +27477,8 @@ MonoBehaviour:
   equipable: 1
   type: 14
   armor: 0
+  crafting:
+  - Wheat 2
 --- !u!1 &7388010046170874486
 GameObject:
   m_ObjectHideFlags: 0
@@ -27217,6 +27598,8 @@ MonoBehaviour:
   equipable: 1
   type: 13
   armor: 0
+  crafting:
+  - Wheat 1
 --- !u!1 &7388010046170874496
 GameObject:
   m_ObjectHideFlags: 0
@@ -27324,6 +27707,8 @@ MonoBehaviour:
   forbidShield: 0
   animationCode: 1
   dammage: 6
+  crafting:
+  - Iron 1
 --- !u!1 &7388010046170874498
 GameObject:
   m_ObjectHideFlags: 0
@@ -27430,6 +27815,9 @@ MonoBehaviour:
   forbidShield: 1
   animationCode: 6
   dammage: 3
+  crafting:
+  - Wood 1
+  - Gold 1
 --- !u!1 &7388010046170874500
 GameObject:
   m_ObjectHideFlags: 0
@@ -27536,6 +27924,9 @@ MonoBehaviour:
   forbidShield: 1
   animationCode: 6
   dammage: 2
+  crafting:
+  - Wood 1
+  - Iron 1
 --- !u!1 &7388010046170874502
 GameObject:
   m_ObjectHideFlags: 0
@@ -27642,6 +28033,8 @@ MonoBehaviour:
   forbidShield: 1
   animationCode: 6
   dammage: 1
+  crafting:
+  - Wood 1
 --- !u!1 &7388010046170874504
 GameObject:
   m_ObjectHideFlags: 0
@@ -27749,6 +28142,9 @@ MonoBehaviour:
   forbidShield: 1
   animationCode: 4
   dammage: 7
+  crafting:
+  - Wood 1
+  - Stone 1
 --- !u!1 &7388010046170874506
 GameObject:
   m_ObjectHideFlags: 0
@@ -27856,6 +28252,8 @@ MonoBehaviour:
   forbidShield: 1
   animationCode: 4
   dammage: 10
+  crafting:
+  - Iron 2
 --- !u!1 &7388010046170874508
 GameObject:
   m_ObjectHideFlags: 0
@@ -27963,6 +28361,9 @@ MonoBehaviour:
   forbidShield: 1
   animationCode: 4
   dammage: 10
+  crafting:
+  - Wood 1
+  - Iron 2
 --- !u!1 &7388010046170874510
 GameObject:
   m_ObjectHideFlags: 0
@@ -28070,6 +28471,9 @@ MonoBehaviour:
   forbidShield: 1
   animationCode: 4
   dammage: 10
+  crafting:
+  - Wood 1
+  - Iron 1
 --- !u!1 &7388010046170874512
 GameObject:
   m_ObjectHideFlags: 0
@@ -28176,6 +28580,9 @@ MonoBehaviour:
   forbidShield: 0
   animationCode: 1
   dammage: 6
+  crafting:
+  - Wood 1
+  - Iron 1
 --- !u!1 &7388010046170874514
 GameObject:
   m_ObjectHideFlags: 0
@@ -28282,6 +28689,9 @@ MonoBehaviour:
   forbidShield: 1
   animationCode: 4
   dammage: 10
+  crafting:
+  - Wood 1
+  - Iron 2
 --- !u!1 &7388010046170874516
 GameObject:
   m_ObjectHideFlags: 0
@@ -28389,6 +28799,8 @@ MonoBehaviour:
   forbidShield: 1
   animationCode: 4
   dammage: 10
+  crafting:
+  - Iron 2
 --- !u!1 &7388010046170874518
 GameObject:
   m_ObjectHideFlags: 0
@@ -28495,6 +28907,9 @@ MonoBehaviour:
   forbidShield: 1
   animationCode: 4
   dammage: 10
+  crafting:
+  - Wood 1
+  - Iron 2
 --- !u!1 &7388010046170874560
 GameObject:
   m_ObjectHideFlags: 0
@@ -28598,6 +29013,9 @@ MonoBehaviour:
   equipable: 1
   type: 17
   armor: 3
+  crafting:
+  - Wood 1
+  - Iron 1
 --- !u!1 &7388010046170874562
 GameObject:
   m_ObjectHideFlags: 0
@@ -28701,6 +29119,9 @@ MonoBehaviour:
   equipable: 1
   type: 16
   armor: 3
+  crafting:
+  - Wood 1
+  - Iron 1
 --- !u!1 &7388010046170874564
 GameObject:
   m_ObjectHideFlags: 0
@@ -28804,6 +29225,9 @@ MonoBehaviour:
   equipable: 1
   type: 15
   armor: 3
+  crafting:
+  - Wood 1
+  - Iron 1
 --- !u!1 &7388010046170874566
 GameObject:
   m_ObjectHideFlags: 0
@@ -28907,6 +29331,9 @@ MonoBehaviour:
   equipable: 1
   type: 14
   armor: 3
+  crafting:
+  - Wood 1
+  - Iron 1
 --- !u!1 &7388010046170874568
 GameObject:
   m_ObjectHideFlags: 0
@@ -29010,6 +29437,9 @@ MonoBehaviour:
   equipable: 1
   type: 18
   armor: 5
+  crafting:
+  - Wood 1
+  - Iron 1
 --- !u!1 &7388010046170874570
 GameObject:
   m_ObjectHideFlags: 0
@@ -29113,6 +29543,9 @@ MonoBehaviour:
   equipable: 1
   type: 10
   armor: 5
+  crafting:
+  - Wood 1
+  - Iron 1
 --- !u!1 &7388010046170874572
 GameObject:
   m_ObjectHideFlags: 0
@@ -29216,6 +29649,9 @@ MonoBehaviour:
   equipable: 1
   type: 4
   armor: 5
+  crafting:
+  - Wood 1
+  - Iron 1
 --- !u!1 &7388010046170874574
 GameObject:
   m_ObjectHideFlags: 0
@@ -29319,6 +29755,9 @@ MonoBehaviour:
   equipable: 1
   type: 3
   armor: 5
+  crafting:
+  - Wood 1
+  - Iron 1
 --- !u!1 &7388010046170874576
 GameObject:
   m_ObjectHideFlags: 0
@@ -29425,6 +29864,9 @@ MonoBehaviour:
   forbidShield: 0
   animationCode: 1
   dammage: 2
+  crafting:
+  - Wood 1
+  - Iron 1
 --- !u!1 &7388010046170874578
 GameObject:
   m_ObjectHideFlags: 0
@@ -29528,6 +29970,9 @@ MonoBehaviour:
   equipable: 1
   type: 11
   armor: 6
+  crafting:
+  - Wood 1
+  - Iron 1
 --- !u!1 &7388010046170874580
 GameObject:
   m_ObjectHideFlags: 0
@@ -29631,6 +30076,9 @@ MonoBehaviour:
   equipable: 1
   type: 19
   armor: 6
+  crafting:
+  - Wood 1
+  - Iron 1
 --- !u!1 &7388010046170874582
 GameObject:
   m_ObjectHideFlags: 0
@@ -29734,6 +30182,9 @@ MonoBehaviour:
   equipable: 1
   type: 5
   armor: 5
+  crafting:
+  - Wood 1
+  - Iron 1
 --- !u!1 &7388010046170874584
 GameObject:
   m_ObjectHideFlags: 0
@@ -29840,6 +30291,9 @@ MonoBehaviour:
   forbidShield: 1
   animationCode: 1
   dammage: 5
+  crafting:
+  - Wood 1
+  - Iron 1
 --- !u!1 &7388010046170874586
 GameObject:
   m_ObjectHideFlags: 0
@@ -29946,6 +30400,9 @@ MonoBehaviour:
   forbidShield: 0
   animationCode: 1
   dammage: 5
+  crafting:
+  - Wood 1
+  - Iron 2
 --- !u!1 &7388010046170874588
 GameObject:
   m_ObjectHideFlags: 0
@@ -30052,6 +30509,9 @@ MonoBehaviour:
   forbidShield: 0
   animationCode: 1
   dammage: 3
+  crafting:
+  - Wood 1
+  - Iron 1
 --- !u!1 &7388010046170874590
 GameObject:
   m_ObjectHideFlags: 0
@@ -30158,6 +30618,9 @@ MonoBehaviour:
   forbidShield: 0
   animationCode: 1
   dammage: 3
+  crafting:
+  - Wood 1
+  - Iron 1
 --- !u!1 &7388010046170874592
 GameObject:
   m_ObjectHideFlags: 0
@@ -30265,6 +30728,8 @@ MonoBehaviour:
   forbidShield: 0
   animationCode: 1
   dammage: 2
+  crafting:
+  - Iron 1
 --- !u!1 &7388010046170874594
 GameObject:
   m_ObjectHideFlags: 0
@@ -30372,6 +30837,8 @@ MonoBehaviour:
   forbidShield: 0
   animationCode: 1
   dammage: 2
+  crafting:
+  - Iron 1
 --- !u!1 &7388010046170874596
 GameObject:
   m_ObjectHideFlags: 0
@@ -30479,6 +30946,8 @@ MonoBehaviour:
   forbidShield: 1
   animationCode: 3
   dammage: 5
+  crafting:
+  - Wood 1
 --- !u!1 &7388010046170874598
 GameObject:
   m_ObjectHideFlags: 0
@@ -30586,6 +31055,8 @@ MonoBehaviour:
   forbidShield: 0
   animationCode: 1
   dammage: 2
+  crafting:
+  - Iron 1
 --- !u!1 &7388010046170874602
 GameObject:
   m_ObjectHideFlags: 0
@@ -30692,6 +31163,8 @@ MonoBehaviour:
   forbidShield: 1
   animationCode: 2
   dammage: 5
+  crafting:
+  - Wood 1
 --- !u!1 &7388010046170874604
 GameObject:
   m_ObjectHideFlags: 0
@@ -30798,6 +31271,9 @@ MonoBehaviour:
   forbidShield: 0
   animationCode: 7
   dammage: 6
+  crafting:
+  - Wood 1
+  - Iron 1
 --- !u!1 &7388010046170874606
 GameObject:
   m_ObjectHideFlags: 0
@@ -30904,6 +31380,9 @@ MonoBehaviour:
   forbidShield: 0
   animationCode: 7
   dammage: 5
+  crafting:
+  - Wood 1
+  - Iron 1
 --- !u!1 &7388010046170874608
 GameObject:
   m_ObjectHideFlags: 0
@@ -31010,6 +31489,8 @@ MonoBehaviour:
   forbidShield: 1
   animationCode: 2
   dammage: 4
+  crafting:
+  - Wood 2
 --- !u!1 &7388010046170874610
 GameObject:
   m_ObjectHideFlags: 0
@@ -31116,6 +31597,9 @@ MonoBehaviour:
   forbidShield: 0
   animationCode: 5
   dammage: 7
+  crafting:
+  - Wood 1
+  - Iron 1
 --- !u!1 &7388010046170874612
 GameObject:
   m_ObjectHideFlags: 0
@@ -31222,6 +31706,9 @@ MonoBehaviour:
   forbidShield: 0
   animationCode: 1
   dammage: 5
+  crafting:
+  - Wood 1
+  - Iron 1
 --- !u!1 &7388010046170874614
 GameObject:
   m_ObjectHideFlags: 0
@@ -31328,6 +31815,9 @@ MonoBehaviour:
   forbidShield: 0
   animationCode: 1
   dammage: 5
+  crafting:
+  - Wood 1
+  - Iron 1
 --- !u!1 &7388010046170874616
 GameObject:
   m_ObjectHideFlags: 0
@@ -31435,6 +31925,9 @@ MonoBehaviour:
   forbidShield: 0
   animationCode: 5
   dammage: 5
+  crafting:
+  - Wood 1
+  - Iron 1
 --- !u!1 &7388010046170874618
 GameObject:
   m_ObjectHideFlags: 0
@@ -31542,6 +32035,8 @@ MonoBehaviour:
   forbidShield: 0
   animationCode: 1
   dammage: 5
+  crafting:
+  - Iron 1
 --- !u!1 &7388010046170874620
 GameObject:
   m_ObjectHideFlags: 0
@@ -31648,6 +32143,8 @@ MonoBehaviour:
   forbidShield: 1
   animationCode: 2
   dammage: 3
+  crafting:
+  - Wood 1
 --- !u!1 &7388010046170874622
 GameObject:
   m_ObjectHideFlags: 0
@@ -31754,6 +32251,8 @@ MonoBehaviour:
   forbidShield: 0
   animationCode: 1
   dammage: 5
+  crafting:
+  - Iron 1
 --- !u!1 &7388010046170874680
 GameObject:
   m_ObjectHideFlags: 0
@@ -31857,6 +32356,9 @@ MonoBehaviour:
   equipable: 1
   type: 13
   armor: 3
+  crafting:
+  - Wood 1
+  - Iron 1
 --- !u!1 &7388010046170874682
 GameObject:
   m_ObjectHideFlags: 0
@@ -31960,6 +32462,9 @@ MonoBehaviour:
   equipable: 1
   type: 2
   armor: 3
+  crafting:
+  - Wood 1
+  - Iron 1
 --- !u!1 &7388010046170874684
 GameObject:
   m_ObjectHideFlags: 0
@@ -32063,6 +32568,8 @@ MonoBehaviour:
   equipable: 1
   type: 1
   armor: 2
+  crafting:
+  - Wood 1
 --- !u!1 &7388010046170874774
 GameObject:
   m_ObjectHideFlags: 0
@@ -32289,6 +32796,7 @@ MonoBehaviour:
   camera: {fileID: 0}
   iconFolderPath: C:/Users/Thibault/Documents/GitHub/TinyWorld/Assets/Resources/Icons
   iconSize: {x: 200, y: 200}
+  itemCount: 0
   playerTemplate: {fileID: 274576174245912502, guid: 2a7956e97e3788244962de36794e6cee,
     type: 3}
   mountedPlayerTemplate: {fileID: 8701042372526833363, guid: bd5385689cdac2b469a63eff8642dfa1,
@@ -32933,6 +33441,8 @@ MonoBehaviour:
   forbidShield: 0
   animationCode: 1
   dammage: 3
+  crafting:
+  - Wood 1
 --- !u!1 &7388010046170877080
 GameObject:
   m_ObjectHideFlags: 0
@@ -33039,6 +33549,9 @@ MonoBehaviour:
   forbidShield: 0
   animationCode: 1
   dammage: 2
+  crafting:
+  - Wood 1
+  - Stone 1
 --- !u!1 &7388010046170877096
 GameObject:
   m_ObjectHideFlags: 0
@@ -33145,6 +33658,9 @@ MonoBehaviour:
   forbidShield: 0
   animationCode: 1
   dammage: 5
+  crafting:
+  - Wood 1
+  - Iron 1
 --- !u!1 &7388010046170877110
 GameObject:
   m_ObjectHideFlags: 0
@@ -33251,6 +33767,9 @@ MonoBehaviour:
   forbidShield: 0
   animationCode: 1
   dammage: 2
+  crafting:
+  - Wood 1
+  - Iron 1
 --- !u!1 &7388010046170877184
 GameObject:
   m_ObjectHideFlags: 0
@@ -34392,6 +34911,8 @@ MonoBehaviour:
   type: 3
   toolFamily: Container
   capacity: 30
+  crafting:
+  - Wheat 1
 --- !u!1 &8888724434737839364
 GameObject:
   m_ObjectHideFlags: 0

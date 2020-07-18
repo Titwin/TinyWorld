@@ -1,8 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-
+using UnityEngine.EventSystems;
 
 public class TPSCameraController : MonoBehaviour
 {
@@ -83,7 +82,8 @@ public class TPSCameraController : MonoBehaviour
                 lastMousePosition = Input.mousePosition;
             }
 
-            radius -= zoomSpeed * Input.GetAxis("Mouse ScrollWheel");
+            if(!EventSystem.current.IsPointerOverGameObject())
+                radius -= zoomSpeed * Input.GetAxis("Mouse ScrollWheel");
             radius = Mathf.Clamp(radius, minRadius, maxRadius);
 
             /* BLACK MAGIC*/

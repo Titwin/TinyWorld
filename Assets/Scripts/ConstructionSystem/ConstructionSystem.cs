@@ -169,7 +169,7 @@ public class ConstructionSystem : MonoBehaviour
         {
             if (activated)
             {
-
+                ForgeUI.instance.gameObject.SetActive(false);
             }
             else
             {
@@ -194,8 +194,6 @@ public class ConstructionSystem : MonoBehaviour
             preview.SetActive(false);
             constructionUI.rotationTip.gameObject.SetActive(false);
             constructionUI.UnselectBrush();
-
-            Debug.Log("toto");
         }
     }
     private void BrushToolUpdate(Vector3Int tilePointing, Vector3 pointing)
