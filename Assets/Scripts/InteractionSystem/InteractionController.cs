@@ -131,6 +131,18 @@ public class InteractionController : MonoBehaviour
                 success = true;
                 StartTimer();
                 break;
+            case InteractionType.Type.forge:
+                if (playerController.weapon.equipedItem.toolFamily == "Hammer")
+                {
+                    lastInteraction = type;
+                    success = true;
+                    StartTimer();
+                }
+                else
+                {
+                    ThrowHelp("Hammer", "nok");
+                }
+                break;
 
             case InteractionType.Type.storeRessources:
                 if (inventory.load != 0)
@@ -188,8 +200,12 @@ public class InteractionController : MonoBehaviour
                 StoreAllInteraction(lastInteraction, hoveredInteractor);
                 break;
 
+            // systems
             case InteractionType.Type.constructionMode:
                 ConstructionSystem.instance.SetActive(true);
+                break;
+            case InteractionType.Type.forge:
+                ForgeSystem.instance.SetActive(true);
                 break;
 
             // standard ressources collection -> no confirmed action (and if we are here it's an error)
@@ -199,7 +215,7 @@ public class InteractionController : MonoBehaviour
             case InteractionType.Type.collectCrystal:
             case InteractionType.Type.collectWood:
                 break;
-
+               
             // error
             default:
                 Debug.LogWarning("no interaction defined for this type " + lastInteraction.ToString());

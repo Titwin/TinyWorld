@@ -118,6 +118,7 @@
     <Compile Include="Assets\Scripts\AISystem\Unit.cs" />
     <Compile Include="Assets\Scripts\AISystem\UnitAI.cs" />
     <Compile Include="Assets\Scripts\AISystem\WeaponData.cs" />
+    <Compile Include="Assets\Scripts\Animation\AnimationBlink.cs" />
     <Compile Include="Assets\Scripts\Animation\AnimationRotation.cs" />
     <Compile Include="Assets\Scripts\Animation\AnimationSinTranslation.cs" />
     <Compile Include="Assets\Scripts\Animation\AnimationStoneGate.cs" />
@@ -166,6 +167,7 @@
     <Compile Include="Assets\Scripts\ForgeSystem\ForgeItem.cs" />
     <Compile Include="Assets\Scripts\ForgeSystem\ForgePreviewAvatar.cs" />
     <Compile Include="Assets\Scripts\ForgeSystem\ForgePreviewScene.cs" />
+    <Compile Include="Assets\Scripts\ForgeSystem\ForgeSystem.cs" />
     <Compile Include="Assets\Scripts\ForgeSystem\ForgeUI.cs" />
     <Compile Include="Assets\Scripts\GenerateBillboard.cs" />
     <Compile Include="Assets\Scripts\Helper\Billboard.cs" />

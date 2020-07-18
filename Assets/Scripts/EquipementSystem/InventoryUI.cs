@@ -90,7 +90,7 @@ public class InventoryUI : MonoBehaviour
     void Update()
     {
         // inventory
-        if (Input.GetKeyDown(inventoryKey))
+        if (Input.GetKeyDown(inventoryKey) && !ForgeUI.instance.gameObject.activeSelf && !ConstructionSystem.instance.activated)
         {
             viewer.SetActive(!viewer.activeSelf);
             helpPanel.SetActive(false);
@@ -318,6 +318,7 @@ public class InventoryUI : MonoBehaviour
                             if(ToolDictionary.instance.tools.ContainsKey(player.backpack.equipedItem.toolFamily))
                                 FinishedUnequip(player, GetRandom(ToolDictionary.instance.tools[player.backpack.equipedItem.toolFamily].collectionSound));
                             player.backpack.Equip(BackpackItem.Type.None);
+                            player.inventory.capacity = player.backpack.equipedItem.capacity;
                         }
                     }
                     else if (icon.item.itemType == Item.ItemType.Body)

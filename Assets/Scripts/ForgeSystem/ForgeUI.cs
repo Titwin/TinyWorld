@@ -32,6 +32,7 @@ public class ForgeUI : MonoBehaviour
     public Text dammageCount;
     public ForgePreviewAvatar avatar;
     public Image itemIcon;
+    public GameObject enoughResourceMessage;
 
     [Header("Appearance")]
     public Color defaultFilterColor;
@@ -49,7 +50,9 @@ public class ForgeUI : MonoBehaviour
     public ForgeFilter selectedFilter;
     public ForgeItem hoveredForgeItem;
     public float validationTime;
-    
+    public bool enoughResources;
+
+
 
     private void Start()
     {
@@ -60,23 +63,34 @@ public class ForgeUI : MonoBehaviour
             ForgeItem item = Instantiate<ForgeItem>(forgeItemPrefab);
             item.gameObject.name = "forgeItem";
             item.transform.SetParent(poolContainer);
+            item.transform.localScale = Vector3.one;
+            item.transform.rotation = Quaternion.identity;
             item.gameObject.SetActive(false);
             itemPool.Enqueue(item);
         }
 
         OnForgeFilterPointerClick(filters[0], false);
         validationTime = 0f;
+        enoughResources = false;
+        enoughResourceMessage.SetActive(false);
     }
+    
 
     private void Update()
     {
-        if (Input.GetMouseButton(0) && hoveredForgeItem != null && validationTime < forgeValidationDuration)
+        if (Input.GetMouseButton(0) && hoveredForgeItem != null && validationTime < forgeValidationDuration && enoughResources)
         {
             validationSlider.gameObject.SetActive(true);
             validationTime += Time.deltaTime;
             if (validationTime >= forgeValidationDuration)
             {
-                Debug.Log("Forged : " + hoveredForgeItem.itemName.text + " !!");
+                foreach(KeyValuePair<SummarizedItem, int> entry in hoveredForgeItem.cost)
+                {
+                    PlayerController.MainInstance.inventory.RemoveItem(entry.Key, entry.Value, true);
+                }
+                PlayerController.MainInstance.inventory.AddItem(hoveredForgeItem.summarizedItem, 1);
+                enoughResources = HasEnoughResources(hoveredForgeItem);
+                enoughResourceMessage.SetActive(!enoughResources);
             }
             validationSlider.value = Mathf.Clamp(validationTime / forgeValidationDuration, 0f, 1f);
         }
@@ -97,6 +111,8 @@ public class ForgeUI : MonoBehaviour
     {
         forgeItem.itemName.color = hoveredItemTextColor;
         hoveredForgeItem = forgeItem;
+        enoughResources = HasEnoughResources(hoveredForgeItem);
+        enoughResourceMessage.SetActive(!enoughResources);
 
         descriptionName.text = forgeItem.itemName.text;
         description.text = forgeItem.description;
@@ -109,6 +125,14 @@ public class ForgeUI : MonoBehaviour
         {
             case Item.ItemType.Weapon:
                 avatar.weapon.Equip((WeaponItem.Type)forgeItem.summarizedItem.derivatedType);
+                WeaponItem weapon = Arsenal.Instance.Get((WeaponItem.Type)forgeItem.summarizedItem.derivatedType);
+                if(weapon.forbidSecond)
+                    avatar.second.Equip(SecondItem.Type.None);
+                else if(!PlayerController.MainInstance.secondHand.equipedItem.forbidWeapon)
+                    avatar.second.Equip(PlayerController.MainInstance.secondHand.equipedItem.type);
+                if (weapon.forbidShield)
+                    avatar.shield.Equip(ShieldItem.Type.None);
+                else avatar.shield.Equip(PlayerController.MainInstance.shield.equipedItem.type);
                 break;
             case Item.ItemType.Head:
                 avatar.head.Equip((HeadItem.Type)forgeItem.summarizedItem.derivatedType);
@@ -118,12 +142,26 @@ public class ForgeUI : MonoBehaviour
                 break;
             case Item.ItemType.Second:
                 avatar.second.Equip((SecondItem.Type)forgeItem.summarizedItem.derivatedType);
+                SecondItem second = Arsenal.Instance.Get((SecondItem.Type)forgeItem.summarizedItem.derivatedType);
+                if (second.forbidWeapon)
+                    avatar.weapon.Equip(WeaponItem.Type.None);
+                else if(!PlayerController.MainInstance.weapon.equipedItem.forbidSecond)
+                    avatar.weapon.Equip(PlayerController.MainInstance.weapon.equipedItem.type);
+                if (second.forbidShield)
+                    avatar.shield.Equip(ShieldItem.Type.None);
+                else avatar.shield.Equip(PlayerController.MainInstance.shield.equipedItem.type);
                 break;
             case Item.ItemType.Backpack:
                 avatar.backpack.Equip((BackpackItem.Type)forgeItem.summarizedItem.derivatedType);
                 break;
             case Item.ItemType.Shield:
                 avatar.shield.Equip((ShieldItem.Type)forgeItem.summarizedItem.derivatedType);
+                if (PlayerController.MainInstance.weapon.equipedItem.forbidShield)
+                    avatar.weapon.Equip(WeaponItem.Type.None);
+                else avatar.weapon.Equip(PlayerController.MainInstance.weapon.equipedItem.type);
+                if (PlayerController.MainInstance.secondHand.equipedItem.forbidShield)
+                    avatar.second.Equip(SecondItem.Type.None);
+                else avatar.second.Equip(PlayerController.MainInstance.secondHand.equipedItem.type);
                 break;
             default:
                 break;
@@ -133,8 +171,12 @@ public class ForgeUI : MonoBehaviour
     public void OnForgeItemPointerExit(ForgeItem forgeItem)
     {
         forgeItem.itemName.color = Color.white;
-        if(hoveredForgeItem == forgeItem)
+        if (hoveredForgeItem == forgeItem)
+        {
             hoveredForgeItem = null;
+            enoughResources = false;
+            enoughResourceMessage.SetActive(false);
+        }
     }
     public void OnForgeItemPointerClick(ForgeItem forgeItem)
     {
@@ -361,6 +403,7 @@ public class ForgeUI : MonoBehaviour
         item.gameObject.SetActive(true);
         item.transform.SetParent(itemListContainer);
         itemInUse.Enqueue(item);
+        (item.transform as RectTransform).sizeDelta = new Vector2(itemListContainer.sizeDelta.x, 55);
         return item;
     }
     private void AssignBasics(ForgeItem forgeItem, Item baseItem, SummarizedItem summarized)
@@ -410,6 +453,19 @@ public class ForgeUI : MonoBehaviour
         {
             item.resources[index].gameObject.SetActive(false);
         }
+    }
+    private bool HasEnoughResources(ForgeItem forgeItem)
+    {
+        foreach(KeyValuePair<SummarizedItem, int> si in forgeItem.cost)
+        {
+            if (PlayerController.MainInstance.inventory.inventory.ContainsKey(si.Key))
+            {
+                if (PlayerController.MainInstance.inventory.inventory[si.Key] < si.Value)
+                    return false;
+            }
+            else return false;
+        }
+        return true;
     }
     #endregion
 }

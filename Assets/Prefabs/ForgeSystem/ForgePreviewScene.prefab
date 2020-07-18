@@ -1199,6 +1199,7 @@ MonoBehaviour:
   equipable: 1
   type: 10
   armor: 0
+  crafting: []
 --- !u!1 &657328422359953200
 GameObject:
   m_ObjectHideFlags: 0
@@ -1471,6 +1472,7 @@ MonoBehaviour:
   forbidShield: 0
   animationCode: 1
   dammage: 0
+  crafting: []
 --- !u!1 &2407704325782525727
 GameObject:
   m_ObjectHideFlags: 0
@@ -1574,6 +1576,7 @@ MonoBehaviour:
   type: 0
   toolFamily: None
   capacity: 0
+  crafting: []
 --- !u!1 &2445958198274186933
 GameObject:
   m_ObjectHideFlags: 0
@@ -1681,6 +1684,7 @@ MonoBehaviour:
   forbidShield: 0
   animationCode: 1
   dammage: 0
+  crafting: []
 --- !u!1 &4023311205428833627
 GameObject:
   m_ObjectHideFlags: 0
@@ -1784,6 +1788,7 @@ MonoBehaviour:
   equipable: 1
   type: 1
   armor: 0
+  crafting: []
 --- !u!1 &4173794049938025361
 GameObject:
   m_ObjectHideFlags: 0
@@ -1933,6 +1938,7 @@ MonoBehaviour:
   equipable: 1
   type: 0
   armor: 0
+  crafting: []
 --- !u!1 &6854667711886904638
 GameObject:
   m_ObjectHideFlags: 0

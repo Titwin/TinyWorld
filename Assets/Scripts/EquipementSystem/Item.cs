@@ -73,6 +73,19 @@ public class Item : MonoBehaviour
             default: return InteractionType.Type.none;
         }
     }
+    public static InteractionType.Type GetPickableInteraction(SummarizedItem item)
+    {
+        switch (item.itemType)
+        {
+            case ItemType.Weapon: return InteractionType.Type.pickableWeapon;
+            case ItemType.Backpack: return InteractionType.Type.pickableBackpack;
+            case ItemType.Shield: return InteractionType.Type.pickableShield;
+            case ItemType.Second: return InteractionType.Type.pickableSecond;
+            case ItemType.Head: return InteractionType.Type.pickableHead;
+
+            default: return InteractionType.Type.none;
+        }
+    }
     public static Item AttachItemCopy(Item original, GameObject destination)
     {
         switch (original.itemType)

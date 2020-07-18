@@ -50,24 +50,27 @@ public class ForgePreviewAvatar : MonoBehaviour
 
     public void AnimationParameterRefresh()
     {
-        // weapon code for attack animations
-        if (weapon.equipedItem.type != WeaponItem.Type.None)
-            animator.SetInteger("weapon", weapon.equipedItem.animationCode);
-        else if (second.equipedItem.type != SecondItem.Type.None)
-            animator.SetInteger("weapon", second.equipedItem.animationCode);
-        else animator.SetInteger("weapon", 0);
+        if (animator != null && clipOverrides != null)
+        {
+            // weapon code for attack animations
+            if (weapon.equipedItem.type != WeaponItem.Type.None)
+                animator.SetInteger("weapon", weapon.equipedItem.animationCode);
+            else if (second.equipedItem.type != SecondItem.Type.None)
+                animator.SetInteger("weapon", second.equipedItem.animationCode);
+            else animator.SetInteger("weapon", 0);
 
-        // shield for run, and idle
-        animator.SetBool("shield", shield.equipedItem.type != ShieldItem.Type.None);
+            // shield for run, and idle
+            animator.SetBool("shield", shield.equipedItem.type != ShieldItem.Type.None);
         
-        // load animation clips
-        AnimationClip[] clips = Arsenal.Instance.GetAnimationClip(ref weapon.equipedItem, ref second.equipedItem, ref shield.equipedItem, ref body.equipedItem, ref head.equipedItem, ref backpack.equipedItem);
+            // load animation clips
+            AnimationClip[] clips = Arsenal.Instance.GetAnimationClip(ref weapon.equipedItem, ref second.equipedItem, ref shield.equipedItem, ref body.equipedItem, ref head.equipedItem, ref backpack.equipedItem);
 
-        clipOverrides["idle"] = clips[0];
-        clipOverrides["walk"] = clips[1];
-        clipOverrides["run"] = clips[2];
-        clipOverrides["attack"] = clips[3];
-        animatorOverrideController.ApplyOverrides(clipOverrides);
+            clipOverrides["idle"] = clips[0];
+            clipOverrides["walk"] = clips[1];
+            clipOverrides["run"] = clips[2];
+            clipOverrides["attack"] = clips[3];
+            animatorOverrideController.ApplyOverrides(clipOverrides);
+        }
     }
 
     public void AttackEnd() { }
