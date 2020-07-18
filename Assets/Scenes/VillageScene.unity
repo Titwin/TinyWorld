@@ -475,11 +475,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Arsenal
       objectReference: {fileID: 0}
-    - target: {fileID: 7388010046170877057, guid: 62ba87b6c5e83aa4c8aa812d99a5b08c,
-        type: 3}
-      propertyPath: shopOnStart
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7388010046171369696, guid: 62ba87b6c5e83aa4c8aa812d99a5b08c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4367,7 +4362,7 @@ PrefabInstance:
     - target: {fileID: 7033924645929973903, guid: a40a418a18d8333449d0e93b3032ed09,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 18.214844
+      value: 18.214874
       objectReference: {fileID: 0}
     - target: {fileID: 7328054575839794264, guid: a40a418a18d8333449d0e93b3032ed09,
         type: 3}
@@ -6784,6 +6779,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5248489279427965496, guid: 2a7956e97e3788244962de36794e6cee,
+        type: 3}
+      propertyPath: type
+      value: 47
+      objectReference: {fileID: 0}
+    - target: {fileID: 5357511815161087285, guid: 2a7956e97e3788244962de36794e6cee,
+        type: 3}
+      propertyPath: type
+      value: 39
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2a7956e97e3788244962de36794e6cee, type: 3}

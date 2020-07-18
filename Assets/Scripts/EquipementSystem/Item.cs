@@ -29,6 +29,8 @@ public class Item : MonoBehaviour
     public ItemType itemType;
     public Sprite itemIcon;
     public string itemName;
+
+    [TextArea(15, 20)]
     public string description;
     public bool destroyOnPick = false;
     public float load = 1f;

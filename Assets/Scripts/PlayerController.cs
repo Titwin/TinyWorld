@@ -89,13 +89,13 @@ public class PlayerController : MonoBehaviour
         if (!initialized)
         {
             initialized = true;
-            interactionController.EquipInteraction(InteractionType.Type.pickableBackpack, Arsenal.Instance.Get(BackpackItem.Type.RessourceContainer).gameObject);
-            interactionController.inventory.AddItem(ResourceDictionary.instance.GetResourceItem("Wood"), 3);
+            //interactionController.EquipInteraction(InteractionType.Type.pickableBackpack, Arsenal.Instance.Get(BackpackItem.Type.AdventureBackpack).gameObject);
+            //interactionController.inventory.AddItem(ResourceDictionary.instance.GetResourceItem("Wood"), 3);
             //interactionController.inventory.AddItem(ResourceDictionary.instance.GetResourceItem("Stone"), 3);
-            interactionController.inventory.AddItem(ResourceDictionary.instance.GetResourceItem("Iron"), 3);
-            interactionController.inventory.AddItem(ResourceDictionary.instance.GetResourceItem("Gold"), 1);
-            //interactionController.inventory.AddItem(ResourceDictionary.instance.GetResourceItem("Crystal"), 3);
-            interactionController.inventory.AddItem(ResourceDictionary.instance.GetResourceItem("Wheat"), 6);
+            interactionController.inventory.AddItem(ResourceDictionary.instance.GetResourceItem("Iron"), 5);
+            interactionController.inventory.AddItem(ResourceDictionary.instance.GetResourceItem("Gold"), 5);
+            interactionController.inventory.AddItem(ResourceDictionary.instance.GetResourceItem("Crystal"), 5);
+            //interactionController.inventory.AddItem(ResourceDictionary.instance.GetResourceItem("Wheat"), 6);
         }
     }
     
@@ -259,7 +259,7 @@ public class PlayerController : MonoBehaviour
     // helper
     public void RecomputeLoadFactor()
     {
-        float backpackFactor = backpack.equipedItem.type == BackpackItem.Type.RessourceContainer ? 0.3f : 1f;
+        float backpackFactor = backpack.equipedItem.toolFamily == "Container" ? 0.3f : 1f;
         float backpackOffset = backpack.equipedItem.type == BackpackItem.Type.None ? 0f : 1f;
         backpack.equipedItem.load = backpackOffset + backpackFactor * inventory.RecomputeLoad();
 

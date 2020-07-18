@@ -582,6 +582,13 @@ public class Arsenal : MonoBehaviour
                 pickable.textmesh.gameObject.SetActive(false);
                 pickable.transform.localEulerAngles = new Vector3(0, 15, 0);
                 cameraPivot.position = go.transform.position + new Vector3(-0.13f, 0.6f, 1.1f);
+
+                if (item.Key == BackpackItem.Type.AdventureBackpack)
+                {
+                    pickable.transform.localEulerAngles = new Vector3(0, 90, 0);
+                    cameraPivot.position = go.transform.position + new Vector3(0f, 0.7f, 0.9f);
+                }
+
                 CreateIcon(iconFolderPath + "/Backpacks/" + go.name + ".png");
             }
             position.x += gap;
@@ -730,6 +737,12 @@ public class Arsenal : MonoBehaviour
                 pickable.textmesh.gameObject.SetActive(false);
                 pickable.transform.localEulerAngles = new Vector3(0, 0, -42);
                 cameraPivot.position = go.transform.position + new Vector3(0.3f, 0.6f, 1.5f);
+
+                if(item.Key == WeaponItem.Type.FireSword)
+                {
+                    pickable.itemMesh.gameObject.transform.Find("swordFireEffect").gameObject.SetActive(true);
+                }
+
                 CreateIcon(iconFolderPath + "/Weapons/" + go.name + ".png");
             }
             position.x += gap;
