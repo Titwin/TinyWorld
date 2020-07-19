@@ -1,0 +1,26 @@
+Constructions data
+Name;Wood;Wheat;Stone;Iron;Gold;Crystal
+Archery;3;0;8;1;0;0
+Barracks;5;0;12;2;0;0
+Blacksmith;4;0;4;2;0;0
+Castle;10;0;20;4;2;0
+Guild;5;0;3;0;1;0
+House;2;0;3;0;0;0
+Keep;5;0;7;0;1;0
+Library;4;0;3;0;1;0
+Lumbermill;3;0;4;1;0;0
+MageTower;4;0;4;0;1;1
+Market;6;0;1;0;0;0
+Stable;3;2;3;1;0;0
+StoneGate;0;0;7;2;0;0
+StoneWall;0;0;5;0;0;0
+Tavern;4;1;3;0;0;0
+Temple;5;0;4;1;0;0
+TowerA;6;0;0;1;0;0
+TowerB;2;0;5;1;0;0
+TowerC;2;0;7;1;0;0
+Windmill;4;0;3;1;0;0
+WoodGate;7;0;0;0;0;0
+WoodWall;5;0;0;0;0;0
+Workshop;3;0;3;2;0;0
+

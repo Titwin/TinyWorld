@@ -47,7 +47,7 @@ public class PlayerController : MonoBehaviour
     private Vector3 target;
     private ParticleSystem.EmitParams emitParams;
 
-    #region Singleton+
+    #region Singleton
     public static bool initialized = false;
     public static PlayerController MainInstance { get; set; } = null;
     private void Awake()

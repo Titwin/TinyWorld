@@ -1985,6 +1985,11 @@ PrefabInstance:
       propertyPath: gapY
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 7388010046170877057, guid: 62ba87b6c5e83aa4c8aa812d99a5b08c,
+        type: 3}
+      propertyPath: export_csv
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7388010046171369696, guid: 62ba87b6c5e83aa4c8aa812d99a5b08c,
         type: 3}
       propertyPath: m_LocalPosition.x

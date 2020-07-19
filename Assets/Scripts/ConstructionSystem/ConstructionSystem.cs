@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -9,6 +10,8 @@ public class ConstructionSystem : MonoBehaviour
     [Header("Configuration")]
     public bool instantConstruct = false;
     public bool enableMultiConstruction = true;
+    public bool export_csv = false;
+    private string file_csv = "";
 
     [Header("Current state")]
     public bool activated = false;
@@ -101,8 +104,28 @@ public class ConstructionSystem : MonoBehaviour
             multiPreviewRenderers.Add(mr);
         }
 
+        if (export_csv)
+        {
+            file_csv += "Constructions data\n" + 
+                "Name;Wood;Wheat;Stone;Iron;Gold;Crystal\n";
+        }
         foreach (ConstructionData cd in buildingList)
+        {
             knownBuildings.Add(cd.name, cd);
+
+            if(export_csv)
+            {
+                ItemCost cost = GetCost(cd);
+                file_csv += cd.name + ";" +
+                    cost.wood.ToString() + ";" + cost.wheat.ToString() + ";" + cost.stone.ToString() + ";" + cost.iron.ToString() + ";" + cost.gold.ToString() + ";" + cost.crystal.ToString() + "\n";
+            }
+        }
+        if (export_csv)
+        {
+            StreamWriter writer = new StreamWriter("Assets/Resources/constructions.csv", false);
+            writer.WriteLine(file_csv);
+            writer.Close();
+        }
 
         ResetState();
     }
@@ -635,5 +658,27 @@ public class ConstructionSystem : MonoBehaviour
             Gizmos.DrawWireCube(_debugPointing, size);
         }
 
+    }
+
+    private struct ItemCost
+    {
+        public int wood;
+        public int wheat;
+        public int stone;
+        public int iron;
+        public int gold;
+        public int crystal;
+    }
+    private ItemCost GetCost(ConstructionData data)
+    {
+        Dictionary<string, int> resources = data.GetTotalCost();
+        ItemCost cost = new ItemCost();
+        cost.wood = resources.ContainsKey("Wood") ? resources["Wood"] : 0;
+        cost.wheat = resources.ContainsKey("Wheat") ? resources["Wheat"] : 0;
+        cost.stone = resources.ContainsKey("Stone") ? resources["Stone"] : 0;
+        cost.iron = resources.ContainsKey("Iron") ? resources["Iron"] : 0;
+        cost.gold = resources.ContainsKey("Gold") ? resources["Gold"] : 0;
+        cost.crystal = resources.ContainsKey("Crystal") ? resources["Crystal"] : 0;
+        return cost;
     }
 }

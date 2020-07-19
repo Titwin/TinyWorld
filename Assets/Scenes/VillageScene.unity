@@ -1318,6 +1318,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   instantConstruct: 0
   enableMultiConstruction: 1
+  export_csv: 0
   activated: 0
   targetLayer: {fileID: 0}
   brush: {fileID: 0}
@@ -4362,7 +4363,7 @@ PrefabInstance:
     - target: {fileID: 7033924645929973903, guid: a40a418a18d8333449d0e93b3032ed09,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 18.214874
+      value: 18.214905
       objectReference: {fileID: 0}
     - target: {fileID: 7328054575839794264, guid: a40a418a18d8333449d0e93b3032ed09,
         type: 3}
