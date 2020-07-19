@@ -32,7 +32,7 @@ public class PlayerController : MonoBehaviour
     public AnimatorOverrideController animatorOverrideController;
 
     [Header("Interaction and juice")]
-    public KeyCode interactKey = KeyCode.Space;
+    //public KeyCode interactKey = KeyCode.Space;
     public InteractionController interactionController;
     public Inventory inventory;
     public AudioClip effortSound;
@@ -90,12 +90,12 @@ public class PlayerController : MonoBehaviour
         {
             initialized = true;
             //interactionController.EquipInteraction(InteractionType.Type.pickableBackpack, Arsenal.Instance.Get(BackpackItem.Type.AdventureBackpack).gameObject);
-            //interactionController.inventory.AddItem(ResourceDictionary.instance.GetResourceItem("Wood"), 3);
-            //interactionController.inventory.AddItem(ResourceDictionary.instance.GetResourceItem("Stone"), 3);
+            interactionController.inventory.AddItem(ResourceDictionary.instance.GetResourceItem("Wood"), 3);
+            interactionController.inventory.AddItem(ResourceDictionary.instance.GetResourceItem("Stone"), 3);
             interactionController.inventory.AddItem(ResourceDictionary.instance.GetResourceItem("Iron"), 5);
             interactionController.inventory.AddItem(ResourceDictionary.instance.GetResourceItem("Gold"), 5);
             interactionController.inventory.AddItem(ResourceDictionary.instance.GetResourceItem("Crystal"), 5);
-            //interactionController.inventory.AddItem(ResourceDictionary.instance.GetResourceItem("Wheat"), 6);
+            interactionController.inventory.AddItem(ResourceDictionary.instance.GetResourceItem("Wheat"), 6);
         }
     }
     
@@ -156,7 +156,7 @@ public class PlayerController : MonoBehaviour
         }
 
         // interaction
-        else if(interactionController.hoveredInteractor && Input.GetKeyDown(interactKey) && !interactionController.interacting)
+        else if(interactionController.hoveredInteractor && Input.GetKeyDown(interactionController.interactKey) && !interactionController.interacting)
         {
             InteractionType[] interactions = interactionController.hoveredInteractor.GetComponents<InteractionType>();
             foreach (InteractionType interaction in interactions)

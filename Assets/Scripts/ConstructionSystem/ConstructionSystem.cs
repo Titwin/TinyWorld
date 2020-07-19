@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.EventSystems;
 
 
@@ -40,6 +41,14 @@ public class ConstructionSystem : MonoBehaviour
     public KeyCode rotationRight;
     public List<ConstructionData> buildingList = new List<ConstructionData>();
     private Dictionary<string, ConstructionData> knownBuildings = new Dictionary<string, ConstructionData>();
+
+
+    public UnityEvent onConstructionFinished;
+    public UnityEvent onBuildingDestroyed;
+    public ConstructionData lastFinishedConstruction;
+    public ConstructionData lastDestroyedConstruction;
+    public GameObject lastFinishedConstructionGo;
+    public GameObject lastDestroyedConstructionGo;
 
     [Header("Simple preview")]
     public Material previewMaterial;
@@ -463,6 +472,10 @@ public class ConstructionSystem : MonoBehaviour
                         GameObject pile = GetResourcePile(resList);
                         pile.transform.position = go.transform.position;
                         modifier.grid.AddGameObject(pile, ConstructionLayer.LayerType.Decoration, false, false);
+
+                        lastDestroyedConstruction = knownBuildings[go.name];
+                        lastDestroyedConstructionGo = pile;
+                        onBuildingDestroyed.Invoke();
                     }
                 }
             }
@@ -646,7 +659,12 @@ public class ConstructionSystem : MonoBehaviour
         pileContainer.UpdateContent();
         return pile;
     }
-
+    public void FinishedBuilding(ConstructionController construction)
+    {
+        lastFinishedConstruction = construction.data;
+        lastFinishedConstructionGo = MapModifier.instance.grid.GetRootOf(construction.gameObject);
+        onConstructionFinished.Invoke();
+    }
 
     Vector3 _debugPointing;
     private void OnDrawGizmos()

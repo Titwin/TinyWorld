@@ -10,7 +10,7 @@ public class EquipementSFXManager : MonoBehaviour
         public WeaponItem.Type type;
         public GameObject associated;
     }
-
+    [Header("Weapons")]
     public WeaponItem weapon;
     public List<WeaponMapping> mappingList = new List<WeaponMapping>();
     public Dictionary<WeaponItem.Type, GameObject> mapping = new Dictionary<WeaponItem.Type, GameObject>();

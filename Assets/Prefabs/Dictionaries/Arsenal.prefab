@@ -37772,6 +37772,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shopOnStart: 0
   createIcons: 0
+  export_csv: 0
   pickablePrefab: {fileID: 9082372438455274285}
   cameraPivot: {fileID: 0}
   camera: {fileID: 0}
