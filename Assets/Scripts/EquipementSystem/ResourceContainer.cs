@@ -8,7 +8,7 @@ public class ResourceContainer : MonoBehaviour
     public int capacity;
     public int groupSize = 5;
     public MeshRenderer[] itemMeshes;
-    public int load = 0;
+    public float load = 0;
     public List<string> acceptedResources = new List<string>();
     public SortedDictionary<string, int> inventory = new SortedDictionary<string, int>();
     public List<string> start = new List<string>();
@@ -83,7 +83,7 @@ public class ResourceContainer : MonoBehaviour
     {
         Dictionary<string, int> acceptance = GetAcceptance();
         if (acceptance.Count == 0)
-            return capacity - load;
+            return (int)((capacity - load) / ResourceDictionary.instance.resourceItems[ResourceDictionary.instance.resources[resource].interactionType].load);
         else if (!acceptance.ContainsKey(resource))
             return 0;
 
@@ -99,13 +99,13 @@ public class ResourceContainer : MonoBehaviour
     }
     public void UpdateContent()
     {
-        load = 0;
+        RecomputeLoad();
+
         if (itemMeshes.Length != 0)
         {
             List<string> names = new List<string>();
             foreach (KeyValuePair<string, int> entry in inventory)
             {
-                load += entry.Value;
                 for (int i = 0; i < entry.Value; i++)
                     names.Add(entry.Key);
             }
@@ -132,17 +132,14 @@ public class ResourceContainer : MonoBehaviour
                 }
             }
         }
-        else
-        {
-            foreach (KeyValuePair<string, int> entry in inventory)
-                load += entry.Value;
-        }
     }
-    public int RecomputeLoad()
+    public float RecomputeLoad()
     {
         load = 0;
         foreach (KeyValuePair<string, int> entry in inventory)
-            load += entry.Value;
+        {
+            load += entry.Value * ResourceDictionary.instance.resourceItems[ResourceDictionary.instance.resources[entry.Key].interactionType].load;
+        }
         return load;
     }
 

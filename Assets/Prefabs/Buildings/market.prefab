@@ -202,4 +202,5 @@ MonoBehaviour:
   itemMeshes: []
   load: 0
   acceptedResources: []
-  start: []
+  start:
+  - Coins 2000

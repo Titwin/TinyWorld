@@ -2,15 +2,11 @@
 
 - persistance donnee map
 - systeme de dialogue
-- attacher des callbacks sur:
-	- construction template -> finish
-	- forge systeme -> crafted
-	- construction systeme ->destroy
 - systeme de competence
 	- known buildings, craft, ...
 	- gathering competences
 	- combat (maniment des arme et armure)
-- resource monnaie
+- resource monnaie                                                ok
 	- construction de batiment : paiment du terrain
 	- vente et achat de resources
 - journal de quetes

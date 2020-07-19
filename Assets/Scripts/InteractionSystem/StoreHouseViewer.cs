@@ -14,7 +14,7 @@ public class StoreHouseViewer : MonoBehaviour
     public ResourceContainer container;
     public TextMesh loadSum;
     public Transform background;
-    private int prevLoad;
+    private float prevLoad;
 
     void Start()
     {

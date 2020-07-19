@@ -174,7 +174,7 @@ public class InventoryUI : MonoBehaviour
             indexes.y--;
 
         container.sizeDelta = new Vector2(container.sizeDelta.x, Mathf.Max((indexes.y + 1) * Mathf.Abs(spacing.y) + 16, 424));
-        loadCapacity.text = inventory.load.ToString() + "/" + inventory.capacity.ToString();
+        loadCapacity.text = inventory.load.ToString("##.#") + "/" + inventory.capacity.ToString();
 
         // equipement
         PlayerController player = PlayerController.MainInstance;
@@ -602,8 +602,7 @@ public class InventoryUI : MonoBehaviour
 
     public void OnResourceClick(ResourceIcon icon)
     {
-        bool allowedResources = interactionUI.resourceContainer.acceptedResources.Count == 0 || interactionUI.resourceContainer.acceptedResources.Contains(icon.data.name);
-        if(allowedResources && icon.data && (Input.GetMouseButtonUp(0) || Input.GetMouseButtonUp(1)))
+        if(icon.data && (Input.GetMouseButtonUp(0) || Input.GetMouseButtonUp(1)))
         {
             string resourceName = icon.data.name;
             SummarizedItem si = ResourceDictionary.instance.GetResourceItem(icon.data.interactionType).Summarize();

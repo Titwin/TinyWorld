@@ -677,7 +677,7 @@ public class InteractionController : MonoBehaviour
             Dictionary<string, int> accepted = storehouse.GetAcceptance();
             foreach (KeyValuePair<SummarizedItem, int> entry in inventory.inventory)
             {
-                if (entry.Key.itemType == Item.ItemType.Resource)
+                if (entry.Key.itemType == Item.ItemType.Resource && entry.Key.derivatedType != (int)InteractionType.Type.collectCoins)
                 {
                     resourceInInventory++;
                     string resource = ResourceDictionary.instance.GetResourceItem((InteractionType.Type)entry.Key.derivatedType).resource.name;
@@ -686,17 +686,6 @@ public class InteractionController : MonoBehaviour
                     
                     int transfertCount = storehouse.TryAddItem(resource, entry.Value);
                     transfers.Add(resource, transfertCount);
-                    
-                    /*  // LEGACY
-                    int currentCount = storehouse.inventory.ContainsKey(resource) ? storehouse.inventory[resource] : 0;
-                    int maxCount = (accepted.ContainsKey(resource) && accepted[resource] > 0) ? accepted[resource] : storehouse.capacity;
-
-                    if (storehouse.HasSpace() && maxCount != currentCount)
-                    {
-                        int maximumTransfert = Mathf.Min(entry.Value, maxCount - currentCount);
-                        storehouse.AddItem(resource, maximumTransfert);
-                        transfers.Add(resource, maximumTransfert);
-                    }*/
                 }
             }
 

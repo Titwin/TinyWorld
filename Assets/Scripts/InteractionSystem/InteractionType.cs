@@ -28,7 +28,8 @@ public class InteractionType : MonoBehaviour
         constructionMode, // launch construction mode from hammer on empty space
         pickableHorse,
 
-        none              // for error code
+        none,              // for error code
+        collectCoins
     };
     public Type type;
     //public EventTrigger.TriggerEvent callback;
