@@ -2,6 +2,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class ForgeUI : MonoBehaviour
@@ -23,6 +25,7 @@ public class ForgeUI : MonoBehaviour
     public RectTransform itemListContainer;
     public ForgeFilter[] filters;
     public Slider validationSlider;
+    public UnityEvent onCraftedItem;
 
     [Header("Informations")]
     public Text descriptionName;
@@ -51,7 +54,7 @@ public class ForgeUI : MonoBehaviour
     public ForgeItem hoveredForgeItem;
     public float validationTime;
     public bool enoughResources;
-
+    public SummarizedItem lastCraftedItem;
 
 
     private void Start()
@@ -89,6 +92,9 @@ public class ForgeUI : MonoBehaviour
                     PlayerController.MainInstance.inventory.RemoveItem(entry.Key, entry.Value, true);
                 }
                 PlayerController.MainInstance.inventory.AddItem(hoveredForgeItem.summarizedItem, 1);
+                lastCraftedItem = hoveredForgeItem.summarizedItem;
+                onCraftedItem.Invoke();
+
                 enoughResources = HasEnoughResources(hoveredForgeItem);
                 enoughResourceMessage.SetActive(!enoughResources);
             }

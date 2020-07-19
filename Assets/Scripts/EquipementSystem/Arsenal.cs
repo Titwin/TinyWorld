@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 
 public class Arsenal : MonoBehaviour
@@ -7,6 +8,8 @@ public class Arsenal : MonoBehaviour
     [Header("Shop related")]
     public bool shopOnStart = false;
     public bool createIcons = false;
+    public bool export_csv = false;
+    private string file_csv = "";
     public SpecialPickableShopArsenal pickablePrefab;
     public Transform cameraPivot;
     public new Camera camera;
@@ -538,6 +541,12 @@ public class Arsenal : MonoBehaviour
         shopContainer.transform.localScale = Vector3.one;
         shopContainer.SetActive(true);
         
+        if (export_csv)
+        {
+            file_csv += "Arsenal items\n" +
+                "Name;Load;Dammage;Armor;Capacity;Wood;Wheat;Stone;Iron;Gold;Crystal\n";
+        }
+
         // backpack
         Vector3 position = Vector3.zero;
         {
@@ -555,6 +564,11 @@ public class Arsenal : MonoBehaviour
             if (go.name.Length >= 8)
                 pickable.textmesh.characterSize *= 0.5f;
             pickable.body.gameObject.SetActive(false);
+            
+            if (export_csv)
+            {
+                file_csv += "\nbackpack items\n";
+            }
         }
         foreach (KeyValuePair<BackpackItem.Type, BackpackItem> item in backpackDictionary)
         {
@@ -582,7 +596,21 @@ public class Arsenal : MonoBehaviour
                 pickable.textmesh.gameObject.SetActive(false);
                 pickable.transform.localEulerAngles = new Vector3(0, 15, 0);
                 cameraPivot.position = go.transform.position + new Vector3(-0.13f, 0.6f, 1.1f);
+
+                if (item.Key == BackpackItem.Type.AdventureBackpack)
+                {
+                    pickable.transform.localEulerAngles = new Vector3(0, 90, 0);
+                    cameraPivot.position = go.transform.position + new Vector3(0f, 0.7f, 0.9f);
+                }
+
                 CreateIcon(iconFolderPath + "/Backpacks/" + go.name + ".png");
+            }
+            if (export_csv)
+            {
+                ItemCost cost = GetCost(item.Value.crafting);
+                file_csv += item.Key.ToString() + ";" +
+                    item.Value.load.ToString() + ";0;0;" + item.Value.capacity.ToString() + ";" +
+                    cost.wood.ToString() + ";" + cost.wheat.ToString() + ";" + cost.stone.ToString() + ";" + cost.iron.ToString() + ";" + cost.gold.ToString() + ";" + cost.crystal.ToString() + "\n";
             }
             position.x += gap;
         }
@@ -604,6 +632,11 @@ public class Arsenal : MonoBehaviour
             if (go.name.Length >= 8)
                 pickable.textmesh.characterSize *= 0.5f;
             pickable.body.gameObject.SetActive(false);
+
+            if (export_csv)
+            {
+                file_csv += "\nshield items\n";
+            }
         }
         foreach (KeyValuePair<ShieldItem.Type, ShieldItem> item in shieldDictionary)
         {
@@ -633,6 +666,13 @@ public class Arsenal : MonoBehaviour
                 cameraPivot.position = go.transform.position + new Vector3(0f, 0.6f, 1.3f);
                 CreateIcon(iconFolderPath + "/Shields/" + go.name + ".png");
             }
+            if (export_csv)
+            {
+                ItemCost cost = GetCost(item.Value.crafting);
+                file_csv += item.Key.ToString() + ";" +
+                    item.Value.load.ToString() + ";0;" + item.Value.armor.ToString() + ";0;" +
+                    cost.wood.ToString() + ";" + cost.wheat.ToString() + ";" + cost.stone.ToString() + ";" + cost.iron.ToString() + ";" + cost.gold.ToString() + ";" + cost.crystal.ToString() + "\n";
+            }
             position.x += gap;
         }
 
@@ -654,6 +694,10 @@ public class Arsenal : MonoBehaviour
                 pickable.textmesh.characterSize *= 0.5f;
             pickable.body.gameObject.SetActive(false);
 
+            if (export_csv)
+            {
+                file_csv += "\nsecond hand items\n";
+            }
         }
         foreach (KeyValuePair<SecondItem.Type, SecondItem> item in secondDictionary)
         {
@@ -683,6 +727,13 @@ public class Arsenal : MonoBehaviour
                 cameraPivot.position = go.transform.position + new Vector3(0.3f, 0.45f, 1.5f);
                 CreateIcon(iconFolderPath + "/SecondHands/" + go.name + ".png");
             }
+            if (export_csv)
+            {
+                ItemCost cost = GetCost(item.Value.crafting);
+                file_csv += item.Key.ToString() + ";" +
+                    item.Value.load.ToString() + ";" + item.Value.dammage.ToString() + ";0;0;" +
+                    cost.wood.ToString() + ";" + cost.wheat.ToString() + ";" + cost.stone.ToString() + ";" + cost.iron.ToString() + ";" + cost.gold.ToString() + ";" + cost.crystal.ToString() + "\n";
+            }
             position.x += gap;
         }
 
@@ -703,6 +754,10 @@ public class Arsenal : MonoBehaviour
             if (go.name.Length >= 8)
                 pickable.textmesh.characterSize *= 0.5f;
             pickable.body.gameObject.SetActive(false);
+            if (export_csv)
+            {
+                file_csv += "\nweapon items\n";
+            }
         }
         foreach (KeyValuePair<WeaponItem.Type, WeaponItem> item in weaponDictionary)
         {
@@ -730,13 +785,31 @@ public class Arsenal : MonoBehaviour
                 pickable.textmesh.gameObject.SetActive(false);
                 pickable.transform.localEulerAngles = new Vector3(0, 0, -42);
                 cameraPivot.position = go.transform.position + new Vector3(0.3f, 0.6f, 1.5f);
+
+                if(item.Key == WeaponItem.Type.FireSword)
+                {
+                    pickable.itemMesh.gameObject.transform.Find("swordFireEffect").gameObject.SetActive(true);
+                }
+
                 CreateIcon(iconFolderPath + "/Weapons/" + go.name + ".png");
+            }
+            if (export_csv)
+            {
+                ItemCost cost = GetCost(item.Value.crafting);
+                file_csv += item.Key.ToString() + ";" +
+                    item.Value.load.ToString() + ";"  + item.Value.dammage.ToString() + ";0;0;" +
+                    cost.wood.ToString() + ";" + cost.wheat.ToString() + ";" + cost.stone.ToString() + ";" + cost.iron.ToString() + ";" + cost.gold.ToString() + ";" + cost.crystal.ToString() + "\n";
             }
             position.x += gap;
         }
 
         // heads
         position.x = 0; position.z -= gap; position.y += gapY;
+
+        if (export_csv)
+        {
+            file_csv += "\nhead items\n";
+        }
         foreach (KeyValuePair<HeadItem.Type, HeadItem> item in headDictionary)
         {
             GameObject go = Instantiate(pickablePrefab.gameObject);
@@ -765,11 +838,23 @@ public class Arsenal : MonoBehaviour
                 cameraPivot.position = go.transform.position + new Vector3(0, 0.6f, 1f);
                 CreateIcon(iconFolderPath + "/Heads/" + go.name + ".png");
             }
+            if (export_csv)
+            {
+                ItemCost cost = GetCost(item.Value.crafting);
+                file_csv += item.Key.ToString() + ";" +
+                    item.Value.load.ToString() + ";0;" + item.Value.armor.ToString() + ";0;" +
+                    cost.wood.ToString() + ";" + cost.wheat.ToString() + ";" + cost.stone.ToString() + ";" + cost.iron.ToString() + ";" + cost.gold.ToString() + ";" + cost.crystal.ToString() + "\n";
+            }
             position.x += gap;
         }
 
         // bodies
         position.x = 0; position.z -= gap; position.y += gapY;
+
+        if (export_csv)
+        {
+            file_csv += "\nbody items\n";
+        }
         foreach (KeyValuePair<BodyItem.Type, BodyItem> item in bodyDictionary)
         {
             GameObject go = Instantiate(pickablePrefab.gameObject);
@@ -799,6 +884,13 @@ public class Arsenal : MonoBehaviour
                 cameraPivot.position = go.transform.position + new Vector3(0, 0.5f, 1.5f);
                 CreateIcon(iconFolderPath + "/Bodies/" + go.name + ".png");
             }
+            if (export_csv)
+            {
+                ItemCost cost = GetCost(item.Value.crafting);
+                file_csv += item.Key.ToString() + ";" +
+                    item.Value.load.ToString() + ";0;" + item.Value.armor.ToString() + ";0;" +
+                    cost.wood.ToString() + ";" + cost.wheat.ToString() + ";" + cost.stone.ToString() + ";" + cost.iron.ToString() + ";" + cost.gold.ToString() + ";" + cost.crystal.ToString() + "\n";
+            }
             position.x += gap;
         }
 
@@ -819,6 +911,11 @@ public class Arsenal : MonoBehaviour
             if (go.name.Length >= 8)
                 pickable.textmesh.characterSize *= 0.5f;
             pickable.body.gameObject.SetActive(false);
+
+            if (export_csv)
+            {
+                file_csv += "\nhorse items\n";
+            }
         }
         foreach (KeyValuePair<HorseItem.Type, HorseItem> item in horseDictionary)
         {
@@ -851,7 +948,20 @@ public class Arsenal : MonoBehaviour
                 cameraPivot.position = go.transform.position + new Vector3(0, 1, 3f);
                 CreateIcon(iconFolderPath + "/Horses/" + go.name + ".png");
             }
+            if (export_csv)
+            {
+                file_csv += item.Key.ToString() + ";" + item.Value.load.ToString() + ";0;" + item.Value.armor.ToString() + ";0;0;0;0;0;0;0\n";
+            }
             position.x += gap;
+        }
+
+
+
+        if (export_csv)
+        {
+            StreamWriter writer = new StreamWriter("Assets/Resources/arsenal.csv", false);
+            writer.WriteLine(file_csv);
+            writer.Close();
         }
     }
 
@@ -886,5 +996,34 @@ public class Arsenal : MonoBehaviour
                 result += " " + (char)(c + 32); // add space and switch to lower case
         }
         return result;
+    }
+
+    private struct ItemCost
+    {
+        public int wood;
+        public int wheat;
+        public int stone;
+        public int iron;
+        public int gold;
+        public int crystal;
+    }
+    private ItemCost GetCost(List<string> crafting)
+    {
+        Dictionary<string, int> resources = new Dictionary<string, int>();
+        foreach (string line in crafting)
+        {
+            char[] separator = { ' ' };
+            string[] s = line.Split(separator);
+            resources.Add(s[0], int.Parse(s[1]));
+        }
+
+        ItemCost cost = new ItemCost();
+        cost.wood = resources.ContainsKey("Wood") ? resources["Wood"] : 0;
+        cost.wheat = resources.ContainsKey("Wheat") ? resources["Wheat"] : 0;
+        cost.stone = resources.ContainsKey("Stone") ? resources["Stone"] : 0;
+        cost.iron = resources.ContainsKey("Iron") ? resources["Iron"] : 0;
+        cost.gold = resources.ContainsKey("Gold") ? resources["Gold"] : 0;
+        cost.crystal = resources.ContainsKey("Crystal") ? resources["Crystal"] : 0;
+        return cost;
     }
 }

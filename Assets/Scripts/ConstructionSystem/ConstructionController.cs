@@ -70,6 +70,7 @@ public class ConstructionController : MonoBehaviour
                     meshFilter.sharedMesh = data.preview;
                     MapModifier.instance.grid.RemoveGameObject(transform.parent.gameObject, false);
                     MapModifier.instance.grid.AddGameObject(transform.parent.gameObject, data.layer, true, true);
+                    ConstructionSystem.instance.FinishedBuilding(this);
                     Destroy(gameObject);
                 }
                 else
@@ -79,6 +80,7 @@ public class ConstructionController : MonoBehaviour
                     Matrix4x4 matrix = Matrix4x4.TRS(Vector3.zero, finalRotation, Vector3.one);
                     Vector3Int cell = MapModifier.instance.tilemap.WorldToCell(transform.position);
                     MapModifier.instance.OverrideTile(data.tile, matrix, cell, true);
+                    ConstructionSystem.instance.FinishedBuilding(this);
 
                     Destroy(transform.parent.gameObject);
                 }

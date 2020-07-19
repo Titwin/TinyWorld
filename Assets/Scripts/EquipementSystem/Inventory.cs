@@ -101,7 +101,7 @@ public class Inventory : MonoBehaviour
         }
     }
 
-    public static void Copy(ResourceContainer source, ResourceContainer destination)
+    /*public static void Copy(ResourceContainer source, ResourceContainer destination)
     {
         destination.useResourceMaterial = source.useResourceMaterial;
         destination.capacity = source.capacity;
@@ -112,5 +112,5 @@ public class Inventory : MonoBehaviour
         foreach (KeyValuePair<string, int> entry in source.inventory)
             destination.inventory.Add(entry.Key, entry.Value);
         destination.UpdateContent();
-    }
+    }*/
 }

@@ -141,6 +141,7 @@ public class InteractionController : MonoBehaviour
                 else
                 {
                     ThrowHelp("Hammer", "nok");
+                    success = false;
                 }
                 break;
 
@@ -761,7 +762,13 @@ public class InteractionController : MonoBehaviour
         data.ressourceCount--;
         if (data.ressourceCount <= 0)
         {
+            ScriptableTile tile = (lastInteraction == InteractionType.Type.collectWheat) ? MapModifier.instance.tileDictionary["Dirt"] : MapModifier.instance.tileDictionary["Grass"];
+            Vector3Int cellPosition = MapModifier.instance.WorldToCell(hoveredInteractor.transform.parent.position);
+            MapModifier.instance.tilemap.SetTile(cellPosition, tile);
+            MapModifier.instance.tilemap.SetTransformMatrix(cellPosition, Matrix4x4.identity);
+
             Destroy(hoveredInteractor.transform.parent.gameObject);
+
             interactionTime = 0f;
             interacting = false;
             hoveredInteractor = null;
@@ -772,6 +779,7 @@ public class InteractionController : MonoBehaviour
         if (!inventory.HasSpace())
         {
             ComputeInteractionConditions(lastInteraction);
+
             UpdateHelp();
             interactionTime = 0f;
             interacting = false;

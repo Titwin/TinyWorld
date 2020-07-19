@@ -10,7 +10,8 @@ public class BackpackItem : Item
         None,
         QuiverA,
         QuiverB,
-        RessourceContainer
+        RessourceContainer,
+        AdventureBackpack
     };
 
     [Header("Backpack Item")]

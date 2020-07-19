@@ -28,7 +28,9 @@ public class WeaponItem : Item
         Sickle,
 
         CavalryLanceA, CavalryLanceB, CavalryLanceC,
-        CavalrySpear
+        CavalrySpear,
+
+        FireSword
     };
 
     [Header("Weapon Item")]

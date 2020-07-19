@@ -145,6 +145,7 @@
     <Compile Include="Assets\Scripts\EquipementSystem\BodyItem.cs" />
     <Compile Include="Assets\Scripts\EquipementSystem\BodySlot.cs" />
     <Compile Include="Assets\Scripts\EquipementSystem\EquipementLineTemplate.cs" />
+    <Compile Include="Assets\Scripts\EquipementSystem\EquipementSFXManager.cs" />
     <Compile Include="Assets\Scripts\EquipementSystem\EquipementViewer.cs" />
     <Compile Include="Assets\Scripts\EquipementSystem\HeadItem.cs" />
     <Compile Include="Assets\Scripts\EquipementSystem\HeadSlot.cs" />
