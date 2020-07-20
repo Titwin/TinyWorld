@@ -30,7 +30,8 @@ public class WeaponItem : Item
         CavalryLanceA, CavalryLanceB, CavalryLanceC,
         CavalrySpear,
 
-        FireSword
+        FireSword,
+        ElectricSword
     };
 
     [Header("Weapon Item")]
