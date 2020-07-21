@@ -39,9 +39,12 @@ MonoBehaviour:
   building: {fileID: 2310836331964168294, guid: c66ee1cb120aecc40a63f9cdfce20bcd,
     type: 3}
   decoration: {fileID: 0}
+  decorationNoisePosition: {x: 0, y: 0}
+  decorationNoiseRotation: {x: 0, y: 0}
+  decorationNoiseScale: {x: 1, y: 1}
   neighbourUpdate: 1
-  buildingUpdate: 0
   isTerrain: 0
+  resourceContainer: 1
   optionalMaterial: {fileID: 0}
   optionalSprite: {fileID: 0}
   helperText: Windmill

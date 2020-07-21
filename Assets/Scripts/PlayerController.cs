@@ -82,6 +82,7 @@ public class PlayerController : MonoBehaviour
         bool mounted = horse ? horse.equipedItem.type != HorseItem.Type.None : false;
         body.Equip(body.equipedItem.type, mounted, true);
         backpack.Equip(backpack.equipedItem.type, true);
+        inventory.capacity = backpack.equipedItem.capacity;
 
         AnimationParameterRefresh();
 
@@ -253,7 +254,6 @@ public class PlayerController : MonoBehaviour
     public void InteractionTick()
     {
         interactionController.InteractionTick();
-        return;
     }
 
     // helper

@@ -39,9 +39,12 @@ MonoBehaviour:
   building: {fileID: 7096075181365906075, guid: 3d7740a79a4780148a7f263ad07405a6,
     type: 3}
   decoration: {fileID: 0}
+  decorationNoisePosition: {x: 0, y: 0}
+  decorationNoiseRotation: {x: 0, y: 0}
+  decorationNoiseScale: {x: 1, y: 1}
   neighbourUpdate: 1
-  buildingUpdate: 0
   isTerrain: 0
+  resourceContainer: 1
   optionalMaterial: {fileID: 0}
   optionalSprite: {fileID: 0}
   helperText: Granary

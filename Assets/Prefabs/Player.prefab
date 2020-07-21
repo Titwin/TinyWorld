@@ -2061,7 +2061,6 @@ MonoBehaviour:
   needEquipementAnimationUpdate: 0
   animatorOverrideController: {fileID: 22100000, guid: 373ff11c928574842a2119b91fda9d93,
     type: 2}
-  interactKey: 32
   interactionController: {fileID: 3845904426776391662}
   inventory: {fileID: 342348986}
   effortSound: {fileID: 8300000, guid: 91313b9d18a416541aa6f5462e72e5a7, type: 3}
@@ -12000,7 +11999,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2696743537879588913
 Transform:
   m_ObjectHideFlags: 0
@@ -12012,7 +12011,8 @@ Transform:
     w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 7819905785312819288}
   m_Father: {fileID: 4579791505615509698}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -12031,7 +12031,7 @@ ParticleSystem:
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
   looping: 1
-  prewarm: 0
+  prewarm: 1
   playOnAwake: 1
   useUnscaledTime: 0
   autoRandomSeed: 1
@@ -12098,9 +12098,9 @@ ParticleSystem:
     enabled: 1
     startLifetime:
       serializedVersion: 2
-      minMaxState: 0
-      scalar: 0.3
-      minScalar: 0.85
+      minMaxState: 3
+      scalar: 0.7
+      minScalar: 0.3
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -12152,7 +12152,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 2.53
+      scalar: 0
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -12649,9 +12649,9 @@ ParticleSystem:
     boxThickness: {x: 0, y: 0, z: 0}
     radiusThickness: 1
     donutRadius: 0.2
-    m_Position: {x: -0.07, y: 0, z: 0}
+    m_Position: {x: -0.47, y: 0, z: 0}
     m_Rotation: {x: 0, y: -90, z: 0}
-    m_Scale: {x: 0.05, y: 0.05, z: 0.05}
+    m_Scale: {x: 0.05, y: 0.01, z: 0.77}
     placementMode: 0
     m_MeshMaterialIndex: 0
     m_MeshNormalOffset: 0
@@ -12849,7 +12849,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 20
+      scalar: 100
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -14610,7 +14610,7 @@ ParticleSystem:
     strength:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0
+      scalar: 0.8
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -14663,7 +14663,7 @@ ParticleSystem:
     strengthY:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 0.5
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -14716,7 +14716,7 @@ ParticleSystem:
     strengthZ:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 0.7
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -15538,7 +15538,7 @@ ParticleSystem:
         m_NumAlphaKeys: 2
     range: {x: 0, y: 1}
   CollisionModule:
-    enabled: 0
+    enabled: 1
     serializedVersion: 3
     type: 0
     collisionMode: 0
@@ -15546,7 +15546,7 @@ ParticleSystem:
     multiplyColliderForceByParticleSize: 0
     multiplyColliderForceByParticleSpeed: 0
     multiplyColliderForceByCollisionAngle: 1
-    plane0: {fileID: 0}
+    plane0: {fileID: 7819905785312819288}
     plane1: {fileID: 0}
     plane2: {fileID: 0}
     plane3: {fileID: 0}
@@ -15608,7 +15608,7 @@ ParticleSystem:
     m_Bounce:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 0
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -15661,7 +15661,7 @@ ParticleSystem:
     m_EnergyLossOnCollision:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0
+      scalar: 1
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -15917,7 +15917,7 @@ ParticleSystem:
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
-    minVertexDistance: 0.2
+    minVertexDistance: 0.06
     textureMode: 0
     ribbonCount: 1
     shadowBias: 0.5
@@ -15995,7 +15995,7 @@ ParticleSystem:
     widthOverTrail:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 0.37
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -16694,7 +16694,7 @@ ParticleSystemRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 10301, guid: 0000000000000000f000000000000000, type: 0}
-  - {fileID: 2100000, guid: baa538561ad7cf84fb7a22d8fe6cab80, type: 2}
+  - {fileID: 2100000, guid: 8e7ef207c9569bf439bde081dbd4f163, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -16738,6 +16738,36 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!1 &3691846651850641939
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7819905785312819288}
+  m_Layer: 19
+  m_Name: Plane
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7819905785312819288
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3691846651850641939}
+  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: -0.084, y: 0, z: 0}
+  m_LocalScale: {x: 0.03, y: 1, z: 0.04}
+  m_Children: []
+  m_Father: {fileID: 2696743537879588913}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!1 &4507552995645489869
 GameObject:
   m_ObjectHideFlags: 0
@@ -26520,6 +26550,8 @@ MonoBehaviour:
   mappingList:
   - type: 47
     associated: {fileID: 6328797197640771534}
+  - type: 48
+    associated: {fileID: 2992283493273928019}
 --- !u!1 &6192619722522150521
 GameObject:
   m_ObjectHideFlags: 0
@@ -26637,7 +26669,7 @@ MonoBehaviour:
   load: 0
   usable: 0
   equipable: 1
-  type: 10
+  type: 9
   armor: 0
   crafting: []
 --- !u!1 &6192619722522150787
@@ -37527,7 +37559,7 @@ MonoBehaviour:
   load: 0
   usable: 0
   equipable: 1
-  type: 26
+  type: 14
   toolFamily: None
   forbidSecond: 0
   forbidShield: 0
@@ -37634,7 +37666,7 @@ MonoBehaviour:
   load: 0
   usable: 0
   equipable: 1
-  type: 0
+  type: 4
   toolFamily: None
   capacity: 0
   crafting: []

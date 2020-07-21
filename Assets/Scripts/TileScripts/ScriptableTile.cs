@@ -18,6 +18,7 @@ public class ScriptableTile : Tile
     public bool neighbourUpdate = false;
     //public bool buildingUpdate = false;
     public bool isTerrain = false;
+    public bool resourceContainer = false;
     
     [Header("Options")]
     public Material optionalMaterial;

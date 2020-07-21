@@ -89,6 +89,7 @@ CavalryLanceB;5;10;0;0;1;0;0;1;0;0
 CavalryLanceC;5;10;0;0;1;0;0;1;0;0
 CavalrySpear;2;5;0;0;1;0;0;1;0;0
 FireSword;3;10;0;0;0;0;0;5;5;5
+ElectricSword;3;10;0;0;0;0;0;5;5;5
 
 head items
 NackedA;0;0;0;0;0;0;0;0;0;0

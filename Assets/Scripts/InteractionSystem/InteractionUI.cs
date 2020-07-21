@@ -16,8 +16,6 @@ public class InteractionUI : MonoBehaviour
     [Header("Linking")]
     public InteractionJuicer juicer;
     public InventoryUI inventoryUI;
-    public List<ResourceData> resourcesData;
-    private Dictionary<string, ResourceData> sortedResourcesData;
 
     [Header("State")]
     public ConstructionController constructionController;
@@ -53,9 +51,6 @@ public class InteractionUI : MonoBehaviour
 
     void Start()
     {
-        sortedResourcesData = new Dictionary<string, ResourceData>();
-        foreach (ResourceData res in resourcesData)
-            sortedResourcesData.Add(res.name, res);
         inventoryUI = GetComponent<InventoryUI>();
     }
 
@@ -65,7 +60,7 @@ public class InteractionUI : MonoBehaviour
         {
             // Construction progress
             constructionController = juicer.hovered.GetComponent<ConstructionController>();
-            if (constructionController != null && !inventoryUI.activated)
+            if (constructionController != null)
                 UpdateConstructionProgress(constructionController);
             else ResetConstructionProgress();
 
@@ -77,6 +72,8 @@ public class InteractionUI : MonoBehaviour
         }
         else
         {
+            constructionController = null;
+            resourceContainer = null;
             ResetConstructionProgress();
             ResetContainerViewer();
         }
@@ -138,10 +135,11 @@ public class InteractionUI : MonoBehaviour
         int index = 0;
         foreach (KeyValuePair<string, int> entry in cost)
         {
-            if (sortedResourcesData.ContainsKey(entry.Key))
+            if (ResourceDictionary.instance.resources.ContainsKey(entry.Key))
             {
                 constructionIcons[index].gameObject.SetActive(true);
-                constructionIcons[index].icon.sprite = sortedResourcesData[entry.Key].icon;
+                constructionIcons[index].icon.sprite = ResourceDictionary.instance.resources[entry.Key].icon;
+                constructionIcons[index].data = ResourceDictionary.instance.resources[entry.Key];
                 constructionIcons[index].text.text = (current.ContainsKey(entry.Key) ? current[entry.Key].ToString() : "0") + "/" + entry.Value.ToString();
                 index++;
             }
@@ -174,12 +172,12 @@ public class InteractionUI : MonoBehaviour
         int index = 0;
         foreach (KeyValuePair<string, int> entry in container.inventory)
         {
-            if (sortedResourcesData.ContainsKey(entry.Key))
+            if (ResourceDictionary.instance.resources.ContainsKey(entry.Key))
             {
                 containersIcons[index].gameObject.SetActive(true);
-                containersIcons[index].data = sortedResourcesData[entry.Key];
-                containersIcons[index].icon.sprite = sortedResourcesData[entry.Key].icon;
-                containersIcons[index].text.text = entry.Value.ToString();
+                containersIcons[index].data = ResourceDictionary.instance.resources[entry.Key];
+                containersIcons[index].icon.sprite = ResourceDictionary.instance.resources[entry.Key].icon;
+                containersIcons[index].text.text = entry.Value < 1000 ? entry.Value.ToString() : (entry.Value / 1000).ToString("##.#") + "k";
                 index++;
             }
             else

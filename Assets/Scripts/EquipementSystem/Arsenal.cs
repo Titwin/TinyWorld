@@ -790,6 +790,10 @@ public class Arsenal : MonoBehaviour
                 {
                     pickable.itemMesh.gameObject.transform.Find("swordFireEffect").gameObject.SetActive(true);
                 }
+                else if (item.Key == WeaponItem.Type.ElectricSword)
+                {
+                    pickable.itemMesh.gameObject.transform.Find("swordElectricEffect").gameObject.SetActive(true);
+                }
 
                 CreateIcon(iconFolderPath + "/Weapons/" + go.name + ".png");
             }
