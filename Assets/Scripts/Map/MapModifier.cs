@@ -8,6 +8,7 @@ using UnityEngine.Tilemaps;
 public class MapModifier : MonoBehaviour
 {
     public MapGrid grid;
+    public MapPersistance persistantData;
     public Tilemap tilemap;
     public TilemapRenderer tilemapRenderer;
     public float allocatedTimeForJobs = 0.01f;
@@ -125,6 +126,8 @@ public class MapModifier : MonoBehaviour
         if (original != null)
         {
             FreeGameObject(original.terrain, cellPosition, forceUpdate);
+            if(tilemap.GetTile<ScriptableTile>(cellPosition).resourceContainer)
+                TrySavePersistantData(original.building, cellPosition);
             FreeGameObject(original.building, cellPosition, forceUpdate);
             FreeGameObject(original.decoration, cellPosition, forceUpdate);
             tileObjects.Remove(cellPosition);
@@ -165,11 +168,13 @@ public class MapModifier : MonoBehaviour
         {
             GameObject building = InstantiateGameObject(tile.building);
             building.transform.localPosition = tileCenter;
-            building.transform.localEulerAngles = new Vector3(0, 90 - tilemap.GetTransformMatrix(cellPosition).rotation.eulerAngles.z, 0);// new Vector3(-90, 90 - tilemap.GetTransformMatrix(cellPosition).rotation.eulerAngles.z, 0);
+            building.transform.localEulerAngles = new Vector3(0, 90 - tilemap.GetTransformMatrix(cellPosition).rotation.eulerAngles.z, 0);
             building.SetActive(true);
 
             InitWall(building.GetComponent<Wall>(), cellPosition, tile.name);
             InitFences(building.GetComponent<Fences>(), cellPosition, tile.name);
+            if(tile.resourceContainer)
+                InitResourceContainer(building, cellPosition);
 
             grid.AddGameObject(building, ConstructionLayer.LayerType.Building, true, forceUpdate);
             tileGameObject.building = building;
@@ -312,7 +317,30 @@ public class MapModifier : MonoBehaviour
             else Destroy(fence.gameObject);
         }
     }
+    private void InitResourceContainer(GameObject go, Vector3Int cellPosition)
+    {
+        Transform interactor = go.transform.Find("interactor");
+        if (interactor)
+        {
+            ResourceContainer container = interactor.GetComponent<ResourceContainer>();
+            if (container && persistantData.resourceContainersSave.ContainsKey(cellPosition))
+            {
+                foreach (KeyValuePair<string, int> entry in persistantData.resourceContainersSave[cellPosition])
+                    container.AddItem(entry.Key, entry.Value);
+            }
+        }
+    }
 
+    private void TrySavePersistantData(GameObject go, Vector3Int cell)
+    {
+        Transform interactor = go.transform.Find("interactor");
+        if (interactor)
+        {
+            ResourceContainer container = interactor.GetComponent<ResourceContainer>();
+            if (container)
+                persistantData.Save(container, cell);
+        }
+    }
     public void FreeGameObject(GameObject go, Vector3Int cell, bool forceUpdate)
     {
         if (go != null)

@@ -254,7 +254,6 @@ public class PlayerController : MonoBehaviour
     public void InteractionTick()
     {
         interactionController.InteractionTick();
-        return;
     }
 
     // helper

@@ -1,6 +1,5 @@
 
 
-- persistance donnee map
 - systeme de dialogue
 - systeme de competence
 	- known buildings, craft, ...
@@ -12,7 +11,6 @@
 - journal de quetes
 	- menu
 	- hud pour la quete active
-- pnj simple attache a une zone
 - construction system
 	- zone impossible
 

@@ -66,6 +66,7 @@
     <Compile Include="Assets\Materials\Specials\WheatSynchronizer.cs" />
     <Compile Include="Assets\Scripts\AISystem\BuildingBase.cs" />
     <Compile Include="Assets\Scripts\AISystem\CharacterAnimationController.cs" />
+    <Compile Include="Assets\Scripts\AISystem\DummyPNJ.cs" />
     <Compile Include="Assets\Scripts\AISystem\EquipData.cs" />
     <Compile Include="Assets\Scripts\AISystem\Government.cs" />
     <Compile Include="Assets\Scripts\AISystem\Projectile.cs" />
@@ -146,6 +147,7 @@
     <Compile Include="Assets\Scripts\Map\MapChunk.cs" />
     <Compile Include="Assets\Scripts\Map\MapGrid.cs" />
     <Compile Include="Assets\Scripts\Map\MapModifier.cs" />
+    <Compile Include="Assets\Scripts\Map\MapPersistance.cs" />
     <Compile Include="Assets\Scripts\Map\MapStreaming.cs" />
     <Compile Include="Assets\Scripts\Menus\PauseMenu.cs" />
     <Compile Include="Assets\Scripts\NavigationSystem\AgentBase.cs" />
@@ -263,11 +265,17 @@
     <Reference Include="Unity.CollabProxy.Editor">
       <HintPath>C:/Users/Thibault/Documents/GitHub/TinyWorld/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.Postprocessing.Editor">
+      <HintPath>C:/Users/Thibault/Documents/GitHub/TinyWorld/Library/ScriptAssemblies/Unity.Postprocessing.Editor.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.Rider.Editor">
       <HintPath>C:/Users/Thibault/Documents/GitHub/TinyWorld/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.Sprite.Editor">
       <HintPath>C:/Users/Thibault/Documents/GitHub/TinyWorld/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Postprocessing.Runtime">
+      <HintPath>C:/Users/Thibault/Documents/GitHub/TinyWorld/Library/ScriptAssemblies/Unity.Postprocessing.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.Tilemap.Editor">
       <HintPath>C:/Users/Thibault/Documents/GitHub/TinyWorld/Library/ScriptAssemblies/Unity.2D.Tilemap.Editor.dll</HintPath>
@@ -280,12 +288,6 @@
     </Reference>
     <Reference Include="UnityEditor.UI">
       <HintPath>C:/Users/Thibault/Documents/GitHub/TinyWorld/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Postprocessing.Editor">
-      <HintPath>C:/Users/Thibault/Documents/GitHub/TinyWorld/Library/ScriptAssemblies/Unity.Postprocessing.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Postprocessing.Runtime">
-      <HintPath>C:/Users/Thibault/Documents/GitHub/TinyWorld/Library/ScriptAssemblies/Unity.Postprocessing.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.3.0f6/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
