@@ -17,7 +17,7 @@ TagManager:
   - Player
   - PlayerUI
   - Ground
-  - 
+  - PNJ
   - RootObject
   - Terrain
   - Building

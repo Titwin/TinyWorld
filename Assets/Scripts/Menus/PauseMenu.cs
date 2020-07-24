@@ -10,12 +10,22 @@ public class PauseMenu : MonoBehaviour
 
     public GameObject pauseMenuUI;
     public GameObject settingsMenuUI;
+    [Range(0, 1)] public  float pauseVolume = 0.5f;
+    public TPSCameraController tpsCameraController;
+
+    private void Start()
+    {
+        AudioListener.volume = 1f;
+    }
 
     void Update()
     {
         // PAUSE MENU
         if (Input.GetKeyDown(KeyCode.Escape))
         {
+            if (ConstructionSystem.instance.activated || ForgeSystem.instance.activated || DiscussionSystem.instance.activated)
+                return;
+
             if (GameIsPaused) {
                 Resume();
             }
@@ -23,7 +33,7 @@ public class PauseMenu : MonoBehaviour
             {
                 Pause();
             }
-        }   
+        }
     }
 
     void Pause()
@@ -31,7 +41,8 @@ public class PauseMenu : MonoBehaviour
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
         GameIsPaused = true;
-        // TODO : create an AudioManager and change the pitch of the audio when the game is paused
+        AudioListener.volume = pauseVolume;
+        tpsCameraController.activated = false;
     }
 
     public void Resume()
@@ -47,6 +58,8 @@ public class PauseMenu : MonoBehaviour
             pauseMenuUI.SetActive(false);
             Time.timeScale = 1f;
             GameIsPaused = false;
+            AudioListener.volume = 1f;
+            tpsCameraController.activated = true;
         }
     }
 

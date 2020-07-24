@@ -130,7 +130,7 @@ public class InventoryUI : MonoBehaviour
             UpdateContent();
     }
 
-    public void Activate(bool enabled)
+    public void SetActive(bool enabled)
     {
         if(!enabled)
         {

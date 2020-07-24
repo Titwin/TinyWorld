@@ -29,7 +29,9 @@ public class InteractionType : MonoBehaviour
         pickableHorse,
 
         none,              // for error code
-        collectCoins
+        collectCoins,
+
+        talk
     };
     public Type type;
     //public EventTrigger.TriggerEvent callback;
