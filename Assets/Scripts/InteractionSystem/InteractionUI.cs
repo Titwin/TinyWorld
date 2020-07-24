@@ -21,6 +21,9 @@ public class InteractionUI : MonoBehaviour
     public ConstructionController constructionController;
     public ResourceContainer resourceContainer;
 
+    [Header("Simple interaction")]
+    public Text simpleInteractionText;
+
     [Header("Container viewer")]
     public GameObject containerViewer;
     public List<ResourceIcon> containersIcons;
@@ -69,6 +72,41 @@ public class InteractionUI : MonoBehaviour
             if (resourceContainer != null && constructionController == null)
                 UpdateContainerViewer(resourceContainer);
             else ResetContainerViewer();
+
+            // simple interaction
+            bool simpleInteraction = false;
+
+            // talk interaction
+            InteractionTalk interactionTalk = juicer.hovered.GetComponent<InteractionTalk>();
+            if (interactionTalk != null && !DiscussionSystem.instance.activated)
+            {
+                simpleInteractionText.gameObject.SetActive(true);
+                simpleInteractionText.text = "Talk to " + interactionTalk.pnj.pnjName;
+                simpleInteraction = true;
+            }
+            else simpleInteractionText.gameObject.SetActive(simpleInteraction);
+
+            // forge interaction
+            if (isForge(juicer.hovered) && !ForgeSystem.instance.activated)
+            {
+                simpleInteractionText.gameObject.SetActive(true);
+                simpleInteractionText.text = "Open the forge";
+                simpleInteraction = true;
+            }
+            else simpleInteractionText.gameObject.SetActive(simpleInteraction);
+
+            // resource collection interaction
+            if (isResourceCollection(juicer.hovered))
+            {
+                simpleInteractionText.gameObject.SetActive(true);
+                InteractionType.Type collectionType = juicer.hovered.GetComponent<InteractionType>().type;
+                if (ResourceDictionary.instance.resourcesFromType.ContainsKey(collectionType))
+                    simpleInteractionText.text = "Collect " + ResourceDictionary.instance.resourcesFromType[collectionType].name;
+                else
+                    simpleInteractionText.text = "Error: ResourceDictionary doesn't contain resource for interaction " + collectionType.ToString();
+                simpleInteraction = true;
+            }
+            else simpleInteractionText.gameObject.SetActive(simpleInteraction);
         }
         else
         {
@@ -76,10 +114,10 @@ public class InteractionUI : MonoBehaviour
             resourceContainer = null;
             ResetConstructionProgress();
             ResetContainerViewer();
+            simpleInteractionText.gameObject.SetActive(false);
         }
     }
-
-
+    
 
     private void UpdateConstructionProgress(ConstructionController constructionController)
     {
@@ -197,5 +235,24 @@ public class InteractionUI : MonoBehaviour
     private void ResetContainerViewer()
     {
         containerViewer.SetActive(false);
+    }
+
+    private bool isForge(GameObject interactor)
+    {
+        return interactor.GetComponent<InteractionType>().type == InteractionType.Type.forge;
+    }
+    private bool isResourceCollection(GameObject interactor)
+    {
+        InteractionType.Type type = interactor.GetComponent<InteractionType>().type;
+        switch(type)
+        {
+            case InteractionType.Type.collectCrystal: return true;
+            case InteractionType.Type.collectGold: return true;
+            case InteractionType.Type.collectIron: return true;
+            case InteractionType.Type.collectStone: return true;
+            case InteractionType.Type.collectWheat: return true;
+            case InteractionType.Type.collectWood: return true;
+            default: return false;
+        }
     }
 }

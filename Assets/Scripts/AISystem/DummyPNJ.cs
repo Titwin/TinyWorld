@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class DummyPNJ : MonoBehaviour
 {
-
     [Header("Movement and machine states")]
     public float aimingSpeed = 4;
     public float runSpeed = 4;
+    public float gravity = 8;
+    public bool activated = true;
+    public Quaternion goal;
 
     [Header("Equipement")]
     public HorseSlot horse;
@@ -30,6 +32,11 @@ public class DummyPNJ : MonoBehaviour
     private CharacterController controller;
     public float interactionCooldown;
     private float interactionTime;
+    public TextMesh nameLabel;
+
+    [Header("Discussions")]
+    [TextArea(1,2)]
+    public string pnjName;
 
     public enum InterestAnimation
     {
@@ -81,11 +88,21 @@ public class DummyPNJ : MonoBehaviour
         AnimationParameterRefresh();
         animator.SetFloat("loadFactor", 1f);
         target = interestPoints[interestIndex].location;
+
+        nameLabel.text = pnjName;
     }
     
     void Update()
     {
-        if((target.position - transform.position).magnitude < threshold)
+        if (!activated)
+        {
+            controller.Move(runSpeed * new Vector3(0, -gravity, 0) * Time.deltaTime);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, goal, aimingSpeed * Time.deltaTime);
+            return;
+        }
+
+        Vector2 v = new Vector2(target.position.x, target.position.z) - new Vector2(transform.position.x, transform.position.z);
+        if(v.magnitude < threshold)
         {
             animator.SetFloat("run", 0f);
             if (interestPoints[interestIndex].animation == InterestAnimation.Interact)
@@ -101,13 +118,15 @@ public class DummyPNJ : MonoBehaviour
                     audiosource.Play();
             }
 
-            Quaternion goal = Quaternion.LookRotation(new Vector3(target.forward.x, 0, target.forward.z), Vector3.up);
+            controller.Move(runSpeed * new Vector3(0, -gravity, 0) * Time.deltaTime);
+            goal = Quaternion.LookRotation(new Vector3(target.forward.x, 0, target.forward.z), Vector3.up);
             transform.rotation = Quaternion.RotateTowards(transform.rotation, goal, aimingSpeed * Time.deltaTime);
             moving = false;
         }
         else
         {
-            Vector3 direction = (target.position - transform.position).normalized;
+            Vector3 direction = new Vector3(v.x, 0, v.y).normalized;
+            direction.y = -gravity;
 
             if (direction.x == 0f && direction.z == 0f)
                 animator.SetFloat("run", 0f);
@@ -116,7 +135,7 @@ public class DummyPNJ : MonoBehaviour
 
             controller.Move(runSpeed * direction * Time.deltaTime);
 
-            Quaternion goal = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z), Vector3.up);
+            goal = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z), Vector3.up);
             transform.rotation = Quaternion.RotateTowards(transform.rotation, goal, aimingSpeed * Time.deltaTime);
             time = 0f;
             moving = true;
@@ -140,7 +159,26 @@ public class DummyPNJ : MonoBehaviour
             time = 0f;
         }
     }
+    public void SetActive(bool active)
+    {
+        activated = active;
 
+        if (active)
+        {
+            moving = true;
+            time = interestPoints[interestIndex].duration;
+        }
+        else
+        {
+            time = 0f;
+            moving = false;
+            animator.SetBool("interaction", false);
+            animator.SetFloat("run", 0f);
+
+            Vector3 v = PlayerController.MainInstance.transform.position - transform.position;
+            goal = Quaternion.LookRotation(new Vector3(v.x, 0, v.z), Vector3.up);
+        }
+    }
 
 
 

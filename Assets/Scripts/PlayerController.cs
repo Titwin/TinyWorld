@@ -91,12 +91,15 @@ public class PlayerController : MonoBehaviour
         {
             initialized = true;
             //interactionController.EquipInteraction(InteractionType.Type.pickableBackpack, Arsenal.Instance.Get(BackpackItem.Type.AdventureBackpack).gameObject);
-            interactionController.inventory.AddItem(ResourceDictionary.instance.GetResourceItem("Wood"), 3);
+            /*interactionController.inventory.AddItem(ResourceDictionary.instance.GetResourceItem("Wood"), 3);
             interactionController.inventory.AddItem(ResourceDictionary.instance.GetResourceItem("Stone"), 3);
             interactionController.inventory.AddItem(ResourceDictionary.instance.GetResourceItem("Iron"), 5);
             interactionController.inventory.AddItem(ResourceDictionary.instance.GetResourceItem("Gold"), 5);
             interactionController.inventory.AddItem(ResourceDictionary.instance.GetResourceItem("Crystal"), 5);
-            interactionController.inventory.AddItem(ResourceDictionary.instance.GetResourceItem("Wheat"), 6);
+            interactionController.inventory.AddItem(ResourceDictionary.instance.GetResourceItem("Wheat"), 6);*/
+
+            interactionController.inventory.AddItem(Arsenal.Instance.Get(WeaponItem.Type.FireSword).Summarize(), 1);
+            interactionController.inventory.AddItem(Arsenal.Instance.Get(WeaponItem.Type.ElectricSword).Summarize(), 1);
         }
     }
     
@@ -117,9 +120,9 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         // begin
-        if (ConstructionSystem.instance.activated || ForgeSystem.instance.activated)
+        if (ConstructionSystem.instance.activated || ForgeSystem.instance.activated || DiscussionSystem.instance.activated)
         {
-            InventoryUI.instance.Activate(false);
+            InventoryUI.instance.SetActive(false);
             return;
         }
 

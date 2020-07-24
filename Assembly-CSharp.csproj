@@ -79,6 +79,7 @@
     <Compile Include="Assets\Scripts\Animation\AnimationSinTranslation.cs" />
     <Compile Include="Assets\Scripts\Animation\AnimationStoneGate.cs" />
     <Compile Include="Assets\Scripts\Animation\AnimationWoodGate.cs" />
+    <Compile Include="Assets\Scripts\Animation\RandomSound.cs" />
     <Compile Include="Assets\Scripts\CameraController\RTSCameraController.cs" />
     <Compile Include="Assets\Scripts\CameraController\TPSCameraController.cs" />
     <Compile Include="Assets\Scripts\ChickController.cs" />
@@ -93,6 +94,8 @@
     <Compile Include="Assets\Scripts\ConstructionSystem\DestroyOnEmpty.cs" />
     <Compile Include="Assets\Scripts\ConstructionSystem\DestructionTemplate.cs" />
     <Compile Include="Assets\Scripts\ConstructionSystem\ResourceIcon.cs" />
+    <Compile Include="Assets\Scripts\DiscussionSystem\DiscussionSystem.cs" />
+    <Compile Include="Assets\Scripts\DiscussionSystem\DiscussionUI.cs" />
     <Compile Include="Assets\Scripts\Environement\Meteo.cs" />
     <Compile Include="Assets\Scripts\Environement\Sun.cs" />
     <Compile Include="Assets\Scripts\EquipementSystem\Arsenal.cs" />
@@ -134,6 +137,7 @@
     <Compile Include="Assets\Scripts\InteractionSystem\InteractionConditionTemplate.cs" />
     <Compile Include="Assets\Scripts\InteractionSystem\InteractionController.cs" />
     <Compile Include="Assets\Scripts\InteractionSystem\InteractionJuicer.cs" />
+    <Compile Include="Assets\Scripts\InteractionSystem\InteractionTalk.cs" />
     <Compile Include="Assets\Scripts\InteractionSystem\InteractionType.cs" />
     <Compile Include="Assets\Scripts\InteractionSystem\InteractionUI.cs" />
     <Compile Include="Assets\Scripts\InteractionSystem\OreComponent.cs" />

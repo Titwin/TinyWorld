@@ -173,6 +173,10 @@ public class InteractionController : MonoBehaviour
                 success = InitiateInteractionTick(type);
                 break;
 
+            case InteractionType.Type.talk:
+                success = TalkInteraction(hoveredInteractor);
+                break;
+
             // error
             default:
                 Debug.LogWarning("no interaction defined for this type " + type.ToString());
@@ -198,7 +202,7 @@ public class InteractionController : MonoBehaviour
 
             // store all ressources at once
             case InteractionType.Type.storeRessources:
-                StoreAllInteraction(lastInteraction, hoveredInteractor);
+                StoreAllInteraction(hoveredInteractor);
                 break;
 
             // systems
@@ -667,7 +671,7 @@ public class InteractionController : MonoBehaviour
         interactionJuicer.OnDelete();
         Destroy(gameObject);
     }
-    private bool StoreAllInteraction(InteractionType.Type type, GameObject interactor)
+    private bool StoreAllInteraction(GameObject interactor)
     {
         ResourceContainer storehouse = interactor.GetComponent<ResourceContainer>();
         if (storehouse)
@@ -774,6 +778,18 @@ public class InteractionController : MonoBehaviour
             interacting = false;
             animator.SetBool("interaction", false);
         }
+    }
+    private bool TalkInteraction(GameObject interactor)
+    {
+        InteractionTalk interaction = interactor.GetComponent<InteractionTalk>();
+        if (interaction && interaction.pnj)
+        {
+            interaction.pnj.SetActive(false);
+            DiscussionSystem.instance.SetActive(true);
+            DiscussionSystem.instance.pnj = interaction.pnj;
+            return true;
+        }
+        else return false;
     }
 
 
