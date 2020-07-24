@@ -94,6 +94,8 @@
     <Compile Include="Assets\Scripts\ConstructionSystem\DestroyOnEmpty.cs" />
     <Compile Include="Assets\Scripts\ConstructionSystem\DestructionTemplate.cs" />
     <Compile Include="Assets\Scripts\ConstructionSystem\ResourceIcon.cs" />
+    <Compile Include="Assets\Scripts\DiscussionSystem\DiscusionChoise.cs" />
+    <Compile Include="Assets\Scripts\DiscussionSystem\DiscussionSubject.cs" />
     <Compile Include="Assets\Scripts\DiscussionSystem\DiscussionSystem.cs" />
     <Compile Include="Assets\Scripts\DiscussionSystem\DiscussionUI.cs" />
     <Compile Include="Assets\Scripts\Environement\Meteo.cs" />
@@ -292,6 +294,12 @@
     </Reference>
     <Reference Include="UnityEditor.UI">
       <HintPath>C:/Users/Thibault/Documents/GitHub/TinyWorld/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Recorder.Editor">
+      <HintPath>C:/Users/Thibault/Documents/GitHub/TinyWorld/Library/ScriptAssemblies/Unity.Recorder.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Recorder">
+      <HintPath>C:/Users/Thibault/Documents/GitHub/TinyWorld/Library/ScriptAssemblies/Unity.Recorder.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.3.0f6/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>

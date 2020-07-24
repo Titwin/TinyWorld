@@ -638,6 +638,23 @@ MonoBehaviour:
   pnjName: 'Blake
 
     (black-smith)'
+  helloSentences:
+  - Hi stranger !
+  - Hello !
+  discussionSubjects:
+  - subjectName: About city
+    playerSentence: I'm new in town, can you tell me more about the city ?
+    onlyOnce: 0
+    sentences:
+    - Sure !
+    - You are at the Tiny World capital ! The largest city in this country !
+    - Everything you imagine in your dreams can be found here !
+  - subjectName: About forge
+    playerSentence: Is it possible to use the forge for personal use ?
+    onlyOnce: 1
+    sentences:
+    - Yes of course !
+    - And I can teach you some weapon blueprints if you want.
   interestIndex: 0
   interestPoints:
   - name: forge

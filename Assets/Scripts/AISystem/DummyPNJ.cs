@@ -37,6 +37,8 @@ public class DummyPNJ : MonoBehaviour
     [Header("Discussions")]
     [TextArea(1,2)]
     public string pnjName;
+    public string[] helloSentences;
+    public List<DiscussionSubject> discussionSubjects = new List<DiscussionSubject>();
 
     public enum InterestAnimation
     {
