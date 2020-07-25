@@ -187,47 +187,12 @@
     <Compile Include="Assets\Scripts\Utils\SuperChildMerge.cs" />
     <Compile Include="Assets\Scripts\World.cs" />
     <Compile Include="Assets\SettingsMenu.cs" />
-    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
-    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01_UGUI.cs" />
-    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark02.cs" />
-    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark03.cs" />
-    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark04.cs" />
-    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\CameraController.cs" />
-    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ChatController.cs" />
-    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\EnvMapAnimator.cs" />
-    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ObjectSpin.cs" />
-    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ShaderPropAnimator.cs" />
-    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\SimpleScript.cs" />
-    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\SkewTextExample.cs" />
-    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_DigitValidator.cs" />
-    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_ExampleScript_01.cs" />
-    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_FrameRateCounter.cs" />
-    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_PhoneNumberValidator.cs" />
-    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventCheck.cs" />
-    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventHandler.cs" />
-    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextInfoDebugTool.cs" />
-    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_A.cs" />
-    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_B.cs" />
-    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_UiFrameRateCounter.cs" />
-    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMPro_InstructionOverlay.cs" />
-    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TeleType.cs" />
-    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextConsoleSimulator.cs" />
-    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextMeshProFloatingText.cs" />
-    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextMeshSpawner.cs" />
-    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexColorCycler.cs" />
-    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexJitter.cs" />
-    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexShakeA.cs" />
-    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexShakeB.cs" />
-    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexZoom.cs" />
-    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\WarpTextExample.cs" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro.cginc" />
     <None Include="Assets\Materials\Specials\Water.shader" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Overlay.shader" />
     <None Include="Assets\Materials\Specials\noise-simplex.shader" />
     <None Include="Assets\Materials\Specials\Text3D.shader" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Bitmap.shader" />
-    <None Include="Assets\TextMesh Pro\Examples &amp; Extras\Fonts\Oswald-Bold - OFL.txt" />
-    <None Include="Assets\TextMesh Pro\Examples &amp; Extras\Fonts\Anton OFL.txt" />
     <None Include="Assets\Materials\Specials\GrassTessellation.cginc" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />
     <None Include="Assets\Materials\Specials\Grass.shader" />
@@ -252,54 +217,53 @@
     <None Include="Assets\TextMesh Pro\Fonts\LiberationSans - OFL.txt" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile.shader" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Sprite.shader" />
-    <None Include="Assets\TextMesh Pro\Examples &amp; Extras\Fonts\Bangers - OFL.txt" />
     <Reference Include="Unity.Timeline.Editor">
-      <HintPath>C:/Users/Thibault/Documents/GitHub/TinyWorld/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
+      <HintPath>D:/BOULOT/CODE/GAME_PROJECTS/TinyWorld/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VSCode.Editor">
-      <HintPath>C:/Users/Thibault/Documents/GitHub/TinyWorld/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.TextMeshPro.Editor">
-      <HintPath>C:/Users/Thibault/Documents/GitHub/TinyWorld/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.UI">
-      <HintPath>C:/Users/Thibault/Documents/GitHub/TinyWorld/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Timeline">
-      <HintPath>C:/Users/Thibault/Documents/GitHub/TinyWorld/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.CollabProxy.Editor">
-      <HintPath>C:/Users/Thibault/Documents/GitHub/TinyWorld/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Postprocessing.Editor">
-      <HintPath>C:/Users/Thibault/Documents/GitHub/TinyWorld/Library/ScriptAssemblies/Unity.Postprocessing.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Rider.Editor">
-      <HintPath>C:/Users/Thibault/Documents/GitHub/TinyWorld/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.2D.Sprite.Editor">
-      <HintPath>C:/Users/Thibault/Documents/GitHub/TinyWorld/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Postprocessing.Runtime">
-      <HintPath>C:/Users/Thibault/Documents/GitHub/TinyWorld/Library/ScriptAssemblies/Unity.Postprocessing.Runtime.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.2D.Tilemap.Editor">
-      <HintPath>C:/Users/Thibault/Documents/GitHub/TinyWorld/Library/ScriptAssemblies/Unity.2D.Tilemap.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.TextMeshPro">
-      <HintPath>C:/Users/Thibault/Documents/GitHub/TinyWorld/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Analytics.DataPrivacy">
-      <HintPath>C:/Users/Thibault/Documents/GitHub/TinyWorld/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEditor.UI">
-      <HintPath>C:/Users/Thibault/Documents/GitHub/TinyWorld/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+      <HintPath>D:/BOULOT/CODE/GAME_PROJECTS/TinyWorld/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Recorder.Editor">
-      <HintPath>C:/Users/Thibault/Documents/GitHub/TinyWorld/Library/ScriptAssemblies/Unity.Recorder.Editor.dll</HintPath>
+      <HintPath>D:/BOULOT/CODE/GAME_PROJECTS/TinyWorld/Library/ScriptAssemblies/Unity.Recorder.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.TextMeshPro.Editor">
+      <HintPath>D:/BOULOT/CODE/GAME_PROJECTS/TinyWorld/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Recorder">
-      <HintPath>C:/Users/Thibault/Documents/GitHub/TinyWorld/Library/ScriptAssemblies/Unity.Recorder.dll</HintPath>
+      <HintPath>D:/BOULOT/CODE/GAME_PROJECTS/TinyWorld/Library/ScriptAssemblies/Unity.Recorder.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UI">
+      <HintPath>D:/BOULOT/CODE/GAME_PROJECTS/TinyWorld/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Timeline">
+      <HintPath>D:/BOULOT/CODE/GAME_PROJECTS/TinyWorld/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.CollabProxy.Editor">
+      <HintPath>D:/BOULOT/CODE/GAME_PROJECTS/TinyWorld/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Postprocessing.Editor">
+      <HintPath>D:/BOULOT/CODE/GAME_PROJECTS/TinyWorld/Library/ScriptAssemblies/Unity.Postprocessing.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Rider.Editor">
+      <HintPath>D:/BOULOT/CODE/GAME_PROJECTS/TinyWorld/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.2D.Sprite.Editor">
+      <HintPath>D:/BOULOT/CODE/GAME_PROJECTS/TinyWorld/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Postprocessing.Runtime">
+      <HintPath>D:/BOULOT/CODE/GAME_PROJECTS/TinyWorld/Library/ScriptAssemblies/Unity.Postprocessing.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.2D.Tilemap.Editor">
+      <HintPath>D:/BOULOT/CODE/GAME_PROJECTS/TinyWorld/Library/ScriptAssemblies/Unity.2D.Tilemap.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.TextMeshPro">
+      <HintPath>D:/BOULOT/CODE/GAME_PROJECTS/TinyWorld/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Analytics.DataPrivacy">
+      <HintPath>D:/BOULOT/CODE/GAME_PROJECTS/TinyWorld/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.UI">
+      <HintPath>D:/BOULOT/CODE/GAME_PROJECTS/TinyWorld/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.3.0f6/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -479,16 +443,16 @@
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.3.0f6/Editor/Data/Managed/UnityEngine/UnityEngine.XRModule.dll</HintPath>
     </Reference>
     <Reference Include="Pathfinding.Ionic.Zip.Reduced">
-      <HintPath>C:/Users/Thibault/Documents/GitHub/TinyWorld/Assets/Packages/AstarPathfindingProject/Plugins/DotNetZip/Pathfinding.Ionic.Zip.Reduced.dll</HintPath>
+      <HintPath>D:/BOULOT/CODE/GAME_PROJECTS/TinyWorld/Assets/Packages/AstarPathfindingProject/Plugins/DotNetZip/Pathfinding.Ionic.Zip.Reduced.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.Editor">
-      <HintPath>C:/Users/Thibault/Documents/GitHub/TinyWorld/Library/PackageCache/com.unity.analytics@3.3.5/Unity.Analytics.Editor.dll</HintPath>
+      <HintPath>D:/BOULOT/CODE/GAME_PROJECTS/TinyWorld/Library/PackageCache/com.unity.analytics@3.3.5/Unity.Analytics.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.Tracker">
-      <HintPath>C:/Users/Thibault/Documents/GitHub/TinyWorld/Library/PackageCache/com.unity.analytics@3.3.5/Unity.Analytics.Tracker.dll</HintPath>
+      <HintPath>D:/BOULOT/CODE/GAME_PROJECTS/TinyWorld/Library/PackageCache/com.unity.analytics@3.3.5/Unity.Analytics.Tracker.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.StandardEvents">
-      <HintPath>C:/Users/Thibault/Documents/GitHub/TinyWorld/Library/PackageCache/com.unity.analytics@3.3.5/AnalyticsStandardEvents/Unity.Analytics.StandardEvents.dll</HintPath>
+      <HintPath>D:/BOULOT/CODE/GAME_PROJECTS/TinyWorld/Library/PackageCache/com.unity.analytics@3.3.5/AnalyticsStandardEvents/Unity.Analytics.StandardEvents.dll</HintPath>
     </Reference>
     <Reference Include="netstandard">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.3.0f6/Editor/Data/NetStandard/ref/2.0.0/netstandard.dll</HintPath>
