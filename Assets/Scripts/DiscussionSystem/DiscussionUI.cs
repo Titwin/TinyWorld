@@ -27,7 +27,7 @@ public class DiscussionUI : MonoBehaviour
 
     public void OnChoisePointerClick(DiscusionChoise choise)
     {
-        DiscussionSystem.instance.LoadSubject(choise.subject);
+        DiscussionSystem.instance.LoadSubject(choise.subject);     
     }
     public void OnChoisePointerEnter(DiscusionChoise choise)
     {

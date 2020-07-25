@@ -39,6 +39,7 @@ public class DummyPNJ : MonoBehaviour
     public string pnjName;
     public string[] helloSentences;
     public List<DiscussionSubject> discussionSubjects = new List<DiscussionSubject>();
+    public List<Quest> questList = new List<Quest>();
 
     public enum InterestAnimation
     {

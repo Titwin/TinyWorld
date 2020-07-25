@@ -90,7 +90,11 @@ public class InteractionController : MonoBehaviour
         interactionJuicer.loadingRate = delayedInteractionTime / delayedInteractionDuration;
 
         interactionTickTime = Mathf.Max(interactionTickTime - Time.deltaTime, 0f);
+
+
+
     }
+
     private void LateUpdate()
     {
         if (!characterController)

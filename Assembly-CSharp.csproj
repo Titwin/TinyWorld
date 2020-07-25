@@ -64,6 +64,9 @@
   <ItemGroup>
     <Compile Include="Assets\Materials\Specials\GrassUpdater.cs" />
     <Compile Include="Assets\Materials\Specials\WheatSynchronizer.cs" />
+    <Compile Include="Assets\Quest.cs" />
+    <Compile Include="Assets\QuestController.cs" />
+    <Compile Include="Assets\QuestLogUI.cs" />
     <Compile Include="Assets\Scripts\AISystem\BuildingBase.cs" />
     <Compile Include="Assets\Scripts\AISystem\CharacterAnimationController.cs" />
     <Compile Include="Assets\Scripts\AISystem\DummyPNJ.cs" />

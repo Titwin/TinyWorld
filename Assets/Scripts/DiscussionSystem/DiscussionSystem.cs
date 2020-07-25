@@ -72,12 +72,15 @@ public class DiscussionSystem : MonoBehaviour
 
     public void LoadSubject(DiscussionSubject subject)
     {
+        Debug.Log("Subject path");
         sentences.Clear();
         currentSubject = subject;
         foreach (string sentence in subject.sentences)
             sentences.Enqueue(sentence);
+
         Next();
     }
+
     public void Next()
     {
         discussionUI.pnjTalk.text = sentences.Dequeue();
@@ -88,11 +91,19 @@ public class DiscussionSystem : MonoBehaviour
         {
             pnj.discussionSubjects.Remove(currentSubject);
         }
+
         if (sentences.Count == 0)
             LoadChoisePanel();
+
+        
     }
+
     private void LoadChoisePanel()
     {
+        if (currentSubject.isAQuest)
+        {
+            QuestController.instance.questLog.Add(currentSubject.quest);
+        }
         discussionUI.choisePanel.SetActive(true);
         discussionUI.LoadChoises(pnj.discussionSubjects);
     }
