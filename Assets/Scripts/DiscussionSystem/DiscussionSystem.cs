@@ -103,6 +103,7 @@ public class DiscussionSystem : MonoBehaviour
         if (currentSubject.isAQuest)
         {
             QuestController.instance.questLog.Add(currentSubject.quest);
+            QuestLogUI.instance.UpdateQuestLogUI();
         }
         discussionUI.choisePanel.SetActive(true);
         discussionUI.LoadChoises(pnj.discussionSubjects);

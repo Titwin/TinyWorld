@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class QuestLogUI : MonoBehaviour
 {
+    // TODO : use a list to manage the different quest, like in the discussion subject UI
 
     #region Singleton
     public static QuestLogUI instance;
@@ -21,9 +22,10 @@ public class QuestLogUI : MonoBehaviour
     public Text QuestDescription;
     public GameObject Panel;
 
-    public bool isOpen = false;
 
-
-
-
+    public void UpdateQuestLogUI()
+    {
+        QuestLogUI.instance.QuestName.text = "Quest 1";
+        QuestLogUI.instance.QuestDescription.text = "Quest 1 Description";
+    }
 }
